@@ -1,13 +1,13 @@
 /*
  * HomePanel.java
  *
- * Created on October 10, 2008, 8:50 AM
  */
 
 package ui;
 
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Sys;
 import ui.LoginScreen;
@@ -41,7 +41,7 @@ public class HomePanel extends javax.swing.JPanel {
         splitPane = new javax.swing.JSplitPane();
         menuBar = new javax.swing.JPanel();
         btnLogOut = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        backbuttonlabel = new javax.swing.JLabel();
         workArea = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -51,7 +51,16 @@ public class HomePanel extends javax.swing.JPanel {
         splitPane.setDividerSize(2);
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        menuBar.setBackground(new java.awt.Color(17, 125, 161));
+        menuBar.setBackground(new java.awt.Color(0, 102, 153));
+        menuBar.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                menuBarAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         btnLogOut.setText("Log Out");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -60,11 +69,19 @@ public class HomePanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/back_button.png"))); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(40, 40));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+        backbuttonlabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/back.png"))); // NOI18N
+        backbuttonlabel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                backbuttonlabelAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        backbuttonlabel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                backbuttonlabelKeyPressed(evt);
             }
         });
 
@@ -73,20 +90,20 @@ public class HomePanel extends javax.swing.JPanel {
         menuBarLayout.setHorizontalGroup(
             menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 920, Short.MAX_VALUE)
-                .addComponent(btnLogOut)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(backbuttonlabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 864, Short.MAX_VALUE)
+                .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
         );
         menuBarLayout.setVerticalGroup(
             menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuBarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnLogOut)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(backbuttonlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         splitPane.setTopComponent(menuBar);
@@ -115,16 +132,18 @@ public class HomePanel extends javax.swing.JPanel {
                 
     }//GEN-LAST:event_btnLogOutActionPerformed
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void menuBarAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_menuBarAncestorAdded
         // TODO add your handling code here:
+    }//GEN-LAST:event_menuBarAncestorAdded
 
-        JPanel selectedPanel = new HomePanel(mainWorkArea,sys);
+    private void backbuttonlabelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_backbuttonlabelAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backbuttonlabelAncestorAdded
 
-        mainWorkArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-        layout.next(mainWorkArea);
-
-    }//GEN-LAST:event_jLabel1MouseClicked
+    private void backbuttonlabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_backbuttonlabelKeyPressed
+        // TODO add your handling code here:
+//        JOptionPane.showMessageDialog(this, "Click on Logout,instead!");
+    }//GEN-LAST:event_backbuttonlabelKeyPressed
 
     @Override
     public String toString(){
@@ -132,8 +151,8 @@ public class HomePanel extends javax.swing.JPanel {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel backbuttonlabel;
     private javax.swing.JButton btnLogOut;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel menuBar;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel workArea;

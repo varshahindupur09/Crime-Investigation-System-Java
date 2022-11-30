@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package hospital_enterprise;
 
 import java.time.LocalDate;
-import static model.Patient.count;
+import static hospital_enterprise.Patient.count;
 import utility.UtilityFunctions;
 
 /**

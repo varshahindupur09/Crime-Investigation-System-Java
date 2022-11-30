@@ -25,7 +25,7 @@ public class MainJFrame extends javax.swing.JFrame {
         sys = new Sys();
         
         //setSize(800,600);
-        setResizable(false);
+//        setResizable(false);
        
         
         setLoginScreen();

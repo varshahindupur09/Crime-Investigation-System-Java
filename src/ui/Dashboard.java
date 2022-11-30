@@ -10,14 +10,14 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.City;
 import model.Community;
-import model.Encounter;
+import hospital_enterprise.Encounter;
 import model.House;
-import model.Patient;
+import hospital_enterprise.Patient;
 import model.Person;
 import model.Sys;
 import model.User;
 import model.UserDirectory;
-import model.VitalSigns;
+import hospital_enterprise.VitalSigns;
 import utility.UtilityFunctions;
 
 /**
@@ -135,19 +135,25 @@ public class Dashboard extends javax.swing.JPanel {
 
         jSeparator1.setForeground(new java.awt.Color(17, 125, 161));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jSeparator1AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
-        lblUserpic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Me.jpeg"))); // NOI18N
+        lblUserpic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/female_emp.jpg"))); // NOI18N
 
         lblName.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblName.setForeground(new java.awt.Color(0, 0, 0));
         lblName.setText("Name:");
 
         lblDOB.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblDOB.setForeground(new java.awt.Color(0, 0, 0));
         lblDOB.setText("DOB:");
 
         lblAge.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblAge.setForeground(new java.awt.Color(0, 0, 0));
         lblAge.setText("Age:");
 
         txtAddr.setWheelScrollingEnabled(false);
@@ -175,6 +181,15 @@ public class Dashboard extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tblEncHist.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tblEncHistAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         tblEncounterHistory.setViewportView(tblEncHist);
         if (tblEncHist.getColumnModel().getColumnCount() > 0) {
             tblEncHist.getColumnModel().getColumn(0).setResizable(false);
@@ -185,27 +200,22 @@ public class Dashboard extends javax.swing.JPanel {
         }
 
         lblEncounterHist.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        lblEncounterHist.setForeground(new java.awt.Color(0, 0, 0));
         lblEncounterHist.setText("Encounter Histories");
 
         lblBP.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblBP.setForeground(new java.awt.Color(0, 0, 0));
         lblBP.setText("Blood pressure:");
 
         lblHeartRate.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblHeartRate.setForeground(new java.awt.Color(0, 0, 0));
         lblHeartRate.setText("Heart Rate:");
 
         txtBP_LOW.setText("90");
 
         lblName2.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblName2.setForeground(new java.awt.Color(0, 0, 0));
         lblName2.setText("/");
 
         txtBP_HIGH.setText("150");
 
         lblSlash.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblSlash.setForeground(new java.awt.Color(0, 0, 0));
         lblSlash.setText("mm Hg");
 
         txtHeartRate.setText("72");
@@ -218,15 +228,12 @@ public class Dashboard extends javax.swing.JPanel {
         });
 
         lblNameData.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNameData.setForeground(new java.awt.Color(0, 0, 0));
         lblNameData.setText("Aniruddha Tambe");
 
         lblDOBdata.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblDOBdata.setForeground(new java.awt.Color(0, 0, 0));
         lblDOBdata.setText("10/31/2021");
 
         lblAgeData.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblAgeData.setForeground(new java.awt.Color(0, 0, 0));
         lblAgeData.setText("25");
 
         jSeparator2.setForeground(new java.awt.Color(17, 125, 161));
@@ -239,15 +246,12 @@ public class Dashboard extends javax.swing.JPanel {
         });
 
         lblBP1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        lblBP1.setForeground(new java.awt.Color(0, 0, 0));
         lblBP1.setText("Search by:");
 
-        lblCommunity.setForeground(new java.awt.Color(0, 0, 0));
         lblCommunity.setText("Community:");
 
         cmbCommunitySearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblCity.setForeground(new java.awt.Color(0, 0, 0));
         lblCity.setText("City:");
 
         cmbCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -296,7 +300,7 @@ public class Dashboard extends javax.swing.JPanel {
                         .addComponent(lblUserpic, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)))
                 .addComponent(txtAddr, 0, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(55, 55, 55)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -414,7 +418,7 @@ public class Dashboard extends javax.swing.JPanel {
                                         .addComponent(btnDelete)))
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
+                        .addGap(128, 128, 128)
                         .addComponent(lblUserpic, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -694,10 +698,10 @@ public class Dashboard extends javax.swing.JPanel {
         if(!person.getImagePath().equals("")){
             icon = new ImageIcon(person.getImagePath());
         }else {
-            icon = new ImageIcon("AED_ASS_4_user.png");
+            icon = new ImageIcon("user.png");
         }
         }catch(Exception e){
-            icon = new ImageIcon("AED_ASS_4_user.png");
+            icon = new ImageIcon("user.png");
         }
         
         lblUserpic.setIcon(icon);
@@ -724,6 +728,14 @@ public class Dashboard extends javax.swing.JPanel {
         abnormalitiesFlag = true;
         populateTableBySearch();
     }//GEN-LAST:event_btnSowAbnormalitiesActionPerformed
+
+    private void jSeparator1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jSeparator1AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSeparator1AncestorAdded
+
+    private void tblEncHistAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tblEncHistAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblEncHistAncestorAdded
 
     private void populateFields(Encounter selectedEncounter) {
         

@@ -1,6 +1,5 @@
 package ui;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
 import model.Sys;
@@ -19,7 +18,7 @@ public class HomeScreen extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.sys = sys;
         this.homePanel = homePanel;
-        setSize(1040, 544);
+//        setSize(1040, 544);
     }
     
     /** This method is called from within the constructor to
@@ -30,236 +29,181 @@ public class HomeScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblAddPatient = new javax.swing.JLabel();
-        lblDashboard = new javax.swing.JLabel();
-        lblAddEncounter = new javax.swing.JLabel();
-        lblAddPerson = new javax.swing.JLabel();
-        lblAddPerson1 = new javax.swing.JLabel();
+        SystemPanel = new javax.swing.JPanel();
+        CrimeBranchEnterprise = new javax.swing.JLabel();
+        ForensicsEnterprise = new javax.swing.JLabel();
+        ResourceMgmtSystemEnterprise = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(0, 102, 153));
         setForeground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(650, 600));
 
-        jPanel1.setBackground(new java.awt.Color(17, 125, 161));
-        jPanel1.setForeground(new java.awt.Color(17, 125, 161));
-        jPanel1.setToolTipText("");
+        SystemPanel.setBackground(new java.awt.Color(0, 102, 153));
+        SystemPanel.setForeground(new java.awt.Color(17, 125, 161));
+        SystemPanel.setToolTipText("");
+        SystemPanel.setPreferredSize(new java.awt.Dimension(1600, 750));
 
-        lblAddPatient.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        lblAddPatient.setForeground(new java.awt.Color(255, 255, 255));
-        lblAddPatient.setText("Add patient");
-        lblAddPatient.addMouseListener(new java.awt.event.MouseAdapter() {
+        CrimeBranchEnterprise.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        CrimeBranchEnterprise.setForeground(new java.awt.Color(255, 255, 255));
+        CrimeBranchEnterprise.setText("CrimeBranchEnterprise");
+        CrimeBranchEnterprise.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                CrimeBranchEnterpriseAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        CrimeBranchEnterprise.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblAddPatientMouseEntered(evt);
+                CrimeBranchEnterpriseMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblAddPatientMouseExited(evt);
+                CrimeBranchEnterpriseMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblAddPatientMousePressed(evt);
+                CrimeBranchEnterpriseMousePressed(evt);
             }
         });
 
-        lblDashboard.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        lblDashboard.setForeground(new java.awt.Color(255, 255, 255));
-        lblDashboard.setText("Encounter Histories");
-        lblDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+        ForensicsEnterprise.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        ForensicsEnterprise.setForeground(new java.awt.Color(255, 255, 255));
+        ForensicsEnterprise.setText("Forensics Enterprise");
+        ForensicsEnterprise.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblDashboardMouseEntered(evt);
+                ForensicsEnterpriseMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblDashboardMouseExited(evt);
+                ForensicsEnterpriseMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblDashboardMousePressed(evt);
+                ForensicsEnterpriseMousePressed(evt);
             }
         });
 
-        lblAddEncounter.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        lblAddEncounter.setForeground(new java.awt.Color(255, 255, 255));
-        lblAddEncounter.setText("Add Encounter");
-        lblAddEncounter.addMouseListener(new java.awt.event.MouseAdapter() {
+        ResourceMgmtSystemEnterprise.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        ResourceMgmtSystemEnterprise.setForeground(new java.awt.Color(255, 255, 255));
+        ResourceMgmtSystemEnterprise.setText("Resource Management System");
+        ResourceMgmtSystemEnterprise.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblAddEncounterMouseEntered(evt);
+                ResourceMgmtSystemEnterpriseMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblAddEncounterMouseExited(evt);
+                ResourceMgmtSystemEnterpriseMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblAddEncounterMousePressed(evt);
+                ResourceMgmtSystemEnterpriseMousePressed(evt);
             }
         });
 
-        lblAddPerson.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        lblAddPerson.setForeground(new java.awt.Color(255, 255, 255));
-        lblAddPerson.setText("Workforce");
-        lblAddPerson.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblAddPersonMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblAddPersonMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblAddPersonMousePressed(evt);
-            }
-        });
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/welcome.jpg"))); // NOI18N
 
-        lblAddPerson1.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        lblAddPerson1.setForeground(new java.awt.Color(255, 255, 255));
-        lblAddPerson1.setText("Territories");
-        lblAddPerson1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblAddPerson1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblAddPerson1MouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblAddPerson1MousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblAddPerson1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAddPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAddEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAddPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51))
+        javax.swing.GroupLayout SystemPanelLayout = new javax.swing.GroupLayout(SystemPanel);
+        SystemPanel.setLayout(SystemPanelLayout);
+        SystemPanelLayout.setHorizontalGroup(
+            SystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SystemPanelLayout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addGroup(SystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ForensicsEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CrimeBranchEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ResourceMgmtSystemEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(lblAddPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblAddEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblAddPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblAddPerson1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(207, Short.MAX_VALUE))
+        SystemPanelLayout.setVerticalGroup(
+            SystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SystemPanelLayout.createSequentialGroup()
+                .addGap(122, 122, 122)
+                .addGroup(SystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(SystemPanelLayout.createSequentialGroup()
+                        .addComponent(CrimeBranchEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(75, 75, 75)
+                        .addComponent(ForensicsEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(ResourceMgmtSystemEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(321, Short.MAX_VALUE))
         );
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/criminal_background.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(SystemPanel, 1102, 1102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(SystemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblAddPatientMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddPatientMouseEntered
+    private void CrimeBranchEnterpriseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseMouseEntered
         // TODO add your handling code here:
-        lblAddPatient.setForeground(Color.black);
-    }//GEN-LAST:event_lblAddPatientMouseEntered
+        CrimeBranchEnterprise.setForeground(Color.black);
+    }//GEN-LAST:event_CrimeBranchEnterpriseMouseEntered
 
-    private void lblAddPatientMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddPatientMouseExited
+    private void CrimeBranchEnterpriseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseMouseExited
         // TODO add your handling code here:
-        lblAddPatient.setForeground(Color.white);
-    }//GEN-LAST:event_lblAddPatientMouseExited
+        CrimeBranchEnterprise.setForeground(Color.white);
+    }//GEN-LAST:event_CrimeBranchEnterpriseMouseExited
 
-    private void lblDashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardMouseEntered
+    private void ForensicsEnterpriseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForensicsEnterpriseMouseEntered
         // TODO add your handling code here:
-        lblDashboard.setForeground(Color.black);
-    }//GEN-LAST:event_lblDashboardMouseEntered
+        ForensicsEnterprise.setForeground(Color.black);
+    }//GEN-LAST:event_ForensicsEnterpriseMouseEntered
 
-    private void lblDashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardMouseExited
+    private void ForensicsEnterpriseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForensicsEnterpriseMouseExited
         // TODO add your handling code here:
-        lblDashboard.setForeground(Color.white);
-    }//GEN-LAST:event_lblDashboardMouseExited
+        ForensicsEnterprise.setForeground(Color.white);
+    }//GEN-LAST:event_ForensicsEnterpriseMouseExited
 
-    private void lblAddEncounterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddEncounterMouseEntered
+    private void ResourceMgmtSystemEnterpriseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResourceMgmtSystemEnterpriseMouseEntered
         // TODO add your handling code here:
-        lblAddEncounter.setForeground(Color.black);
-    }//GEN-LAST:event_lblAddEncounterMouseEntered
+        ResourceMgmtSystemEnterprise.setForeground(Color.black);
+    }//GEN-LAST:event_ResourceMgmtSystemEnterpriseMouseEntered
 
-    private void lblAddEncounterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddEncounterMouseExited
+    private void ResourceMgmtSystemEnterpriseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResourceMgmtSystemEnterpriseMouseExited
         // TODO add your handling code here:
-        lblAddEncounter.setForeground(Color.white);
-    }//GEN-LAST:event_lblAddEncounterMouseExited
+        ResourceMgmtSystemEnterprise.setForeground(Color.white);
+    }//GEN-LAST:event_ResourceMgmtSystemEnterpriseMouseExited
 
-    private void lblAddPersonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddPersonMouseEntered
-        // TODO add your handling code here:.
-        lblAddPerson.setForeground(Color.black);
-    }//GEN-LAST:event_lblAddPersonMouseEntered
-
-    private void lblAddPersonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddPersonMouseExited
-        // TODO add your handling code here:
-        lblAddPerson.setForeground(Color.white);
-    }//GEN-LAST:event_lblAddPersonMouseExited
-
-    private void lblAddPatientMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddPatientMousePressed
+    private void CrimeBranchEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseMousePressed
         // TODO add your handling code here:
         homePanel.clickPatient(this);
-    }//GEN-LAST:event_lblAddPatientMousePressed
+    }//GEN-LAST:event_CrimeBranchEnterpriseMousePressed
 
-    private void lblAddEncounterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddEncounterMousePressed
+    private void ResourceMgmtSystemEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResourceMgmtSystemEnterpriseMousePressed
         // TODO add your handling code here:
         homePanel.clickAddEncounter(this);
-    }//GEN-LAST:event_lblAddEncounterMousePressed
+    }//GEN-LAST:event_ResourceMgmtSystemEnterpriseMousePressed
 
-    private void lblDashboardMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardMousePressed
+    private void ForensicsEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForensicsEnterpriseMousePressed
         // TODO add your handling code here:
         
         homePanel.clickDashboard(this);
-    }//GEN-LAST:event_lblDashboardMousePressed
+    }//GEN-LAST:event_ForensicsEnterpriseMousePressed
 
-    private void lblAddPerson1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddPerson1MouseEntered
+    private void CrimeBranchEnterpriseAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseAncestorAdded
         // TODO add your handling code here:
-        lblAddPerson1.setForeground(Color.black);
-        
-    }//GEN-LAST:event_lblAddPerson1MouseEntered
-
-    private void lblAddPerson1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddPerson1MouseExited
-        // TODO add your handling code here:
-        lblAddPerson1.setForeground(Color.white);
-    }//GEN-LAST:event_lblAddPerson1MouseExited
-
-    private void lblAddPersonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddPersonMousePressed
-        // TODO add your handling code here:
-        homePanel.clickAddWorkforce(this);
-        
-    }//GEN-LAST:event_lblAddPersonMousePressed
-
-    private void lblAddPerson1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddPerson1MousePressed
-        // TODO add your handling code here:
-        homePanel.clickTerritories(this);
-    }//GEN-LAST:event_lblAddPerson1MousePressed
+    }//GEN-LAST:event_CrimeBranchEnterpriseAncestorAdded
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CrimeBranchEnterprise;
+    private javax.swing.JLabel ForensicsEnterprise;
+    private javax.swing.JLabel ResourceMgmtSystemEnterprise;
+    private javax.swing.JPanel SystemPanel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblAddEncounter;
-    private javax.swing.JLabel lblAddPatient;
-    private javax.swing.JLabel lblAddPerson;
-    private javax.swing.JLabel lblAddPerson1;
-    private javax.swing.JLabel lblDashboard;
     // End of variables declaration//GEN-END:variables
 
     
