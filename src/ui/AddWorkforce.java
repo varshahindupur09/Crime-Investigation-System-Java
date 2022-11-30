@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import model.City;
 import model.Community;
 import model.House;
-import model.Patient;
+import hospital_enterprise.Patient;
 import model.Person;
 import model.Sys;
 import utility.UtilityFunctions;
@@ -105,6 +105,15 @@ public class AddWorkforce extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(650, 600));
+        addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                formAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         txtAddr.setWheelScrollingEnabled(false);
 
@@ -565,6 +574,10 @@ public class AddWorkforce extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formAncestorAdded
     
     public void clear(){
     patFound = false;

@@ -5,8 +5,6 @@
  */
 package model;
 
-import static model.Patient.count;
-
 /**
  *
  * @author user

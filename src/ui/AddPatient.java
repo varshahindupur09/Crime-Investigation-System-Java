@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import model.City;
 import model.Community;
 import model.House;
-import model.Patient;
+import hospital_enterprise.Patient;
 import model.Person;
 import model.Sys;
 import utility.UtilityFunctions;

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package hospital_enterprise;
 
+import hospital_enterprise.Encounter;
 import java.util.ArrayList;
 
 /**

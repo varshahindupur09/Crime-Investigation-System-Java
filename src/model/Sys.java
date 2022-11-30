@@ -5,6 +5,9 @@
  */
 package model;
 
+import hospital_enterprise.VitalSigns;
+import hospital_enterprise.Patient;
+import hospital_enterprise.PatientDirectory;
 import java.util.ArrayList;
 import utility.UtilityFunctions;
 

@@ -5,12 +5,13 @@
  */
 package app;
 
-import model.Patient;
-import model.PatientDirectory;
+import employee_organization.EmployeeDirectory;
+import hospital_enterprise.Patient;
+import hospital_enterprise.PatientDirectory;
 import model.Person;
 import model.PersonDirectory;
 import model.Sys;
-import model.VitalSigns;
+import hospital_enterprise.VitalSigns;
 import utility.UtilityFunctions;
 
 /**
@@ -24,6 +25,9 @@ public class MainApplication {
         UtilityFunctions util = new UtilityFunctions();
         
         Sys sys = new Sys();
+        
+        //EmployeeDirectory
+        EmployeeDirectory empDir = new EmployeeDirectory();
         
         PatientDirectory pD = sys.getPatDir();
         PersonDirectory perD = sys.getPerDir();

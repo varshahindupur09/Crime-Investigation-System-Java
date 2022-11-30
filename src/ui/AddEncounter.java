@@ -7,13 +7,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import model.Encounter;
-import model.Patient;
+import hospital_enterprise.Encounter;
+import hospital_enterprise.Patient;
 import model.Person;
 import model.Sys;
 import model.User;
 import model.UserDirectory;
-import model.VitalSigns;
+import hospital_enterprise.VitalSigns;
 import utility.UtilityFunctions;
 
 /**

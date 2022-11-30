@@ -48,7 +48,7 @@ public class PersonDirectory {
                 return p;
             }
             
-            //Patient not found
+            //Person not found
             
         }
         return null;
