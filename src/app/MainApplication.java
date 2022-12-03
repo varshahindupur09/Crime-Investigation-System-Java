@@ -5,7 +5,7 @@
  */
 package app;
 
-import employee_organization.EmployeeDirectory;
+import resource_mgmt_enterprise.DatabaseConnection_Employees;
 import hospital_enterprise.Patient;
 import hospital_enterprise.PatientDirectory;
 import model.Person;
@@ -27,7 +27,8 @@ public class MainApplication {
         Sys sys = new Sys();
         
         //EmployeeDirectory
-        EmployeeDirectory empDir = new EmployeeDirectory();
+        DatabaseConnection_Employees empDb = new DatabaseConnection_Employees();
+        empDb.databaseConnectionEmployees();
         
         PatientDirectory pD = sys.getPatDir();
         PersonDirectory perD = sys.getPerDir();
