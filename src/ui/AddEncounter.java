@@ -85,18 +85,13 @@ public class AddEncounter extends javax.swing.JPanel {
         jSeparator1.setForeground(new java.awt.Color(17, 125, 161));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        lblUserpic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/Me.jpeg"))); // NOI18N
-
         lblName.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblName.setForeground(new java.awt.Color(0, 0, 0));
         lblName.setText("Name:");
 
         lblDOB.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblDOB.setForeground(new java.awt.Color(0, 0, 0));
         lblDOB.setText("DOB:");
 
         lblAge.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblAge.setForeground(new java.awt.Color(0, 0, 0));
         lblAge.setText("Age:");
 
         lblContactNum.setText("   ");
@@ -136,31 +131,25 @@ public class AddEncounter extends javax.swing.JPanel {
         }
 
         lblEncounterHist.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        lblEncounterHist.setForeground(new java.awt.Color(0, 0, 0));
         lblEncounterHist.setText("Encounter History for");
 
         lblVitalSections.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
-        lblVitalSections.setForeground(new java.awt.Color(0, 0, 0));
         lblVitalSections.setText("Add Vitals for this Visit:");
 
         lblBP.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblBP.setForeground(new java.awt.Color(0, 0, 0));
         lblBP.setText("Blood pressure:");
 
         lblHeartRate.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblHeartRate.setForeground(new java.awt.Color(0, 0, 0));
         lblHeartRate.setText("Heart Rate:");
 
         txtBP_LOW.setText("90");
 
         lblName2.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblName2.setForeground(new java.awt.Color(0, 0, 0));
         lblName2.setText("/");
 
         txtBP_HIGH.setText("150");
 
         lblSlash.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblSlash.setForeground(new java.awt.Color(0, 0, 0));
         lblSlash.setText("mm Hg");
 
         txtHeartRate.setText("72");
@@ -180,19 +169,15 @@ public class AddEncounter extends javax.swing.JPanel {
         });
 
         lblTodaysData.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        lblTodaysData.setForeground(new java.awt.Color(0, 0, 0));
         lblTodaysData.setText("10/29/2021");
 
         lblNameData.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNameData.setForeground(new java.awt.Color(0, 0, 0));
         lblNameData.setText("Aniruddha Tambe");
 
         lblDOBdata.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblDOBdata.setForeground(new java.awt.Color(0, 0, 0));
         lblDOBdata.setText("10/31/2021");
 
         lblAgeData.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblAgeData.setForeground(new java.awt.Color(0, 0, 0));
         lblAgeData.setText("25");
 
         jSeparator2.setForeground(new java.awt.Color(17, 125, 161));
