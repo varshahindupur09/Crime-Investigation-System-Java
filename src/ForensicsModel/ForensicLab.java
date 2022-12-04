@@ -14,6 +14,11 @@ public class ForensicLab {
     public int getForLabId() {
         return forLabId;
     }
+    
+    @Override
+    public String toString() {
+            return String.valueOf(forLabId);
+    }
 
     public void setForLabId(int forLabId) {
         this.forLabId = forLabId;
