@@ -1,4 +1,4 @@
-package ui;
+package hospital_enterprise;
 
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import model.Sys;
 import model.User;
 import model.UserDirectory;
+import ui.HomeScreen;
 
 /**
  *

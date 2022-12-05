@@ -1,4 +1,4 @@
-package ui;
+package hospital_enterprise;
 
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -14,6 +14,7 @@ import model.House;
 import hospital_enterprise.Patient;
 import model.Person;
 import model.Sys;
+import ui.HomeScreen;
 import utility.UtilityFunctions;
 
 /**
@@ -620,6 +621,7 @@ public class AddPatient extends javax.swing.JPanel {
         cmbCommunity.addItem("-");
         
     }
+    
     public void clearFields(){
         
         cmbCity.setSelectedIndex(0);
@@ -632,6 +634,7 @@ public class AddPatient extends javax.swing.JPanel {
         txtTel.setText("");
         
     }
+    
     public boolean validation(){
 
         UtilityFunctions utility = new UtilityFunctions();

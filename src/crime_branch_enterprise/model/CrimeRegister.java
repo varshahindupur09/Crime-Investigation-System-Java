@@ -13,16 +13,20 @@ public class CrimeRegister {
     private String crimeID;
     // Get headID from Heads.java
     // Get headDescription from Heads.java
-    private String dateOfOffence;
+    private String dateOfOffence; //filled by customer
+    
     private long firNumber;
+    private String dateOfReport; //must be connected to FIR Number
     private String underSection;
-    private String dateOfReport;
-    private String caseStatus;
+    
+    private String caseStatus; //for new will be added by us - in progress
     private boolean arrested;
     private String challan;
+    
     //Officer ID from OfficerRecord.java
     private String timeOfCrime;
     private String description;
+    
     // Get accusedID from Accused.java
     // Get complainerID from Complainer.java
     // Get policeStationID from PoliceStation.java

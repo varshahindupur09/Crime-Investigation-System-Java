@@ -18,7 +18,7 @@ public class HomeScreen extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.sys = sys;
         this.homePanel = homePanel;
-//        setSize(1040, 544);
+        setSize(1040, 544);
     }
     
     /** This method is called from within the constructor to
@@ -65,6 +65,11 @@ public class HomeScreen extends javax.swing.JPanel {
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 CrimeBranchEnterpriseMousePressed(evt);
+            }
+        });
+        CrimeBranchEnterprise.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                CrimeBranchEnterpriseKeyPressed(evt);
             }
         });
 
@@ -179,7 +184,7 @@ public class HomeScreen extends javax.swing.JPanel {
 
     private void CrimeBranchEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseMousePressed
         // TODO add your handling code here:
-        homePanel.clickPatient(this);
+        homePanel.clickCasePortal(this, homePanel);
     }//GEN-LAST:event_CrimeBranchEnterpriseMousePressed
 
     private void ResourceMgmtSystemEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResourceMgmtSystemEnterpriseMousePressed
@@ -196,6 +201,10 @@ public class HomeScreen extends javax.swing.JPanel {
     private void CrimeBranchEnterpriseAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseAncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_CrimeBranchEnterpriseAncestorAdded
+
+    private void CrimeBranchEnterpriseKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CrimeBranchEnterpriseKeyPressed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
