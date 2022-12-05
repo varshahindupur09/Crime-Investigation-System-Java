@@ -1,4 +1,4 @@
-package ui;
+package hospital_enterprise;
 
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -12,6 +12,7 @@ import model.Community;
 import model.Sys;
 import model.User;
 import model.UserDirectory;
+import ui.HomeScreen;
 import utility.UtilityFunctions;
 
 /**

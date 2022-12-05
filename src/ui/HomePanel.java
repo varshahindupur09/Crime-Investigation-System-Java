@@ -5,6 +5,14 @@
 
 package ui;
 
+import hospital_enterprise.Territories;
+import crime_branch_enterprise.model.CasePortalPanel;
+import crime_branch_enterprise.model.NewCaseRegisterationPanel2;
+import hospital_enterprise.AddPatient;
+import hospital_enterprise.AddUser;
+import hospital_enterprise.AddWorkforce;
+import hospital_enterprise.AddEncounter;
+import hospital_enterprise.Dashboard;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -211,6 +219,23 @@ public class HomePanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) workArea.getLayout();
         layout.next(workArea);
     }
-
     
+    
+    public void clickCasePortal(HomeScreen homeScreen, HomePanel homePanel) {
+
+        JPanel selectedPanel = new CasePortalPanel(workArea,sys,homeScreen, homePanel);
+        
+        workArea.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+    }
+    
+    public void clickNewCaseRegisterationPortal(HomeScreen homeScreen) {
+
+        JPanel selectedPanel = new NewCaseRegisterationPanel2(workArea,sys,homeScreen);
+        
+        workArea.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+    }
 }
