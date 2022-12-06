@@ -4,11 +4,10 @@
  */
 package crime_branch_enterprise.model;
 
-import java.awt.CardLayout;
 import java.sql.PreparedStatement;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import model.Sys;
-import ui.HomePanel;
 import ui.HomeScreen;
 
 /**
@@ -48,19 +47,175 @@ public class NewFIRRegister extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        titleLabel = new javax.swing.JLabel();
+        DescriptionLabel = new javax.swing.JLabel();
+        DateOfOffenceDateChooser = new com.toedter.calendar.JDateChooser();
+        DateOfOffenceLabel = new javax.swing.JLabel();
+        DescriptionTextField = new javax.swing.JTextField();
+        SelectPoliceStationLabel = new javax.swing.JLabel();
+        SelectPoliceStationSelect = new javax.swing.JComboBox<>();
+        DateOfOffenceLabel2 = new javax.swing.JLabel();
+        GenerateCrimeIDTextField = new javax.swing.JTextField();
+        SubmitDetailsButton = new java.awt.Button();
+
+        setBackground(new java.awt.Color(0, 102, 153));
+
+        titleLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(255, 255, 255));
+        titleLabel.setText("Register your FIR by adding all the details..............");
+
+        DescriptionLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        DescriptionLabel.setForeground(new java.awt.Color(255, 255, 255));
+        DescriptionLabel.setText("Description (in 250 words):");
+
+        DateOfOffenceDateChooser.setDateFormatString("YYYY-MM-dd");
+
+        DateOfOffenceLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        DateOfOffenceLabel.setForeground(new java.awt.Color(255, 255, 255));
+        DateOfOffenceLabel.setText("DateOfOffence:");
+
+        DescriptionTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DescriptionTextFieldActionPerformed(evt);
+            }
+        });
+        DescriptionTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                DescriptionTextFieldKeyPressed(evt);
+            }
+        });
+
+        SelectPoliceStationLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        SelectPoliceStationLabel.setForeground(new java.awt.Color(255, 255, 255));
+        SelectPoliceStationLabel.setText("Select Police Station:");
+
+        SelectPoliceStationSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectPoliceStationSelectActionPerformed(evt);
+            }
+        });
+
+        DateOfOffenceLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        DateOfOffenceLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        DateOfOffenceLabel2.setText("Generate Crime ID:");
+
+        GenerateCrimeIDTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GenerateCrimeIDTextFieldActionPerformed(evt);
+            }
+        });
+        GenerateCrimeIDTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GenerateCrimeIDTextFieldKeyPressed(evt);
+            }
+        });
+
+        SubmitDetailsButton.setLabel("Submit Details");
+        SubmitDetailsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubmitDetailsButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 930, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(DateOfOffenceLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(GenerateCrimeIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(SelectPoliceStationLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(SelectPoliceStationSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(DateOfOffenceLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DateOfOffenceDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(DescriptionLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DescriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(417, 417, 417)
+                        .addComponent(SubmitDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 489, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(titleLabel)
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(DateOfOffenceDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DateOfOffenceLabel))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DescriptionLabel)
+                    .addComponent(DescriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SelectPoliceStationLabel)
+                    .addComponent(SelectPoliceStationSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DateOfOffenceLabel2)
+                    .addComponent(GenerateCrimeIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addComponent(SubmitDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void DescriptionTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescriptionTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DescriptionTextFieldActionPerformed
+
+    private void DescriptionTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DescriptionTextFieldKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DescriptionTextFieldKeyPressed
+
+    private void GenerateCrimeIDTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateCrimeIDTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GenerateCrimeIDTextFieldActionPerformed
+
+    private void GenerateCrimeIDTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GenerateCrimeIDTextFieldKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GenerateCrimeIDTextFieldKeyPressed
+
+    private void SubmitDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitDetailsButtonActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_SubmitDetailsButtonActionPerformed
+
+    private void SelectPoliceStationSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectPoliceStationSelectActionPerformed
+        // TODO add your handling code here:
+        
+        String[] policeStationStrings = { "Cambridge", "Jamican Plain", "Roxbury", "Downtown"};
+        SelectPoliceStationSelect = new JComboBox(policeStationStrings);
+        SelectPoliceStationSelect.setSelectedIndex(1);
+        
+    }//GEN-LAST:event_SelectPoliceStationSelectActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser DateOfOffenceDateChooser;
+    private javax.swing.JLabel DateOfOffenceLabel;
+    private javax.swing.JLabel DateOfOffenceLabel2;
+    private javax.swing.JLabel DescriptionLabel;
+    private javax.swing.JTextField DescriptionTextField;
+    private javax.swing.JTextField GenerateCrimeIDTextField;
+    private javax.swing.JLabel SelectPoliceStationLabel;
+    private javax.swing.JComboBox<String> SelectPoliceStationSelect;
+    private java.awt.Button SubmitDetailsButton;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
