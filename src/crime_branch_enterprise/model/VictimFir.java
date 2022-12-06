@@ -8,7 +8,7 @@ package crime_branch_enterprise.model;
  *
  * @author Sal <your.name at your.org>
  */
-public class VictimFir {
+public class VictimFIR {
     // get victimID from Victim.java
     // get crimeID from CrimeRegister.java
 }
