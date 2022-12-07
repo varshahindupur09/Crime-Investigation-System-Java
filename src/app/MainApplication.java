@@ -6,12 +6,10 @@
 package app;
 
 import resource_mgmt_enterprise.DatabaseConnection_Employees;
-import hospital_enterprise.Patient;
-import hospital_enterprise.PatientDirectory;
+
 import model.Person;
 import model.PersonDirectory;
 import model.Sys;
-import hospital_enterprise.VitalSigns;
 import utility.UtilityFunctions;
 
 /**
@@ -30,28 +28,28 @@ public class MainApplication {
         DatabaseConnection_Employees empDb = new DatabaseConnection_Employees();
         empDb.databaseConnectionEmployees();
         
-        PatientDirectory pD = sys.getPatDir();
-        PersonDirectory perD = sys.getPerDir();
+        //PatientDirectory pD = sys.getPatDir();
+        //PersonDirectory perD = sys.getPerDir();
         
         //Create person
-        Person per1 = perD.createPerson(1234, "Aniruddha Tambe", util.convertToDate("31-10-1996"));
-        Person per2 = perD.createPerson(5678, "Siddhant Kohli", util.convertToDate("20-12-1996"));
-        
+//        Person per1 = perD.createPerson(1234, "Aniruddha Tambe", util.convertToDate("31-10-1996"));
+//        Person per2 = perD.createPerson(5678, "Siddhant Kohli", util.convertToDate("20-12-1996"));
+//        
         //Create patient
-        Patient pat1 = pD.createPatient(per1);
-        Patient pat2 = pD.createPatient(per2);
+        //Patient pat1 = pD.createPatient(per1);
+        //Patient pat2 = pD.createPatient(per2);
         
         // Step 1. Get patient
-        Patient selectedPatient = pD.searchPatientByName("Aniruddha Tambe");
+        //Patient selectedPatient = pD.searchPatientByName("Aniruddha Tambe");
         
         // Step 2. Create vital signs
-        VitalSigns vs = new VitalSigns(90,60,72);
+        //VitalSigns vs = new VitalSigns(90,60,72);
         
         // Step 3. Map vital signs, patient & encounter
-        selectedPatient.getEncounterHistory().addEncounter(vs);
+        //selectedPatient.getEncounterHistory().addEncounter(vs);
                 
         // Step 4. Get latest encounter
-        pD.getPatientLatestEncounter(selectedPatient);
+        //pD.getPatientLatestEncounter(selectedPatient);
         
         
         

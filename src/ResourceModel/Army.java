@@ -6,26 +6,23 @@ package ResourceModel;
 
 public class Army {
     
-    public int unitId;
     public int generalId;
     public String generalName;
     public String department;
     public String country;
 
-    public int getUnitId() {
-        return unitId;
-    }
-
-    public void setUnitId(int unitId) {
-        this.unitId = unitId;
-    }
-
+    
     public String getDepartment() {
         return department;
     }
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+    
+    @Override
+    public String toString() {
+            return String.valueOf(generalId);
     }
 
     public String getCountry() {

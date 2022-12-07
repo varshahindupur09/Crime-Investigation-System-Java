@@ -15,6 +15,11 @@ public class Jail {
     public int getJailId() {
         return jailId;
     }
+    
+    @Override
+    public String toString() {
+            return String.valueOf(jailId);
+    }
 
     public void setJailId(int jailId) {
         this.jailId = jailId;

@@ -5,9 +5,6 @@
  */
 package model;
 
-import hospital_enterprise.VitalSigns;
-import hospital_enterprise.Patient;
-import hospital_enterprise.PatientDirectory;
 import java.util.ArrayList;
 import utility.UtilityFunctions;
 
@@ -18,19 +15,19 @@ import utility.UtilityFunctions;
 public class Sys {
     
     private String name;
-    private PatientDirectory patDir;
+    //private PatientDirectory patDir;
     private PersonDirectory perDir;
     private UserDirectory userDir;
     private ArrayList<City> cityList;
     
     public Sys(){
     
-        patDir = new PatientDirectory(this);
+        //patDir = new PatientDirectory(this);
         perDir = new PersonDirectory(this);
         userDir = new UserDirectory();
         cityList = new ArrayList<City>();
         
-        createData(this);
+        //createData(this);
         
     }
 
@@ -45,13 +42,13 @@ public class Sys {
         return userDir;
     }
 
-    public PatientDirectory getPatDir() {
-        return patDir;
-    }
+    //public PatientDirectory getPatDir() {
+        //return patDir;
+    
 
-    public PersonDirectory getPerDir() {
-        return perDir;
-    }
+//    public PersonDirectory getPerDir() {
+//        return perDir;
+//    }
     
    
     
@@ -92,31 +89,31 @@ public class Sys {
         sys.addCity("Waltham");
         sys.getCity("Waltham").newCommunity("Brandies");
         
-        PatientDirectory pD = sys.getPatDir();
-        PersonDirectory perD = sys.getPerDir();
+        //PatientDirectory pD = sys.getPatDir();
+        //PersonDirectory perD = sys.getPerDir();
         
         //Create person
-        Person per1 = perD.createPerson(1234, "Aniruddha Tambe", util.convertToDate("31-Oct-1996"));
-        Person per2 = perD.createPerson(5678, "Siddhant Kohli", util.convertToDate("20-Dec-1996"));
+//        Person per1 = perD.createPerson(1234, "Aniruddha Tambe", util.convertToDate("31-Oct-1996"));
+//        Person per2 = perD.createPerson(5678, "Siddhant Kohli", util.convertToDate("20-Dec-1996"));
         
         //Add to house
         Community comm = sys.getCity("Boston").getCommunityByName("Jamaica Plain");
         House house = comm.createHouse(146, "Boylston St.", "Jamaica Plain", "Boston");
-        house.addPersonToHouse(per1);
-        house.addPersonToHouse(per2);
-        
-        //Create patient
-        Patient pat1 = pD.createPatient(per1);
-        Patient pat2 = pD.createPatient(per2);
-        
-        // Step 1. Get patient
-        Patient selectedPatient = pD.searchPatientByName("Aniruddha Tambe");
-        
-        // Step 2. Create vital signs
-        VitalSigns vs = new VitalSigns(90.0,120.0,72.0);
+//        house.addPersonToHouse(per1);
+//        house.addPersonToHouse(per2);
+//        
+//        //Create patient
+//        Patient pat1 = pD.createPatient(per1);
+//        Patient pat2 = pD.createPatient(per2);
+//        
+//        // Step 1. Get patient
+//        Patient selectedPatient = pD.searchPatientByName("Aniruddha Tambe");
+//        
+//        // Step 2. Create vital signs
+//        VitalSigns vs = new VitalSigns(90.0,120.0,72.0);
         
         // Step 3. Map vital signs, patient & encounter
-        selectedPatient.getEncounterHistory().addEncounter(vs);
+        //selectedPatient.getEncounterHistory().addEncounter(vs);
                 
     }
 

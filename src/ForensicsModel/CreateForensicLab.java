@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui;
+package ForensicsModel;
 
 
 import ForensicsModel.ForensicLab;
@@ -135,7 +135,7 @@ public class CreateForensicLab extends javax.swing.JPanel {
         f.setHospId(hospId);
         f.setHospName(hospName);
 
-        JOptionPane.showMessageDialog(this, "New Hospital is added.");
+        JOptionPane.showMessageDialog(this, "New Forensic Lab is added.");
 
         txtForLabId.setText("");
         txtHospId.setText("");
