@@ -23,6 +23,22 @@ public class FIR {
     String lastname;
     String emailId;
     int phoneNum;
+    String address;
+    
+    public FIR(int firId, Date dateOfOffence, String descr, String policeStationLoc, String accorvic, 
+            String firstname, String lastname, String emailId, int phoneNum, String address)
+    {
+        this.firId = firId;
+        this.dateOfOffence = dateOfOffence;
+        this.descr = descr;
+        this.policeStationLoc = policeStationLoc;
+        this.accorvic = accorvic;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.emailId = emailId;
+        this.phoneNum = phoneNum;
+        this.address = address;
+    }
 
     public int getFirId() {
         return firId;
@@ -103,7 +119,6 @@ public class FIR {
     public void setAddress(String address) {
         this.address = address;
     }
-    String address;
     
     
 }
