@@ -5,20 +5,13 @@
 
 package ui;
 
-import hospital_enterprise.Territories;
+
 import crime_branch_enterprise.model.CasePortalPanel;
-import crime_branch_enterprise.model.NewCaseRegisterationPanel2;
-import hospital_enterprise.AddPatient;
-import hospital_enterprise.AddUser;
-import hospital_enterprise.AddWorkforce;
-import hospital_enterprise.AddEncounter;
-import hospital_enterprise.Dashboard;
+import crime_branch_enterprise.model.NewCaseRegisterationPanel;
+import crime_branch_enterprise.model.NewFIRRegister;
 import java.awt.CardLayout;
-import java.awt.Component;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Sys;
-import ui.LoginScreen;
 
 /**
  *
@@ -166,60 +159,7 @@ public class HomePanel extends javax.swing.JPanel {
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
 
-    public void clickAddUser(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new AddUser(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
-    public void clickAddEncounter(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new AddEncounter(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-
-    public void clickDashboard(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new Dashboard(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
-    public void clickPatient(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new AddPatient(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
-    public void clickAddWorkforce(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new AddWorkforce(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
-    public void clickTerritories(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new Territories(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
+      
     
     public void clickCasePortal(HomeScreen homeScreen, HomePanel homePanel) {
 
@@ -232,7 +172,16 @@ public class HomePanel extends javax.swing.JPanel {
     
     public void clickNewCaseRegisterationPortal(HomeScreen homeScreen) {
 
-        JPanel selectedPanel = new NewCaseRegisterationPanel2(workArea,sys,homeScreen);
+        JPanel selectedPanel = new NewCaseRegisterationPanel(workArea,sys,homeScreen);
+        
+        workArea.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+    }
+    
+    public void clickNewFIRRegisterationPortal(HomeScreen homeScreen) {
+
+        JPanel selectedPanel = new NewFIRRegister(workArea,sys,homeScreen);
         
         workArea.add("WorkAreaJPanel",selectedPanel);
         CardLayout layout = (CardLayout) workArea.getLayout();
