@@ -17,6 +17,11 @@ public class Prison {
     public int getPrisonId() {
         return prisonId;
     }
+    
+    @Override
+    public String toString() {
+            return String.valueOf(prisonId);
+    }
 
     public void setPrisonId(int prisonId) {
         this.prisonId = prisonId;

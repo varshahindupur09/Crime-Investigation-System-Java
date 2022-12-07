@@ -9,17 +9,20 @@ public class Government {
     
     public int partyLeaderId;
     public String partyLeaderName;
-    public String govDep;
     public String party;
     public String state;
-
     
-    public String getGovDep() {
-        return govDep;
+    public int getPartyLeaderId() {
+        return partyLeaderId;
     }
-
-    public void setGovDep(String govDep) {
-        this.govDep = govDep;
+    
+    @Override
+    public String toString() {
+            return String.valueOf(partyLeaderId);
+    }
+        
+    public void setPartyLeaderId(int partyLeaderId) {
+        this.partyLeaderId = partyLeaderId;
     }
 
     public String getParty() {
@@ -38,14 +41,7 @@ public class Government {
         this.state = state;
     }
 
-    public int getPartyLeaderId() {
-        return partyLeaderId;
-    }
-
-    public void setPartyLeaderId(int partyLeaderId) {
-        this.partyLeaderId = partyLeaderId;
-    }
-
+    
     public String getPartyLeaderName() {
         return partyLeaderName;
     }

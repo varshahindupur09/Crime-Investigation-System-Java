@@ -135,7 +135,7 @@ public class CreateForensicLab extends javax.swing.JPanel {
         f.setHospId(hospId);
         f.setHospName(hospName);
 
-        JOptionPane.showMessageDialog(this, "New Hospital is added.");
+        JOptionPane.showMessageDialog(this, "New Forensic Lab is added.");
 
         txtForLabId.setText("");
         txtHospId.setText("");
