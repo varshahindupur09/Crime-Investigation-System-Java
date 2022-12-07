@@ -78,7 +78,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="NewCaseRegisterationLabel" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
-                          <Component id="NewCaseRegisterationLabel1" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
+                          <Component id="FIRRegisterationLabel" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -90,7 +90,7 @@
                       <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                       <Component id="TitleCasePortalLabel" min="-2" pref="55" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="NewCaseRegisterationLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="FIRRegisterationLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="NewCaseRegisterationLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
@@ -140,7 +140,7 @@
                 <Property name="text" type="java.lang.String" value="Case Portal"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="NewCaseRegisterationLabel1">
+            <Component class="javax.swing.JLabel" name="FIRRegisterationLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -151,7 +151,7 @@
                 <Property name="text" type="java.lang.String" value="New FIR Register"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="NewCaseRegisterationLabel1MouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="FIRRegisterationLabelMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>

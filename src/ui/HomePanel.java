@@ -7,18 +7,16 @@ package ui;
 
 import hospital_enterprise.Territories;
 import crime_branch_enterprise.model.CasePortalPanel;
-import crime_branch_enterprise.model.NewCaseRegisterationPanel2;
+import crime_branch_enterprise.model.NewCaseRegisterationPanel;
+import crime_branch_enterprise.model.NewFIRRegister;
 import hospital_enterprise.AddPatient;
 import hospital_enterprise.AddUser;
 import hospital_enterprise.AddWorkforce;
 import hospital_enterprise.AddEncounter;
 import hospital_enterprise.Dashboard;
 import java.awt.CardLayout;
-import java.awt.Component;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Sys;
-import ui.LoginScreen;
 
 /**
  *
@@ -232,7 +230,16 @@ public class HomePanel extends javax.swing.JPanel {
     
     public void clickNewCaseRegisterationPortal(HomeScreen homeScreen) {
 
-        JPanel selectedPanel = new NewCaseRegisterationPanel2(workArea,sys,homeScreen);
+        JPanel selectedPanel = new NewCaseRegisterationPanel(workArea,sys,homeScreen);
+        
+        workArea.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+    }
+    
+    public void clickNewFIRRegisterationPortal(HomeScreen homeScreen) {
+
+        JPanel selectedPanel = new NewFIRRegister(workArea,sys,homeScreen);
         
         workArea.add("WorkAreaJPanel",selectedPanel);
         CardLayout layout = (CardLayout) workArea.getLayout();

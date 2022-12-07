@@ -12,7 +12,7 @@ CREATE TABLE employees
     UNIQUE KEY three_values(emp_id,firstname,lastname)
 );
 #alter table DemoTable1400 add unique key name_age_unique(Name,Age);
-DROP TABLE employees;
+DROP TABLE employees cascade;
 select * from employees;
 INSERT INTO employees (firstname, lastname, email, salary, emp_role)
 VALUES ('Rithik','Shah', 'a@b.com',91000, 'cyber_officer');
@@ -41,7 +41,7 @@ CREATE TABLE person
 
 CREATE TABLE if not exists caseDetails 
 (
-	crimeId int AUTO_INCREMENT,
+	crimeId int NOT NULL,
 	dateOfOffence DATE NOT NULL,
     descr VARCHAR(250) NOT NULL,  
     firNum VARCHAR(10) NOT NULL,  
@@ -55,7 +55,7 @@ select * from casedetails;
 
 CREATE TABLE if not exists firDetails 
 (
-	firId int AUTO_INCREMENT,
+	firId int NOT NULL,
 	dateOfOffence DATE NOT NULL,
     descr VARCHAR(250) NOT NULL,
     policeStationLoc varchar(20) NOT NULL,
