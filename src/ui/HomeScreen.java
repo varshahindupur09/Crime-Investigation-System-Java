@@ -189,13 +189,12 @@ public class HomeScreen extends javax.swing.JPanel {
 
     private void ResourceMgmtSystemEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResourceMgmtSystemEnterpriseMousePressed
         // TODO add your handling code here:
-        homePanel.clickAddEncounter(this);
+        
     }//GEN-LAST:event_ResourceMgmtSystemEnterpriseMousePressed
 
     private void ForensicsEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForensicsEnterpriseMousePressed
         // TODO add your handling code here:
         
-        homePanel.clickDashboard(this);
     }//GEN-LAST:event_ForensicsEnterpriseMousePressed
 
     private void CrimeBranchEnterpriseAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseAncestorAdded

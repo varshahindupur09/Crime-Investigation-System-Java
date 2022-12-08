@@ -5,20 +5,12 @@
 
 package ui;
 
-import hospital_enterprise.Territories;
 import crime_branch_enterprise.model.CasePortalPanel;
-import crime_branch_enterprise.model.NewCaseRegisterationPanel2;
-import hospital_enterprise.AddPatient;
-import hospital_enterprise.AddUser;
-import hospital_enterprise.AddWorkforce;
-import hospital_enterprise.AddEncounter;
-import hospital_enterprise.Dashboard;
+import crime_branch_enterprise.model.NewCaseRegisterationPanel;
+import crime_branch_enterprise.model.NewFIRRegister;
 import java.awt.CardLayout;
-import java.awt.Component;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Sys;
-import ui.LoginScreen;
 
 /**
  *
@@ -87,6 +79,11 @@ public class HomePanel extends javax.swing.JPanel {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        backbuttonlabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backbuttonlabelMouseClicked(evt);
+            }
+        });
         backbuttonlabel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 backbuttonlabelKeyPressed(evt);
@@ -151,7 +148,17 @@ public class HomePanel extends javax.swing.JPanel {
     private void backbuttonlabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_backbuttonlabelKeyPressed
         // TODO add your handling code here:
 //        JOptionPane.showMessageDialog(this, "Click on Logout,instead!");
+
     }//GEN-LAST:event_backbuttonlabelKeyPressed
+
+    private void backbuttonlabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backbuttonlabelMouseClicked
+        // TODO add your handling code here:
+        JPanel selectedPanel = new HomePanel(mainWorkArea,sys);
+        
+        mainWorkArea.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.next(mainWorkArea);
+    }//GEN-LAST:event_backbuttonlabelMouseClicked
 
     @Override
     public String toString(){
@@ -165,61 +172,6 @@ public class HomePanel extends javax.swing.JPanel {
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
-
-    public void clickAddUser(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new AddUser(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
-    public void clickAddEncounter(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new AddEncounter(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-
-    public void clickDashboard(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new Dashboard(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
-    public void clickPatient(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new AddPatient(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
-    public void clickAddWorkforce(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new AddWorkforce(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
-    public void clickTerritories(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new Territories(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
     
     public void clickCasePortal(HomeScreen homeScreen, HomePanel homePanel) {
 
@@ -230,9 +182,18 @@ public class HomePanel extends javax.swing.JPanel {
         layout.next(workArea);
     }
     
-    public void clickNewCaseRegisterationPortal(HomeScreen homeScreen) {
+    public void clickNewCaseRegisterationPortal(HomeScreen homeScreen,HomePanel homePanel) {
 
-        JPanel selectedPanel = new NewCaseRegisterationPanel2(workArea,sys,homeScreen);
+        JPanel selectedPanel = new NewCaseRegisterationPanel(workArea,sys,homeScreen, homePanel);
+        
+        workArea.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+    }
+    
+    public void clickNewFIRRegisterationPortal(HomeScreen homeScreen, HomePanel homePanel) {
+
+        JPanel selectedPanel = new NewFIRRegister(workArea,sys,homeScreen, homePanel);
         
         workArea.add("WorkAreaJPanel",selectedPanel);
         CardLayout layout = (CardLayout) workArea.getLayout();

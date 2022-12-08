@@ -5,31 +5,40 @@
  */
 package ui;
 
+import crime_branch_enterprise.model.DatabaseConnection_FirDetails;
 import java.awt.CardLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.sql.PreparedStatement;
+import java.util.Random;
 import model.Sys;
 
 /**
  *
  * @author archil
  */
-public class MainJFrame extends javax.swing.JFrame {
+public class MainJFrame extends javax.swing.JFrame 
+{
 
     Sys sys;
     
     /**
      * Creates new form MainJFrame
      */
-    public MainJFrame() {
+    public MainJFrame() 
+    {
         initComponents();
         
         sys = new Sys();
         
-        //setSize(800,600);
-//        setResizable(false);
-       
         
+        
+        //setSize(800,600);
+
         setLoginScreen();
-    
+        
+//        setLogout();
+        
     }
 
     /**
@@ -68,7 +77,9 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    
+    public static void main(String args[]) 
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -92,7 +103,7 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         //</editor-fold>
         
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -100,6 +111,40 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void setLogout()
+    {
+        MainJFrame frame = new MainJFrame();
+        frame.addWindowListener(new WindowAdapter() 
+        {
+            @Override
+            public void windowClosing(WindowEvent e) 
+            {
+                // In here you can delete any data in the database or even use JOptionPane to confirm the exit
+                // To close the frame once everything is done, do this:
+                try
+                {
+                    DatabaseConnection_FirDetails dbConnFIRDetails = new DatabaseConnection_FirDetails();
+                    dbConnFIRDetails.databaseConnectionFIRDetails();
+                    String insertsql="Insert into firDetails (firId,dateOfOffence,descr,policeStationLoc,accorvic,firstName,lastName,emailId,phoneNum,address) values(?,?,?,?,?,?,?,?,?,?)";
+                    PreparedStatement stmt=dbConnFIRDetails.con.prepareStatement(insertsql);
+
+
+                    frame.dispose();
+
+                    stmt.executeUpdate();
+                    stmt.close();
+
+                    dbConnFIRDetails.closeConnectionFIRDetails();
+                }
+                catch(Exception e1)
+                {
+                    e1.printStackTrace();
+                }
+            }
+        });
+    }
+    
 
     private void setLoginScreen() {
        LoginScreen ls = new LoginScreen(mainWorkArea,sys);
@@ -111,6 +156,6 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel mainWorkArea;
     // End of variables declaration//GEN-END:variables
-
+    
     
 }

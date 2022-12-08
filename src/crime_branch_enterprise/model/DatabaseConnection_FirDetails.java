@@ -19,10 +19,10 @@ public class DatabaseConnection_FirDetails
 //   static final String QUERY = "SELECT * FROM employee";
 //   static final String DB_URL = "jdbc:oracle:thin:"+USER+"/"+PASS+"@localhost:3306:crime_inv_sys";
     
-    DatabaseConnection_FirDetails dc;
-    Connection con;
-    Statement stmt;
-    ResultSet rs;
+    public DatabaseConnection_FirDetails dc;
+    public Connection con;
+    public Statement stmt;
+    public ResultSet rs;
     
     public DatabaseConnection_FirDetails()
     {
