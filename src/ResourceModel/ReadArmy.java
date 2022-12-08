@@ -61,7 +61,7 @@ public class ReadArmy extends javax.swing.JPanel {
         lbTitle.setFont(new java.awt.Font("Century", 1, 24)); // NOI18N
         lbTitle.setForeground(new java.awt.Color(0, 204, 255));
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitle.setText("View Hospitals");
+        lbTitle.setText("View Army");
 
         lbGenId.setForeground(new java.awt.Color(255, 255, 255));
         lbGenId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -246,7 +246,7 @@ public class ReadArmy extends javax.swing.JPanel {
         int selectedRowIndex = HTable.getSelectedRow();
 
         if (selectedRowIndex<0) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete");
+            JOptionPane.showMessageDialog(this, "Please select a row to view");
             return;
         }
 
@@ -272,7 +272,7 @@ public class ReadArmy extends javax.swing.JPanel {
         Army selectedArmy = (Army)model.getValueAt(selectedRowIndex, 0);
 
         armyHistory.deleteArmy(selectedArmy);
-        JOptionPane.showMessageDialog(this, "Employee deleted");
+        JOptionPane.showMessageDialog(this, "Army deleted");
 
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed

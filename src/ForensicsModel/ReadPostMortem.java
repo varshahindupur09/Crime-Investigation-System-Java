@@ -59,7 +59,7 @@ public class ReadPostMortem extends javax.swing.JPanel {
         lbTitle.setFont(new java.awt.Font("Century", 1, 24)); // NOI18N
         lbTitle.setForeground(new java.awt.Color(0, 204, 255));
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitle.setText("View Encounter Report");
+        lbTitle.setText("View Post Mortem Report");
 
         DTable.setBackground(java.awt.SystemColor.controlHighlight);
         DTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -290,7 +290,7 @@ public class ReadPostMortem extends javax.swing.JPanel {
             String deathTime = txtDeathTime.getText();
             String causeOfDeath = txtCauseofDeath.getText();
 
-            JOptionPane.showMessageDialog(this, "Employee Information Updated");
+            JOptionPane.showMessageDialog(this, "Post Mortem Report Updated");
             //history.deleteEmployee(selectedEmployee);
             selectedPostMortem.setPmId(pmId);
             selectedPostMortem.setDate(date);
@@ -365,7 +365,7 @@ public class ReadPostMortem extends javax.swing.JPanel {
         PostMortem selectedPostMortem = (PostMortem)model.getValueAt(selectedRowIndex, 0);
 
         pmHistory.deletePM(selectedPostMortem);
-        JOptionPane.showMessageDialog(this, "Employee deleted");
+        JOptionPane.showMessageDialog(this, "Post Mortem Report deleted");
 
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed

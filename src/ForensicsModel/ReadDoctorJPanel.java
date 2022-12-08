@@ -249,7 +249,7 @@ public class ReadDoctorJPanel extends javax.swing.JPanel {
         Doctor selectedDoctor = (Doctor)model.getValueAt(selectedRowIndex, 0);
 
         docHistory.deleteDoctor(selectedDoctor);
-        JOptionPane.showMessageDialog(this, "Employee deleted");
+        JOptionPane.showMessageDialog(this, "Doctor deleted");
 
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -273,7 +273,7 @@ public class ReadDoctorJPanel extends javax.swing.JPanel {
         int hospId = Integer.parseInt(txtHospId.getText());
         String hospName = txtHospName.getText();
 
-        JOptionPane.showMessageDialog(this, "Employee Information Updated");
+        JOptionPane.showMessageDialog(this, "Doctor Information Updated");
         //history.deleteEmployee(selectedEmployee);
         selectedDoctor.setDocId(docId);
         selectedDoctor.setDocName(docName);

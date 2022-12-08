@@ -179,7 +179,7 @@
           <Color blue="ff" green="cc" red="0" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="View Hospitals"/>
+        <Property name="text" type="java.lang.String" value="View Army"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbGenId">

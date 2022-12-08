@@ -238,7 +238,7 @@ public class ReadJail extends javax.swing.JPanel {
         int selectedRowIndex = HTable.getSelectedRow();
 
         if (selectedRowIndex<0) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete");
+            JOptionPane.showMessageDialog(this, "Please select a row to view");
             return;
         }
 

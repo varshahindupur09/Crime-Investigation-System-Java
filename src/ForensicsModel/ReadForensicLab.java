@@ -199,7 +199,7 @@ public class ReadForensicLab extends javax.swing.JPanel {
             int hospId = Integer.parseInt(txtHospId.getText());
             String hospName = txtHospName.getText();
 
-            JOptionPane.showMessageDialog(this, "Employee Information Updated");
+            JOptionPane.showMessageDialog(this, "Forensic Lab Information Updated");
             //history.deleteEmployee(selectedEmployee);
             selectedForensicLab.setForLabId(forLabId);
             selectedForensicLab.setHospId(hospId);
@@ -218,7 +218,7 @@ public class ReadForensicLab extends javax.swing.JPanel {
         int selectedRowIndex = HTable.getSelectedRow();
 
         if (selectedRowIndex<0) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete");
+            JOptionPane.showMessageDialog(this, "Please select a row to view");
             return;
         }
 
@@ -243,7 +243,7 @@ public class ReadForensicLab extends javax.swing.JPanel {
         ForensicLab selectedForensicLab = (ForensicLab)model.getValueAt(selectedRowIndex, 0);
 
         forLabHistory.deleteForLab(selectedForensicLab);
-        JOptionPane.showMessageDialog(this, "Employee deleted");
+        JOptionPane.showMessageDialog(this, "Forensic Lab deleted");
 
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed

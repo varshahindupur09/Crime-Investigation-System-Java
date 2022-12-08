@@ -133,7 +133,7 @@ public class CreateWeapon extends javax.swing.JPanel {
         w.setwType(weaponName);
         w.setCount(count);
         
-        JOptionPane.showMessageDialog(this, "New Trained Animal is added.");
+        JOptionPane.showMessageDialog(this, "New Weapon is added.");
 
         txtWeaponId.setText("");
         txtWeaponType.setText("");

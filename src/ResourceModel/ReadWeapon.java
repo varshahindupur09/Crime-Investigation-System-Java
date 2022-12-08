@@ -194,7 +194,7 @@ public class ReadWeapon extends javax.swing.JPanel {
             String weaponName = txtWeaponType.getText();
             int count = Integer.parseInt(txtCount.getText());
 
-            JOptionPane.showMessageDialog(this, "Jail Information Updated");
+            JOptionPane.showMessageDialog(this, "Weapon Information Updated");
             //history.deleteEmployee(selectedEmployee);
             selectedWeapon.setWeaponId(weaponId);
             selectedWeapon.setwType(weaponName);
@@ -211,7 +211,7 @@ public class ReadWeapon extends javax.swing.JPanel {
         int selectedRowIndex = HTable.getSelectedRow();
 
         if (selectedRowIndex<0) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete");
+            JOptionPane.showMessageDialog(this, "Please select a row to view");
             return;
         }
 
@@ -236,7 +236,7 @@ public class ReadWeapon extends javax.swing.JPanel {
         Weapon selectedWeapon = (Weapon) model.getValueAt(selectedRowIndex, 0);
 
         weaponHistory.deleteWeapon(selectedWeapon);
-        JOptionPane.showMessageDialog(this, "WEapon deleted");
+        JOptionPane.showMessageDialog(this, "Weapon deleted");
 
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed

@@ -248,7 +248,7 @@ public class CreatePostMortem extends javax.swing.JPanel {
         p.setCauseOfDeath(causeOfDeath);
         
 
-        JOptionPane.showMessageDialog(this, "New Post Mortem Report is added.");
+        JOptionPane.showMessageDialog(this, "Post Mortem report is added.");
 
         txtPmId.setText("");
         txtDate.setText("");

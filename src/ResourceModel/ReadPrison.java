@@ -263,7 +263,7 @@ public class ReadPrison extends javax.swing.JPanel {
             int jailCount = Integer.parseInt(txtJailCount.getText());
             String city = txtCity.getText();
 
-            JOptionPane.showMessageDialog(this, "Jail Information Updated");
+            JOptionPane.showMessageDialog(this, "Prison Information Updated");
             //history.deleteEmployee(selectedEmployee);
             selectedPrison.setPrisonId(prisonId);
             selectedPrison.setPrisonName(prisonName);
@@ -286,7 +286,7 @@ public class ReadPrison extends javax.swing.JPanel {
         int selectedRowIndex = HTable.getSelectedRow();
 
         if (selectedRowIndex<0) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete");
+            JOptionPane.showMessageDialog(this, "Please select a row to view");
             return;
         }
 
@@ -314,7 +314,7 @@ public class ReadPrison extends javax.swing.JPanel {
         Prison selectedPrison = (Prison) model.getValueAt(selectedRowIndex, 0);
 
         prisonHistory.deletePri(selectedPrison);
-        JOptionPane.showMessageDialog(this, "Jail deleted");
+        JOptionPane.showMessageDialog(this, "Prison deleted");
 
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
