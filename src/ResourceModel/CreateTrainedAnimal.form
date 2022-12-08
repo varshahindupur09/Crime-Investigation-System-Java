@@ -28,22 +28,29 @@
                       <Component id="lbTitle" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="lbPLId" alignment="0" pref="108" max="32767" attributes="0"/>
-                          <Component id="lbPLName" alignment="0" pref="108" max="32767" attributes="0"/>
-                          <Component id="lbParty" alignment="0" pref="108" max="32767" attributes="0"/>
-                          <Component id="lbState" alignment="0" pref="108" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="lbType" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lbTrainerId" alignment="0" pref="108" max="32767" attributes="0"/>
+                                  <Component id="lbTrainerName" alignment="0" pref="108" max="32767" attributes="0"/>
+                                  <Component id="lbAnimalId" alignment="0" pref="108" max="32767" attributes="0"/>
+                                  <Component id="lbAnimalName" alignment="0" pref="108" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtPLId" alignment="0" pref="156" max="32767" attributes="0"/>
-                              <Component id="txtPLName" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtParty" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtState" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="btnAdd" min="-2" pref="146" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtTrainerId" alignment="0" pref="156" max="32767" attributes="0"/>
+                          <Component id="txtTrainerName" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtAnimalId" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtAnimalName" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtType" max="32767" attributes="0"/>
+                          <Component id="btnAdd" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="206" max="32767" attributes="0"/>
                   </Group>
@@ -59,27 +66,32 @@
               <Component id="lbTitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtPLId" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbPLId" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="txtTrainerId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbTrainerId" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtPLName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbPLName" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                  <Component id="txtTrainerName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbTrainerName" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtParty" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbParty" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="txtAnimalId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbAnimalId" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtState" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lbState" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="txtAnimalName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbAnimalName" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtType" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbType" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
               <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -94,60 +106,60 @@
           <Color blue="ff" green="cc" red="0" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Government Form"/>
+        <Property name="text" type="java.lang.String" value="Trained Animal Form"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbPLId">
+    <Component class="javax.swing.JLabel" name="lbTrainerId">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Party Leader Id"/>
+        <Property name="text" type="java.lang.String" value="Trainer Id"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPLId">
+    <Component class="javax.swing.JTextField" name="txtTrainerId">
     </Component>
-    <Component class="javax.swing.JLabel" name="lbPLName">
+    <Component class="javax.swing.JLabel" name="lbTrainerName">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Party Leader Name"/>
+        <Property name="text" type="java.lang.String" value="Trainer Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPLName">
+    <Component class="javax.swing.JTextField" name="txtTrainerName">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPLNameActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTrainerNameActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbParty">
+    <Component class="javax.swing.JLabel" name="lbAnimalId">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Party"/>
+        <Property name="text" type="java.lang.String" value="Animal Id"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtParty">
+    <Component class="javax.swing.JTextField" name="txtAnimalId">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPartyActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAnimalIdActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbState">
+    <Component class="javax.swing.JLabel" name="lbAnimalName">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="State"/>
+        <Property name="text" type="java.lang.String" value="Animal Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtState">
+    <Component class="javax.swing.JTextField" name="txtAnimalName">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtStateActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAnimalNameActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAdd">
@@ -155,10 +167,24 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Add Government"/>
+        <Property name="text" type="java.lang.String" value="Add Trained Animal"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbType">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Type"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtType">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTypeActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
