@@ -79,7 +79,7 @@ public class CreateGov extends javax.swing.JPanel {
         });
 
         btnAdd.setBackground(new java.awt.Color(204, 204, 204));
-        btnAdd.setText("Add Army");
+        btnAdd.setText("Add Government");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -104,12 +104,12 @@ public class CreateGov extends javax.swing.JPanel {
                             .addComponent(lbState, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtPLId, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
                                 .addComponent(txtPLName)
                                 .addComponent(txtParty)
-                                .addComponent(txtState)))
+                                .addComponent(txtState))
+                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 206, Short.MAX_VALUE)))
                 .addContainerGap())
         );
