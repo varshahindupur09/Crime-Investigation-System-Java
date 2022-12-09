@@ -41,21 +41,20 @@ CREATE TABLE person
 
 CREATE TABLE if not exists caseDetails 
 (
-	crimeId int NOT NULL,
-	dateOfOffence DATE NOT NULL,
-    descr VARCHAR(250) NOT NULL,  
-    firNum VARCHAR(10) NOT NULL,  
-    primary key (crimeId)
+	emailId varchar(50) NOT NULL,
+    phoneNum varchar(10) NOT NULL,
+	dateOfReport DATE NOT NULL,
+    officerName varchar(50) NOT NULL
 );
+
+ALTER TABLE caseDetails ADD PRIMARY KEY(emailId);
 
 ALTER TABLE caseDetails ADD UNIQUE (crimeId, dateOfOffence, descr);
 
 drop table casedetails cascade;
-select * from casedetails;
 
 CREATE TABLE if not exists firDetails 
 (
-	firId int NOT NULL,
 	dateOfOffence DATE NOT NULL,
     descr VARCHAR(250) NOT NULL,
     policeStationLoc varchar(20) NOT NULL,
@@ -64,9 +63,10 @@ CREATE TABLE if not exists firDetails
     lastname varchar(10) NOT NULL,
     emailId varchar(50) NOT NULL,
     phoneNum varchar(10) NOT NULL,
-    address varchar(100) NOT NULL,
-    primary key (firId)
+    address varchar(100) NOT NULL
 );
+
+ALTER TABLE firDetails ADD PRIMARY KEY(emailId);
 
 alter table caseDetails add index idx_case_descr (descr);
 
@@ -79,4 +79,21 @@ ALTER TABLE casedetails ADD CONSTRAINT fk_1 FOREIGN KEY (dateOfOffence) REFERENC
 ALTER TABLE casedetails ADD CONSTRAINT fk_2 FOREIGN KEY (descr) REFERENCES firDetails(descr);
 
 drop table firDetails cascade;
+
+select * from casedetails;
 select * from firDetails;
+
+truncate table firDetails;
+truncate table casedetails;
+
+CREATE TABLE if not exists officerDetails
+(
+    officerName varchar(20) NOT NULL,
+    officerAddress varchar(100) NOT NULL,
+    officerEmail varchar(50) NOT NULL,
+    officerPhoneNumber varchar(10) NOT NULL
+);
+ALTER TABLE officerDetails ADD PRIMARY KEY(officerEmail);
+select * from officerDetails;
+drop table officerDetails cascade;
+truncate table officerDetails;

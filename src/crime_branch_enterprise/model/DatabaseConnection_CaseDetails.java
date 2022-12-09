@@ -4,7 +4,6 @@
  */
 package crime_branch_enterprise.model;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -54,32 +53,17 @@ public class DatabaseConnection_CaseDetails
    public void closeConnectionCaseDetails()
    {
         try {
+            if(stmt != null)
+            {
+                stmt.close();
+            }
             con.close(); 
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseConnection_CaseDetails.class.getName()).log(Level.SEVERE, null, ex);
         }
    }
    
-   public Integer getCrimeId(int firNum)
-   {
-       int crimeId = 0;
-       try {
-       String sqlQueryStoreData = "select crimeId from casedetails where firNum = "+Integer.toString(firNum);
-            stmt = con.prepareStatement(sqlQueryStoreData);
-            rs=stmt.executeQuery(sqlQueryStoreData);
-            
-            if(rs.next())
-            {
-                crimeId = rs.getInt("crimeId");
-            }
-            stmt.close();
-            return crimeId;
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(DatabaseConnection_CaseDetails.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return crimeId;
-   }
+   
    
    
 //   public static void main(String main[])

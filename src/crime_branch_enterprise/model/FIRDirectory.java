@@ -11,6 +11,7 @@ public class FIRDirectory {
     
     public ArrayList<FIR> firList;
     
+    
     public FIRDirectory(){
     this.firList= new ArrayList<>(); 
     }
@@ -23,12 +24,12 @@ public class FIRDirectory {
         this.firList = firList;
     }
     
-//    public FIR addNewFIR(){
-//    
-//    FIR firNew = new FIR();
-//    firList.add(firNew);
-//    return firNew;
-//    }
+    public FIR addNewFIR(){
+    
+    FIR firNew = new FIR();
+    firList.add(firNew);
+    return firNew;
+    }
     
     public void deleteFIR(FIR fir){
         firList.remove(fir);

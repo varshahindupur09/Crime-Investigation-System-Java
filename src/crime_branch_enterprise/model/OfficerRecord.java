@@ -10,23 +10,31 @@ package crime_branch_enterprise.model;
  */
 public class OfficerRecord {
     
-    private String officerID;
+//    private String officerID;
     private String officerName;
-    private String officerCNIC;
+//    private String officerCNIC;
     private String officerAddress;
-    private long officerPhoneNumber;
+    private int officerPhoneNumber;
     private String officerEmail;
-    private String officerDateOfBirth;
-    private String officerDateOfJoining;
-    private String officerQualification;
+//    private String officerDateOfBirth;
+//    private String officerDateOfJoining;
+//    private String officerQualification;
     //Get PoliceStationName from PoliceStation.java
 
-    public String getOfficerID() {
-        return officerID;
-    }
-
-    public void setOfficerID(String officerID) {
-        this.officerID = officerID;
+//    public String getOfficerID() {
+//        return officerID;
+//    }
+//
+//    public void setOfficerID(String officerID) {
+//        this.officerID = officerID;
+//    }
+    
+    public OfficerRecord(String officerName, String officerAddress, int officerPhoneNumber, String officerEmail)
+    {
+        this.officerName = officerName;
+        this.officerAddress = officerAddress;
+        this.officerPhoneNumber = officerPhoneNumber;
+        this.officerEmail = officerEmail;
     }
 
     public String getOfficerName() {
@@ -36,15 +44,7 @@ public class OfficerRecord {
     public void setOfficerName(String officerName) {
         this.officerName = officerName;
     }
-
-    public String getOfficerCNIC() {
-        return officerCNIC;
-    }
-
-    public void setOfficerCNIC(String officerCNIC) {
-        this.officerCNIC = officerCNIC;
-    }
-
+    
     public String getOfficerAddress() {
         return officerAddress;
     }
@@ -53,11 +53,11 @@ public class OfficerRecord {
         this.officerAddress = officerAddress;
     }
 
-    public long getOfficerPhoneNumber() {
+    public int getOfficerPhoneNumber() {
         return officerPhoneNumber;
     }
 
-    public void setOfficerPhoneNumber(long officerPhoneNumber) {
+    public void setOfficerPhoneNumber(int officerPhoneNumber) {
         this.officerPhoneNumber = officerPhoneNumber;
     }
 
@@ -68,31 +68,5 @@ public class OfficerRecord {
     public void setOfficerEmail(String officerEmail) {
         this.officerEmail = officerEmail;
     }
-
-    public String getOfficerDateOfBirth() {
-        return officerDateOfBirth;
-    }
-
-    public void setOfficerDateOfBirth(String officerDateOfBirth) {
-        this.officerDateOfBirth = officerDateOfBirth;
-    }
-
-    public String getOfficerDateOfJoining() {
-        return officerDateOfJoining;
-    }
-
-    public void setOfficerDateOfJoining(String officerDateOfJoining) {
-        this.officerDateOfJoining = officerDateOfJoining;
-    }
-
-    public String getOfficerQualification() {
-        return officerQualification;
-    }
-
-    public void setOfficerQualification(String officerQualification) {
-        this.officerQualification = officerQualification;
-    }
-    
-    
     
 }

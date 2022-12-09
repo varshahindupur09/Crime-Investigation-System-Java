@@ -9,6 +9,7 @@ package ui;
 import crime_branch_enterprise.model.CasePortalPanel;
 import crime_branch_enterprise.model.NewCaseRegisterationPanel;
 import crime_branch_enterprise.model.NewFIRRegister;
+import crime_branch_enterprise.model.NewOfficerRegister;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Sys;
@@ -80,6 +81,11 @@ public class HomePanel extends javax.swing.JPanel {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        backbuttonlabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backbuttonlabelMouseClicked(evt);
+            }
+        });
         backbuttonlabel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 backbuttonlabelKeyPressed(evt);
@@ -146,6 +152,15 @@ public class HomePanel extends javax.swing.JPanel {
 //        JOptionPane.showMessageDialog(this, "Click on Logout,instead!");
     }//GEN-LAST:event_backbuttonlabelKeyPressed
 
+    private void backbuttonlabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backbuttonlabelMouseClicked
+        // TODO add your handling code here:
+        JPanel selectedPanel = new HomePanel(mainWorkArea,sys);
+        
+        mainWorkArea.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.next(mainWorkArea);
+    }//GEN-LAST:event_backbuttonlabelMouseClicked
+
     @Override
     public String toString(){
         return "Administrator";
@@ -187,4 +202,14 @@ public class HomePanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) workArea.getLayout();
         layout.next(workArea);
     }
+    
+    public void clickNewOfficerRegisterationPortal(HomeScreen homeScreen) {
+
+        JPanel selectedPanel = new NewOfficerRegister(workArea,sys,homeScreen);
+        
+        workArea.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+    }
+    
 }

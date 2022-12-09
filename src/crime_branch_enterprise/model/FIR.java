@@ -14,7 +14,6 @@ public class FIR {
     // get victimID from Victim.java
     // get crimeID from CrimeRegister.java
     
-    int firId;
     Date dateOfOffence;
     String descr;
     String policeStationLoc;
@@ -25,10 +24,14 @@ public class FIR {
     int phoneNum;
     String address;
     
-    public FIR(int firId, Date dateOfOffence, String descr, String policeStationLoc, String accorvic, 
+    public FIR()
+    {
+        
+    }
+    
+    public FIR(Date dateOfOffence, String descr, String policeStationLoc, String accorvic, 
             String firstname, String lastname, String emailId, int phoneNum, String address)
     {
-        this.firId = firId;
         this.dateOfOffence = dateOfOffence;
         this.descr = descr;
         this.policeStationLoc = policeStationLoc;
@@ -40,13 +43,6 @@ public class FIR {
         this.address = address;
     }
 
-    public int getFirId() {
-        return firId;
-    }
-
-    public void setFirId(int firId) {
-        this.firId = firId;
-    }
 
     public Date getDateOfOffence() {
         return dateOfOffence;
