@@ -2,21 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ForensicsModel;
+package ResourceModel;
 
-import ForensicsModel.ForensicLab;
-import ForensicsModel.ForensicLabHistory;
-import ForensicsModel.Hospital;
-import ForensicsModel.hospitalDirectory;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class ReadForensicLab extends javax.swing.JPanel {
+public class ReadWeapon extends javax.swing.JPanel {
 
-    ForensicLabHistory forLabHistory;
-    public ReadForensicLab(ForensicLabHistory forLabHistory) {
+    WeaponDirectory weaponHistory;
+    public ReadWeapon(WeaponDirectory weaponHistory) {
         initComponents();
-        this.forLabHistory = forLabHistory;
+        this.weaponHistory = weaponHistory;
         populateTable();
     }
 
@@ -35,12 +32,12 @@ public class ReadForensicLab extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        lbHosptId = new javax.swing.JLabel();
-        txtHospId = new javax.swing.JTextField();
-        lbHospName = new javax.swing.JLabel();
-        txtHospName = new javax.swing.JTextField();
-        lbForLabId = new javax.swing.JLabel();
-        txtForLabId = new javax.swing.JTextField();
+        lbWeaponId = new javax.swing.JLabel();
+        txtWeaponId = new javax.swing.JTextField();
+        lbWeaponType = new javax.swing.JLabel();
+        txtWeaponType = new javax.swing.JTextField();
+        lbCount = new javax.swing.JLabel();
+        txtCount = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 0, 0));
         setForeground(new java.awt.Color(0, 204, 255));
@@ -54,7 +51,7 @@ public class ReadForensicLab extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Forensic Lab Id", "Hospital Id", "Hospital Name"
+                " Weapon Id", "Weapon Type", "Count"
             }
         ));
         jScrollPane1.setViewportView(HTable);
@@ -62,7 +59,7 @@ public class ReadForensicLab extends javax.swing.JPanel {
         lbTitle.setFont(new java.awt.Font("Century", 1, 24)); // NOI18N
         lbTitle.setForeground(new java.awt.Color(0, 204, 255));
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitle.setText("View Forensic Labs");
+        lbTitle.setText("View Weapon");
 
         btnUpdate.setBackground(new java.awt.Color(204, 204, 204));
         btnUpdate.setText("Update");
@@ -88,27 +85,27 @@ public class ReadForensicLab extends javax.swing.JPanel {
             }
         });
 
-        lbHosptId.setForeground(new java.awt.Color(255, 255, 255));
-        lbHosptId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbHosptId.setText("Hospital Id");
+        lbWeaponId.setForeground(new java.awt.Color(255, 255, 255));
+        lbWeaponId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbWeaponId.setText("Weapon Id");
 
-        lbHospName.setForeground(new java.awt.Color(255, 255, 255));
-        lbHospName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbHospName.setText("Hospital Name");
+        lbWeaponType.setForeground(new java.awt.Color(255, 255, 255));
+        lbWeaponType.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbWeaponType.setText("Weapon Type");
 
-        txtHospName.addActionListener(new java.awt.event.ActionListener() {
+        txtWeaponType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHospNameActionPerformed(evt);
+                txtWeaponTypeActionPerformed(evt);
             }
         });
 
-        lbForLabId.setForeground(new java.awt.Color(255, 255, 255));
-        lbForLabId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbForLabId.setText(" Forensic Lab Id");
+        lbCount.setForeground(new java.awt.Color(255, 255, 255));
+        lbCount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbCount.setText("Count");
 
-        txtForLabId.addActionListener(new java.awt.event.ActionListener() {
+        txtCount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtForLabIdActionPerformed(evt);
+                txtCountActionPerformed(evt);
             }
         });
 
@@ -117,12 +114,26 @@ public class ReadForensicLab extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(228, 228, 228)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbWeaponId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbWeaponType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbCount, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtWeaponId)
+                    .addComponent(txtWeaponType)
+                    .addComponent(txtCount, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -135,19 +146,6 @@ public class ReadForensicLab extends javax.swing.JPanel {
                             .addComponent(btnUpdate))
                         .addComponent(btnView))
                     .addContainerGap(246, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(242, 242, 242)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lbHosptId, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                        .addComponent(lbHospName, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbForLabId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtHospName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                        .addComponent(txtHospId, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtForLabId))
-                    .addContainerGap(243, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +154,19 @@ public class ReadForensicLab extends javax.swing.JPanel {
                 .addComponent(lbTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtWeaponId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbWeaponId, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtWeaponType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbWeaponType, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbCount, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(140, 140, 140)
@@ -164,22 +174,7 @@ public class ReadForensicLab extends javax.swing.JPanel {
                         .addComponent(btnUpdate)
                         .addComponent(btnDelete)
                         .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(131, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(188, 188, 188)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbForLabId, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtForLabId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtHospId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbHosptId, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtHospName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbHospName, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(28, Short.MAX_VALUE)))
+                    .addContainerGap(159, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -193,23 +188,21 @@ public class ReadForensicLab extends javax.swing.JPanel {
             }
 
             DefaultTableModel model = (DefaultTableModel) HTable.getModel();
-            ForensicLab selectedForensicLab = (ForensicLab) model.getValueAt(selectedRowIndex, 0);
+            Weapon selectedWeapon = (Weapon) model.getValueAt(selectedRowIndex, 0);
 
-            int forLabId = Integer.parseInt(txtForLabId.getText());
-            int hospId = Integer.parseInt(txtHospId.getText());
-            String hospName = txtHospName.getText();
+            int weaponId = Integer.parseInt(txtWeaponId.getText());
+            String weaponName = txtWeaponType.getText();
+            int count = Integer.parseInt(txtCount.getText());
 
-            JOptionPane.showMessageDialog(this, "Forensic Lab Information Updated");
+            JOptionPane.showMessageDialog(this, "Weapon Information Updated");
             //history.deleteEmployee(selectedEmployee);
-            selectedForensicLab.setForLabId(forLabId);
-            selectedForensicLab.setHospId(hospId);
-            selectedForensicLab.setHospName(hospName);
+            selectedWeapon.setWeaponId(weaponId);
+            selectedWeapon.setwType(weaponName);
+            selectedWeapon.setCount(count);
              
-            populateTable();
-            txtForLabId.setText("");
-            txtHospId.setText("");
-            txtHospName.setText("");
-        
+            txtWeaponId.setText("");
+            txtWeaponType.setText("");
+            txtCount.setText("");
         
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -223,11 +216,11 @@ public class ReadForensicLab extends javax.swing.JPanel {
         }
 
         DefaultTableModel model = (DefaultTableModel) HTable.getModel();
-        ForensicLab selectedForensicLab = (ForensicLab)model.getValueAt(selectedRowIndex, 0);
+        Weapon selectedWeapon = (Weapon) model.getValueAt(selectedRowIndex, 0);
 
-        txtForLabId.setText(String.valueOf(selectedForensicLab.getForLabId()));
-        txtHospId.setText(String.valueOf(selectedForensicLab.getHospId()));
-        txtHospName.setText(selectedForensicLab.getHospName());
+        txtWeaponId.setText(String.valueOf(selectedWeapon.getWeaponId()));
+        txtWeaponType.setText(selectedWeapon.getwType());
+        txtCount.setText(String.valueOf(selectedWeapon.getCount()));
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -240,21 +233,21 @@ public class ReadForensicLab extends javax.swing.JPanel {
         }
 
         DefaultTableModel model = (DefaultTableModel) HTable.getModel();
-        ForensicLab selectedForensicLab = (ForensicLab)model.getValueAt(selectedRowIndex, 0);
+        Weapon selectedWeapon = (Weapon) model.getValueAt(selectedRowIndex, 0);
 
-        forLabHistory.deleteForLab(selectedForensicLab);
-        JOptionPane.showMessageDialog(this, "Forensic Lab deleted");
+        weaponHistory.deleteWeapon(selectedWeapon);
+        JOptionPane.showMessageDialog(this, "Weapon deleted");
 
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void txtHospNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHospNameActionPerformed
+    private void txtWeaponTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWeaponTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtHospNameActionPerformed
+    }//GEN-LAST:event_txtWeaponTypeActionPerformed
 
-    private void txtForLabIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtForLabIdActionPerformed
+    private void txtCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtForLabIdActionPerformed
+    }//GEN-LAST:event_txtCountActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -263,26 +256,25 @@ public class ReadForensicLab extends javax.swing.JPanel {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbForLabId;
-    private javax.swing.JLabel lbHospName;
-    private javax.swing.JLabel lbHosptId;
+    private javax.swing.JLabel lbCount;
     private javax.swing.JLabel lbTitle;
-    private javax.swing.JTextField txtForLabId;
-    private javax.swing.JTextField txtHospId;
-    private javax.swing.JTextField txtHospName;
+    private javax.swing.JLabel lbWeaponId;
+    private javax.swing.JLabel lbWeaponType;
+    private javax.swing.JTextField txtCount;
+    private javax.swing.JTextField txtWeaponId;
+    private javax.swing.JTextField txtWeaponType;
     // End of variables declaration//GEN-END:variables
 
 private void populateTable() {
             DefaultTableModel model = (DefaultTableModel) HTable.getModel();
             model.setRowCount(0);
 
-            for(ForensicLab e: forLabHistory.getForLabHistory()){
+            for(Weapon e: weaponHistory.getWeaponHistory()){
 
-                Object[] row = new Object[5];
+                Object[] row = new Object[4];
                 row[0] = e;
-                row[1] = e.getHospId();
-                row[2] = e.getHospName();
-                
+                row[1] = e.getwType();
+                row[2] = e.getCount();
                 model.addRow(row);
             }
         }

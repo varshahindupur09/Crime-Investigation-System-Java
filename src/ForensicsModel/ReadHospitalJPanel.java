@@ -225,7 +225,7 @@ public class ReadHospitalJPanel extends javax.swing.JPanel {
             String community = txtComm.getText();
             String city = txtCity.getText();
 
-            JOptionPane.showMessageDialog(this, "Employee Information Updated");
+            JOptionPane.showMessageDialog(this, "Hospital Information Updated");
             //history.deleteEmployee(selectedEmployee);
             selectedHospital.setHospId(hospId);
             selectedHospital.setHospName(hospName);
@@ -246,7 +246,7 @@ public class ReadHospitalJPanel extends javax.swing.JPanel {
         int selectedRowIndex = HTable.getSelectedRow();
 
         if (selectedRowIndex<0) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete");
+            JOptionPane.showMessageDialog(this, "Please select a row to view");
             return;
         }
 
@@ -272,7 +272,7 @@ public class ReadHospitalJPanel extends javax.swing.JPanel {
         Hospital selectedHospital = (Hospital)model.getValueAt(selectedRowIndex, 0);
 
         hospHistory.deleteHospital(selectedHospital);
-        JOptionPane.showMessageDialog(this, "Employee deleted");
+        JOptionPane.showMessageDialog(this, "Hospital deleted");
 
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
