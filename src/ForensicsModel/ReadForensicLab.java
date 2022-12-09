@@ -185,7 +185,8 @@ public class ReadForensicLab extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-            
+            boolean isValid = Validation();
+            if (isValid) {
             int selectedRowIndex = HTable.getSelectedRow();
             if (selectedRowIndex < 0) {
                 JOptionPane.showMessageDialog(this, "Please select a row to update");
@@ -209,8 +210,8 @@ public class ReadForensicLab extends javax.swing.JPanel {
             txtForLabId.setText("");
             txtHospId.setText("");
             txtHospName.setText("");
-        
-        
+            
+            }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -287,5 +288,47 @@ private void populateTable() {
             }
         }
 
+        private boolean Validation() {
+        
+        if (txtForLabId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Forensic Lab ID");
+            return false;
+        } 
+            
+        try {
+        Integer.parseInt(txtForLabId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Forensic Lab Id");
+            
+        }
+                
+        if (txtHospId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Hospital ID");
+            return false;
+        } else {
+            if (txtHospId.getText().length() != 1) {
+                JOptionPane.showMessageDialog(this, "Hospital ID should be only 1 digit");
+                return false;
+            }
+        }
+        
+        try {
+        Integer.parseInt(txtHospId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Hospital Id");
+            
+        }
+        
+        if (txtHospName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Hospital Name");
+            return false;
+        } else {
+            if (!(txtHospName.getText().matches("[a-zA-Z]*[\\s]{1}[a-zA-Z].*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Hospital Name");
+                return false;
+            }
+        }
+     return true;   
+    }
         
 }

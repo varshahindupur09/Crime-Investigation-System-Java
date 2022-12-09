@@ -224,7 +224,8 @@ public class CreatePostMortem extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        
+        boolean isValid = Validation();
+        if (isValid) {
         int pmId = Integer.parseInt(txtPmId.getText());
         String date = txtDate.getText();
         int docId = Integer.parseInt(txtDocId.getText());
@@ -258,7 +259,7 @@ public class CreatePostMortem extends javax.swing.JPanel {
         txtDeathDate.setText("");
         txtDeathTime.setText("");
         txtCauseOfDeath.setText("");
-               
+        }         
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtDocIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDocIdActionPerformed
@@ -307,4 +308,88 @@ public class CreatePostMortem extends javax.swing.JPanel {
     private javax.swing.JTextField txtPmId;
     // End of variables declaration//GEN-END:variables
 
+    private boolean Validation() {
+    
+        try {
+        Integer.parseInt(txtPmId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Post Mortem Id");
+        }
+        
+        if (txtPmId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Post Mortem ID");
+            return false;
+        }
+        
+        if (txtDate.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Date");
+            return false;
+        } else {
+            if (!(txtDate.getText().matches("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Date Format mm/dd/yyyy");
+                return false;
+            }
+        }
+        
+        try {
+        Integer.parseInt(txtDocId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Id");
+            
+        }
+        
+
+        if (txtDocId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Doctor ID");
+            return false;
+        } else {
+            if (txtDocId.getText().length() != 3) {
+                JOptionPane.showMessageDialog(this, "Doctor ID should be only 3 digits");
+                return false;
+            }
+        }
+        
+        try {
+        Integer.parseInt(txtCaseId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Case Id");
+        }
+        
+        if (txtCaseId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Case ID");
+            return false;
+        }
+    
+        if (txtBodyName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Body Name");
+            return false;
+        } else {
+            if (!(txtBodyName.getText().matches("[a-zA-Z]*[\\s]{1}[a-zA-Z].*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Body Name");
+                return false;
+            }
+        }
+                
+        
+        if (txtDeathDate.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Death Date");
+            return false;
+        } else {
+            if (!(txtDeathDate.getText().matches("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Date Format mm/dd/yyyy");
+                return false;
+            }
+        }
+        
+        if (txtCauseOfDeath.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Cause of Death");
+            return false;
+        } else {
+            if (!(txtCauseOfDeath.getText().matches("[a-zA-Z]*[\\s]{1}[a-zA-Z].*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Cause of Death");
+                return false;
+            }
+        }
+        return true;
+    }
 }

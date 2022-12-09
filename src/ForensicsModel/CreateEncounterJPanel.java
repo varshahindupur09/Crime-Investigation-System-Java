@@ -381,6 +381,9 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        boolean isValid = Validation();
+        if (isValid) {
+            
         
         int reportId = Integer.parseInt(txtRepId.getText());
         int docId = Integer.parseInt(txtDocId.getText());
@@ -432,6 +435,7 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
         txtPulserate.setText("");
         txtStrangleMarks.setText("");
         txtIncisions.setText("");
+        }
         
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -524,4 +528,195 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtStrangleMarks;
     // End of variables declaration//GEN-END:variables
 
+    private boolean Validation() {
+        
+        if (txtRepId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Report ID");
+            return false;
+        } else {
+            if (txtRepId.getText().length() != 5) {
+                JOptionPane.showMessageDialog(this, "Report ID should be only 5 digits");
+                return false;
+            }
+        }
+        try {
+        Integer.parseInt(txtRepId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Id");
+            
+        }
+        
+        try {
+        Integer.parseInt(txtDocId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Doctor Id");
+            
+        }
+        
+
+        if (txtDocId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Doctor ID");
+            return false;
+        } else {
+            if (txtDocId.getText().length() != 3) {
+                JOptionPane.showMessageDialog(this, "Doctor ID should be only 3 digits");
+                return false;
+            }
+        }
+        
+        if (txtDocName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Doctor Name");
+            return false;
+        } else {
+            if (!(txtDocName.getText().matches("[a-zA-Z]*[\\s]{1}[a-zA-Z].*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Doctor Name");
+                return false;
+            }
+        }
+        
+        if (txtPatId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Patient ID");
+            return false;
+        } else {
+            if (txtPatId.getText().length() != 4) {
+                JOptionPane.showMessageDialog(this, "Patient ID should be only 4 digits");
+                return false;
+            }
+        }
+        
+        try {
+        Integer.parseInt(txtPatId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Patient Id");
+            
+        }
+        
+        
+        if (txtPatName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Patient Name");
+            return false;
+        } else {
+            if (!(txtPatName.getText().matches("[a-zA-Z]*[\\s]{1}[a-zA-Z].*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Patient Name");
+                return false;
+            }
+        }
+        
+        if (txtHospId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Hospital ID");
+            return false;
+        } else {
+            if (txtHospId.getText().length() != 1) {
+                JOptionPane.showMessageDialog(this, "Hospital ID should be only 1 digit");
+                return false;
+            }
+        }
+        
+        try {
+        Integer.parseInt(txtHospId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Hospital Id");
+            
+        }
+        
+        if (txtHospName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Hospital Name");
+            return false;
+        } else {
+            if (!(txtHospName.getText().matches("[a-zA-Z]*[\\s]{1}[a-zA-Z].*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Hospital Name");
+                return false;
+            }
+        }
+        
+        if (txtDate.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Date");
+            return false;
+        } else {
+            if (!(txtDate.getText().matches("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Date Format mm/dd/yyyy");
+                return false;
+            }
+        }
+        
+        if (txtBloodGroup.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Blood Group");
+            return false;
+        } else {
+            if (!(txtBloodGroup.getText().matches("[a-zA-Z]*[\\s]{1}[a-zA-Z].*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Blood Group");
+                return false;
+            }
+        }
+                 
+        try {
+        Integer.parseInt(txtPulserate.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Pulse rate");
+            
+        }
+        
+        if (txtPulserate.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Patient Pulse rate");
+            return false;
+        }   
+        
+        if (txtStrangleMarks.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Strangle Marks");
+            return false;
+        } else {
+            if (!(txtStrangleMarks.getText().matches("[a-zA-Z]*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Strangle Marks");
+                return false;
+            }
+        }
+        
+        if (txtMissingOrgans.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Missing Organs");
+            return false;
+        } else {
+            if (!(txtMissingOrgans.getText().matches("[a-zA-Z]*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Missing Organs");
+                return false;
+            }
+        }
+        
+        try {
+        Integer.parseInt(txtStabs.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Stabs");
+            
+        }
+        
+        if (txtStabs.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Patient Stabs");
+            return false;
+        }
+        
+        try {
+        Integer.parseInt(txtHits.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Hits");
+            
+        }
+        
+        if (txtHits.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Patient Hits");
+            return false;
+        } 
+        
+        try {
+        Integer.parseInt(txtIncisions.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Incisions");
+            
+        }
+        
+        if (txtIncisions.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Patient Incisions");
+            return false;
+        } 
+              
+        return true;
+    } 
 }
