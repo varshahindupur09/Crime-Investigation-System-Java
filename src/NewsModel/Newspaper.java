@@ -11,7 +11,8 @@ package NewsModel;
 public class Newspaper {
     
     private String npId;
-    private String npPrice;
+    private String npName;
+    private int npPrice;
     private int npNoOfPages;
     private String npDate;
     private String npPublicationId;
@@ -20,15 +21,23 @@ public class Newspaper {
         return npId;
     }
 
+    public String getNpName() {
+        return npName;
+    }
+
+    public void setNpName(String npName) {
+        this.npName = npName;
+    }
+
     public void setNpId(String npId) {
         this.npId = npId;
     }
 
-    public String getNpPrice() {
+    public int getNpPrice() {
         return npPrice;
     }
 
-    public void setNpPrice(String npPrice) {
+    public void setNpPrice(int npPrice) {
         this.npPrice = npPrice;
     }
 
