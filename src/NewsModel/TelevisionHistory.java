@@ -29,9 +29,9 @@ public class TelevisionHistory {
     
     public Television addTelevision() {
 
-        Television newAuthData = new Television();
-        televisionData.add(newAuthData);
-        return newAuthData;
+        Television newTvData = new Television();
+        televisionData.add(newTvData);
+        return newTvData;
 
     }
     
