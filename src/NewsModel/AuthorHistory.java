@@ -27,7 +27,7 @@ public class AuthorHistory {
         this.authorData = authorData;
     }
     
-    public Author addDoctor() {
+    public Author addAuthor() {
 
         Author newAuthData = new Author();
         authorData.add(newAuthData);
