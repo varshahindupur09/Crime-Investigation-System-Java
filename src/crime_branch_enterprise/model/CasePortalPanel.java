@@ -37,8 +37,6 @@ public class CasePortalPanel extends javax.swing.JPanel {
         clearFields();
         
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -78,6 +76,9 @@ public class CasePortalPanel extends javax.swing.JPanel {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 NewCaseRegisterationLabelMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                NewCaseRegisterationLabelMouseExited(evt);
+            }
         });
 
         SearchYourCaseLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -89,6 +90,9 @@ public class CasePortalPanel extends javax.swing.JPanel {
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 SearchYourCaseLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                SearchYourCaseLabelMouseExited(evt);
             }
         });
 
@@ -106,6 +110,9 @@ public class CasePortalPanel extends javax.swing.JPanel {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 FIRRegisterationLabelMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                FIRRegisterationLabelMouseExited(evt);
+            }
         });
 
         CreateNewOfficerLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -118,6 +125,9 @@ public class CasePortalPanel extends javax.swing.JPanel {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 CreateNewOfficerLabelMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CreateNewOfficerLabelMouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -126,17 +136,14 @@ public class CasePortalPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(SearchYourCaseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 16, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(56, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TitleCasePortalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(NewCaseRegisterationLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(FIRRegisterationLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(FIRRegisterationLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(SearchYourCaseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(CreateNewOfficerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -153,9 +160,9 @@ public class CasePortalPanel extends javax.swing.JPanel {
                 .addComponent(FIRRegisterationLabel)
                 .addGap(38, 38, 38)
                 .addComponent(NewCaseRegisterationLabel)
-                .addGap(49, 49, 49)
+                .addGap(48, 48, 48)
                 .addComponent(SearchYourCaseLabel)
-                .addContainerGap(424, Short.MAX_VALUE))
+                .addContainerGap(425, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -172,21 +179,17 @@ public class CasePortalPanel extends javax.swing.JPanel {
         NewCaseRegisterationPanel.setLayout(NewCaseRegisterationPanelLayout);
         NewCaseRegisterationPanelLayout.setHorizontalGroup(
             NewCaseRegisterationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 637, Short.MAX_VALUE)
-            .addGroup(NewCaseRegisterationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NewCaseRegisterationPanelLayout.createSequentialGroup()
-                    .addContainerGap(253, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addContainerGap(254, Short.MAX_VALUE)))
+            .addGroup(NewCaseRegisterationPanelLayout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(jLabel1)
+                .addContainerGap(898, Short.MAX_VALUE))
         );
         NewCaseRegisterationPanelLayout.setVerticalGroup(
             NewCaseRegisterationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 458, Short.MAX_VALUE)
-            .addGroup(NewCaseRegisterationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NewCaseRegisterationPanelLayout.createSequentialGroup()
-                    .addContainerGap(136, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(145, Short.MAX_VALUE)))
+            .addGroup(NewCaseRegisterationPanelLayout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(421, Short.MAX_VALUE))
         );
 
         SwitchPanel.add(NewCaseRegisterationPanel, "card2");
@@ -269,12 +272,29 @@ public class CasePortalPanel extends javax.swing.JPanel {
         SearchYourCaseLabel.setForeground(Color.black);
     }//GEN-LAST:event_SearchYourCaseLabelMouseEntered
 
-    
-    
+    private void SearchYourCaseLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchYourCaseLabelMouseExited
+        // TODO add your handling code here:
+        SearchYourCaseLabel.setForeground(Color.white);
+    }//GEN-LAST:event_SearchYourCaseLabelMouseExited
+
+    private void NewCaseRegisterationLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewCaseRegisterationLabelMouseExited
+        // TODO add your handling code here:
+        NewCaseRegisterationLabel.setForeground(Color.white);
+    }//GEN-LAST:event_NewCaseRegisterationLabelMouseExited
+
+    private void FIRRegisterationLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FIRRegisterationLabelMouseExited
+        // TODO add your handling code here:
+        FIRRegisterationLabel.setForeground(Color.white);
+    }//GEN-LAST:event_FIRRegisterationLabelMouseExited
+
+    private void CreateNewOfficerLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateNewOfficerLabelMouseExited
+        // TODO add your handling code here:
+        CreateNewOfficerLabel.setForeground(Color.white);
+    }//GEN-LAST:event_CreateNewOfficerLabelMouseExited
+
     public void clearFields(){
         
         //add fields so they can be cleared
-        
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

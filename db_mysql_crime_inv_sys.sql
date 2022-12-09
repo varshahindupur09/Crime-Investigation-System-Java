@@ -83,9 +83,6 @@ drop table firDetails cascade;
 select * from casedetails;
 select * from firDetails;
 
-truncate table firDetails;
-truncate table casedetails;
-
 CREATE TABLE if not exists officerDetails
 (
     officerName varchar(20) NOT NULL,
@@ -96,4 +93,7 @@ CREATE TABLE if not exists officerDetails
 ALTER TABLE officerDetails ADD PRIMARY KEY(officerEmail);
 select * from officerDetails;
 drop table officerDetails cascade;
+
+truncate table firDetails;
+truncate table casedetails;
 truncate table officerDetails;
