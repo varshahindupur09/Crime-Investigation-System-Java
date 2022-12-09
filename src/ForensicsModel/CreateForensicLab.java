@@ -124,6 +124,8 @@ public class CreateForensicLab extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        boolean isValid = Validation();
+        if (isValid) {
         int forLabId = Integer.parseInt(txtForLabId.getText());
         int hospId = Integer.parseInt(txtHospId.getText());
         String hospName = txtHospName.getText();
@@ -140,7 +142,7 @@ public class CreateForensicLab extends javax.swing.JPanel {
         txtForLabId.setText("");
         txtHospId.setText("");
         txtHospName.setText("");
-                 
+    }           
         
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -164,4 +166,46 @@ public class CreateForensicLab extends javax.swing.JPanel {
     private javax.swing.JTextField txtHospName;
     // End of variables declaration//GEN-END:variables
 
+    private boolean Validation() {
+        
+        if (txtForLabId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Forensic Lab ID");
+            return false;
+        } 
+            
+        try {
+        Integer.parseInt(txtForLabId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Forensic Lab Id");
+            
+        }
+                
+        if (txtHospId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Hospital ID");
+            return false;
+        } else {
+            if (txtHospId.getText().length() != 1) {
+                JOptionPane.showMessageDialog(this, "Hospital ID should be only 1 digit");
+                return false;
+            }
+        }
+        
+        try {
+        Integer.parseInt(txtHospId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Hospital Id");
+            
+        }
+        
+        if (txtHospName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Hospital Name");
+            return false;
+        } else {
+            if (!(txtHospName.getText().matches("[a-zA-Z]*[\\s]{1}[a-zA-Z].*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Hospital Name");
+                return false;
+            }
+        }
+     return true;   
+    }
 }
