@@ -13,6 +13,7 @@ public class HomeScreen extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private Sys sys;
     HomePanel homePanel;
+    
     public HomeScreen(JPanel userProcessContainer,Sys sys,HomePanel homePanel) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -159,7 +160,7 @@ public class HomeScreen extends javax.swing.JPanel {
 
     private void CrimeBranchEnterpriseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseMouseExited
         // TODO add your handling code here:
-        CrimeBranchEnterprise.setForeground(Color.white);
+        CrimeBranchEnterprise.setForeground(Color.black);
     }//GEN-LAST:event_CrimeBranchEnterpriseMouseExited
 
     private void ForensicsEnterpriseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForensicsEnterpriseMouseEntered
@@ -169,7 +170,7 @@ public class HomeScreen extends javax.swing.JPanel {
 
     private void ForensicsEnterpriseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForensicsEnterpriseMouseExited
         // TODO add your handling code here:
-        ForensicsEnterprise.setForeground(Color.white);
+        ForensicsEnterprise.setForeground(Color.black);
     }//GEN-LAST:event_ForensicsEnterpriseMouseExited
 
     private void ResourceMgmtSystemEnterpriseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResourceMgmtSystemEnterpriseMouseEntered
@@ -179,7 +180,7 @@ public class HomeScreen extends javax.swing.JPanel {
 
     private void ResourceMgmtSystemEnterpriseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResourceMgmtSystemEnterpriseMouseExited
         // TODO add your handling code here:
-        ResourceMgmtSystemEnterprise.setForeground(Color.white);
+        ResourceMgmtSystemEnterprise.setForeground(Color.black);
     }//GEN-LAST:event_ResourceMgmtSystemEnterpriseMouseExited
 
     private void CrimeBranchEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseMousePressed

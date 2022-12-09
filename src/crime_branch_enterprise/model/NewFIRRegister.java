@@ -29,7 +29,6 @@ public class NewFIRRegister extends javax.swing.JPanel {
     private HomeScreen homeScreen;
     DatabaseConnection_FirDetails dbConnFIRDetails;
     PreparedStatement stmt;
-    int firId = 0;
    
 
     public NewFIRRegister(JPanel newFIRRegisterPanel,Sys sys,HomeScreen homeScreen) {
@@ -197,18 +196,14 @@ public class NewFIRRegister extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(LastNameLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(LastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
-                                                .addComponent(LastNameLabel)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                                                .addComponent(DescriptionLabel1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                                        .addComponent(DescriptionLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(DescriptionTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(DescriptionLabel, javax.swing.GroupLayout.Alignment.TRAILING)))))
@@ -283,6 +278,7 @@ public class NewFIRRegister extends javax.swing.JPanel {
     }//GEN-LAST:event_DescriptionTextFieldKeyPressed
 
     private void SubmitDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitDetailsButtonActionPerformed
+        
         // TODO add your handling code here:
         java.util.Date utilDate=(java.util.Date) DateOfOffenceDateChooser.getDate();
         java.sql.Date  sqlDate=new java.sql.Date(utilDate.getDate());
@@ -299,28 +295,25 @@ public class NewFIRRegister extends javax.swing.JPanel {
         String valuePoliceStn = SelectPoliceStation.getSelectedItem().toString();
         String valueAccVic = SelectAccusedOrVictim.getSelectedItem().toString();
         
-        firId+=1;
-        
         FIRDirectory fIRDirectory = new FIRDirectory();
-        fIRDirectory.firList.add(new FIR(firId,sqlDate,descr,valuePoliceStn,valueAccVic,firstName,lastName,emailId,phoneNumber, address));
+        fIRDirectory.firList.add(new FIR(sqlDate,descr,valuePoliceStn,valueAccVic,firstName,lastName,emailId,phoneNumber, address));
         
         //add to database firDetails
         try
         {
             dbConnFIRDetails.databaseConnectionFIRDetails();
-            String insertsql="Insert into firDetails (firId,dateOfOffence,descr,policeStationLoc,accorvic,firstName,lastName,emailId,phoneNum,address) values(?,?,?,?,?,?,?,?,?,?)";
+            String insertsql="Insert into firDetails (dateOfOffence,descr,policeStationLoc,accorvic,firstName,lastName,emailId,phoneNum,address) values(?,?,?,?,?,?,?,?,?)";
             PreparedStatement stmt=dbConnFIRDetails.con.prepareStatement(insertsql);
             
-            stmt.setInt(1, firId);
-            stmt.setDate(2, new java.sql.Date(sqlDate.getDate()));
-            stmt.setString(3, DescriptionTextField.getText());
-            stmt.setString(4, valuePoliceStn);
-            stmt.setString(5, valueAccVic);
-            stmt.setString(6, firstName);
-            stmt.setString(7, lastName);
-            stmt.setString(8, emailId);
-            stmt.setInt(9, phoneNumber);
-            stmt.setString(10, address);
+            stmt.setDate(1, new java.sql.Date(sqlDate.getDate()));
+            stmt.setString(2, DescriptionTextField.getText());
+            stmt.setString(3, valuePoliceStn);
+            stmt.setString(4, valueAccVic);
+            stmt.setString(5, firstName);
+            stmt.setString(6, lastName);
+            stmt.setString(7, emailId);
+            stmt.setInt(8, phoneNumber);
+            stmt.setString(9, address);
             
             stmt.executeUpdate();
             stmt.close();

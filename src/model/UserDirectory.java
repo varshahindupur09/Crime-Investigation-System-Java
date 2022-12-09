@@ -44,6 +44,7 @@ public class UserDirectory {
         user.setRole("Admin");
         
     }
+    
 
     public ArrayList<User> getUserDir() {
         return userDir;
