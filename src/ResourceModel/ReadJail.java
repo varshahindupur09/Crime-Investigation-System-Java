@@ -204,7 +204,8 @@ public class ReadJail extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-            
+            boolean isValid = Validation();
+            if (isValid) {
             int selectedRowIndex = HTable.getSelectedRow();
             if (selectedRowIndex < 0) {
                 JOptionPane.showMessageDialog(this, "Please select a row to update");
@@ -230,7 +231,7 @@ public class ReadJail extends javax.swing.JPanel {
             txtJailerId.setText("");
             txtJailerName.setText("");
             txtCcount.setText("");
-        
+            }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -318,6 +319,54 @@ private void populateTable() {
                 model.addRow(row);
             }
         }
-
+        private boolean Validation() {
+    if (txtJailId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Jail ID");
+            return false;
+        } 
+                
+        try {
+        Integer.parseInt(txtJailId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Jail ID");
+            
+        }
         
+        if (txtJailerId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Jailer ID");
+            return false;
+        } 
+                
+        try {
+        Integer.parseInt(txtJailerId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Jailer ID");
+            
+        }
+        
+        if (txtJailerName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Jailer Name");
+            return false;
+        } else {
+            if (!(txtJailerName.getText().matches("[a-zA-Z]*[\\s]{1}[a-zA-Z].*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Jailer Name");
+                return false;
+            }
+        }
+        
+        if (txtCcount.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Criminal count");
+            return false;
+        } 
+                
+        try {
+        Integer.parseInt(txtCcount.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Criminal count");
+            
+        }
+       
+        return true;
+        
+    }        
 }

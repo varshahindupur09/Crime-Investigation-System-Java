@@ -142,7 +142,8 @@ public class CreateGov extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        
+        boolean isValid = Validation();
+        if (isValid) {
         int plId = Integer.parseInt(txtPLId.getText());
         String plName = txtPLName.getText();
         String party = txtParty.getText();
@@ -162,7 +163,7 @@ public class CreateGov extends javax.swing.JPanel {
         txtPLName.setText("");
         txtParty.setText("");
         txtState.setText("");
-          
+        }     
         
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -191,5 +192,51 @@ public class CreateGov extends javax.swing.JPanel {
     private javax.swing.JTextField txtParty;
     private javax.swing.JTextField txtState;
     // End of variables declaration//GEN-END:variables
- 
+    private boolean Validation() {
+    if (txtPLId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Party Leader ID");
+            return false;
+        } 
+                
+        try {
+        Integer.parseInt(txtPLId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Party Leader ID");
+            
+        }
+        
+        if (txtPLName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Party Leader Name");
+            return false;
+        } else {
+            if (!(txtPLName.getText().matches("[a-zA-Z]*[\\s]{1}[a-zA-Z].*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Party Leader Name");
+                return false;
+            }
+        }
+        
+        if (txtParty.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Party");
+            return false;
+        }
+            else{
+            if(!(txtParty.getText().matches("[a-zA-Z]*"))){
+                JOptionPane.showMessageDialog(this, "Please enter valid Party");
+                return false;
+            }
+        } 
+        
+        if (txtState.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter State");
+            return false;
+        }
+            else{
+            if(!(txtParty.getText().matches("[a-zA-Z]*"))){
+                JOptionPane.showMessageDialog(this, "Please enter valid State");
+                return false;
+            }
+        } 
+        return true;
+        
+    }
 }
