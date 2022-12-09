@@ -34,26 +34,23 @@
                   <Component id="lbDocPhone" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
                   <Component id="lbHospName" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
                   <Component id="lbHospId" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
-                  <Component id="lbHospName1" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
+                  <Component id="lbHospName14" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="221" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnAdd" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtAuthId" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtAuthName" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtAuthAge" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtAuthYoe" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
+                          <Component id="txtNpId" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtNpPrice" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtNpNop" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtNpDate" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="txtAuthGender" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
+                      <Component id="txtNpPbId" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                      <Component id="txtAuthDoj" min="-2" pref="156" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="txtNpName" min="-2" pref="156" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,33 +61,33 @@
               <Component id="lbTitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtAuthId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNpId" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbDocId" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtAuthName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNpPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbDocName" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbDocPhone" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="txtAuthAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNpNop" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbHospId" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="txtAuthYoe" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNpDate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbHospName" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="txtAuthGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNpPbId" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbHospName1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="txtAuthDoj" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbHospName14" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="txtNpName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
               <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
@@ -100,23 +97,18 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="txtAuthDoj">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAuthDojActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="lbHospId">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Years Of Experience"/>
+        <Property name="text" type="java.lang.String" value="Date"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAuthYoe">
+    <Component class="javax.swing.JTextField" name="txtNpDate">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAuthYoeActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNpDateActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbTitle">
@@ -139,7 +131,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Add Author"/>
+        <Property name="text" type="java.lang.String" value="Add Newspaper"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
@@ -154,7 +146,7 @@
         <Property name="text" type="java.lang.String" value=" Id"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAuthId">
+    <Component class="javax.swing.JTextField" name="txtNpId">
     </Component>
     <Component class="javax.swing.JLabel" name="lbDocName">
       <Properties>
@@ -162,17 +154,17 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Name"/>
+        <Property name="text" type="java.lang.String" value="Price"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAuthName">
+    <Component class="javax.swing.JTextField" name="txtNpPrice">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAuthNameActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNpPriceActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAuthAge">
+    <Component class="javax.swing.JTextField" name="txtNpNop">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAuthAgeActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNpNopActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbDocPhone">
@@ -181,7 +173,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Age"/>
+        <Property name="text" type="java.lang.String" value="No of Pages"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbHospName">
@@ -190,21 +182,26 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Gender"/>
+        <Property name="text" type="java.lang.String" value="Publication ID"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbHospName1">
+    <Component class="javax.swing.JTextField" name="txtNpPbId">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNpPbIdActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbHospName14">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Date of Joining"/>
+        <Property name="text" type="java.lang.String" value="Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAuthGender">
+    <Component class="javax.swing.JTextField" name="txtNpName">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAuthGenderActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNpNameActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
