@@ -211,7 +211,8 @@ public class ReadArmy extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-            
+            boolean isValid = Validation();
+            if (isValid) {
             int selectedRowIndex = HTable.getSelectedRow();
             if (selectedRowIndex < 0) {
                 JOptionPane.showMessageDialog(this, "Please select a row to update");
@@ -238,7 +239,7 @@ public class ReadArmy extends javax.swing.JPanel {
             txtGenName.setText("");
             txtDep.setText("");
             txtCountry.setText("");
-        
+            }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -310,6 +311,52 @@ private void populateTable() {
                 model.addRow(row);
             }
         }
-
+        private boolean Validation() {
+    if (txtGenId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter General ID");
+            return false;
+        } 
+                
+        try {
+        Integer.parseInt(txtGenId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for General Id");
+            
+        }
+        
+        if (txtGenName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter General Name");
+            return false;
+        } else {
+            if (!(txtGenName.getText().matches("[a-zA-Z]*[\\s]{1}[a-zA-Z].*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid General Name");
+                return false;
+            }
+        }
+        
+        if (txtDep.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Department");
+            return false;
+        }
+            else{
+            if(!(txtDep.getText().matches("[a-zA-Z]*"))){
+                JOptionPane.showMessageDialog(this, "Please enter valid Department");
+                return false;
+            }
+        } 
+        
+        if (txtCountry.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Country");
+            return false;
+        }
+            else{
+            if(!(txtCountry.getText().matches("[a-zA-Z]*"))){
+                JOptionPane.showMessageDialog(this, "Please enter valid Country");
+                return false;
+            }
+        } 
+        return true;
+        
+    }   
         
 }

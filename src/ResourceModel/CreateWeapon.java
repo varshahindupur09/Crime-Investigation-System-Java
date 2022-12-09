@@ -122,7 +122,8 @@ public class CreateWeapon extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        
+        boolean isValid = Validation();
+            if (isValid) {
         int weaponId = Integer.parseInt(txtWeaponId.getText());
         String weaponName = txtWeaponType.getText();
         int count = Integer.parseInt(txtCount.getText());      
@@ -138,7 +139,7 @@ public class CreateWeapon extends javax.swing.JPanel {
         txtWeaponId.setText("");
         txtWeaponType.setText("");
         txtCount.setText("");
-          
+            }   
         
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -161,5 +162,42 @@ public class CreateWeapon extends javax.swing.JPanel {
     private javax.swing.JTextField txtWeaponId;
     private javax.swing.JTextField txtWeaponType;
     // End of variables declaration//GEN-END:variables
- 
+ private boolean Validation() {
+    if (txtWeaponId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Weapon ID");
+            return false;
+        } 
+                
+        try {
+        Integer.parseInt(txtWeaponId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Weapon ID");
+            
+        }
+        
+        if (txtWeaponType.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Weapon Type");
+            return false;
+        } else {
+            if (!(txtWeaponType.getText().matches("[a-zA-Z]*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Weapon Type");
+                return false;
+            }
+        }
+        
+        if (txtCount.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Weapon count");
+            return false;
+        } 
+                
+        try {
+        Integer.parseInt(txtCount.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Weapon count");
+            
+        }
+       
+        return true;
+        
+    }
 }

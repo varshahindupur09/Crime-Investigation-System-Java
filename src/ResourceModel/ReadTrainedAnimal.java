@@ -217,7 +217,8 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-            
+            boolean isValid = Validation();
+            if (isValid) {
             int selectedRowIndex = HTable.getSelectedRow();
             if (selectedRowIndex < 0) {
                 JOptionPane.showMessageDialog(this, "Please select a row to update");
@@ -246,7 +247,7 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
             txtAnimalId.setText("");
             txtAnimalName.setText("");
             txtType.setText("");
-        
+            }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -338,6 +339,63 @@ private void populateTable() {
                 model.addRow(row);
             }
         }
-
+        private boolean Validation() {
+    if (txtTrainerId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Trainer ID");
+            return false;
+        } 
+                
+        try {
+        Integer.parseInt(txtTrainerId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Trainer ID");
+            
+        }
+        
+        if (txtTrainerName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Trainer Name");
+            return false;
+        } else {
+            if (!(txtTrainerName.getText().matches("[a-zA-Z]*[\\s]{1}[a-zA-Z].*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Trainer Name");
+                return false;
+            }
+        }
+        
+        if (txtAnimalId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Animal ID");
+            return false;
+        } 
+                
+        try {
+        Integer.parseInt(txtAnimalId.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Enter a numerical value for Animal ID");
+            
+        }
+        
+        if (txtAnimalName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Animal Name");
+            return false;
+        } else {
+            if (!(txtAnimalName.getText().matches("[a-zA-Z]*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Animal Name");
+                return false;
+            }
+        }
+        
+        if (txtType.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter Animal Type");
+            return false;
+        } else {
+            if (!(txtType.getText().matches("[a-zA-Z]*"))) {
+                JOptionPane.showMessageDialog(this, "Please enter Valid Animal Type");
+                return false;
+            }
+        }
+       
+        return true;
+        
+    }
         
 }

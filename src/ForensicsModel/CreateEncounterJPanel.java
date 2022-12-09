@@ -384,7 +384,6 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
         boolean isValid = Validation();
         if (isValid) {
             
-        
         int reportId = Integer.parseInt(txtRepId.getText());
         int docId = Integer.parseInt(txtDocId.getText());
         String docName = txtDocName.getText();
