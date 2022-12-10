@@ -16,8 +16,13 @@ public class ReadHospitalJPanel extends javax.swing.JPanel {
 
     hospitalDirectory hospHistory;
     Hospital hospital; 
+    
+    JPanel readHospitalJPanel;
+    Sys sys;
+    HomeScreen homeScreen;
+    
     public ReadHospitalJPanel(hospitalDirectory hospHistory, Hospital hospital) {
-        initComponents();
+//        initComponents();
         this.hospHistory = hospHistory;
         populateTable();
     }

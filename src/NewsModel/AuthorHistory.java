@@ -35,6 +35,10 @@ public class AuthorHistory {
 
     }
     
+    public void addAuthor(Author newAuthData) {
+        authorData.add(newAuthData);
+    }
+    
     public void deleteAuthor(Author auth) {
         authorData.remove(auth);
 

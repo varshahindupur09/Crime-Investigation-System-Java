@@ -3,9 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package NewsModel;
-import NewsModel.Author;
-import NewsModel.AuthorHistory;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import model.Sys;
+import ui.HomePanel;
 
 /**
  *
@@ -14,13 +15,30 @@ import javax.swing.JOptionPane;
 public class CreateAuthorJPanel extends javax.swing.JPanel {
 
     AuthorHistory newAuthorData;
+    DatabaseConnection_author dbConAuthorDetails;
+    
+    private JPanel createAuthorJPanel;
+    private Sys sys;
+    HomePanel homePanel;
     /**
      * Creates new form CreateAuthorJPanel
      */
     public CreateAuthorJPanel(AuthorHistory auth) {
         initComponents();
         newAuthorData = auth;
+        dbConAuthorDetails = new DatabaseConnection_author();
     }
+    
+    
+    public CreateAuthorJPanel(JPanel createAuthorJPanel, Sys sys, HomePanel homePanel) 
+    {
+        initComponents();
+        this.createAuthorJPanel = createAuthorJPanel;
+        this.sys = sys;
+        this.homePanel = homePanel;
+        setSize(1040, 544);
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -215,6 +233,9 @@ public class CreateAuthorJPanel extends javax.swing.JPanel {
             d.setAuthorYearsOfExperience(authYoe);
             d.setAuthorGender(authGender);
             d.setAuthorDateOfJoining(authDoj);
+            
+            dbConAuthorDetails.addAuthorDataToDB(d);
+            
 
             JOptionPane.showMessageDialog(this, "Author Information Saved");
         //}

@@ -8,6 +8,9 @@ import NewsModel.NewspaperHistory;
 import NewsModel.AuthorHistory;
 import NewsModel.PublicationHistory;
 import NewsModel.ReporterHistory;
+import javax.swing.JPanel;
+import model.Sys;
+import ui.HomeScreen;
 
 /**
  *
@@ -23,8 +26,23 @@ public class NewsMainJPanel extends javax.swing.JPanel {
     /**
      * Creates new form NewsMainJPanel
      */
-    public NewsMainJPanel() {
+    
+    JPanel newsMainJPanel;
+    Sys sys;
+    HomeScreen homeScreen;
+    
+    public NewsMainJPanel(JPanel newsMainJPanel,Sys sys,HomeScreen homeScreen) 
+    {
         initComponents();
+        
+        this.newsMainJPanel = newsMainJPanel;
+        this.sys = sys;
+        this.homeScreen = homeScreen;
+        setSize(1040, 544);
+    }
+    
+    public NewsMainJPanel() {
+//        initComponents();
         this.news = new NewsHistory();
         this.newspaper = new NewspaperHistory();
         this.author = new AuthorHistory();

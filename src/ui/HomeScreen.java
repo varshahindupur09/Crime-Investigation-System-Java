@@ -112,6 +112,9 @@ public class HomeScreen extends javax.swing.JPanel {
         MediaEnterprise.setForeground(new java.awt.Color(255, 255, 255));
         MediaEnterprise.setText("Media Enterprise");
         MediaEnterprise.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MediaEnterpriseMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 MediaEnterpriseMouseEntered(evt);
             }
@@ -250,10 +253,12 @@ public class HomeScreen extends javax.swing.JPanel {
 
     private void MediaEnterpriseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MediaEnterpriseMouseEntered
         // TODO add your handling code here:
+        MediaEnterprise.setForeground(Color.black);
     }//GEN-LAST:event_MediaEnterpriseMouseEntered
 
     private void MediaEnterpriseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MediaEnterpriseMouseExited
         // TODO add your handling code here:
+        MediaEnterprise.setForeground(Color.white);
     }//GEN-LAST:event_MediaEnterpriseMouseExited
 
     private void MediaEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MediaEnterpriseMousePressed
@@ -278,6 +283,11 @@ public class HomeScreen extends javax.swing.JPanel {
         // TODO add your handling code here:
         homePanel.clickEnterpriseAdminsCreatePortal(this);
     }//GEN-LAST:event_SignUpAdminsMouseClicked
+
+    private void MediaEnterpriseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MediaEnterpriseMouseClicked
+        // TODO add your handling code here:
+        homePanel.clickNewsMainCreatePortal(this);
+    }//GEN-LAST:event_MediaEnterpriseMouseClicked
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

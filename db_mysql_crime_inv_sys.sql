@@ -109,3 +109,20 @@ ALTER TABLE adminUser ADD PRIMARY KEY(username);
 select * from adminUser;
 drop table adminUser cascade;
 truncate table adminUser;
+
+create table if not exists author
+(
+    authorId varchar(20) NOT NULL,
+    authorName varchar(20) NOT NULL,
+    authorAge int NOT NULL,
+    authorYOE int NOT NULL,
+    authorGender varchar(50) NOT NULL,
+    authorDOJ varchar(10) NOT NULL
+);
+
+ALTER TABLE author ADD PRIMARY KEY(authorid);
+select * from author;
+drop table author cascade;
+truncate table author;
+
+
