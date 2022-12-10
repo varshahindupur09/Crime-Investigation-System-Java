@@ -34,7 +34,7 @@ public class OfficerDirectory {
         this.officerList = officerList;
     }
 
-    public void deleteFIR(OfficerRecord officerRecord){
+    public void deleteOfficer(OfficerRecord officerRecord){
         officerList.remove(officerRecord);
     }
     

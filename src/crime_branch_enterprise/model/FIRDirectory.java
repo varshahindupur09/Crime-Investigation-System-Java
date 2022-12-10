@@ -16,7 +16,7 @@ public class FIRDirectory {
     this.firList= new ArrayList<>(); 
     }
 
-    public ArrayList<FIR> getHospitalHistory() {
+    public ArrayList<FIR> getFIRHistory() {
         return firList;
     }
 
