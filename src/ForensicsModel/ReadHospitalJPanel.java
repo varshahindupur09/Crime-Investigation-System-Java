@@ -12,7 +12,8 @@ import javax.swing.table.DefaultTableModel;
 public class ReadHospitalJPanel extends javax.swing.JPanel {
 
     hospitalDirectory hospHistory;
-    public ReadHospitalJPanel(hospitalDirectory hospHistory) {
+    Hospital hospital; 
+    public ReadHospitalJPanel(hospitalDirectory hospHistory, Hospital hospital) {
         initComponents();
         this.hospHistory = hospHistory;
         populateTable();
