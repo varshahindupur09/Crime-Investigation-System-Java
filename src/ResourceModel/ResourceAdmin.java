@@ -5,11 +5,15 @@
 package ResourceModel;
 
 import ForensicsModel.*;
+import javax.swing.JPanel;
+import model.Sys;
+import ui.HomeScreen;
 
 
 /**
  *
- * @author parth
+ * @author aastha
+ *
  */
 public class ResourceAdmin extends javax.swing.JPanel {
     
@@ -25,6 +29,20 @@ public class ResourceAdmin extends javax.swing.JPanel {
     GovDirectory govHistory;
     PrisonDirectory prisonHistory;
     JailDirectory jailHistory;
+    
+    JPanel resourceAdminJPanel;
+    Sys sys;
+    HomeScreen homeScreen;
+    
+    public ResourceAdmin(JPanel resourceAdminJPanel,Sys sys,HomeScreen homeScreen) 
+    {
+        initComponents();
+        
+        this.resourceAdminJPanel = resourceAdminJPanel;
+        this.sys = sys;
+        this.homeScreen = homeScreen;
+        setSize(1040, 544);
+    }
         
     public ResourceAdmin(Army army, Weapon weapon, TrainedAnimal tAnimal, Government gov, Prison prison, Jail jail,
                         ArmyDirectory armyHistory, WeaponDirectory weaponHistory, TrainedAnimalDirectory animalHistory,
