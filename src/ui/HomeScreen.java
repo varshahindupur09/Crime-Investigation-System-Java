@@ -95,6 +95,9 @@ public class HomeScreen extends javax.swing.JPanel {
         ResourceMgmtSystemEnterprise.setForeground(new java.awt.Color(255, 255, 255));
         ResourceMgmtSystemEnterprise.setText("Resource Management Enterprise");
         ResourceMgmtSystemEnterprise.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ResourceMgmtSystemEnterpriseMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ResourceMgmtSystemEnterpriseMouseEntered(evt);
             }
@@ -288,6 +291,11 @@ public class HomeScreen extends javax.swing.JPanel {
         // TODO add your handling code here:
         homePanel.clickNewsMainCreatePortal(this);
     }//GEN-LAST:event_MediaEnterpriseMouseClicked
+
+    private void ResourceMgmtSystemEnterpriseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResourceMgmtSystemEnterpriseMouseClicked
+        // TODO add your handling code here:
+        homePanel.clickResourceAdminCreatePortal(this);
+    }//GEN-LAST:event_ResourceMgmtSystemEnterpriseMouseClicked
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
