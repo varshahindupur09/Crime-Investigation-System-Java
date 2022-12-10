@@ -3,18 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package NewsModel;
+import javax.swing.table.DefaultTableModel;
+import NewsModel.Television;
+import NewsModel.TelevisionHistory;
+import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author Sal <your.name at your.org>
  */
 public class ReadTelevisionJPanel extends javax.swing.JPanel {
+    TelevisionHistory tvHistory;
 
     /**
      * Creates new form ReadTelevisionJPanel
      */
-    public ReadTelevisionJPanel() {
+    public ReadTelevisionJPanel(TelevisionHistory tvHistory) {
         initComponents();
+        this.tvHistory  = tvHistory;
+        populateTable();
     }
 
     /**
@@ -26,19 +34,306 @@ public class ReadTelevisionJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TvDirectoryTable = new javax.swing.JTable();
+        NewDocNameLabel = new javax.swing.JLabel();
+        NewDocIDLabel = new javax.swing.JLabel();
+        NewRepNameTxt = new javax.swing.JTextField();
+        NewDocHospNameLabel = new javax.swing.JLabel();
+        updateBtn = new javax.swing.JButton();
+        NewDocHospIDLabel = new javax.swing.JLabel();
+        deleteBtn = new javax.swing.JButton();
+        viewBtn = new javax.swing.JButton();
+        NewTvIdTxt = new javax.swing.JTextField();
+        NewTvNameTxt = new javax.swing.JTextField();
+        NewTvRepTimeTxt = new javax.swing.JTextField();
+        HeadingLabel = new javax.swing.JLabel();
+        NewTvNewsId = new javax.swing.JTextField();
+        NewDocHospIDLabel1 = new javax.swing.JLabel();
+
+        TvDirectoryTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "NAME", "REPORTING TIME", "REPORTER NAME", "NEWS ID"
+            }
+        ));
+        jScrollPane1.setViewportView(TvDirectoryTable);
+
+        NewDocNameLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        NewDocNameLabel.setText("NAME ");
+
+        NewDocIDLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        NewDocIDLabel.setText(" ID");
+
+        NewDocHospNameLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        NewDocHospNameLabel.setText("REPORTER NAME");
+
+        updateBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        updateBtn.setText("UPDATE");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
+
+        NewDocHospIDLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        NewDocHospIDLabel.setText("REPORTING TIME");
+
+        deleteBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        deleteBtn.setText("DELETE");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
+
+        viewBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        viewBtn.setText("VIEW");
+        viewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewBtnActionPerformed(evt);
+            }
+        });
+
+        NewTvNameTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewTvNameTxtActionPerformed(evt);
+            }
+        });
+
+        NewTvRepTimeTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewTvRepTimeTxtActionPerformed(evt);
+            }
+        });
+
+        HeadingLabel.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
+        HeadingLabel.setText("TELEVISION DIRECTORY");
+
+        NewTvNewsId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewTvNewsIdActionPerformed(evt);
+            }
+        });
+
+        NewDocHospIDLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        NewDocHospIDLabel1.setText("NEWS ID");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(217, 217, 217)
+                .addComponent(NewDocHospIDLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(NewTvNewsId, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(324, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(213, 213, 213)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(NewDocIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(NewDocNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(50, 50, 50)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(NewTvNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(NewTvIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(23, 23, 23)
+                                            .addComponent(NewDocHospIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(NewDocHospNameLabel))
+                                    .addGap(50, 50, 50)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(NewTvRepTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(NewRepNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGap(171, 171, 171)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(287, 287, 287)
+                            .addComponent(HeadingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(574, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NewDocHospIDLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NewTvNewsId, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(HeadingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(40, 40, 40)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(70, 70, 70)
+                            .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(52, 52, 52)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(NewTvIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(NewDocIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(20, 20, 20)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(NewDocNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(NewTvNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(NewDocHospIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(NewTvRepTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(22, 22, 22)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(NewDocHospNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(NewRepNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addContainerGap(128, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+
+        //        boolean isValid = Validation();
+        //        if (isValid) {
+            int selectedRowIndex = TvDirectoryTable.getSelectedRow();
+            if (selectedRowIndex < 0) {
+                JOptionPane.showMessageDialog(this, "Please select a row to update");
+                return;
+            }
+
+            DefaultTableModel model = (DefaultTableModel) TvDirectoryTable.getModel();
+            Television selectedTelevision = (Television) model.getValueAt(selectedRowIndex, 0);
+            String tvId = NewTvIdTxt.getText();
+            String tvName = NewTvNameTxt.getText();
+            String tvRepTime = NewTvRepTimeTxt.getText();
+            String tvRepName = NewRepNameTxt.getText();
+            String tvNewsId = NewTvNewsId.getText();
+
+            JOptionPane.showMessageDialog(this, "Doctor Information Updated");
+            //history.deleteEmployee(selectedEmployee);
+            selectedTelevision.setChannelId(tvId);
+            selectedTelevision.setChannelName(tvRepName);
+            selectedTelevision.setNewsId(tvNewsId);
+            selectedTelevision.setNewsReportingTime(tvRepTime);
+            selectedTelevision.setNewsReporterName(tvRepName);
+
+            populateTable();
+
+            NewTvIdTxt.setText("");
+            NewTvNameTxt.setText("");
+            NewTvRepTimeTxt.setText("");
+            NewRepNameTxt.setText("");
+            NewTvNewsId.setText("");
+            //}
+    }//GEN-LAST:event_updateBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = TvDirectoryTable.getSelectedRow();
+
+        if(selectedRowIndex <0){
+            JOptionPane.showMessageDialog(this, "Please enter the row you want to delete");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) TvDirectoryTable.getModel();
+        Television tv = (Television) model.getValueAt(selectedRowIndex,0);
+
+        tvHistory.deleteTelevision(tv);
+
+        JOptionPane.showMessageDialog(this, "Requested Record is Deleted");
+        populateTable();
+    }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
+        // TODO add your handling code here:
+
+        int selectedRowIndex = TvDirectoryTable.getSelectedRow();
+        if(selectedRowIndex <0){
+            JOptionPane.showMessageDialog(this, "Please enter the row you want to view");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) TvDirectoryTable.getModel();
+        Television tv = (Television) model.getValueAt(selectedRowIndex,0);
+
+        NewTvIdTxt.setText(String.valueOf(tv.getChannelId()));
+        NewTvNameTxt.setText(String.valueOf(tv.getChannelName()));
+        NewTvRepTimeTxt.setText(String.valueOf(tv.getNewsReportingTime()));
+        NewRepNameTxt.setText(String.valueOf(tv.getNewsReporterName()));
+        NewTvNewsId.setText(String.valueOf(tv.getNewsId()));
+    }//GEN-LAST:event_viewBtnActionPerformed
+
+    private void NewTvNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTvNameTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewTvNameTxtActionPerformed
+
+    private void NewTvRepTimeTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTvRepTimeTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewTvRepTimeTxtActionPerformed
+
+    private void NewTvNewsIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTvNewsIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewTvNewsIdActionPerformed
+
+    private void populateTable() {
+
+        DefaultTableModel model = (DefaultTableModel) TvDirectoryTable.getModel();
+        model.setRowCount(0);
+
+        for (Television tv : tvHistory.getTelevisionData()) {
+
+            Object[] row = new Object[7];
+            row[0] = tv;
+            row[1] = tv.getChannelId();
+            row[2] = tv.getChannelName();
+            row[3] = tv.getNewsId();
+            row[4] = tv.getNewsReporterName();
+            row[5] = tv.getNewsReportingTime();
+
+            model.addRow(row);
+
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel HeadingLabel;
+    private javax.swing.JLabel NewDocHospIDLabel;
+    private javax.swing.JLabel NewDocHospIDLabel1;
+    private javax.swing.JLabel NewDocHospNameLabel;
+    private javax.swing.JLabel NewDocIDLabel;
+    private javax.swing.JLabel NewDocNameLabel;
+    private javax.swing.JTextField NewRepNameTxt;
+    private javax.swing.JTextField NewTvIdTxt;
+    private javax.swing.JTextField NewTvNameTxt;
+    private javax.swing.JTextField NewTvNewsId;
+    private javax.swing.JTextField NewTvRepTimeTxt;
+    private javax.swing.JTable TvDirectoryTable;
+    private javax.swing.JButton deleteBtn;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton updateBtn;
+    private javax.swing.JButton viewBtn;
     // End of variables declaration//GEN-END:variables
 }
