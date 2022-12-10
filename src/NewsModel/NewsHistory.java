@@ -34,7 +34,7 @@ public class NewsHistory {
 
     }
     
-    public void deleteAuthor(News news) {
+    public void deleteNews(News news) {
         newsData.remove(news);
 
     }
