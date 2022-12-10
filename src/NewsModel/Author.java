@@ -16,6 +16,11 @@ public class Author {
     private int authorYearsOfExperience;
     private String authorGender;
     private String authorDateOfJoining;
+    
+    @Override
+    public String toString() {
+        return authorId;
+    }
 
     public String getAuthorId() {
         return authorId;

@@ -13,6 +13,11 @@ public class Publication {
     private String pbId;
     private String pbName;
     private String pbNewspaperList;
+    
+    @Override
+    public String toString() {
+        return pbId;
+    }
 
     public String getPbId() {
         return pbId;

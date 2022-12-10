@@ -16,6 +16,11 @@ public class Newspaper {
     private int npNoOfPages;
     private String npDate;
     private String npPublicationId;
+    
+     @Override
+    public String toString() {
+        return npId;
+    }
 
     public String getNpId() {
         return npId;
