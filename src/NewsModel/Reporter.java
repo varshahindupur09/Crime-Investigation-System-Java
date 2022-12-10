@@ -12,10 +12,19 @@ public class Reporter {
    
     private String reporterId;
     private String reporterName;
+    private String reporterEmail;
     private int reporterAge;
     private int reporterYearsOfExperience;
     private String reporterGender;
     private String reporterDateOfJoining;
+
+    public String getReporterEmail() {
+        return reporterEmail;
+    }
+
+    public void setReporterEmail(String reporterEmail) {
+        this.reporterEmail = reporterEmail;
+    }
 
     public String getReporterId() {
         return reporterId;
