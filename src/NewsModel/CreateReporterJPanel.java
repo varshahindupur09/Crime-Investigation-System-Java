@@ -29,6 +29,7 @@ public class CreateReporterJPanel extends javax.swing.JPanel {
     private HomeScreen homeScreen;
     
     public CreateReporterJPanel(ReporterHistory reporter) {
+        initComponents();
         newReporterData = reporter;
     }
 
