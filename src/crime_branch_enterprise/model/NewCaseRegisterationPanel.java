@@ -30,6 +30,7 @@ public class NewCaseRegisterationPanel extends javax.swing.JPanel {
     private JPanel newCaseRegisterPanel;
     private Sys sys;
     private HomeScreen homeScreen;
+    
     DatabaseConnection_CaseDetails dbConnCaseDetails;
     PreparedStatement stmt;
     FIRDirectory fIRDirectory;
@@ -39,7 +40,6 @@ public class NewCaseRegisterationPanel extends javax.swing.JPanel {
     
     public NewCaseRegisterationPanel(JPanel newCaseRegisterPanel,Sys sys,HomeScreen homeScreen) {
         initComponents();
-        
         
         this.newCaseRegisterPanel = newCaseRegisterPanel;
         this.sys = sys;

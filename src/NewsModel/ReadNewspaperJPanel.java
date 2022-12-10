@@ -7,6 +7,9 @@ import javax.swing.table.DefaultTableModel;
 import NewsModel.Newspaper;
 import NewsModel.NewspaperHistory;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import model.Sys;
+import ui.HomeScreen;
 
 /**
  *
@@ -18,12 +21,26 @@ public class ReadNewspaperJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ReadNewspaperJPanel
      */
+    
+    private JPanel readNewspaperJPanel;
+    private Sys sys;
+    private HomeScreen homeScreen;
+    
     public ReadNewspaperJPanel(NewspaperHistory newspaperHistory) {
         initComponents();
         this.newspaperHistory  = newspaperHistory;
         populateTable();
     }
 
+    
+    public ReadNewspaperJPanel(JPanel readNewspaperJPanel,Sys sys,HomeScreen homeScreen) 
+    {
+        this.readNewspaperJPanel = readNewspaperJPanel;
+        this.sys = sys;
+        this.homeScreen = homeScreen;
+        setSize(1040, 544);
+    }
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

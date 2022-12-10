@@ -3,9 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package NewsModel;
+
 import NewsModel.Reporter;
 import NewsModel.ReporterHistory;
 import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import model.Sys;
+import ui.HomeScreen;
+
 
 /**
  *
@@ -17,9 +23,23 @@ public class CreateReporterJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateReporterJPanel
      */
+
+    private JPanel createReporterJPanel;
+    private Sys sys;
+    private HomeScreen homeScreen;
+    
     public CreateReporterJPanel(ReporterHistory reporter) {
         newReporterData = reporter;
+    }
+
+    public CreateReporterJPanel(JPanel createReporterJPanel,Sys sys,HomeScreen homeScreen) 
+    {
         initComponents();
+        
+        this.createReporterJPanel = createReporterJPanel;
+        this.sys = sys;
+        this.homeScreen = homeScreen;
+        setSize(1040, 544);
     }
 
     /**

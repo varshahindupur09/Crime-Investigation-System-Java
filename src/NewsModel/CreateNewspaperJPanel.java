@@ -6,6 +6,9 @@ package NewsModel;
 import NewsModel.Newspaper;
 import NewsModel.NewspaperHistory;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import model.Sys;
+import ui.HomeScreen;
 /**
  *
  * @author Sal <your.name at your.org>
@@ -15,9 +18,24 @@ public class CreateNewspaperJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateNewspaperJPanel
      */
+    private JPanel createNewspJPanel;
+    private Sys sys;
+    private HomeScreen homeScreen;
+    
+   
     public CreateNewspaperJPanel(NewspaperHistory newspaper) {
         initComponents();
         newNewspaperData = newspaper;
+    }
+  
+    public CreateNewspaperJPanel(JPanel createNewspJPanel,Sys sys,HomeScreen homeScreen) 
+    {
+        initComponents();
+        
+        this.createNewspJPanel = createNewspJPanel;
+        this.sys = sys;
+        this.homeScreen = homeScreen;
+        setSize(1040, 544);
     }
 
     /**

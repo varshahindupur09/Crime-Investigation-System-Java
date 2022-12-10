@@ -4,6 +4,9 @@
  */
 package ForensicsModel;
 
+import javax.swing.JPanel;
+import model.Sys;
+import ui.HomeScreen;
 
 /**
  *
@@ -17,6 +20,19 @@ public class ForensicAdmin extends javax.swing.JPanel {
     hospitalDirectory hospHistory;
     DoctorDirectory docHistory;
     ForensicLabHistory forLabHistory;
+
+    private JPanel createForensicAdmin;
+    private Sys sys;
+    private HomeScreen homeScreen;
+    
+    
+    public ForensicAdmin(JPanel createForensicAdmin, Sys sys, HomeScreen homeScreen)
+    {
+        this.createForensicAdmin = createForensicAdmin;
+        this.sys = sys;
+        this.homeScreen = homeScreen;
+        setSize(1040, 544);
+    }
         
     public ForensicAdmin(Hospital hospital, Doctor doctor, ForensicLab forLab, hospitalDirectory hospHistory, 
                     DoctorDirectory docHistory, ForensicLabHistory forLabHistory) {

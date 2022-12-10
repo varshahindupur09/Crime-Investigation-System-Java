@@ -7,7 +7,10 @@ package ForensicsModel;
 import ForensicsModel.Hospital;
 import ForensicsModel.hospitalDirectory;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import model.Sys;
+import ui.HomeScreen;
 
 public class ReadHospitalJPanel extends javax.swing.JPanel {
 
@@ -17,6 +20,16 @@ public class ReadHospitalJPanel extends javax.swing.JPanel {
         initComponents();
         this.hospHistory = hospHistory;
         populateTable();
+    }
+    
+    public ReadHospitalJPanel(JPanel readHospitalJPanel,Sys sys,HomeScreen homeScreen) 
+    {
+        initComponents();
+        
+        this.readHospitalJPanel = readHospitalJPanel;
+        this.sys = sys;
+        this.homeScreen = homeScreen;
+        setSize(1040, 544);
     }
 
     /**

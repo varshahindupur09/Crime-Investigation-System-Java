@@ -7,6 +7,9 @@ import javax.swing.table.DefaultTableModel;
 import NewsModel.Author;
 import NewsModel.AuthorHistory;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import model.Sys;
+import ui.HomeScreen;
 
 /**
  *
@@ -18,8 +21,23 @@ public class ReadReporterJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ReadReporterJPanel
      */
-    public ReadReporterJPanel(ReporterHistory reporterHistory) {
+
+    private JPanel readReporterJPanel;
+    private Sys sys;
+    private HomeScreen homeScreen;
+    
+    
+    public ReadReporterJPanel(JPanel readReporterJPanel,Sys sys,HomeScreen homeScreen) 
+    {
         initComponents();
+        
+        this.readReporterJPanel = readReporterJPanel;
+        this.sys = sys;
+        this.homeScreen = homeScreen;
+        setSize(1040, 544);
+    }
+    
+    public ReadReporterJPanel(ReporterHistory reporterHistory) {
         this.reporterHistory  = reporterHistory;
         populateTable();
     }
