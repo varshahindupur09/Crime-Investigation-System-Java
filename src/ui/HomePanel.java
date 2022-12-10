@@ -7,7 +7,7 @@ package ui;
 
 
 import ForensicsModel.ForensicAdmin;
-import ForensicsModel.ReadHospitalJPanel;
+import NewsModel.NewsMainJPanel;
 import crime_branch_enterprise.model.CasePortalPanel;
 import crime_branch_enterprise.model.NewCaseRegisterationPanel;
 import crime_branch_enterprise.model.NewFIRRegister;
@@ -226,6 +226,15 @@ public class HomePanel extends javax.swing.JPanel {
     public void clickEnterpriseAdminsCreatePortal(HomeScreen homeScreen) {
 
         JPanel selectedPanel = new EnterpriseAdminsCreate(workArea,sys,homeScreen);
+        
+        workArea.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+    }
+    
+    public void clickNewsMainCreatePortal(HomeScreen homeScreen) {
+
+        JPanel selectedPanel = new NewsMainJPanel(workArea,sys,homeScreen);
         
         workArea.add("WorkAreaJPanel",selectedPanel);
         CardLayout layout = (CardLayout) workArea.getLayout();
