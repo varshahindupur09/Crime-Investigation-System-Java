@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import model.Sys;
 import ui.HomeScreen;
 
+
+
 public class CreateHospitalJPanel extends javax.swing.JPanel 
 {
 
@@ -18,6 +20,11 @@ public class CreateHospitalJPanel extends javax.swing.JPanel
     private Sys sys;
     private HomeScreen homeScreen;
     hospitalDirectory hospHistory;
+    
+    public CreateHospitalJPanel(hospitalDirectory hospHistory)
+    {
+        this.hospHistory = hospHistory;
+    }
     
     public CreateHospitalJPanel(JPanel createHospitalJPanel,Sys sys,HomeScreen homeScreen) 
     {

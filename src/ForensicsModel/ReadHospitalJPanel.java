@@ -7,15 +7,38 @@ package ForensicsModel;
 import ForensicsModel.Hospital;
 import ForensicsModel.hospitalDirectory;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import model.Sys;
+import ui.HomeScreen;
 
 public class ReadHospitalJPanel extends javax.swing.JPanel {
 
     hospitalDirectory hospHistory;
+<<<<<<< Updated upstream
     public ReadHospitalJPanel(hospitalDirectory hospHistory) {
+=======
+    Hospital hospital; 
+    
+    private JPanel readHospitalJPanel;
+    private Sys sys;
+    private HomeScreen homeScreen;
+    
+    public ReadHospitalJPanel(hospitalDirectory hospHistory, Hospital hospital) {
+>>>>>>> Stashed changes
         initComponents();
         this.hospHistory = hospHistory;
         populateTable();
+    }
+    
+    public ReadHospitalJPanel(JPanel readHospitalJPanel,Sys sys,HomeScreen homeScreen) 
+    {
+        initComponents();
+        
+        this.readHospitalJPanel = readHospitalJPanel;
+        this.sys = sys;
+        this.homeScreen = homeScreen;
+        setSize(1040, 544);
     }
 
     /**
