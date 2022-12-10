@@ -13,6 +13,7 @@ public class HomeScreen extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private Sys sys;
     HomePanel homePanel;
+    
     public HomeScreen(JPanel userProcessContainer,Sys sys,HomePanel homePanel) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -34,6 +35,8 @@ public class HomeScreen extends javax.swing.JPanel {
         ForensicsEnterprise = new javax.swing.JLabel();
         ResourceMgmtSystemEnterprise = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        MediaEnterprise = new javax.swing.JLabel();
+        SignUpAdmins = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 102, 153));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -90,7 +93,7 @@ public class HomeScreen extends javax.swing.JPanel {
 
         ResourceMgmtSystemEnterprise.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         ResourceMgmtSystemEnterprise.setForeground(new java.awt.Color(255, 255, 255));
-        ResourceMgmtSystemEnterprise.setText("Resource Management System");
+        ResourceMgmtSystemEnterprise.setText("Resource Management Enterprise");
         ResourceMgmtSystemEnterprise.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ResourceMgmtSystemEnterpriseMouseEntered(evt);
@@ -105,6 +108,42 @@ public class HomeScreen extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/welcome.jpg"))); // NOI18N
 
+        MediaEnterprise.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        MediaEnterprise.setForeground(new java.awt.Color(255, 255, 255));
+        MediaEnterprise.setText("Media Enterprise");
+        MediaEnterprise.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MediaEnterpriseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MediaEnterpriseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MediaEnterpriseMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MediaEnterpriseMousePressed(evt);
+            }
+        });
+
+        SignUpAdmins.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        SignUpAdmins.setForeground(new java.awt.Color(255, 255, 255));
+        SignUpAdmins.setText("Sign Up Admins");
+        SignUpAdmins.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SignUpAdminsMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SignUpAdminsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                SignUpAdminsMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                SignUpAdminsMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout SystemPanelLayout = new javax.swing.GroupLayout(SystemPanel);
         SystemPanel.setLayout(SystemPanelLayout);
         SystemPanelLayout.setHorizontalGroup(
@@ -114,23 +153,30 @@ public class HomeScreen extends javax.swing.JPanel {
                 .addGroup(SystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ForensicsEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CrimeBranchEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ResourceMgmtSystemEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                    .addComponent(ResourceMgmtSystemEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MediaEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SignUpAdmins, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(96, 96, 96))
         );
         SystemPanelLayout.setVerticalGroup(
             SystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SystemPanelLayout.createSequentialGroup()
-                .addGap(122, 122, 122)
+                .addGap(51, 51, 51)
+                .addComponent(CrimeBranchEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addGroup(SystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(SystemPanelLayout.createSequentialGroup()
-                        .addComponent(CrimeBranchEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75)
+                        .addGap(9, 9, 9)
                         .addComponent(ForensicsEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
-                        .addComponent(ResourceMgmtSystemEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(45, 45, 45)
+                        .addComponent(ResourceMgmtSystemEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(MediaEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(SignUpAdmins)))
                 .addContainerGap(321, Short.MAX_VALUE))
         );
 
@@ -159,7 +205,7 @@ public class HomeScreen extends javax.swing.JPanel {
 
     private void CrimeBranchEnterpriseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseMouseExited
         // TODO add your handling code here:
-        CrimeBranchEnterprise.setForeground(Color.white);
+        CrimeBranchEnterprise.setForeground(Color.black);
     }//GEN-LAST:event_CrimeBranchEnterpriseMouseExited
 
     private void ForensicsEnterpriseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForensicsEnterpriseMouseEntered
@@ -169,7 +215,7 @@ public class HomeScreen extends javax.swing.JPanel {
 
     private void ForensicsEnterpriseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForensicsEnterpriseMouseExited
         // TODO add your handling code here:
-        ForensicsEnterprise.setForeground(Color.white);
+        ForensicsEnterprise.setForeground(Color.black);
     }//GEN-LAST:event_ForensicsEnterpriseMouseExited
 
     private void ResourceMgmtSystemEnterpriseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResourceMgmtSystemEnterpriseMouseEntered
@@ -179,7 +225,7 @@ public class HomeScreen extends javax.swing.JPanel {
 
     private void ResourceMgmtSystemEnterpriseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResourceMgmtSystemEnterpriseMouseExited
         // TODO add your handling code here:
-        ResourceMgmtSystemEnterprise.setForeground(Color.white);
+        ResourceMgmtSystemEnterprise.setForeground(Color.black);
     }//GEN-LAST:event_ResourceMgmtSystemEnterpriseMouseExited
 
     private void CrimeBranchEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseMousePressed
@@ -194,8 +240,7 @@ public class HomeScreen extends javax.swing.JPanel {
 
     private void ForensicsEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForensicsEnterpriseMousePressed
         // TODO add your handling code here:
-        
-        //homePanel.clickDashboard(this);
+        homePanel.clickCreateForensicsPortal(this);
     }//GEN-LAST:event_ForensicsEnterpriseMousePressed
 
     private void CrimeBranchEnterpriseAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseAncestorAdded
@@ -205,12 +250,52 @@ public class HomeScreen extends javax.swing.JPanel {
     private void CrimeBranchEnterpriseKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_CrimeBranchEnterpriseKeyPressed
+
+    private void MediaEnterpriseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MediaEnterpriseMouseEntered
+        // TODO add your handling code here:
+        MediaEnterprise.setForeground(Color.black);
+    }//GEN-LAST:event_MediaEnterpriseMouseEntered
+
+    private void MediaEnterpriseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MediaEnterpriseMouseExited
+        // TODO add your handling code here:
+        MediaEnterprise.setForeground(Color.white);
+    }//GEN-LAST:event_MediaEnterpriseMouseExited
+
+    private void MediaEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MediaEnterpriseMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MediaEnterpriseMousePressed
+
+    private void SignUpAdminsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignUpAdminsMouseEntered
+        // TODO add your handling code here:
+        SignUpAdmins.setForeground(Color.black);
+    }//GEN-LAST:event_SignUpAdminsMouseEntered
+
+    private void SignUpAdminsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignUpAdminsMouseExited
+        // TODO add your handling code here:
+        SignUpAdmins.setForeground(Color.white);
+    }//GEN-LAST:event_SignUpAdminsMouseExited
+
+    private void SignUpAdminsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignUpAdminsMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SignUpAdminsMousePressed
+
+    private void SignUpAdminsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignUpAdminsMouseClicked
+        // TODO add your handling code here:
+        homePanel.clickEnterpriseAdminsCreatePortal(this);
+    }//GEN-LAST:event_SignUpAdminsMouseClicked
+
+    private void MediaEnterpriseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MediaEnterpriseMouseClicked
+        // TODO add your handling code here:
+        homePanel.clickNewsMainCreatePortal(this);
+    }//GEN-LAST:event_MediaEnterpriseMouseClicked
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CrimeBranchEnterprise;
     private javax.swing.JLabel ForensicsEnterprise;
+    private javax.swing.JLabel MediaEnterprise;
     private javax.swing.JLabel ResourceMgmtSystemEnterprise;
+    private javax.swing.JLabel SignUpAdmins;
     private javax.swing.JPanel SystemPanel;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
