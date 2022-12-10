@@ -16,6 +16,13 @@ public class User {
     static long count = 0;
     private long id;
     private String role;
+    
+    public User(String username, String password, String role)
+    {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
 
     public String getRole() {
         return role;

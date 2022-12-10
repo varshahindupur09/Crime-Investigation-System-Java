@@ -97,3 +97,15 @@ drop table officerDetails cascade;
 truncate table firDetails;
 truncate table casedetails;
 truncate table officerDetails;
+
+create table adminUser
+(
+    username varchar(20) NOT NULL,
+    pass varchar(20) NOT NULL,
+    roleCategory varchar(100) NOT NULL
+);
+
+ALTER TABLE adminUser ADD PRIMARY KEY(username);
+select * from adminUser;
+drop table adminUser cascade;
+truncate table adminUser;

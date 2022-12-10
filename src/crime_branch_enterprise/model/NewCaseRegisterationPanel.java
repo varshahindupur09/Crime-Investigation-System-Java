@@ -45,6 +45,7 @@ public class NewCaseRegisterationPanel extends javax.swing.JPanel {
         this.sys = sys;
         this.homeScreen = homeScreen;
         setSize(1040, 544);
+        
         PhoneNumberTextField.setDocument(new JTextFieldLimit(250));
         clearFields();
         dbConnCaseDetails = new DatabaseConnection_CaseDetails();

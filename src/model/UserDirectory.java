@@ -13,11 +13,14 @@ import java.util.ArrayList;
  */
 public class UserDirectory {
     
-    ArrayList<User> userDir;
+    public static ArrayList<User> userDir;
     
     public UserDirectory(){
         userDir = new ArrayList<User>();
         addLogins();
+        addLoginsHospitalAdmin();
+        addLoginsDoctorAdmin();
+        addLoginsForensicLabAdmin();        
     }
     
     public User getUserByUsername(String userName){
@@ -36,12 +39,45 @@ public class UserDirectory {
         return usr;
     }
     
+    public void addUser(User usr)
+    {
+        userDir.add(usr);
+    }
+   
+    
     public void addLogins(){
         
         User user = addUser();
         user.setUsername("admin");
         user.setPassword("admin");
         user.setRole("Admin");
+        
+    }
+    
+    public void addLoginsHospitalAdmin(){
+        
+        User user = addUser();
+        user.setUsername("hosp");
+        user.setPassword("hosp");
+        user.setRole("Hosp-Admin");
+        
+    }
+    
+    public void addLoginsDoctorAdmin(){
+        
+        User user = addUser();
+        user.setUsername("doc");
+        user.setPassword("doc");
+        user.setRole("Doc-Admin");
+        
+    }
+    
+    public void addLoginsForensicLabAdmin(){
+        
+        User user = addUser();
+        user.setUsername("for");
+        user.setPassword("for");
+        user.setRole("For-Admin");
         
     }
     
