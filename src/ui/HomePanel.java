@@ -6,6 +6,8 @@
 package ui;
 
 
+import ForensicsModel.CreateHospitalJPanel;
+import ForensicsModel.HomePageForensicEnterprise;
 import crime_branch_enterprise.model.CasePortalPanel;
 import crime_branch_enterprise.model.NewCaseRegisterationPanel;
 import crime_branch_enterprise.model.NewFIRRegister;
@@ -206,6 +208,24 @@ public class HomePanel extends javax.swing.JPanel {
     public void clickNewOfficerRegisterationPortal(HomeScreen homeScreen) {
 
         JPanel selectedPanel = new NewOfficerRegister(workArea,sys,homeScreen);
+        
+        workArea.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+    }
+    
+    public void clickCreateHospitalPortal(HomeScreen homeScreen) {
+
+        JPanel selectedPanel = new HomePageForensicEnterprise(workArea,sys,homeScreen);
+        
+        workArea.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+    }
+    
+    public void clickEnterpriseAdminsCreatePortal(HomeScreen homeScreen) {
+
+        JPanel selectedPanel = new EnterpriseAdminsCreate(workArea,sys,homeScreen);
         
         workArea.add("WorkAreaJPanel",selectedPanel);
         CardLayout layout = (CardLayout) workArea.getLayout();

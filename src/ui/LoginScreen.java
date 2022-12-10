@@ -10,6 +10,8 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Sys;
+import model.User;
+import model.UserDirectory;
 
 /**
  *
@@ -119,13 +121,16 @@ public class LoginScreen extends javax.swing.JPanel {
                             .addGroup(lblLoginGridLayout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnLogin))
+                                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(lblLoginGridLayout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(lblLoginText, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(lblLoginGridLayout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(btnLogin)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(lblLoginGridLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(lblLoginGridLayout.createSequentialGroup()
                     .addGap(58, 58, 58)
@@ -145,9 +150,9 @@ public class LoginScreen extends javax.swing.JPanel {
                 .addGroup(lblLoginGridLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addComponent(btnLogin)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(lblLoginGridLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(lblLoginGridLayout.createSequentialGroup()
                     .addGap(143, 143, 143)
@@ -180,7 +185,7 @@ public class LoginScreen extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblLoginGrid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lblLogoImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblLogoImg, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -243,6 +248,31 @@ public class LoginScreen extends javax.swing.JPanel {
         try{
             String sysPass = sys.getUserDir().getUserByUsername(userId).getPassword();
             return sysPass.equals(pass);
+        }catch(java.lang.NullPointerException e){
+            return false;
+        }
+        
+    }
+    
+    public boolean validateOtherLogin(){
+        
+        //Get on-screen values
+        String userId = txtUsername.getText();
+        String pass = txtPassword.getText();
+        String username;
+        String password;
+        
+        //Custom check
+        try{
+            for(User user : UserDirectory.userDir)
+            {
+                if(user.getUsername().equals(userId) 
+                        && user.getPassword().equals(pass))
+                {
+                    return true;
+                }    
+            }
+            return false;
         }catch(java.lang.NullPointerException e){
             return false;
         }
