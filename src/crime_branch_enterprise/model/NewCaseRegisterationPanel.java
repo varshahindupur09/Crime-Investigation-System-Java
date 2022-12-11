@@ -246,9 +246,9 @@ public class NewCaseRegisterationPanel extends javax.swing.JPanel {
         try
         {
             boolean flagValidate = true;
-            java.sql.Date sqlDate = null;
             int phoneNum = 0;
             String officerName = "";
+            java.sql.Date sqlDate = null;
             java.util.Date utilDate = null;
             String inputDate = "";
             
