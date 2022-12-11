@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ForensicsModel;
+package ResourceModel;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class DatabaseConnection_doctor 
+public class DatabaseConnection_army 
 {
     
 //   static final String USER = "root";
@@ -16,12 +16,12 @@ public class DatabaseConnection_doctor
 //   static final String QUERY = "SELECT * FROM employee";
 //   static final String DB_URL = "jdbc:oracle:thin:"+USER+"/"+PASS+"@localhost:3306:crime_inv_sys";
     
-    DatabaseConnection_doctor dc;
+    DatabaseConnection_army dc;
     Connection con;
     Statement stmt;
     ResultSet rs;
     
-    public DatabaseConnection_doctor()
+    public DatabaseConnection_army()
     {
      
     }
@@ -61,23 +61,22 @@ public class DatabaseConnection_doctor
    }
    
    
-   public void addDoctorDataToDB(Doctor doctor)
+   public void addArmyDataToDB(Army army)
    {
        //add to database firDetails
         try
         {
             
             databaseConnection();
-            String insertsql="Insert into doctor (docId, docName, docPhone, hospId, hospName) values(?,?,?,?,?)";
+            String insertsql="Insert into army (generalId, generalName, department, country) values(?,?,?,?)";
             PreparedStatement stmt=con.prepareStatement(insertsql);
 
-            stmt.setInt(1, doctor.getDocId());
-            stmt.setString(2, doctor.getDocName());
-            stmt.setString(3, doctor.getDocPhone());
-            stmt.setInt(4, doctor.getHospId());
-            stmt.setString(5, doctor.getHospName());
+            stmt.setInt(1, army.getGeneralId());
+            stmt.setString(2, army.getGeneralName());
+            stmt.setString(3, army.getDepartment());
+            stmt.setString(4, army.getCountry());
             
-            System.out.println("DB data created in doctor");
+            System.out.println("DB data created in army");
 
             stmt.executeUpdate();
             stmt.close();
@@ -91,19 +90,18 @@ public class DatabaseConnection_doctor
    }
    
    
-   public void updateDoctorDataToDB(Doctor doctor)
+   public void updateArmyDataToDB(Army army)
    {
        //add to database firDetails
         try
         {
             
             databaseConnection();
-            String updateSql = "update "+ "doctor"+" "+"set "
-                    + " docName = "+"'"+ doctor.getDocName() +"'"+ ","
-                    +" docPhone = "+"'"+ doctor.getDocPhone() +"'"+","
-                    +" hospId = "+ doctor.getHospId() +","
-                    +" hospName ="+ "'" + doctor.getHospName()+ "'" +","
-                    +"where docId = "+ doctor.getDocId() +";";
+            String updateSql = "update "+ "army"+" "+"set "
+                    + " generalName = "+"'"+ army.getGeneralName()+"'"+ ","
+                    +" department = "+"'"+ army.getDepartment() +"'"+","
+                    +" country = "+"'"+ army.getCountry() +"'"+","
+                    +"where generalId = "+ army.getGeneralId()+";";
                     
             System.out.println(updateSql);
             
@@ -111,7 +109,7 @@ public class DatabaseConnection_doctor
             
 //            update author set  authorName = 'fhewh', authorAge = 20, authorYOE = 1, authorGender ='F',authorDOJ ='545' where authorId = 'fh1';
 
-            System.out.println("DB data updated in doctor");
+            System.out.println("DB data updated in army");
 
             stmt.executeUpdate();
 
@@ -123,19 +121,19 @@ public class DatabaseConnection_doctor
         }
    }
    
-   public void deleteDoctorDataInDB(Doctor doctor)
+   public void deleteArmyDataInDB(Army army)
    {
        //add to database firDetails
         try
         {
             databaseConnection();
-            String deleteSql="delete from "+ "doctor" +" where docId = "+ "'" + doctor.getDocId()+ "'";
+            String deleteSql="delete from "+ "army" +" where generalId = "+ "'" + army.getGeneralId()+ "'";
             System.out.println(deleteSql);
             PreparedStatement preparedStmt = con.prepareStatement(deleteSql);
             
             preparedStmt.executeUpdate();
 
-            System.out.println("Data deleted from doctor: "+doctor.getDocId());
+            System.out.println("Data deleted from army: "+army.getGeneralId());
 
             closeConnection();
         }
@@ -145,17 +143,17 @@ public class DatabaseConnection_doctor
         }
    }
    
-   public void deleteEveryDoctorDataInDB()
+   public void deleteEveryArmyDataInDB()
    {
        //add to database firDetails
         try
         {
             databaseConnection();
-            String truncateSql="truncate table "+"doctor";
+            String truncateSql="truncate table "+"army";
             Statement stmt=con.createStatement();
             stmt.executeQuery(truncateSql);
 
-            System.out.println("DB data deleted from doctor");
+            System.out.println("DB data deleted from army");
             
             stmt.close();
 
