@@ -3,10 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package crime_branch_enterprise.model;
-//import crime_branch_enterprise.model.Cas;
-import crime_branch_enterprise.model.OfficerDirectory;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JOptionPane;
+
+import javax.swing.JPanel;
+import model.Sys;
+import ui.HomeScreen;
+
 
 /**
  *
@@ -17,8 +18,24 @@ public class ReadCase extends javax.swing.JPanel {
     /**
      * Creates new form ReadCase
      */
+    private JPanel readCase;
+    private Sys sys;
+    private HomeScreen homeScreen;
+    
+    
     public ReadCase() {
         initComponents();
+    }
+    
+    public ReadCase ( JPanel readCase, Sys sys, HomeScreen homeScreen) 
+    {    
+        initComponents();
+        this.readCase = readCase;
+        this.sys = sys;
+        this.homeScreen = homeScreen;
+        
+        setSize(1040, 544);
+        
     }
 
     /**

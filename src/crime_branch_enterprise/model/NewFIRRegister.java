@@ -301,7 +301,7 @@ public class NewFIRRegister extends javax.swing.JPanel {
         //add to database firDetails
         try
         {
-            dbConnFIRDetails.databaseConnectionFIRDetails();
+            dbConnFIRDetails.databaseConnection();
             String insertsql="Insert into firDetails (dateOfOffence,descr,policeStationLoc,accorvic,firstName,lastName,emailId,phoneNum,address) values(?,?,?,?,?,?,?,?,?)";
             PreparedStatement stmt=dbConnFIRDetails.con.prepareStatement(insertsql);
             
@@ -318,7 +318,7 @@ public class NewFIRRegister extends javax.swing.JPanel {
             stmt.executeUpdate();
             stmt.close();
             
-            dbConnFIRDetails.closeConnectionFIRDetails();
+            dbConnFIRDetails.closeConnection();
         }
         catch(Exception e)
         {

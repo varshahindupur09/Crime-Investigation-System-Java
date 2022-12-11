@@ -3,11 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package crime_branch_enterprise.model;
-import NewsModel.Author;
-import crime_branch_enterprise.model.OfficerRecord;
-import crime_branch_enterprise.model.OfficerDirectory;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import model.Sys;
+import ui.HomePanel;
+import ui.HomeScreen;
 
 /**
  *
@@ -19,10 +20,26 @@ public class ReadOfficer extends javax.swing.JPanel {
     /**
      * Creates new form ReadOfficer
      */
+    
+    private JPanel readOfficer;
+    private Sys sys;
+    private HomeScreen homeScreen;
+    
     public ReadOfficer(OfficerDirectory officerDir) {
         initComponents();
         this.officerDir  = officerDir;
         populateTable();
+    }
+    
+    public ReadOfficer ( JPanel readOfficer, Sys sys, HomeScreen homeScreen) 
+    {    
+        initComponents();
+        this.readOfficer = readOfficer;
+        this.sys = sys;
+        this.homeScreen = homeScreen;
+        
+        setSize(1040, 544);
+        
     }
 
     /**

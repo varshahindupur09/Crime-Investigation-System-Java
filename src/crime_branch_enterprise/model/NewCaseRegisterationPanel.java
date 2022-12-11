@@ -234,24 +234,16 @@ public class NewCaseRegisterationPanel extends javax.swing.JPanel {
             
             String officerName = SelectOfficerDropdown.getSelectedItem().toString();
             
-            dbConnCaseDetails.databaseConnectionCaseDetails();
-//            java.util.Date date = new java.util.Date();
-            String sqlQueryStoreData = "insert into casedetails(emailId, phoneNum, dateOfReport, officerName) values(?,?,?,?)";
-            stmt = dbConnCaseDetails.con.prepareStatement(sqlQueryStoreData);
-            
-//          SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy"); 
             java.util.Date utilDate=(java.util.Date) DateOfReportDateChooser.getDate();
             java.sql.Date  sqlDate=new java.sql.Date(utilDate.getDate());
+            
+            NewCaseRegister newCaseRegister = new NewCaseRegister();
+            newCaseRegister.setEmailId(emailId);
+            newCaseRegister.setPhoneNum(String.valueOf(phoneNum));
+            newCaseRegister.setDateOfReport(sqlDate);
+            newCaseRegister.setOfficerName(officerName);
+            dbConnCaseDetails.addCaseDataToDB(newCaseRegister);
 
-            stmt.setString(1, emailId);
-            stmt.setString(2, String.valueOf(phoneNum));
-            stmt.setDate(3, new java.sql.Date(sqlDate.getDate()));
-            stmt.setString(4, officerName);
-            
-            stmt.executeUpdate();
-            stmt.close();
-            dbConnCaseDetails.closeConnectionCaseDetails();
-            
 //            JOptionPane.showMessageDialog(this, "Case Registered under Officer "+officerName);
             //victim username, password generate
             RandomString randomString = new RandomString();
