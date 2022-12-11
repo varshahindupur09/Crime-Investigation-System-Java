@@ -11,10 +11,12 @@ import javax.swing.table.DefaultTableModel;
 public class ReadJail extends javax.swing.JPanel {
 
     JailDirectory jailHistory;
+    DatabaseConnection_jail dbConJailDetails;
     public ReadJail(JailDirectory jailHistory) {
         initComponents();
         this.jailHistory = jailHistory;
         populateTable();
+        dbConJailDetails = new DatabaseConnection_jail();
     }
 
     /**
@@ -226,6 +228,8 @@ public class ReadJail extends javax.swing.JPanel {
             selectedJail.setJailerId(jailId);
             selectedJail.setJailerName(jailerName);
             selectedJail.setCriminalCount(crimCount);
+            
+            dbConJailDetails.updateJailDataToDB(selectedJail);
              
             txtJailId.setText("");
             txtJailerId.setText("");
@@ -265,6 +269,7 @@ public class ReadJail extends javax.swing.JPanel {
         Jail selectedJail = (Jail)model.getValueAt(selectedRowIndex, 0);
 
         jailHistory.deleteJail(selectedJail);
+        dbConJailDetails.deleteJailDataInDB(selectedJail);
         JOptionPane.showMessageDialog(this, "Jail deleted");
 
         populateTable();

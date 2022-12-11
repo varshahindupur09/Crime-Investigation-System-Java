@@ -11,10 +11,12 @@ import javax.swing.table.DefaultTableModel;
 public class ReadTrainedAnimal extends javax.swing.JPanel {
 
     TrainedAnimalDirectory animalHistory;
+    DatabaseConnection_tAnimal dbConTAnimalDetails;
     public ReadTrainedAnimal(TrainedAnimalDirectory animalHistory) {
         initComponents();
         this.animalHistory = animalHistory;
         populateTable();
+        dbConTAnimalDetails = new DatabaseConnection_tAnimal();
     }
 
     /**
@@ -241,6 +243,8 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
             selectedAnimal.setAnimalId(animalId);
             selectedAnimal.setAnimalName(animalName);
             selectedAnimal.setType(type);
+            
+            dbConTAnimalDetails.updateTAnimalDataToDB(selectedAnimal);
              
             txtTrainerId.setText("");
             txtTrainerName.setText("");
@@ -282,6 +286,8 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
         TrainedAnimal selectedAnimal = (TrainedAnimal) model.getValueAt(selectedRowIndex, 0);
 
         animalHistory.deleteAnimal(selectedAnimal);
+        dbConTAnimalDetails.deleteTAnimalDataInDB(selectedAnimal);
+        
         JOptionPane.showMessageDialog(this, "Trained Animal deleted");
 
         populateTable();

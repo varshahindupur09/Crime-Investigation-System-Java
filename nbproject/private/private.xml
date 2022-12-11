@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ResourceModel/CreatePrison.java</file>
+            <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ForensicsModel/CreateDoctor.java</file>
+            <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ForensicsModel/ReadDoctorJPanel.java</file>
+            <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ForensicsModel/DatabaseConnection_doctor.java</file>
             <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/NewsModel/ReadAuthorJPanel.java</file>
-            <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ResourceModel/CreateArmy.java</file>
-            <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ResourceModel/CreateJail.java</file>
-            <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ResourceModel/CreateWeapon.java</file>
         </group>
     </open-files>
 </project-private>

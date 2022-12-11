@@ -11,10 +11,13 @@ import javax.swing.table.DefaultTableModel;
 public class ReadPrison extends javax.swing.JPanel {
 
     PrisonDirectory prisonHistory;
+    DatabaseConnection_prison dbConPrisonDetails;
     public ReadPrison(PrisonDirectory prisonHistory) {
         initComponents();
         this.prisonHistory = prisonHistory;
         populateTable();
+        
+        dbConPrisonDetails = new DatabaseConnection_prison();
     }
 
     /**
@@ -272,6 +275,8 @@ public class ReadPrison extends javax.swing.JPanel {
             selectedPrison.setOfficerName(officerName);
             selectedPrison.setJailCount(jailCount);
             selectedPrison.setCity(city);
+            
+            dbConPrisonDetails.updatePrisonDataToDB(selectedPrison);
              
             txtPrisonId.setText("");
             txtPrisonName.setText("");
@@ -315,6 +320,8 @@ public class ReadPrison extends javax.swing.JPanel {
         Prison selectedPrison = (Prison) model.getValueAt(selectedRowIndex, 0);
 
         prisonHistory.deletePri(selectedPrison);
+        dbConPrisonDetails.deletePrisonDataInDB(selectedPrison);
+        
         JOptionPane.showMessageDialog(this, "Prison deleted");
 
         populateTable();
