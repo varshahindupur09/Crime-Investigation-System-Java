@@ -80,9 +80,6 @@ ALTER TABLE casedetails ADD CONSTRAINT fk_2 FOREIGN KEY (descr) REFERENCES firDe
 
 drop table firDetails cascade;
 
-select * from casedetails;
-select * from firDetails;
-
 CREATE TABLE if not exists officerDetails
 (
     officerName varchar(20) NOT NULL,
@@ -90,13 +87,15 @@ CREATE TABLE if not exists officerDetails
     officerEmail varchar(50) NOT NULL,
     officerPhoneNumber varchar(10) NOT NULL
 );
+
 ALTER TABLE officerDetails ADD PRIMARY KEY(officerEmail);
-select * from officerDetails;
+
 drop table officerDetails cascade;
 
 truncate table firDetails;
 truncate table casedetails;
 truncate table officerDetails;
+truncate table adminUser;
 
 create table adminUser
 (
@@ -106,9 +105,7 @@ create table adminUser
 );
 
 ALTER TABLE adminUser ADD PRIMARY KEY(username);
-select * from adminUser;
 drop table adminUser cascade;
-truncate table adminUser;
 
 create table if not exists author
 (
@@ -125,5 +122,8 @@ select * from author;
 drop table author cascade;
 truncate table author;
 
-
+select * from officerDetails;
+select * from adminUser;
+select * from casedetails;
+select * from firDetails;
 

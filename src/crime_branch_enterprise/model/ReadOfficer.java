@@ -231,7 +231,7 @@ public class ReadOfficer extends javax.swing.JPanel {
             }
 
             DefaultTableModel model = (DefaultTableModel) OfficerDirectoryTable.getModel();
-            OfficerRecord selectedOff = (OfficerRecord) model.getValueAt(selectedRowIndex, 0);
+            Officer selectedOff = (Officer) model.getValueAt(selectedRowIndex, 0);
             String offName = NewFNameTxt.getText();
             String offEmail = NewEmailTxt.getText();
             int offPhone = Integer.parseInt(NewPhoneTxt.getText());
@@ -263,7 +263,7 @@ public class ReadOfficer extends javax.swing.JPanel {
         }
 
         DefaultTableModel model = (DefaultTableModel) OfficerDirectoryTable.getModel();
-        OfficerRecord off = (OfficerRecord) model.getValueAt(selectedRowIndex,0);
+        Officer off = (Officer) model.getValueAt(selectedRowIndex,0);
         
         officerDir.deleteOfficer(off);
 
@@ -282,7 +282,7 @@ public class ReadOfficer extends javax.swing.JPanel {
         }
 
         DefaultTableModel model = (DefaultTableModel) OfficerDirectoryTable.getModel();
-        OfficerRecord off = (OfficerRecord) model.getValueAt(selectedRowIndex,0);
+        Officer off = (Officer) model.getValueAt(selectedRowIndex,0);
 
         NewFNameTxt.setText(String.valueOf(off.getOfficerName()));
         NewEmailTxt.setText(String.valueOf(off.getOfficerEmail()));
@@ -295,7 +295,7 @@ public class ReadOfficer extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) OfficerDirectoryTable.getModel();
         model.setRowCount(0);
 
-        for (OfficerRecord off : officerDir.getOfficerList()) {
+        for (Officer off : officerDir.getOfficerList()) {
 
             Object[] row = new Object[7];
             row[0] = off;

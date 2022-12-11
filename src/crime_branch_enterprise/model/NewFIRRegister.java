@@ -4,15 +4,13 @@
  */
 package crime_branch_enterprise.model;
 
-import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.JTextFieldLimit;
 import model.Sys;
 import ui.HomeScreen;
+import utility.Validation;
 
 /**
  *
@@ -29,6 +27,13 @@ public class NewFIRRegister extends javax.swing.JPanel {
     private HomeScreen homeScreen;
     DatabaseConnection_FirDetails dbConnFIRDetails;
     PreparedStatement stmt;
+    FIRDirectory fIRDirectory;
+    Validation validation;
+    
+    public NewFIRRegister(FIRDirectory fIRDirectory)
+    {
+        this.fIRDirectory = fIRDirectory;
+    }
    
 
     public NewFIRRegister(JPanel newFIRRegisterPanel,Sys sys,HomeScreen homeScreen) {
@@ -38,6 +43,8 @@ public class NewFIRRegister extends javax.swing.JPanel {
         this.sys = sys;
         this.homeScreen = homeScreen;
         setSize(1040, 544);
+        
+        validation = new Validation();
         
         dbConnFIRDetails = new DatabaseConnection_FirDetails();
         DescriptionTextField.setDocument(new JTextFieldLimit(250));
@@ -279,50 +286,93 @@ public class NewFIRRegister extends javax.swing.JPanel {
 
     private void SubmitDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitDetailsButtonActionPerformed
         
-        // TODO add your handling code here:
-        java.util.Date utilDate=(java.util.Date) DateOfOffenceDateChooser.getDate();
-        java.sql.Date  sqlDate=new java.sql.Date(utilDate.getDate());
+        boolean flagValidate = false;
         String descr = DescriptionTextField.getText();
         String firstName = FirstNameTextField.getText();
         String lastName = LastNameTextField.getText();
         String emailId = EmailIdTextField.getText();
+        java.sql.Date sqlDate = null;
+        java.util.Date utilDate = null;
+        String inputDate = "";
+        
+        if(!validation.emailTextFieldValidation(emailId))
+        {
+            JOptionPane.showMessageDialog(this, "valid Email Example a@b.com ");
+            flagValidate = false;
+        }
+        
         int phoneNumber = 0;
         try{
-        phoneNumber = Integer.parseInt(PhoneNumberTextField.getText());
+            phoneNumber = Integer.parseInt(PhoneNumberTextField.getText());
+            if(!validation.PhoneNumberTextFieldValidationIsNotNull(String.valueOf(phoneNumber)))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid Phone Number");
+                flagValidate = false;
+            }
         }
-        catch(NumberFormatException ex){ }
+        catch(NumberFormatException ex)
+        {
+            JOptionPane.showMessageDialog(this, "Enter valid Phone Number ");
+            flagValidate = false;
+        }
         String address = AddressTextField.getText();
         String valuePoliceStn = SelectPoliceStation.getSelectedItem().toString();
         String valueAccVic = SelectAccusedOrVictim.getSelectedItem().toString();
         
-        FIRDirectory fIRDirectory = new FIRDirectory();
-        fIRDirectory.firList.add(new FIR(sqlDate,descr,valuePoliceStn,valueAccVic,firstName,lastName,emailId,phoneNumber, address));
-        
-        //add to database firDetails
-        try
+        if(validation.StringTextFieldValidationIsNotNull(firstName))
         {
-            dbConnFIRDetails.databaseConnection();
-            String insertsql="Insert into firDetails (dateOfOffence,descr,policeStationLoc,accorvic,firstName,lastName,emailId,phoneNum,address) values(?,?,?,?,?,?,?,?,?)";
-            PreparedStatement stmt=dbConnFIRDetails.con.prepareStatement(insertsql);
-            
-            stmt.setDate(1, new java.sql.Date(sqlDate.getDate()));
-            stmt.setString(2, DescriptionTextField.getText());
-            stmt.setString(3, valuePoliceStn);
-            stmt.setString(4, valueAccVic);
-            stmt.setString(5, firstName);
-            stmt.setString(6, lastName);
-            stmt.setString(7, emailId);
-            stmt.setInt(8, phoneNumber);
-            stmt.setString(9, address);
-            
-            stmt.executeUpdate();
-            stmt.close();
-            
-            dbConnFIRDetails.closeConnection();
+            JOptionPane.showMessageDialog(this, "Enter valid first name");
+            flagValidate = false;
         }
-        catch(Exception e)
+        
+        if(validation.StringTextFieldValidationIsNotNull(lastName))
         {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Enter valid last name");
+            flagValidate = false;
+        }
+
+        try
+            {
+                utilDate = DateOfOffenceDateChooser.getDate();
+                inputDate = DateOfOffenceDateChooser.getDate().toString();
+                if(validation.futureDateValidation(inputDate) < 0)
+                {
+                    flagValidate = false;
+                }
+                else
+                {
+                    sqlDate =new java.sql.Date(utilDate.getDate());
+                }
+            }
+            catch(NullPointerException e)
+            {
+                JOptionPane.showMessageDialog(this, "Select Date");
+                flagValidate = false;
+            }
+        
+        if(descr.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Add Description");
+            flagValidate = false;
+        }
+        
+        if(flagValidate)
+        {
+            fIRDirectory.firList.add(new FIR(sqlDate,descr,valuePoliceStn,valueAccVic,firstName,lastName,emailId,phoneNumber, address));
+
+            //add to database firDetails
+            FIR fir = new FIR();
+            fir.setDateOfOffence(sqlDate);
+            fir.setDescr(descr);
+            fir.setFirstname(firstName);
+            fir.setLastname(lastName);
+            fir.setEmailId(emailId);
+            fir.setPhoneNum(phoneNumber);
+            fir.setAddress(address);
+            fir.setPoliceStationLoc(valueAccVic);
+
+            //fir add to arraylist
+            fIRDirectory.addNewFIR(fir);
         }
         
     }//GEN-LAST:event_SubmitDetailsButtonActionPerformed

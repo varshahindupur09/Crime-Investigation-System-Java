@@ -60,7 +60,6 @@ public class DatabaseConnection_author
         }
    }
    
-   
    public void addAuthorDataToDB(Author author)
    {
        //add to database firDetails

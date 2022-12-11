@@ -3,19 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/All_GitProjects/AED%20Crime%20Investigation%20System/FinalAED_CrimeInvestigationSystem/src/ui/HomePanel.java</file>
-
-            <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ResourceModel/ResourceAdmin.java</file>
-            <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ForensicsModel/ForensicLab.java</file>
-            <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ForensicsModel/DoctorDirectory.java</file>
-            <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ResourceModel/ReadArmy.java</file>
-            <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ForensicsModel/ForensicAdmin.java</file>
-
-            <file>file:/D:/All_GitProjects/AED%20Crime%20Investigation%20System/FinalAED_CrimeInvestigationSystem/src/NewsModel/CreateAuthorJPanel.java</file>
-            <file>file:/D:/All_GitProjects/AED%20Crime%20Investigation%20System/FinalAED_CrimeInvestigationSystem/src/NewsModel/Author.java</file>
-            <file>file:/D:/All_GitProjects/AED%20Crime%20Investigation%20System/FinalAED_CrimeInvestigationSystem/src/NewsModel/NewsMainJPanel.java</file>
-            <file>file:/D:/All_GitProjects/AED%20Crime%20Investigation%20System/FinalAED_CrimeInvestigationSystem/src/NewsModel/DatabaseConnection_author.java</file>
-            
+            <file>file:/D:/All_GitProjects/AED%20Crime%20Investigation%20System/FinalAED_CrimeInvestigationSystem/src/crime_branch_enterprise/model/NewCaseRegisterationPanel.java</file>
+            <file>file:/D:/All_GitProjects/AED%20Crime%20Investigation%20System/FinalAED_CrimeInvestigationSystem/src/utility/Validation.java</file>
+            <file>file:/D:/All_GitProjects/AED%20Crime%20Investigation%20System/FinalAED_CrimeInvestigationSystem/src/crime_branch_enterprise/model/NewOfficerRegister.java</file>
+            <file>file:/D:/All_GitProjects/AED%20Crime%20Investigation%20System/FinalAED_CrimeInvestigationSystem/src/crime_branch_enterprise/model/CasePortalPanel.java</file>
         </group>
     </open-files>
 </project-private>
