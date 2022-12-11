@@ -11,10 +11,12 @@ import javax.swing.table.DefaultTableModel;
 public class ReadWeapon extends javax.swing.JPanel {
 
     WeaponDirectory weaponHistory;
+    DatabaseConnection_weapon dbConWeaponDetails;
     public ReadWeapon(WeaponDirectory weaponHistory) {
         initComponents();
         this.weaponHistory = weaponHistory;
         populateTable();
+        dbConWeaponDetails = new DatabaseConnection_weapon();
     }
 
     /**
@@ -200,6 +202,8 @@ public class ReadWeapon extends javax.swing.JPanel {
             selectedWeapon.setWeaponId(weaponId);
             selectedWeapon.setwType(weaponName);
             selectedWeapon.setCount(count);
+            
+            dbConWeaponDetails.updateWeaponDataToDB(selectedWeapon);
              
             txtWeaponId.setText("");
             txtWeaponType.setText("");
@@ -237,6 +241,8 @@ public class ReadWeapon extends javax.swing.JPanel {
         Weapon selectedWeapon = (Weapon) model.getValueAt(selectedRowIndex, 0);
 
         weaponHistory.deleteWeapon(selectedWeapon);
+        dbConWeaponDetails.deleteWeaponDataInDB(selectedWeapon);
+        
         JOptionPane.showMessageDialog(this, "Weapon deleted");
 
         populateTable();

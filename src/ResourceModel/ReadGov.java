@@ -11,10 +11,14 @@ import javax.swing.table.DefaultTableModel;
 public class ReadGov extends javax.swing.JPanel {
 
     GovDirectory govHistory;
+    DatabaseConnection_government dbConGovDetails;
+    
     public ReadGov(GovDirectory govHistory) {
         initComponents();
         this.govHistory = govHistory;
         populateTable();
+        
+        dbConGovDetails = new DatabaseConnection_government();
     }
 
     /**
@@ -220,6 +224,7 @@ public class ReadGov extends javax.swing.JPanel {
             selectedGov.setPartyLeaderName(plName);
             selectedGov.setParty(party);
             selectedGov.setState(state);
+            dbConGovDetails.updateGovernmentDataToDB(selectedGov);
              
             populateTable();
             txtPLId.setText("");
@@ -261,6 +266,7 @@ public class ReadGov extends javax.swing.JPanel {
         Government selectedGov = (Government)model.getValueAt(selectedRowIndex, 0);
 
         govHistory.deleteGov(selectedGov);
+        dbConGovDetails.deleteGovernmentDataInDB(selectedGov);
         JOptionPane.showMessageDialog(this, "Government deleted");
 
         populateTable();

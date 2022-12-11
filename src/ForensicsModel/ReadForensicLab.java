@@ -14,10 +14,14 @@ import javax.swing.table.DefaultTableModel;
 public class ReadForensicLab extends javax.swing.JPanel {
 
     ForensicLabHistory forLabHistory;
+    DatabaseConnection_forLab dbConForLabDetails;
+    
     public ReadForensicLab(ForensicLabHistory forLabHistory) {
         initComponents();
         this.forLabHistory = forLabHistory;
         populateTable();
+        
+        dbConForLabDetails = new DatabaseConnection_forLab();
     }
 
     /**
@@ -205,6 +209,8 @@ public class ReadForensicLab extends javax.swing.JPanel {
             selectedForensicLab.setForLabId(forLabId);
             selectedForensicLab.setHospId(hospId);
             selectedForensicLab.setHospName(hospName);
+            
+            dbConForLabDetails.updateForLabDataToDB(selectedForensicLab);
              
             populateTable();
             txtForLabId.setText("");
@@ -244,6 +250,8 @@ public class ReadForensicLab extends javax.swing.JPanel {
         ForensicLab selectedForensicLab = (ForensicLab)model.getValueAt(selectedRowIndex, 0);
 
         forLabHistory.deleteForLab(selectedForensicLab);
+        dbConForLabDetails.deleteForensiclabDataInDB(selectedForensicLab);
+        
         JOptionPane.showMessageDialog(this, "Forensic Lab deleted");
 
         populateTable();

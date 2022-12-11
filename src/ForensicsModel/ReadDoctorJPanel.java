@@ -13,11 +13,15 @@ public class ReadDoctorJPanel extends javax.swing.JPanel {
 
     DoctorDirectory docHistory;
     Doctor doctor;
+    DatabaseConnection_doctor dbConDoctorDetails;
+    
     public ReadDoctorJPanel(DoctorDirectory docHistory, Doctor doctor) {
         initComponents();
        this.docHistory = docHistory; 
        this.doctor = doctor; 
         populateTable();
+        
+        dbConDoctorDetails = new DatabaseConnection_doctor();
     }
 
     /**
@@ -249,6 +253,8 @@ public class ReadDoctorJPanel extends javax.swing.JPanel {
         Doctor selectedDoctor = (Doctor)model.getValueAt(selectedRowIndex, 0);
 
         docHistory.deleteDoctor(selectedDoctor);
+        
+        dbConDoctorDetails.deleteDoctorDataInDB(selectedDoctor);
         JOptionPane.showMessageDialog(this, "Doctor deleted");
 
         populateTable();
@@ -272,7 +278,8 @@ public class ReadDoctorJPanel extends javax.swing.JPanel {
         String docPhone = txtDocPhone.getText();
         int hospId = Integer.parseInt(txtHospId.getText());
         String hospName = txtHospName.getText();
-
+        
+        
         JOptionPane.showMessageDialog(this, "Doctor Information Updated");
         //history.deleteEmployee(selectedEmployee);
         selectedDoctor.setDocId(docId);
@@ -280,6 +287,8 @@ public class ReadDoctorJPanel extends javax.swing.JPanel {
         selectedDoctor.setDocPhone(docPhone);
         selectedDoctor.setHospId(hospId);
         selectedDoctor.setHospName(hospName);
+        
+        dbConDoctorDetails.updateDoctorDataToDB(selectedDoctor);
 
         populateTable();
         txtDocId.setText("");

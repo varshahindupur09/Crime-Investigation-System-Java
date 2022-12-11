@@ -15,6 +15,7 @@ import ui.HomeScreen;
 public class ReadHospitalJPanel extends javax.swing.JPanel {
 
     hospitalDirectory hospHistory;
+    DatabaseConnection_hospital dbConHospitalDetails;
     
     JPanel readHospitalJPanel;
     Sys sys;
@@ -24,6 +25,7 @@ public class ReadHospitalJPanel extends javax.swing.JPanel {
 //        initComponents();
         this.hospHistory = hospHistory;
         populateTable();
+        dbConHospitalDetails = new DatabaseConnection_hospital();
     }
     
     public ReadHospitalJPanel(JPanel readHospitalJPanel,Sys sys,HomeScreen homeScreen) 
@@ -249,6 +251,8 @@ public class ReadHospitalJPanel extends javax.swing.JPanel {
             selectedHospital.setHospName(hospName);
             selectedHospital.setCommunity(community);
             selectedHospital.setCity(city);
+            
+            dbConHospitalDetails.updateHospitalDataToDB(selectedHospital);
              
             populateTable();
             txtHospId.setText("");
@@ -290,6 +294,7 @@ public class ReadHospitalJPanel extends javax.swing.JPanel {
         Hospital selectedHospital = (Hospital)model.getValueAt(selectedRowIndex, 0);
 
         hospHistory.deleteHospital(selectedHospital);
+        dbConHospitalDetails.deleteHospitalDataInDB(selectedHospital);
         JOptionPane.showMessageDialog(this, "Hospital deleted");
 
         populateTable();

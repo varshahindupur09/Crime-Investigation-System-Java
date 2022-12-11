@@ -11,10 +11,13 @@ import javax.swing.table.DefaultTableModel;
 public class ReadArmy extends javax.swing.JPanel {
 
     ArmyDirectory armyHistory;
+    DatabaseConnection_army dbConArmyDetails;
     public ReadArmy(ArmyDirectory armyHistory) {
         initComponents();
         this.armyHistory = armyHistory;
         populateTable();
+        
+        dbConArmyDetails = new DatabaseConnection_army();
     }
 
     /**
@@ -233,6 +236,8 @@ public class ReadArmy extends javax.swing.JPanel {
             selectedArmy.setGeneralName(genName);
             selectedArmy.setDepartment(department);
             selectedArmy.setCountry(country);
+            
+            dbConArmyDetails.updateArmyDataToDB(selectedArmy);
              
             populateTable();
             txtGenId.setText("");
@@ -273,6 +278,7 @@ public class ReadArmy extends javax.swing.JPanel {
         Army selectedArmy = (Army)model.getValueAt(selectedRowIndex, 0);
 
         armyHistory.deleteArmy(selectedArmy);
+        dbConArmyDetails.deleteArmyDataInDB(selectedArmy);
         JOptionPane.showMessageDialog(this, "Army deleted");
 
         populateTable();
