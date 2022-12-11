@@ -29,16 +29,26 @@ public class ForensicsAdmin extends javax.swing.JPanel {
     private Sys sys;
     private HomeScreen homeScreen;
     
-    public ForensicsAdmin(JPanel resourceAdminJPanel,Sys sys,HomeScreen homeScreen) 
-    {
+    
+    public ForensicAdmin(JPanel createForensicAdmin, Sys sys, HomeScreen homeScreen)
+    {   
         initComponents();
-        
         this.createForensicAdmin = createForensicAdmin;
         this.sys = sys;
         this.homeScreen = homeScreen;
         setSize(1040, 544);
     }
         
+    public ForensicsAdmin(Hospital hospital, Doctor doctor, ForensicLab forLab, hospitalDirectory hospHistory,
+                            DoctorDirectory docHistory, ForensicLabHistory forLabHistory) {
+        initComponents();
+        hospital = new Hospital();
+        doctor = new Doctor();
+        forLab = new ForensicLab();
+        hospHistory = new hospitalDirectory();
+        docHistory = new DoctorDirectory(); 
+        forLabHistory = new ForensicLabHistory();
+
     public ForensicsAdmin(Hospital hospital, Doctor doctor, ForensicLab forLab, hospitalDirectory hospHistory, 
                     DoctorDirectory docHistory, ForensicLabHistory forLabHistory) {
         initComponents();
@@ -313,7 +323,8 @@ public class ForensicsAdmin extends javax.swing.JPanel {
     private void btnManageHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHospitalActionPerformed
         // TODO add your handling code here:
         ReadHospitalJPanel readHospitalJPanel = new ReadHospitalJPanel(hospHistory, hospital);
-        jSplitPane4.setRightComponent(readHospitalJPanel);
+        jSplitPane2.setRightComponent(readHospitalJPanel);
+
     }//GEN-LAST:event_btnManageHospitalActionPerformed
 
     private void btnAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDoctorActionPerformed
