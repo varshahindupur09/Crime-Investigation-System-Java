@@ -12,9 +12,12 @@ import javax.swing.JOptionPane;
 public class CreateJail extends javax.swing.JPanel {
 
     JailDirectory jailHistory;
+    DatabaseConnection_jail dbConJailDetails;
+    
     public CreateJail(JailDirectory jailHistory) {
         initComponents();
         this.jailHistory = jailHistory;
+        dbConJailDetails = new DatabaseConnection_jail();
     }
 
     /**
@@ -163,6 +166,7 @@ public class CreateJail extends javax.swing.JPanel {
         j.setJailerName(jailerName);
         j.setCriminalCount(crimCount);
         
+        dbConJailDetails.addJailDataToDB(j);
         JOptionPane.showMessageDialog(this, "New Government is added.");
 
         txtJailId.setText("");

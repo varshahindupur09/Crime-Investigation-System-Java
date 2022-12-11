@@ -17,10 +17,12 @@ public class CreateHospitalJPanel extends javax.swing.JPanel
 {
 
     hospitalDirectory hospHistory;
+    DatabaseConnection_hospital dbConHospitalDetails;
     
     public CreateHospitalJPanel(hospitalDirectory hospHistory)
     {   initComponents();
         this.hospHistory = hospHistory;
+        dbConHospitalDetails = new DatabaseConnection_hospital();
     }
     
     
@@ -197,7 +199,7 @@ public class CreateHospitalJPanel extends javax.swing.JPanel
         h.setCity(city);
         h.setDocName(doc);
         
-
+        dbConHospitalDetails.addHospitalDataToDB(h);
         JOptionPane.showMessageDialog(this, "New Hospital is added.");
 
         txtHospId.setText("");

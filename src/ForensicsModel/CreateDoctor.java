@@ -6,15 +6,19 @@ package ForensicsModel;
 
 import ForensicsModel.Doctor;
 import ForensicsModel.DoctorDirectory;
+import NewsModel.DatabaseConnection_author;
 import javax.swing.JOptionPane;
 
 
 public class CreateDoctor extends javax.swing.JPanel {
 
     DoctorDirectory docHistory;
+    DatabaseConnection_doctor dbConDoctorDetails;
+    
     public CreateDoctor(DoctorDirectory docHistory) {
         initComponents();
         this.docHistory = docHistory;
+        dbConDoctorDetails = new DatabaseConnection_doctor();
     }
 
     /**
@@ -175,7 +179,9 @@ public class CreateDoctor extends javax.swing.JPanel {
         d.setDocPhone(docPhone);
         d.setHospId(hospId);
         d.setHospName(hospName);
-
+        
+        dbConDoctorDetails.addDoctorDataToDB(d);
+        
         JOptionPane.showMessageDialog(this, "New Doctor is added.");
 
         }

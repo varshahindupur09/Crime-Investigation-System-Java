@@ -11,9 +11,12 @@ import javax.swing.JOptionPane;
 public class CreateTrainedAnimal extends javax.swing.JPanel {
 
     TrainedAnimalDirectory animalHistory;
+    DatabaseConnection_tAnimal dbConTAnimalDetails;
+    
     public CreateTrainedAnimal(TrainedAnimalDirectory animalHistory) {
         initComponents();
         this.animalHistory = animalHistory;
+        dbConTAnimalDetails = new DatabaseConnection_tAnimal();
     }
 
     /**
@@ -178,6 +181,7 @@ public class CreateTrainedAnimal extends javax.swing.JPanel {
         a.setAnimalName(animalName);
         a.setType(type);
         
+        dbConTAnimalDetails.addTAnimalDataToDB(a);
         JOptionPane.showMessageDialog(this, "New Trained Animal is added.");
 
         txtTrainerId.setText("");

@@ -25,9 +25,9 @@ public class ForensicsAdmin extends javax.swing.JPanel {
     DoctorDirectory docHistory;
     ForensicLabHistory forLabHistory;
     
-    private JPanel createForensicAdmin;
-    private Sys sys;
-    private HomeScreen homeScreen;
+    JPanel createForensicAdmin;
+    Sys sys;
+    HomeScreen homeScreen;
     
     
     public ForensicsAdmin(JPanel createForensicAdmin, Sys sys, HomeScreen homeScreen)
@@ -39,15 +39,14 @@ public class ForensicsAdmin extends javax.swing.JPanel {
         setSize(1040, 544);
     }
         
-    public ForensicsAdmin(Hospital hospital, Doctor doctor, ForensicLab forLab, hospitalDirectory hospHistory,
-                            DoctorDirectory docHistory, ForensicLabHistory forLabHistory) {
+    public ForensicsAdmin() {
         initComponents();
-        hospital = new Hospital();
-        doctor = new Doctor();
-        forLab = new ForensicLab();
-        hospHistory = new hospitalDirectory();
-        docHistory = new DoctorDirectory(); 
-        forLabHistory = new ForensicLabHistory();
+        this.hospital = new Hospital();
+        this.doctor = new Doctor();
+        this.forLab = new ForensicLab();
+        this.hospHistory = new hospitalDirectory();
+        this.docHistory = new DoctorDirectory(); 
+        this.forLabHistory = new ForensicLabHistory();
     }
 
     /**

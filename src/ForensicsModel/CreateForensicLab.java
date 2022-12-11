@@ -12,9 +12,12 @@ import javax.swing.JOptionPane;
 public class CreateForensicLab extends javax.swing.JPanel {
 
     ForensicLabHistory forLabHistory;
+    DatabaseConnection_forLab dbConForLabDetails;
+    
     public CreateForensicLab(ForensicLabHistory forLabHistory) {
         initComponents();
         this.forLabHistory = forLabHistory;
+        dbConForLabDetails = new DatabaseConnection_forLab();
     }
 
     /**
@@ -136,7 +139,8 @@ public class CreateForensicLab extends javax.swing.JPanel {
         f.setForLabId(forLabId);
         f.setHospId(hospId);
         f.setHospName(hospName);
-
+        
+        dbConForLabDetails.addForLabDataToDB(f);
         JOptionPane.showMessageDialog(this, "New Forensic Lab is added.");
 
         txtForLabId.setText("");
