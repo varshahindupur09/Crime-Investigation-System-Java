@@ -3,10 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package crime_branch_enterprise.model;
-import crime_branch_enterprise.model.FIR;
-import crime_branch_enterprise.model.FIRDirectory;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import model.Sys;
+import ui.HomeScreen;
 /**
  *
  * @author Sal <your.name at your.org>
@@ -17,12 +18,27 @@ public class ReadFIR extends javax.swing.JPanel {
     /**
      * Creates new form ReadFIR
      */
+    private JPanel readFIR;
+    private Sys sys;
+    private HomeScreen homeScreen;
+    
     public ReadFIR(FIRDirectory firDir) {
         initComponents();
         this.firDir = firDir;
         populateTable();
     }
-
+    
+    public ReadFIR( JPanel readFIR, Sys sys, HomeScreen homeScreen) 
+    {    
+        initComponents();
+        this.readFIR = readFIR;
+        this.sys = sys;
+        this.homeScreen = homeScreen;
+        
+        setSize(1040, 544);
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -346,7 +362,6 @@ public class ReadFIR extends javax.swing.JPanel {
 
         DefaultTableModel model = (DefaultTableModel) FIRDirectoryTable.getModel();
         FIR fir = (FIR) model.getValueAt(selectedRowIndex,0);
-        
         
         firDir.deleteFIR(fir);
         

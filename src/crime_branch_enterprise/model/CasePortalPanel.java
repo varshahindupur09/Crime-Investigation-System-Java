@@ -24,6 +24,7 @@ public class CasePortalPanel extends javax.swing.JPanel {
     private Sys sys;
     private HomeScreen homeScreen;
     private HomePanel homePanel;
+    
     CardLayout cardLayout;
     
     public CasePortalPanel(JPanel casePortalPanel,Sys sys,HomeScreen homeScreen, HomePanel homePanel) {
@@ -50,12 +51,12 @@ public class CasePortalPanel extends javax.swing.JPanel {
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         NewCaseRegisterationLabel = new javax.swing.JLabel();
-        SearchYourCaseLabel = new javax.swing.JLabel();
+        ReadCaseLabel = new javax.swing.JLabel();
         TitleCasePortalLabel = new javax.swing.JLabel();
         FIRRegisterationLabel = new javax.swing.JLabel();
         CreateNewOfficerLabel = new javax.swing.JLabel();
-        CreateNewOfficerLabel1 = new javax.swing.JLabel();
-        FIRRegisterationLabel1 = new javax.swing.JLabel();
+        ReadOfficerDataLabel = new javax.swing.JLabel();
+        ReadFIRRegisterLabel = new javax.swing.JLabel();
         SwitchPanel = new javax.swing.JPanel();
         NewCaseRegisterationPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -83,18 +84,18 @@ public class CasePortalPanel extends javax.swing.JPanel {
             }
         });
 
-        SearchYourCaseLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        SearchYourCaseLabel.setForeground(new java.awt.Color(255, 255, 255));
-        SearchYourCaseLabel.setText("Search Your Case ");
-        SearchYourCaseLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+        ReadCaseLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ReadCaseLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ReadCaseLabel.setText("Read Case ");
+        ReadCaseLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SearchYourCaseLabelMouseClicked(evt);
+                ReadCaseLabelMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                SearchYourCaseLabelMouseEntered(evt);
+                ReadCaseLabelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                SearchYourCaseLabelMouseExited(evt);
+                ReadCaseLabelMouseExited(evt);
             }
         });
 
@@ -132,33 +133,33 @@ public class CasePortalPanel extends javax.swing.JPanel {
             }
         });
 
-        CreateNewOfficerLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        CreateNewOfficerLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        CreateNewOfficerLabel1.setText("Read Officer Data");
-        CreateNewOfficerLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        ReadOfficerDataLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ReadOfficerDataLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ReadOfficerDataLabel.setText("Read Officer Data");
+        ReadOfficerDataLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CreateNewOfficerLabel1MouseClicked(evt);
+                ReadOfficerDataLabelMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                CreateNewOfficerLabel1MouseEntered(evt);
+                ReadOfficerDataLabelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                CreateNewOfficerLabel1MouseExited(evt);
+                ReadOfficerDataLabelMouseExited(evt);
             }
         });
 
-        FIRRegisterationLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        FIRRegisterationLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        FIRRegisterationLabel1.setText("Read FIR Register");
-        FIRRegisterationLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        ReadFIRRegisterLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ReadFIRRegisterLabel.setForeground(new java.awt.Color(255, 255, 255));
+        ReadFIRRegisterLabel.setText("Read FIR Register");
+        ReadFIRRegisterLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                FIRRegisterationLabel1MouseClicked(evt);
+                ReadFIRRegisterLabelMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                FIRRegisterationLabel1MouseEntered(evt);
+                ReadFIRRegisterLabelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                FIRRegisterationLabel1MouseExited(evt);
+                ReadFIRRegisterLabelMouseExited(evt);
             }
         });
 
@@ -175,13 +176,13 @@ public class CasePortalPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(NewCaseRegisterationLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(FIRRegisterationLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(SearchYourCaseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ReadCaseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(CreateNewOfficerLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CreateNewOfficerLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FIRRegisterationLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(ReadOfficerDataLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ReadFIRRegisterLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -191,17 +192,17 @@ public class CasePortalPanel extends javax.swing.JPanel {
                 .addComponent(TitleCasePortalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(CreateNewOfficerLabel)
-                .addGap(18, 18, 18)
-                .addComponent(CreateNewOfficerLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(FIRRegisterationLabel)
                 .addGap(29, 29, 29)
-                .addComponent(FIRRegisterationLabel1)
+                .addComponent(ReadOfficerDataLabel)
+                .addGap(28, 28, 28)
+                .addComponent(FIRRegisterationLabel)
                 .addGap(26, 26, 26)
+                .addComponent(ReadFIRRegisterLabel)
+                .addGap(29, 29, 29)
                 .addComponent(NewCaseRegisterationLabel)
                 .addGap(27, 27, 27)
-                .addComponent(SearchYourCaseLabel)
-                .addContainerGap(377, Short.MAX_VALUE))
+                .addComponent(ReadCaseLabel)
+                .addContainerGap(356, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -273,11 +274,11 @@ public class CasePortalPanel extends javax.swing.JPanel {
         homePanel.clickNewCaseRegisterationPortal(homeScreen);
     }//GEN-LAST:event_NewCaseRegisterationLabelMouseClicked
 
-    private void SearchYourCaseLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchYourCaseLabelMouseClicked
+    private void ReadCaseLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReadCaseLabelMouseClicked
         // TODO add your handling code here:
         System.out.println("SearchYourCaseLabelMouseClicked");
-        homePanel.clickNewCaseRegisterationPortal(homeScreen);
-    }//GEN-LAST:event_SearchYourCaseLabelMouseClicked
+        homePanel.clickReadCaseCreatePortal(homeScreen);
+    }//GEN-LAST:event_ReadCaseLabelMouseClicked
 
     private void FIRRegisterationLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FIRRegisterationLabelMouseClicked
         // TODO add your handling code here:
@@ -306,15 +307,15 @@ public class CasePortalPanel extends javax.swing.JPanel {
         NewCaseRegisterationLabel.setForeground(Color.black);
     }//GEN-LAST:event_NewCaseRegisterationLabelMouseEntered
 
-    private void SearchYourCaseLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchYourCaseLabelMouseEntered
+    private void ReadCaseLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReadCaseLabelMouseEntered
         // TODO add your handling code here:
-        SearchYourCaseLabel.setForeground(Color.black);
-    }//GEN-LAST:event_SearchYourCaseLabelMouseEntered
+        ReadCaseLabel.setForeground(Color.black);
+    }//GEN-LAST:event_ReadCaseLabelMouseEntered
 
-    private void SearchYourCaseLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchYourCaseLabelMouseExited
+    private void ReadCaseLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReadCaseLabelMouseExited
         // TODO add your handling code here:
-        SearchYourCaseLabel.setForeground(Color.white);
-    }//GEN-LAST:event_SearchYourCaseLabelMouseExited
+        ReadCaseLabel.setForeground(Color.white);
+    }//GEN-LAST:event_ReadCaseLabelMouseExited
 
     private void NewCaseRegisterationLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewCaseRegisterationLabelMouseExited
         // TODO add your handling code here:
@@ -331,29 +332,31 @@ public class CasePortalPanel extends javax.swing.JPanel {
         CreateNewOfficerLabel.setForeground(Color.white);
     }//GEN-LAST:event_CreateNewOfficerLabelMouseExited
 
-    private void CreateNewOfficerLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateNewOfficerLabel1MouseClicked
+    private void ReadOfficerDataLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReadOfficerDataLabelMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_CreateNewOfficerLabel1MouseClicked
+        homePanel.clickReadOfficerCreatePortal(homeScreen);
+    }//GEN-LAST:event_ReadOfficerDataLabelMouseClicked
 
-    private void CreateNewOfficerLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateNewOfficerLabel1MouseEntered
+    private void ReadOfficerDataLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReadOfficerDataLabelMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_CreateNewOfficerLabel1MouseEntered
+    }//GEN-LAST:event_ReadOfficerDataLabelMouseEntered
 
-    private void CreateNewOfficerLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateNewOfficerLabel1MouseExited
+    private void ReadOfficerDataLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReadOfficerDataLabelMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_CreateNewOfficerLabel1MouseExited
+    }//GEN-LAST:event_ReadOfficerDataLabelMouseExited
 
-    private void FIRRegisterationLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FIRRegisterationLabel1MouseClicked
+    private void ReadFIRRegisterLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReadFIRRegisterLabelMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_FIRRegisterationLabel1MouseClicked
+        homePanel.clickReadFIRCreatePortal(homeScreen);
+    }//GEN-LAST:event_ReadFIRRegisterLabelMouseClicked
 
-    private void FIRRegisterationLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FIRRegisterationLabel1MouseEntered
+    private void ReadFIRRegisterLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReadFIRRegisterLabelMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_FIRRegisterationLabel1MouseEntered
+    }//GEN-LAST:event_ReadFIRRegisterLabelMouseEntered
 
-    private void FIRRegisterationLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FIRRegisterationLabel1MouseExited
+    private void ReadFIRRegisterLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReadFIRRegisterLabelMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_FIRRegisterationLabel1MouseExited
+    }//GEN-LAST:event_ReadFIRRegisterLabelMouseExited
 
     public void clearFields(){
         
@@ -362,12 +365,12 @@ public class CasePortalPanel extends javax.swing.JPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CreateNewOfficerLabel;
-    private javax.swing.JLabel CreateNewOfficerLabel1;
     private javax.swing.JLabel FIRRegisterationLabel;
-    private javax.swing.JLabel FIRRegisterationLabel1;
     private javax.swing.JLabel NewCaseRegisterationLabel;
     private javax.swing.JPanel NewCaseRegisterationPanel;
-    private javax.swing.JLabel SearchYourCaseLabel;
+    private javax.swing.JLabel ReadCaseLabel;
+    private javax.swing.JLabel ReadFIRRegisterLabel;
+    private javax.swing.JLabel ReadOfficerDataLabel;
     private javax.swing.JPanel SearchYourCasePanel;
     private javax.swing.JPanel SwitchPanel;
     private javax.swing.JLabel TitleCasePortalLabel;

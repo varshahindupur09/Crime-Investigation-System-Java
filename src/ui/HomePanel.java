@@ -13,6 +13,9 @@ import crime_branch_enterprise.model.CasePortalPanel;
 import crime_branch_enterprise.model.NewCaseRegisterationPanel;
 import crime_branch_enterprise.model.NewFIRRegister;
 import crime_branch_enterprise.model.NewOfficerRegister;
+import crime_branch_enterprise.model.ReadCase;
+import crime_branch_enterprise.model.ReadFIR;
+import crime_branch_enterprise.model.ReadOfficer;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Sys;
@@ -245,6 +248,33 @@ public class HomePanel extends javax.swing.JPanel {
     public void clickResourceAdminCreatePortal(HomeScreen homeScreen) {
 
         JPanel selectedPanel = new ResourceAdmin(workArea,sys,homeScreen);
+        
+        workArea.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+    }
+    
+    public void clickReadOfficerCreatePortal(HomeScreen homeScreen) {
+
+        JPanel selectedPanel = new ReadOfficer(workArea,sys,homeScreen);
+        
+        workArea.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+    }
+    
+    public void clickReadFIRCreatePortal(HomeScreen homeScreen) {
+
+        JPanel selectedPanel = new ReadFIR(workArea,sys,homeScreen);
+        
+        workArea.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) workArea.getLayout();
+        layout.next(workArea);
+    }
+    
+    public void clickReadCaseCreatePortal(HomeScreen homeScreen) {
+
+        JPanel selectedPanel = new ReadCase(workArea,sys,homeScreen);
         
         workArea.add("WorkAreaJPanel",selectedPanel);
         CardLayout layout = (CardLayout) workArea.getLayout();

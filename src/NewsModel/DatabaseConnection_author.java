@@ -4,9 +4,6 @@
  */
 package NewsModel;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author varsha.hindupur
@@ -62,7 +59,6 @@ public class DatabaseConnection_author
             ex.printStackTrace();
         }
    }
-   
    
    public void addAuthorDataToDB(Author author)
    {

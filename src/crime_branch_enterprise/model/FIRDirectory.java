@@ -24,11 +24,16 @@ public class FIRDirectory {
         this.firList = firList;
     }
     
-    public FIR addNewFIR(){
+    public FIR addNewFIR()
+    {
+        FIR firNew = new FIR();
+        firList.add(firNew);
+        return firNew;
+    }
     
-    FIR firNew = new FIR();
-    firList.add(firNew);
-    return firNew;
+    public void addNewFIR(FIR firNew)
+    {
+        firList.add(firNew);
     }
     
     public void deleteFIR(FIR fir){

@@ -76,15 +76,15 @@
                                       <Component id="NewCaseRegisterationLabel" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
                                       <Component id="FIRRegisterationLabel" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="SearchYourCaseLabel" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
+                                  <Component id="ReadCaseLabel" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="CreateNewOfficerLabel" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
-                                  <Component id="CreateNewOfficerLabel1" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
-                                  <Component id="FIRRegisterationLabel1" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
+                                  <Component id="ReadOfficerDataLabel" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
+                                  <Component id="ReadFIRRegisterLabel" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -99,17 +99,17 @@
                       <Component id="TitleCasePortalLabel" min="-2" pref="55" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="CreateNewOfficerLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="CreateNewOfficerLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="FIRRegisterationLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="FIRRegisterationLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="ReadOfficerDataLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="FIRRegisterationLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="ReadFIRRegisterLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="NewCaseRegisterationLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="SearchYourCaseLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="377" max="32767" attributes="0"/>
+                      <Component id="ReadCaseLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="356" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -131,7 +131,7 @@
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="NewCaseRegisterationLabelMouseExited"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="SearchYourCaseLabel">
+            <Component class="javax.swing.JLabel" name="ReadCaseLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -139,12 +139,12 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Search Your Case "/>
+                <Property name="text" type="java.lang.String" value="Read Case "/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SearchYourCaseLabelMouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SearchYourCaseLabelMouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SearchYourCaseLabelMouseExited"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ReadCaseLabelMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ReadCaseLabelMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ReadCaseLabelMouseExited"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="TitleCasePortalLabel">
@@ -190,7 +190,7 @@
                 <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CreateNewOfficerLabelMouseExited"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="CreateNewOfficerLabel1">
+            <Component class="javax.swing.JLabel" name="ReadOfficerDataLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -201,12 +201,12 @@
                 <Property name="text" type="java.lang.String" value="Read Officer Data"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CreateNewOfficerLabel1MouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CreateNewOfficerLabel1MouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CreateNewOfficerLabel1MouseExited"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ReadOfficerDataLabelMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ReadOfficerDataLabelMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ReadOfficerDataLabelMouseExited"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="FIRRegisterationLabel1">
+            <Component class="javax.swing.JLabel" name="ReadFIRRegisterLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -217,9 +217,9 @@
                 <Property name="text" type="java.lang.String" value="Read FIR Register"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="FIRRegisterationLabel1MouseClicked"/>
-                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="FIRRegisterationLabel1MouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="FIRRegisterationLabel1MouseExited"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ReadFIRRegisterLabelMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ReadFIRRegisterLabelMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ReadFIRRegisterLabelMouseExited"/>
               </Events>
             </Component>
           </SubComponents>
