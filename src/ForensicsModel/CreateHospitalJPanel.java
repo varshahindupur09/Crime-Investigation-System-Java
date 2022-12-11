@@ -16,25 +16,14 @@ import ui.HomeScreen;
 public class CreateHospitalJPanel extends javax.swing.JPanel 
 {
 
-    private JPanel createHospitalJPanel;
-    private Sys sys;
-    private HomeScreen homeScreen;
     hospitalDirectory hospHistory;
     
     public CreateHospitalJPanel(hospitalDirectory hospHistory)
-    {
+    {   initComponents();
         this.hospHistory = hospHistory;
     }
     
-    public CreateHospitalJPanel(JPanel createHospitalJPanel,Sys sys,HomeScreen homeScreen) 
-    {
-        initComponents();
-        
-        this.createHospitalJPanel = createHospitalJPanel;
-        this.sys = sys;
-        this.homeScreen = homeScreen;
-        setSize(1040, 544);
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -126,7 +115,7 @@ public class CreateHospitalJPanel extends javax.swing.JPanel
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
