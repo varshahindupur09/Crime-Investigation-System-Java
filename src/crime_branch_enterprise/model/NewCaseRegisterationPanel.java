@@ -4,18 +4,18 @@
  */
 package crime_branch_enterprise.model;
 
-
-import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.JTextFieldLimit;
 import model.Sys;
+import model.User;
+import model.UserDirectory;
 import ui.HomeScreen;
 import utility.RandomString;
+import utility.Validation;
 //import utility
 
 /**
@@ -32,11 +32,20 @@ public class NewCaseRegisterationPanel extends javax.swing.JPanel {
     private HomeScreen homeScreen;
     
     DatabaseConnection_CaseDetails dbConnCaseDetails;
-    PreparedStatement stmt;
+    DatabaseConnection_adminUser dbConnAdmin;
+    
+    NewCaseRegister newCaseRegister;
+    OfficerDirectory officerDirectory;
+    
     FIRDirectory fIRDirectory;
-    List<Integer> firIds = new ArrayList<>();
-    NewOfficerRegister newOfficerRegister = new NewOfficerRegister();
-    OfficerDirectory officerDirectory = new OfficerDirectory();
+    NewCaseRegisterDirectory newCaseRegisterDir;
+    UserDirectory userDir;
+    Validation validation;
+    
+    public NewCaseRegisterationPanel(NewCaseRegisterDirectory newCaseRegisterDir)
+    {
+        this.newCaseRegisterDir = newCaseRegisterDir;
+    }
     
     public NewCaseRegisterationPanel(JPanel newCaseRegisterPanel,Sys sys,HomeScreen homeScreen) {
         initComponents();
@@ -46,16 +55,24 @@ public class NewCaseRegisterationPanel extends javax.swing.JPanel {
         this.homeScreen = homeScreen;
         setSize(1040, 544);
         
-        PhoneNumberTextField.setDocument(new JTextFieldLimit(250));
-        clearFields();
+        //limitations added
+        PhoneNumberTextField.setDocument(new JTextFieldLimit(10));
+        EmailIdTextField.setDocument(new JTextFieldLimit(50));
+        
         dbConnCaseDetails = new DatabaseConnection_CaseDetails();
         fIRDirectory = new FIRDirectory();
+        userDir = new UserDirectory();
+        validation = new Validation();
+        
+        newCaseRegister = new NewCaseRegister();
+        officerDirectory = new OfficerDirectory();
         
         //add officerName
-        for(OfficerRecord officerRecord : OfficerDirectory.officerList)
+        for(Officer officerRecord : OfficerDirectory.officerList)
         {
             SelectOfficerDropdown.addItem(officerRecord.getOfficerName());
         }
+        
     }
     
     public void clearFields(){
@@ -226,42 +243,103 @@ public class NewCaseRegisterationPanel extends javax.swing.JPanel {
 
     private void SubmitDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitDetailsButtonActionPerformed
         // TODO add your handling code here:
-        
         try
         {
+            boolean flagValidate = true;
+            int phoneNum = 0;
+            String officerName = "";
+            java.sql.Date sqlDate = null;
+            java.util.Date utilDate = null;
+            String inputDate = "";
+            
             String emailId = EmailIdLabel.getText();
-            int phoneNum = Integer.parseInt(PhoneNumberTextField.getText());
+            if(!validation.emailTextFieldValidation(emailId))
+            {
+                JOptionPane.showMessageDialog(this, "valid Email Example a@b.com ");
+                flagValidate = false;
+            }
             
-            String officerName = SelectOfficerDropdown.getSelectedItem().toString();
+            try
+            {
+                phoneNum = Integer.parseInt(PhoneNumberTextField.getText());
+                if(!validation.PhoneNumberTextFieldValidationIsNotNull(String.valueOf(phoneNum)))
+                {
+                    JOptionPane.showMessageDialog(this, "Enter valid Phone Number");
+                    flagValidate = false;
+                }
+            }
+            catch(NumberFormatException ex)
+            { 
+                JOptionPane.showMessageDialog(this, "Enter valid Phone Number ");
+                flagValidate = false;
+            }
+           
+            try
+            {
+                officerName = SelectOfficerDropdown.getSelectedItem().toString();
+            }
+            catch(NullPointerException e)
+            {
+                JOptionPane.showMessageDialog(this, "Select Officer");
+                flagValidate = false;
+            }
             
-            dbConnCaseDetails.databaseConnectionCaseDetails();
-//            java.util.Date date = new java.util.Date();
-            String sqlQueryStoreData = "insert into casedetails(emailId, phoneNum, dateOfReport, officerName) values(?,?,?,?)";
-            stmt = dbConnCaseDetails.con.prepareStatement(sqlQueryStoreData);
+            try
+            {
+                utilDate = DateOfReportDateChooser.getDate();
+                inputDate = DateOfReportDateChooser.getDate().toString();
+                if(validation.futureDateValidation(inputDate) < 0)
+                {
+                    flagValidate = false;
+                }
+                else
+                {
+                    sqlDate =new java.sql.Date(utilDate.getDate());
+                }
+            }
+            catch(NullPointerException e)
+            {
+                JOptionPane.showMessageDialog(this, "Select Date");
+                flagValidate = false;
+            }
             
-//          SimpleDateFormat Date_Format = new SimpleDateFormat("dd-MM-yyyy"); 
-            java.util.Date utilDate=(java.util.Date) DateOfReportDateChooser.getDate();
-            java.sql.Date  sqlDate=new java.sql.Date(utilDate.getDate());
+            if(flagValidate)
+            {
+                newCaseRegister.setEmailId(emailId);
+                newCaseRegister.setPhoneNum(String.valueOf(phoneNum));
+                newCaseRegister.setDateOfReport(sqlDate);
+                newCaseRegister.setOfficerName(officerName);
 
-            stmt.setString(1, emailId);
-            stmt.setString(2, String.valueOf(phoneNum));
-            stmt.setDate(3, new java.sql.Date(sqlDate.getDate()));
-            stmt.setString(4, officerName);
-            
-            stmt.executeUpdate();
-            stmt.close();
-            dbConnCaseDetails.closeConnectionCaseDetails();
-            
-//            JOptionPane.showMessageDialog(this, "Case Registered under Officer "+officerName);
-            //victim username, password generate
-            RandomString randomString = new RandomString();
-            String username = randomString.getAlphaNumericString(8);
-            String password = randomString.getAlphaNumericString(8);
-            
-            String jTable1Data[] = {username,password};
-            DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
-            tableModel.addRow(jTable1Data);
-            
+                //added to DB
+                dbConnCaseDetails.addCaseDataToDB(newCaseRegister);
+
+                //added to arraylist
+                newCaseRegisterDir.addNewCaseDataInList(newCaseRegister);
+
+                JOptionPane.showMessageDialog(this, "Case Registered under "+officerName+" officer");
+
+                //victim username, password generate
+
+                RandomString randomString = new RandomString();
+                String username = randomString.getAlphaNumericString(5);
+                String password = randomString.getAlphaNumericString(5);
+
+                String jTable1Data[] = {username,password};
+                DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
+                tableModel.addRow(jTable1Data);
+
+                //store this string in db 
+                User user = new User();
+                user.getUsername();
+                user.getPassword();
+                user.getRole();
+
+                //added to arraylist
+                userDir.addUser(user);
+
+                //added to DB
+                dbConnAdmin.addUserDataToDatabase(user);
+            }
         }
         catch(Exception e)
         {

@@ -4,8 +4,6 @@
  */
 package crime_branch_enterprise.model;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -29,7 +27,7 @@ public class DatabaseConnection_CaseDetails
      
     }
 
-   public void databaseConnectionCaseDetails() 
+   public void databaseConnection() 
    {
 
         try
@@ -50,7 +48,7 @@ public class DatabaseConnection_CaseDetails
 //        return con;
     } 
    
-   public void closeConnectionCaseDetails()
+   public void closeConnection()
    {
         try {
             if(stmt != null)
@@ -59,12 +57,114 @@ public class DatabaseConnection_CaseDetails
             }
             con.close(); 
         } catch (SQLException ex) {
-            Logger.getLogger(DatabaseConnection_CaseDetails.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
    }
    
    
    
+   public void addCaseDataToDB(NewCaseRegister newCaseRegister)
+   {
+       //add to database firDetails
+        try
+        {
+            databaseConnection();
+
+            String sqlQueryStoreData = "insert into casedetails(emailId, phoneNum, dateOfReport, officerName) values(?,?,?,?)";
+            PreparedStatement stmt=con.prepareStatement(sqlQueryStoreData);
+            
+            stmt.setString(1, newCaseRegister.getEmailId());
+            stmt.setString(2, String.valueOf(newCaseRegister.getPhoneNum()));
+//            stmt.setDate(3, new java.sql.Date(sqlDate.getDate()));
+            stmt.setDate(3, newCaseRegister.getDateOfReport());
+            stmt.setString(4, newCaseRegister.getOfficerName());
+            
+            stmt.executeUpdate();
+            stmt.close();
+            closeConnection();
+            
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+   }
+   
+   
+   public void updateCaseDataToDB(NewCaseRegister newCaseRegister)
+   {
+       //add to database firDetails
+        try
+        {
+            
+            databaseConnection();
+            String updateSql = "update "+" "+"caseDetails" +" "+"set "
+                    +" phoneNum = "+ "'"+ newCaseRegister.getPhoneNum() +"'"
+                    +" dateOfReport = " + newCaseRegister.getDateOfReport()
+                    +" OfficerName ="+ "'"+ newCaseRegister.getOfficerName() +"'"
+                    +" where emailId = "+ "'"+ newCaseRegister.getEmailId() +"'"+";";
+            
+            System.out.println(updateSql);
+            
+            PreparedStatement stmt=con.prepareStatement(updateSql);
+            
+//            update author set  authorName = 'fhewh', authorAge = 20, authorYOE = 1, authorGender ='F',authorDOJ ='545' where authorId = 'fh1';
+
+            System.out.println("DB data updated in author");
+
+            stmt.executeUpdate();
+
+            closeConnection();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+   }
+   
+   public void deleteNewCaseDataInDB(NewCaseRegister newCaseRegister)
+   {
+       //add to database firDetails
+        try
+        {
+            databaseConnection();
+            String deleteSql="delete from "+ "caseDetails" +" where emailId = "+ "'" + newCaseRegister.getEmailId()+ "'";
+            System.out.println(deleteSql);
+            PreparedStatement preparedStmt = con.prepareStatement(deleteSql);
+            
+            preparedStmt.executeUpdate();
+
+            System.out.println("Data deleted from caseDetails: "+ newCaseRegister.getEmailId());
+
+            closeConnection();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+   }
+   
+   public void deleteEveryAuthorDataInDB()
+   {
+       //add to database firDetails
+        try
+        {
+            databaseConnection();
+            String truncateSql="truncate table "+"caseDetails";
+            Statement stmt=con.createStatement();
+            stmt.executeQuery(truncateSql);
+
+            System.out.println("DB data deleted from caseDetails");
+            
+            stmt.close();
+
+            closeConnection();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+   }
    
 //   public static void main(String main[])
 //   {

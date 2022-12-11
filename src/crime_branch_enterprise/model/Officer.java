@@ -8,7 +8,7 @@ package crime_branch_enterprise.model;
  *
  * @author Sal <your.name at your.org>
  */
-public class OfficerRecord {
+public class Officer {
     
 //    private String officerID;
     private String officerName;
@@ -29,7 +29,7 @@ public class OfficerRecord {
 //        this.officerID = officerID;
 //    }
     
-    public OfficerRecord(String officerName, String officerAddress, int officerPhoneNumber, String officerEmail)
+    public Officer(String officerName, String officerAddress, int officerPhoneNumber, String officerEmail)
     {
         this.officerName = officerName;
         this.officerAddress = officerAddress;

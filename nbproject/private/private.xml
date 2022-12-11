@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+ aastha-feature
             <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ResourceModel/CreatePrison.java</file>
             <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/NewsModel/ReadAuthorJPanel.java</file>
             <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ResourceModel/CreateArmy.java</file>
             <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ResourceModel/CreateJail.java</file>
             <file>file:/C:/Users/parth/Documents/AED/FinalAED_CrimeInvestigationSystem/src/ResourceModel/CreateWeapon.java</file>
+
+            <file>file:/D:/All_GitProjects/AED%20Crime%20Investigation%20System/FinalAED_CrimeInvestigationSystem/src/crime_branch_enterprise/model/NewCaseRegisterationPanel.java</file>
+            <file>file:/D:/All_GitProjects/AED%20Crime%20Investigation%20System/FinalAED_CrimeInvestigationSystem/src/crime_branch_enterprise/model/NewFIRRegister.java</file>
+            <file>file:/D:/All_GitProjects/AED%20Crime%20Investigation%20System/FinalAED_CrimeInvestigationSystem/src/crime_branch_enterprise/model/CasePortalPanel.java</file>
+ main
         </group>
     </open-files>
 </project-private>
