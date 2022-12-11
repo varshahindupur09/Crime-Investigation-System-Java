@@ -6,6 +6,7 @@ package NewsModel;
 import javax.swing.table.DefaultTableModel;
 import NewsModel.Author;
 import NewsModel.AuthorHistory;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,10 +19,15 @@ public class ReadAuthorJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ReadAuthorJPanel
      */
+    
+    DatabaseConnection_author dbConAuthorDetails;
+    
     public ReadAuthorJPanel(AuthorHistory authHistory) {
         initComponents();
         this.authHistory  = authHistory;
         populateTable();
+        
+        dbConAuthorDetails = new DatabaseConnection_author();
     }
 
     /**
@@ -272,12 +278,31 @@ public class ReadAuthorJPanel extends javax.swing.JPanel {
 
             DefaultTableModel model = (DefaultTableModel) AuthDirectoryTable.getModel();
             Author selectedAuthor = (Author) model.getValueAt(selectedRowIndex, 0);
-            String authId = NewAuthIdTxt.getText();
+            
+            //disabling authorid
+            NewAuthIdTxt.setEnabled(false);
+            NewAuthIdTxt.setDisabledTextColor(Color.LIGHT_GRAY);
+            
+            String authId = selectedAuthor.getAuthorId();
+            
             String authName = NewAuthNameTxt.getText();
             int authAge = Integer.parseInt(NewAuthAgeTxt.getText());
             int authYoe = Integer.parseInt(NewAuthYoeTxt.getText());
             String authGender = NewAuthGenderTxt.getText();
             String authDoj = NewAuthDojTxt.getText();
+            
+            //update db 
+            Author d = authHistory.addAuthor();
+
+            d.setAuthorId(authId);
+            d.setAuthorName(authName);
+            d.setAuthorAge(authAge);
+            d.setAuthorYearsOfExperience(authYoe);
+            d.setAuthorGender(authGender);
+            d.setAuthorDateOfJoining(authDoj);
+            
+            dbConAuthorDetails.updateAuthorDataToDB(d);
+            
 
             JOptionPane.showMessageDialog(this, "Doctor Information Updated");
             //history.deleteEmployee(selectedEmployee);
@@ -314,6 +339,9 @@ public class ReadAuthorJPanel extends javax.swing.JPanel {
         Author author = (Author) model.getValueAt(selectedRowIndex,0);
 
         authHistory.deleteAuthor(author);
+        
+        //deleting data from database
+        dbConAuthorDetails.deleteAuthorDataInDB(author);
 
         JOptionPane.showMessageDialog(this, "Requested Record is Deleted");
         populateTable();
@@ -332,6 +360,11 @@ public class ReadAuthorJPanel extends javax.swing.JPanel {
         Author author = (Author) model.getValueAt(selectedRowIndex,0);
 
         NewAuthIdTxt.setText(String.valueOf(author.getAuthorId()));
+        
+        //disable NewAuthIdTxt
+        NewAuthIdTxt.setEnabled(false);
+        NewAuthIdTxt.setDisabledTextColor(Color.LIGHT_GRAY);
+            
         NewAuthNameTxt.setText(String.valueOf(author.getAuthorName()));
         NewAuthAgeTxt.setText(String.valueOf(author.getAuthorAge()));
         NewAuthYoeTxt.setText(String.valueOf(author.getAuthorYearsOfExperience()));
@@ -356,12 +389,12 @@ public class ReadAuthorJPanel extends javax.swing.JPanel {
 
             Object[] row = new Object[7];
             row[0] = auth;
-            row[1] = auth.getAuthorId();
-            row[2] = auth.getAuthorName();
-            row[3] = auth.getAuthorGender();
-            row[4] = auth.getAuthorAge();
-            row[5] = auth.getAuthorDateOfJoining();
-            row[6] = auth.getAuthorYearsOfExperience();
+            //row[1] = auth.getAuthorId();
+            row[1] = auth.getAuthorName();
+            row[2] = auth.getAuthorGender();
+            row[3] = auth.getAuthorAge();
+            row[4] = auth.getAuthorDateOfJoining();
+            row[5] = auth.getAuthorYearsOfExperience();
 
             model.addRow(row);
 

@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package NewsModel;
-import NewsModel.Author;
-import crime_branch_enterprise.model.*;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,7 +29,7 @@ public class DatabaseConnection_author
      
     }
 
-   public void databaseConnectionCaseDetails() 
+   public void databaseConnection() 
    {
 
         try
@@ -52,7 +50,7 @@ public class DatabaseConnection_author
 //        return con;
     } 
    
-   public void closeConnectionCaseDetails()
+   public void closeConnection()
    {
         try {
             if(stmt != null)
@@ -61,7 +59,7 @@ public class DatabaseConnection_author
             }
             con.close(); 
         } catch (SQLException ex) {
-            Logger.getLogger(DatabaseConnection_author.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
    }
    
@@ -72,7 +70,7 @@ public class DatabaseConnection_author
         try
         {
             
-            databaseConnectionCaseDetails();
+            databaseConnection();
             String insertsql="Insert into author (authorId, authorName, authorAge, authorYOE, authorGender, authorDOJ) values(?,?,?,?,?,?)";
             PreparedStatement stmt=con.prepareStatement(insertsql);
 
@@ -83,11 +81,96 @@ public class DatabaseConnection_author
             stmt.setString(5, author.getAuthorGender());
             stmt.setString(6, author.getAuthorDateOfJoining());
             
+            System.out.println("DB data created in author");
 
             stmt.executeUpdate();
             stmt.close();
 
-            closeConnectionCaseDetails();
+            closeConnection();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+   }
+   
+   
+   public void updateAuthorDataToDB(Author author)
+   {
+       //add to database firDetails
+        try
+        {
+            
+            databaseConnection();
+            String updateSql = "update author set "
+                    + " authorName = "+author.getAuthorName()
+                    +" authorAge = "+ author.getAuthorAge()
+                    +" authorYOE = "+ author.getAuthorYearsOfExperience()
+                    +" authorGender ="+author.getAuthorGender()
+                    +",authorDOJ ="+ author.getAuthorDateOfJoining()
+                    +"where authorId = "+author.getAuthorId()+";";
+            
+            PreparedStatement stmt=con.prepareStatement(updateSql);
+
+//            stmt.setString(1, author.getAuthorId());
+            stmt.setString(2, author.getAuthorName());
+            stmt.setInt(3, author.getAuthorAge());
+            stmt.setInt(4, author.getAuthorYearsOfExperience());
+            stmt.setString(5, author.getAuthorGender());
+            stmt.setString(6, author.getAuthorDateOfJoining());
+            
+            System.out.println("DB data updated in author");
+
+            stmt.executeUpdate();
+            stmt.close();
+
+            closeConnection();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+   }
+   
+   public void deleteAuthorDataInDB(Author author)
+   {
+       //add to database firDetails
+        try
+        {
+            databaseConnection();
+            String deleteSql="delete from "+ author +" where authorId = ?";
+            PreparedStatement preparedStmt = con.prepareStatement(deleteSql);
+            preparedStmt.setString(1, author.getAuthorId());
+            
+            stmt.executeQuery(deleteSql);
+
+            System.out.println("Data deleted from author: "+author.getAuthorId());
+            
+            stmt.close();
+
+            closeConnection();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+   }
+   
+   public void deleteEveryAuthorDataInDB()
+   {
+       //add to database firDetails
+        try
+        {
+            databaseConnection();
+            String truncateSql="truncate table "+"author";
+            Statement stmt=con.createStatement();
+            stmt.executeQuery(truncateSql);
+
+            System.out.println("DB data deleted from author");
+            
+            stmt.close();
+
+            closeConnection();
         }
         catch(Exception e)
         {
