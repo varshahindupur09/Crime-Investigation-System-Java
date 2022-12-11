@@ -122,8 +122,15 @@ select * from author;
 drop table author cascade;
 truncate table author;
 
+
 select * from officerDetails;
 select * from adminUser;
 select * from casedetails;
 select * from firDetails;
+
+update author set authorName = 'sdfje', authorAge = 25, authorYOE = 2, 
+authorGender = 'gd', authorDOJ='efjeh' where authorId = 'jdu';
+
+insert into author values ('fh1', 'fhewh', 20, 1, "Fds", "545"); 
+
 
