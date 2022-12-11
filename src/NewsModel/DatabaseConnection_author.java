@@ -102,27 +102,23 @@ public class DatabaseConnection_author
         {
             
             databaseConnection();
-            String updateSql = "update author set "
-                    + " authorName = "+author.getAuthorName()
-                    +" authorAge = "+ author.getAuthorAge()
-                    +" authorYOE = "+ author.getAuthorYearsOfExperience()
-                    +" authorGender ="+author.getAuthorGender()
-                    +",authorDOJ ="+ author.getAuthorDateOfJoining()
-                    +"where authorId = "+author.getAuthorId()+";";
+            String updateSql = "update "+ "author"+" "+"set "
+                    + " authorName = "+"'"+ author.getAuthorName() +"'"+ ","
+                    +" authorAge = "+ author.getAuthorAge() +","
+                    +" authorYOE = "+ author.getAuthorYearsOfExperience() +","
+                    +" authorGender ="+ "'" + author.getAuthorGender()+ "'" +","
+                    +"authorDOJ ="+ "'"+ author.getAuthorDateOfJoining() + "'" +" "
+                    +"where authorId = "+"'"+ author.getAuthorId()+ "'" +";";
+            
+            System.out.println(updateSql);
             
             PreparedStatement stmt=con.prepareStatement(updateSql);
-
-//            stmt.setString(1, author.getAuthorId());
-            stmt.setString(2, author.getAuthorName());
-            stmt.setInt(3, author.getAuthorAge());
-            stmt.setInt(4, author.getAuthorYearsOfExperience());
-            stmt.setString(5, author.getAuthorGender());
-            stmt.setString(6, author.getAuthorDateOfJoining());
             
+//            update author set  authorName = 'fhewh', authorAge = 20, authorYOE = 1, authorGender ='F',authorDOJ ='545' where authorId = 'fh1';
+
             System.out.println("DB data updated in author");
 
             stmt.executeUpdate();
-            stmt.close();
 
             closeConnection();
         }
@@ -138,15 +134,13 @@ public class DatabaseConnection_author
         try
         {
             databaseConnection();
-            String deleteSql="delete from "+ author +" where authorId = ?";
+            String deleteSql="delete from "+ "author" +" where authorId = "+ "'" + author.getAuthorId()+ "'";
+            System.out.println(deleteSql);
             PreparedStatement preparedStmt = con.prepareStatement(deleteSql);
-            preparedStmt.setString(1, author.getAuthorId());
             
-            stmt.executeQuery(deleteSql);
+            preparedStmt.executeUpdate();
 
             System.out.println("Data deleted from author: "+author.getAuthorId());
-            
-            stmt.close();
 
             closeConnection();
         }
@@ -179,15 +173,23 @@ public class DatabaseConnection_author
    }
    
    
-   
-   
 //   public static void main(String main[])
 //   {
-//       DatabaseConnection_CaseDetails dc = dc = new DatabaseConnection_CaseDetails();
-//       dc.databaseConnectionCaseDetails();
-//       int crime_id = dc.getCrimeId(123);
-//       dc.closeConnectionCaseDetails();
-//       System.out.println(crime_id);
+//       DatabaseConnection_author dc = dc = new DatabaseConnection_author();
+//       dc.databaseConnection();
+//       
+//       Author author = new Author();
+//       author.setAuthorId("fh1");
+//       author.setAuthorName("fhewh");
+//       author.setAuthorAge(20);
+//       author.setAuthorYearsOfExperience(1);
+//       author.setAuthorGender("F");
+//       author.setAuthorDateOfJoining("545");
+//            
+//       dc.updateAuthorDataToDB(author);
+//       
+//       dc.closeConnection();
+//       
 //   }
    
 }
