@@ -4,11 +4,7 @@
  */
 package crime_branch_enterprise.model;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.User;
-import model.UserDirectory;
 
 /**
  *
@@ -26,12 +22,13 @@ public class DatabaseConnection_adminUser
     Connection con;
     Statement stmt;
     ResultSet rs;
+    String table = "adminUser"; 
     
     public DatabaseConnection_adminUser()
     {
     }
 
-   public void databaseConnectionOfficerDetails() 
+   public void databaseConnection() 
    {
 
         try
@@ -52,12 +49,12 @@ public class DatabaseConnection_adminUser
 //        return con;
     } 
    
-   public void closeConnectionFIRDetails()
+   public void closeConnection()
    {
         try {
             con.close(); 
         } catch (SQLException ex) {
-            Logger.getLogger(DatabaseConnection_adminUser.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
    }
    
@@ -68,8 +65,8 @@ public class DatabaseConnection_adminUser
         try
         {
             
-            databaseConnectionOfficerDetails();
-            String insertsql="Insert into adminUser (username, pass, roleCategory) values(?,?,?)";
+            databaseConnection();
+            String insertsql="insert into adminUser (username, pass, roleCategory) values(?,?,?)";
             PreparedStatement stmt=con.prepareStatement(insertsql);
 
             stmt.setString(1, user.getUsername());
@@ -79,13 +76,90 @@ public class DatabaseConnection_adminUser
             stmt.executeUpdate();
             stmt.close();
 
-            closeConnectionFIRDetails();
+            closeConnection();
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
-}
+    }
+   
+   
+     
+   public void updateAdminUserDataToDB(User user)
+   {
+       //add to database firDetails
+        try
+        {
+            
+            databaseConnection();
+            String updateSql = "update "+" "+ table+" "+"set "
+                    +" pass = " + "'"+ user.getPassword() +"'"
+                    +" roleCategory = " + "'"+ user.getRole()+"'"
+                    +" where username = " + "'"+ user.getUsername() +"'"+";";
+            
+            System.out.println(updateSql);
+            
+            PreparedStatement stmt=con.prepareStatement(updateSql);
+//example update statement            
+//            update author set  authorName = 'fhewh', authorAge = 20, authorYOE = 1, authorGender ='F',authorDOJ ='545' where authorId = 'fh1';
+
+            System.out.println("DB data updated in Admin User details");
+
+            stmt.executeUpdate();
+
+            closeConnection();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+   }
+   
+   public void deleteAdminUserDataInDB(User user)
+   {
+       //add to database firDetails
+        try
+        {
+            databaseConnection();
+            String deleteSql="delete from "+ table +" where emailId = "+ "'" + user.getUsername()+ "'";
+            System.out.println(deleteSql);
+            PreparedStatement preparedStmt = con.prepareStatement(deleteSql);
+            
+            preparedStmt.executeUpdate();
+
+            System.out.println("Data deleted from "+table+": "+ user.getUsername());
+
+            closeConnection();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+   }
+   
+   public void deleteEveryAdminUserDataInDB()
+   {
+       //add to database firDetails
+        try
+        {
+            databaseConnection();
+            String truncateSql="truncate table "+table;
+            Statement stmt=con.createStatement();
+            stmt.executeQuery(truncateSql);
+
+            System.out.println("DB data deleted from "+table);
+            
+            stmt.close();
+
+            closeConnection();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+   }
+
    
 //   public static void main(String main[])
 //   {

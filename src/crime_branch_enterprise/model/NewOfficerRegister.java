@@ -5,10 +5,12 @@
 package crime_branch_enterprise.model;
 
 import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.JTextFieldLimit;
 import model.Sys;
 import ui.HomeScreen;
+import utility.Validation;
 
 /**
  *
@@ -24,10 +26,13 @@ public class NewOfficerRegister extends javax.swing.JPanel {
     private HomeScreen homeScreen;
     DatabaseConnection_OfficerDetails dbConnOfficerDetails;
     PreparedStatement stmt;
+    
+    OfficerDirectory officerDir;
+    Validation validation;
 
-    public NewOfficerRegister()
+    public NewOfficerRegister(OfficerDirectory officerDir)
     {
-        
+        this.officerDir = officerDir;
     }
    
     public NewOfficerRegister(JPanel newOfficerRegisterPanel, Sys sys, HomeScreen homeScreen) 
@@ -46,6 +51,8 @@ public class NewOfficerRegister extends javax.swing.JPanel {
         AddressTextField.setDocument(new JTextFieldLimit(10));
         PhoneNumberTextField.setDocument(new JTextFieldLimit(10));
         EmailIdTextField.setDocument(new JTextFieldLimit(50));
+        
+        validation = new Validation();
         
     }
 
@@ -112,6 +119,10 @@ public class NewOfficerRegister extends javax.swing.JPanel {
                 .addGap(85, 85, 85)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(AddressLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(FirstNameLabel)
@@ -133,12 +144,9 @@ public class NewOfficerRegister extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(PhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(SubmitDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(AddressLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(AddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(232, 232, 232)
+                        .addComponent(SubmitDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(254, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -160,11 +168,11 @@ public class NewOfficerRegister extends javax.swing.JPanel {
                     .addComponent(EmailIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PhoneNumberLabel)
                     .addComponent(PhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddressLabel)
                     .addComponent(AddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
+                .addGap(28, 28, 28)
                 .addComponent(SubmitDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(501, 501, 501))
         );
@@ -173,27 +181,64 @@ public class NewOfficerRegister extends javax.swing.JPanel {
     private void SubmitDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitDetailsButtonActionPerformed
 
         // TODO add your handling code here:
+        boolean flagValidate = true;
         String firstName = FirstNameTextField.getText();
         String lastName = LastNameTextField.getText();
         String officerName = firstName + lastName;
-        
         String officerEmail = EmailIdTextField.getText();
+        String officerAddress = AddressTextField.getText();
+        
+        if(validation.StringTextFieldValidationIsNotNull(firstName))
+        {
+            JOptionPane.showMessageDialog(this, "Enter valid first name");
+            flagValidate = false;
+        }
+        
+        if(validation.StringTextFieldValidationIsNotNull(lastName))
+        {
+            JOptionPane.showMessageDialog(this, "Enter valid last name");
+            flagValidate = false;
+        }
+        
+        if(!validation.emailTextFieldValidation(officerEmail))
+        {
+                JOptionPane.showMessageDialog(this, "valid Officer Email Example a@b.com ");
+                flagValidate = false;
+        }
+        
+        if(officerAddress.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Enter Officer Address");
+            flagValidate = false;
+        }
+        
         int officerPhoneNumber = 0;
         try{
             officerPhoneNumber = Integer.parseInt(PhoneNumberTextField.getText());
+            if(!validation.PhoneNumberTextFieldValidationIsNotNull(String.valueOf(officerPhoneNumber)))
+            {
+                JOptionPane.showMessageDialog(this, "Enter valid Phone Number");
+                flagValidate = false;
+            }
         }
-        catch(NumberFormatException ex){ }
-        String officerAddress = AddressTextField.getText();
-        
-        OfficerDirectory.officerList.add(new OfficerRecord(officerName, officerAddress, officerPhoneNumber, officerEmail));
-        
-        // add data from directory to database
-        for (OfficerRecord officerRecord : OfficerDirectory.officerList)
+        catch(NumberFormatException ex)
         {
-            dbConnOfficerDetails.addOfficerDataToDatabase(officerRecord.getOfficerName(), officerRecord.getOfficerAddress(), officerRecord.getOfficerPhoneNumber(), officerRecord.getOfficerEmail());
+            JOptionPane.showMessageDialog(this, "Enter valid Phone Number");
+            flagValidate = false;
+        }
+        
+        if(flagValidate)
+        {
+            //add data to officerlist
+            OfficerDirectory.officerList.add(new Officer(officerName, officerAddress, officerPhoneNumber, officerEmail));
+
+            // add data from directory to database
+            for (Officer officer : OfficerDirectory.officerList)
+            {
+                dbConnOfficerDetails.addOfficerDataToDatabase(officer.getOfficerName(), officer.getOfficerAddress(), officer.getOfficerPhoneNumber(), officer.getOfficerEmail());
+            }
         }
        
-        
     }//GEN-LAST:event_SubmitDetailsButtonActionPerformed
 
 

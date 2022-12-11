@@ -15,30 +15,30 @@ public class OfficerDirectory {
     /**
      *
      */
-    static ArrayList<OfficerRecord> officerList = new ArrayList<>();
+    static ArrayList<Officer> officerList = new ArrayList<>();
     
     public OfficerDirectory()
     {
         
     }
     
-    public OfficerDirectory(ArrayList<OfficerRecord> officerList) {
+    public OfficerDirectory(ArrayList<Officer> officerList) {
         this.officerList = officerList;
     }
 
-    public ArrayList<OfficerRecord> getOfficerList() {
+    public ArrayList<Officer> getOfficerList() {
         return officerList;
     }
 
-    public void setOfficerList(ArrayList<OfficerRecord> officerList) {
+    public void setOfficerList(ArrayList<Officer> officerList) {
         this.officerList = officerList;
     }
 
-    public void deleteOfficer(OfficerRecord officerRecord){
+    public void deleteOfficer(Officer officerRecord){
         officerList.remove(officerRecord);
     }
     
-//    public void addOfficerDataInList(OfficerRecord officerRecord)
+//    public void addOfficerDataInList(Officer officerRecord)
 //    {
 //        officerList.add(officerRecord);
 //    }
