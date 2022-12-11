@@ -15,7 +15,6 @@ import ui.HomeScreen;
 public class ReadHospitalJPanel extends javax.swing.JPanel {
 
     hospitalDirectory hospHistory;
-    Hospital hospital; 
     
     JPanel readHospitalJPanel;
     Sys sys;
