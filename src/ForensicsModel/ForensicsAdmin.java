@@ -29,10 +29,10 @@ public class ForensicsAdmin extends javax.swing.JPanel {
     private Sys sys;
     private HomeScreen homeScreen;
     
-    public ForensicsAdmin(JPanel resourceAdminJPanel,Sys sys,HomeScreen homeScreen) 
-    {
+    
+    public ForensicAdmin(JPanel createForensicAdmin, Sys sys, HomeScreen homeScreen)
+    {   
         initComponents();
-        
         this.createForensicAdmin = createForensicAdmin;
         this.sys = sys;
         this.homeScreen = homeScreen;
@@ -48,6 +48,16 @@ public class ForensicsAdmin extends javax.swing.JPanel {
         hospHistory = new hospitalDirectory();
         docHistory = new DoctorDirectory(); 
         forLabHistory = new ForensicLabHistory();
+
+    public ForensicsAdmin(Hospital hospital, Doctor doctor, ForensicLab forLab, hospitalDirectory hospHistory, 
+                    DoctorDirectory docHistory, ForensicLabHistory forLabHistory) {
+        initComponents();
+        this.hospital = hospital;
+        this.doctor = doctor;
+        this.forLab = forLab;
+        this.hospHistory = hospHistory;
+        this.docHistory = docHistory; 
+        this.forLabHistory = forLabHistory;
         
     }
 
@@ -314,6 +324,7 @@ public class ForensicsAdmin extends javax.swing.JPanel {
         // TODO add your handling code here:
         ReadHospitalJPanel readHospitalJPanel = new ReadHospitalJPanel(hospHistory, hospital);
         jSplitPane2.setRightComponent(readHospitalJPanel);
+
     }//GEN-LAST:event_btnManageHospitalActionPerformed
 
     private void btnAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDoctorActionPerformed
