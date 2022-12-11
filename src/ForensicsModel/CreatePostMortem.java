@@ -12,13 +12,11 @@ import javax.swing.JOptionPane;
 
 public class CreatePostMortem extends javax.swing.JPanel {
 
-    PostMortem pm;
     PostMortemHistory pmHistory;
     
-    public CreatePostMortem(PostMortem pm, PostMortemHistory pmHistory ) {
+    public CreatePostMortem(PostMortemHistory pmHistory ) {
         initComponents();
         
-        this.pm = pm;
         this.pmHistory = pmHistory;
     }
 

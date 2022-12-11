@@ -6,7 +6,7 @@
 package ui;
 
 
-import ForensicsModel.ForensicAdmin;
+import ForensicsModel.ForensicsAdmin;
 import NewsModel.NewsMainJPanel;
 import ResourceModel.ResourceAdmin;
 import crime_branch_enterprise.model.CasePortalPanel;
@@ -217,7 +217,7 @@ public class HomePanel extends javax.swing.JPanel {
     
     public void clickCreateForensicsPortal(HomeScreen homeScreen) {
 
-        JPanel selectedPanel = new ForensicAdmin(workArea,sys,homeScreen);
+        JPanel selectedPanel = new ForensicsAdmin(workArea,sys,homeScreen);
         
         workArea.add("WorkAreaJPanel",selectedPanel);
         CardLayout layout = (CardLayout) workArea.getLayout();

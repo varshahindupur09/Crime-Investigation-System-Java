@@ -13,11 +13,9 @@ import javax.swing.table.DefaultTableModel;
 
 public class ReadPostMortem extends javax.swing.JPanel {
 
-    PostMortem pm;
     PostMortemHistory pmHistory;
-    public ReadPostMortem(PostMortem pm, PostMortemHistory pmHistory) {
+    public ReadPostMortem(PostMortemHistory pmHistory) {
         initComponents();
-        this.pm = pm;
         this.pmHistory = pmHistory;
         populateTable();
     }

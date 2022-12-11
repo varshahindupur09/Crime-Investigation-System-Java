@@ -4,15 +4,19 @@
  */
 package ForensicsModel;
 
+
+import ForensicsModel.*;
 import javax.swing.JPanel;
 import model.Sys;
 import ui.HomeScreen;
 
+
 /**
  *
- * @author parth
+ * @author aastha
+ *
  */
-public class ForensicAdmin extends javax.swing.JPanel {
+public class ForensicsAdmin extends javax.swing.JPanel {
     
     Hospital hospital;
     Doctor doctor;
@@ -20,29 +24,30 @@ public class ForensicAdmin extends javax.swing.JPanel {
     hospitalDirectory hospHistory;
     DoctorDirectory docHistory;
     ForensicLabHistory forLabHistory;
-
+    
     private JPanel createForensicAdmin;
     private Sys sys;
     private HomeScreen homeScreen;
     
-    
-    public ForensicAdmin(JPanel createForensicAdmin, Sys sys, HomeScreen homeScreen)
+    public ForensicsAdmin(JPanel resourceAdminJPanel,Sys sys,HomeScreen homeScreen) 
     {
+        initComponents();
+        
         this.createForensicAdmin = createForensicAdmin;
         this.sys = sys;
         this.homeScreen = homeScreen;
         setSize(1040, 544);
     }
         
-    public ForensicAdmin(Hospital hospital, Doctor doctor, ForensicLab forLab, hospitalDirectory hospHistory, 
-                    DoctorDirectory docHistory, ForensicLabHistory forLabHistory) {
+    public ForensicsAdmin(Hospital hospital, Doctor doctor, ForensicLab forLab, hospitalDirectory hospHistory,
+                            DoctorDirectory docHistory, ForensicLabHistory forLabHistory) {
         initComponents();
-        this.hospital = hospital;
-        this.doctor = doctor;
-        this.forLab = forLab;
-        this.hospHistory = hospHistory;
-        this.docHistory = docHistory; 
-        this.forLabHistory = forLabHistory;
+        hospital = new Hospital();
+        doctor = new Doctor();
+        forLab = new ForensicLab();
+        hospHistory = new hospitalDirectory();
+        docHistory = new DoctorDirectory(); 
+        forLabHistory = new ForensicLabHistory();
         
     }
 
@@ -59,14 +64,14 @@ public class ForensicAdmin extends javax.swing.JPanel {
         HospitalPanel = new javax.swing.JPanel();
         jSplitPane2 = new javax.swing.JSplitPane();
         jPanel6 = new javax.swing.JPanel();
-        btnAddHos = new javax.swing.JButton();
-        btnManageHos = new javax.swing.JButton();
+        btnAddHospital = new javax.swing.JButton();
+        btnManageHospital = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         DoctorPanel = new javax.swing.JPanel();
         jSplitPane3 = new javax.swing.JSplitPane();
         jPanel8 = new javax.swing.JPanel();
-        btnAddDoc = new javax.swing.JButton();
-        btnManageDoc = new javax.swing.JButton();
+        btnAddDoctor = new javax.swing.JButton();
+        btnManageDoctor = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         ForensicLabPanel = new javax.swing.JPanel();
         jSplitPane4 = new javax.swing.JSplitPane();
@@ -77,19 +82,19 @@ public class ForensicAdmin extends javax.swing.JPanel {
 
         jPanel6.setBackground(new java.awt.Color(0, 204, 255));
 
-        btnAddHos.setBackground(new java.awt.Color(204, 204, 204));
-        btnAddHos.setText("Add");
-        btnAddHos.addActionListener(new java.awt.event.ActionListener() {
+        btnAddHospital.setBackground(new java.awt.Color(204, 204, 204));
+        btnAddHospital.setText("Add");
+        btnAddHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddHosActionPerformed(evt);
+                btnAddHospitalActionPerformed(evt);
             }
         });
 
-        btnManageHos.setBackground(new java.awt.Color(204, 204, 204));
-        btnManageHos.setText("Manage");
-        btnManageHos.addActionListener(new java.awt.event.ActionListener() {
+        btnManageHospital.setBackground(new java.awt.Color(204, 204, 204));
+        btnManageHospital.setText("Manage");
+        btnManageHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageHosActionPerformed(evt);
+                btnManageHospitalActionPerformed(evt);
             }
         });
 
@@ -100,17 +105,17 @@ public class ForensicAdmin extends javax.swing.JPanel {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAddHos)
-                    .addComponent(btnManageHos))
+                    .addComponent(btnAddHospital)
+                    .addComponent(btnManageHospital))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(149, 149, 149)
-                .addComponent(btnAddHos)
+                .addComponent(btnAddHospital)
                 .addGap(44, 44, 44)
-                .addComponent(btnManageHos)
+                .addComponent(btnManageHospital)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -147,19 +152,19 @@ public class ForensicAdmin extends javax.swing.JPanel {
 
         jPanel8.setBackground(new java.awt.Color(0, 204, 255));
 
-        btnAddDoc.setBackground(new java.awt.Color(204, 204, 204));
-        btnAddDoc.setText("Add");
-        btnAddDoc.addActionListener(new java.awt.event.ActionListener() {
+        btnAddDoctor.setBackground(new java.awt.Color(204, 204, 204));
+        btnAddDoctor.setText("Add");
+        btnAddDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddDocActionPerformed(evt);
+                btnAddDoctorActionPerformed(evt);
             }
         });
 
-        btnManageDoc.setBackground(new java.awt.Color(204, 204, 204));
-        btnManageDoc.setText("Manage");
-        btnManageDoc.addActionListener(new java.awt.event.ActionListener() {
+        btnManageDoctor.setBackground(new java.awt.Color(204, 204, 204));
+        btnManageDoctor.setText("Manage");
+        btnManageDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageDocActionPerformed(evt);
+                btnManageDoctorActionPerformed(evt);
             }
         });
 
@@ -170,17 +175,17 @@ public class ForensicAdmin extends javax.swing.JPanel {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAddDoc)
-                    .addComponent(btnManageDoc))
+                    .addComponent(btnAddDoctor)
+                    .addComponent(btnManageDoctor))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(149, 149, 149)
-                .addComponent(btnAddDoc)
+                .addComponent(btnAddDoctor)
                 .addGap(44, 44, 44)
-                .addComponent(btnManageDoc)
+                .addComponent(btnManageDoctor)
                 .addContainerGap(411, Short.MAX_VALUE))
         );
 
@@ -299,29 +304,29 @@ public class ForensicAdmin extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddHosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHosActionPerformed
+    private void btnAddHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHospitalActionPerformed
         // TODO add your handling code here:
         CreateHospitalJPanel createHospital = new CreateHospitalJPanel(hospHistory);
         jSplitPane2.setRightComponent(createHospital);
-    }//GEN-LAST:event_btnAddHosActionPerformed
+    }//GEN-LAST:event_btnAddHospitalActionPerformed
 
-    private void btnManageHosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHosActionPerformed
+    private void btnManageHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHospitalActionPerformed
         // TODO add your handling code here:
         ReadHospitalJPanel readHospitalJPanel = new ReadHospitalJPanel(hospHistory, hospital);
-        jSplitPane4.setRightComponent(readHospitalJPanel);
-    }//GEN-LAST:event_btnManageHosActionPerformed
+        jSplitPane2.setRightComponent(readHospitalJPanel);
+    }//GEN-LAST:event_btnManageHospitalActionPerformed
 
-    private void btnAddDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDocActionPerformed
+    private void btnAddDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDoctorActionPerformed
         // TODO add your handling code here:
         CreateDoctor createDoctor = new CreateDoctor(docHistory);
         jSplitPane3.setRightComponent(createDoctor);
-    }//GEN-LAST:event_btnAddDocActionPerformed
+    }//GEN-LAST:event_btnAddDoctorActionPerformed
 
-    private void btnManageDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDocActionPerformed
+    private void btnManageDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDoctorActionPerformed
         // TODO add your handling code here:
         ReadDoctorJPanel readDoctor = new ReadDoctorJPanel(docHistory, doctor);
         jSplitPane3.setRightComponent(readDoctor);
-    }//GEN-LAST:event_btnManageDocActionPerformed
+    }//GEN-LAST:event_btnManageDoctorActionPerformed
 
     private void btnAddForLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddForLabActionPerformed
         // TODO add your handling code here:
@@ -341,12 +346,12 @@ public class ForensicAdmin extends javax.swing.JPanel {
     private javax.swing.JPanel ForensicLabPanel;
     private javax.swing.JTabbedPane ForensicTab;
     private javax.swing.JPanel HospitalPanel;
-    private javax.swing.JButton btnAddDoc;
+    private javax.swing.JButton btnAddDoctor;
     private javax.swing.JButton btnAddForLab;
-    private javax.swing.JButton btnAddHos;
-    private javax.swing.JButton btnManageDoc;
+    private javax.swing.JButton btnAddHospital;
+    private javax.swing.JButton btnManageDoctor;
     private javax.swing.JButton btnManageForLab;
-    private javax.swing.JButton btnManageHos;
+    private javax.swing.JButton btnManageHospital;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel6;

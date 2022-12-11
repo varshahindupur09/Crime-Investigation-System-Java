@@ -23,9 +23,9 @@ public class CreateAuthorJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateAuthorJPanel
      */
-    public CreateAuthorJPanel(AuthorHistory auth) {
+    public CreateAuthorJPanel(AuthorHistory authHistory) {
         initComponents();
-        newAuthorData = auth;
+        newAuthorData = authHistory;
         dbConAuthorDetails = new DatabaseConnection_author();
     }
     
@@ -217,6 +217,7 @@ public class CreateAuthorJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         //boolean isValid = Validation();
         //if (isValid) {
+        
             String authId = txtAuthId.getText();
             String authName = txtAuthName.getText();
             int authAge = Integer.parseInt(txtAuthAge.getText());
