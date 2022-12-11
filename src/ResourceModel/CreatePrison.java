@@ -12,9 +12,12 @@ import javax.swing.JOptionPane;
 public class CreatePrison extends javax.swing.JPanel {
 
     PrisonDirectory prisonHistory;
+    DatabaseConnection_prison dbConPrisonDetails;
+    
     public CreatePrison(PrisonDirectory prisonHistory) {
         initComponents();
         this.prisonHistory = prisonHistory;
+        dbConPrisonDetails = new DatabaseConnection_prison();
     }
 
     /**
@@ -208,6 +211,7 @@ public class CreatePrison extends javax.swing.JPanel {
         p.setJailCount(jailCount);
         p.setCity(city);
         
+        dbConPrisonDetails.addPrisonDataToDB(p);
         JOptionPane.showMessageDialog(this, "New Prison is added.");
 
         txtPrisonId.setText("");

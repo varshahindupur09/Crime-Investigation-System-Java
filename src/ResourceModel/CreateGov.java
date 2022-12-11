@@ -12,9 +12,12 @@ import javax.swing.JOptionPane;
 public class CreateGov extends javax.swing.JPanel {
 
     GovDirectory govHistory;
+    DatabaseConnection_government dbConGovDetails;
+    
     public CreateGov(GovDirectory govHistory) {
         initComponents();
         this.govHistory = govHistory;
+        dbConGovDetails = new DatabaseConnection_government();
     }
 
     /**
@@ -157,6 +160,7 @@ public class CreateGov extends javax.swing.JPanel {
         g.setParty(party);
         g.setState(state);
         
+        dbConGovDetails.addGovernmentDataToDB(g);
         JOptionPane.showMessageDialog(this, "New Government is added.");
 
         txtPLId.setText("");

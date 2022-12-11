@@ -12,9 +12,12 @@ import javax.swing.JOptionPane;
 public class CreateArmy extends javax.swing.JPanel {
 
     ArmyDirectory armyHistory;
+    DatabaseConnection_army dbConArmyDetails;
+    
     public CreateArmy(ArmyDirectory armyHistory) {
         initComponents();
         this.armyHistory = armyHistory;
+        dbConArmyDetails = new DatabaseConnection_army();
     }
 
     /**
@@ -157,6 +160,7 @@ public class CreateArmy extends javax.swing.JPanel {
         a.setDepartment(department);
         a.setCountry(country);
         
+        dbConArmyDetails.addArmyDataToDB(a);
         JOptionPane.showMessageDialog(this, "New Army is added.");
 
         txtGenId.setText("");

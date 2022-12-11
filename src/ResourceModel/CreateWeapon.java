@@ -11,9 +11,12 @@ import javax.swing.JOptionPane;
 public class CreateWeapon extends javax.swing.JPanel {
 
     WeaponDirectory weaponHistory;
+    DatabaseConnection_weapon dbConWeaponDetails;
+    
     public CreateWeapon(WeaponDirectory weaponHistory) {
         initComponents();
         this.weaponHistory = weaponHistory;
+        dbConWeaponDetails = new DatabaseConnection_weapon();
     }
 
     /**
@@ -134,6 +137,7 @@ public class CreateWeapon extends javax.swing.JPanel {
         w.setwType(weaponName);
         w.setCount(count);
         
+        dbConWeaponDetails.addWeaponDataToDB(w);
         JOptionPane.showMessageDialog(this, "New Weapon is added.");
 
         txtWeaponId.setText("");
