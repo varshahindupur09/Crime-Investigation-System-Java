@@ -247,8 +247,8 @@ public class ReadOfficer extends javax.swing.JPanel {
 
         DefaultTableModel model = (DefaultTableModel) OfficerDirectoryTable.getModel();
         OfficerRecord off = (OfficerRecord) model.getValueAt(selectedRowIndex,0);
-        //OfficerDirectory.officerList.remove(WIDTH)
-        //OfficerDirectory.deleteOfficer(off);
+        
+        officerDir.deleteOfficer(off);
 
 
         JOptionPane.showMessageDialog(this, "Requested Record is Deleted");

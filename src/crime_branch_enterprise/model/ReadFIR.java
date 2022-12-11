@@ -346,9 +346,10 @@ public class ReadFIR extends javax.swing.JPanel {
 
         DefaultTableModel model = (DefaultTableModel) FIRDirectoryTable.getModel();
         FIR fir = (FIR) model.getValueAt(selectedRowIndex,0);
-
-        //authHistory.deleteAuthor(author);
-
+        
+        
+        firDir.deleteFIR(fir);
+        
         JOptionPane.showMessageDialog(this, "Requested Record is Deleted");
         populateTable();
     }//GEN-LAST:event_deleteBtnActionPerformed
