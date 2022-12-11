@@ -27,7 +27,7 @@ public class ForensicAdmin extends javax.swing.JPanel {
     
     
     public ForensicAdmin(JPanel createForensicAdmin, Sys sys, HomeScreen homeScreen)
-    {
+    {   initComponents();
         this.createForensicAdmin = createForensicAdmin;
         this.sys = sys;
         this.homeScreen = homeScreen;

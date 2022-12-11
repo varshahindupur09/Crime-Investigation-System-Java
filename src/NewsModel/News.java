@@ -16,6 +16,11 @@ public class News {
     private String newsAuthor;
     private String newsReporter;
     private String newsPublication;
+    
+    @Override
+    public String toString() {
+        return newsId;
+    }
 
     public String getNewsId() {
         return newsId;

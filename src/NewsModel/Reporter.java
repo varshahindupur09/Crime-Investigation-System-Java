@@ -17,6 +17,11 @@ public class Reporter {
     private int reporterYearsOfExperience;
     private String reporterGender;
     private String reporterDateOfJoining;
+    
+    @Override
+    public String toString() {
+        return reporterEmail;
+    }
 
     public String getReporterEmail() {
         return reporterEmail;

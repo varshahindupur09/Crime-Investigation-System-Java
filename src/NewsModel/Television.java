@@ -15,6 +15,11 @@ public class Television {
     private String newsId;
     private String newsReportingTime;
     private String newsReporterName;
+    
+    @Override
+    public String toString() {
+        return channelId;
+    }
 
     public String getChannelId() {
         return channelId;

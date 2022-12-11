@@ -38,6 +38,7 @@ public class ReadReporterJPanel extends javax.swing.JPanel {
     }
     
     public ReadReporterJPanel(ReporterHistory reporterHistory) {
+        initComponents();
         this.reporterHistory  = reporterHistory;
         populateTable();
     }
