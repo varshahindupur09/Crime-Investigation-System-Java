@@ -22,6 +22,8 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         
+        
+        
         sys = new Sys();
         
         //setSize(800,600);
@@ -29,6 +31,7 @@ public class MainJFrame extends javax.swing.JFrame {
        
         
         setLoginScreen();
+        
     
     }
 
