@@ -4,8 +4,7 @@
  */
 package crime_branch_enterprise.model;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -22,10 +21,10 @@ import utility.Validation;
  *
  * @author hindupurv
  */
-public class NewCaseRegisterationPanel extends javax.swing.JPanel {
+public class CreateNewCaseRegisterationJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form NewCaseRegisterationPanel
+     * Creates new form CreateNewCaseRegisterationJPanel
      */
     private JPanel newCaseRegisterPanel;
     private Sys sys;
@@ -35,19 +34,26 @@ public class NewCaseRegisterationPanel extends javax.swing.JPanel {
     DatabaseConnection_adminUser dbConnAdmin;
     
     NewCaseRegister newCaseRegister;
-    OfficerDirectory officerDirectory;
+    OfficerDirectory officerDir;
     
     FIRDirectory fIRDirectory;
     NewCaseRegisterDirectory newCaseRegisterDir;
     UserDirectory userDir;
     Validation validation;
     
-    public NewCaseRegisterationPanel(NewCaseRegisterDirectory newCaseRegisterDir)
+    public CreateNewCaseRegisterationJPanel(NewCaseRegisterDirectory newCaseRegisterDir, OfficerDirectory officerDir)
     {
         this.newCaseRegisterDir = newCaseRegisterDir;
+        this.officerDir = officerDir;
+        
+        //add officerName
+        for(Officer officerRecord : officerDir.officerList)
+        {
+            SelectOfficerDropdown.addItem(officerRecord.getOfficerName());
+        }
     }
     
-    public NewCaseRegisterationPanel(JPanel newCaseRegisterPanel,Sys sys,HomeScreen homeScreen) {
+    public CreateNewCaseRegisterationJPanel(JPanel newCaseRegisterPanel,Sys sys,HomeScreen homeScreen) {
         initComponents();
         
         this.newCaseRegisterPanel = newCaseRegisterPanel;
@@ -65,13 +71,7 @@ public class NewCaseRegisterationPanel extends javax.swing.JPanel {
         validation = new Validation();
         
         newCaseRegister = new NewCaseRegister();
-        officerDirectory = new OfficerDirectory();
         
-        //add officerName
-        for(Officer officerRecord : OfficerDirectory.officerList)
-        {
-            SelectOfficerDropdown.addItem(officerRecord.getOfficerName());
-        }
         
     }
     

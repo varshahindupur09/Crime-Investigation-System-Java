@@ -12,23 +12,25 @@ import ui.HomeScreen;
  *
  * @author Sal <your.name at your.org>
  */
-public class ReadFIR extends javax.swing.JPanel {
+public class ReadFIRJPanel extends javax.swing.JPanel {
     FIRDirectory firDir;
 
     /**
-     * Creates new form ReadFIR
+     * Creates new form ReadFIRJPanel
      */
     private JPanel readFIR;
     private Sys sys;
     private HomeScreen homeScreen;
     
-    public ReadFIR(FIRDirectory firDir) {
+    DatabaseConnection_FirDetails dbConFirDetails;
+    
+    public ReadFIRJPanel(FIRDirectory firDir) {
         initComponents();
         this.firDir = firDir;
         populateTable();
     }
     
-    public ReadFIR( JPanel readFIR, Sys sys, HomeScreen homeScreen) 
+    public ReadFIRJPanel( JPanel readFIR, Sys sys, HomeScreen homeScreen) 
     {    
         initComponents();
         this.readFIR = readFIR;
@@ -37,6 +39,7 @@ public class ReadFIR extends javax.swing.JPanel {
         
         setSize(1040, 544);
         
+        dbConFirDetails = new DatabaseConnection_FirDetails();
     }
     
     /**
@@ -205,7 +208,7 @@ public class ReadFIR extends javax.swing.JPanel {
                                 .addComponent(DateOfOffenceLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(SelectAccusedOrVictim, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6))))
+                                .addGap(12, 12, 12))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -223,12 +226,13 @@ public class ReadFIR extends javax.swing.JPanel {
                                 .addComponent(LastNameLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(LastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(DescriptionLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(DescriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DescriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(AddressLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -237,8 +241,7 @@ public class ReadFIR extends javax.swing.JPanel {
                         .addComponent(EmailIdLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EmailIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(293, 293, 293)
@@ -262,14 +265,21 @@ public class ReadFIR extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(LastNameLabel)
                         .addComponent(LastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DateOfOffenceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DescriptionLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(DateOfOffenceLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(DateOfOffenceDateChooser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(DescriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(DescriptionLabel1))
-                    .addComponent(DateOfOffenceDateChooser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(AddressLabel)
@@ -283,7 +293,7 @@ public class ReadFIR extends javax.swing.JPanel {
                     .addComponent(SelectPoliceStation, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PhoneNumberLabel)
                     .addComponent(PhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DateOfOffenceLabel2)
                     .addComponent(SelectAccusedOrVictim, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -317,11 +327,8 @@ public class ReadFIR extends javax.swing.JPanel {
             String firstName = FirstNameTextField.getText();
             String lastName = LastNameTextField.getText();
             String emailId = EmailIdTextField.getText();
-            int phoneNumber = 0;
-            try{
-            phoneNumber = Integer.parseInt(PhoneNumberTextField.getText());
-            }
-            catch(NumberFormatException ex){ }
+            String phoneNumber =PhoneNumberTextField.getText();
+            
             String address = AddressTextField.getText();
             String valuePoliceStn = SelectPoliceStation.getSelectedItem().toString();
             String valueAccVic = SelectAccusedOrVictim.getSelectedItem().toString();
@@ -348,6 +355,10 @@ public class ReadFIR extends javax.swing.JPanel {
             EmailIdTextField.setText("");
             AddressTextField.setText("");
             PhoneNumberTextField.setText("");
+            
+            //add to db
+            dbConFirDetails.updateCaseDataToDB(selectedFir);
+            
             //}
     }//GEN-LAST:event_updateBtnActionPerformed
 
@@ -367,6 +378,9 @@ public class ReadFIR extends javax.swing.JPanel {
         
         JOptionPane.showMessageDialog(this, "Requested Record is Deleted");
         populateTable();
+        
+        //delete from db
+        dbConFirDetails.deleteFIRDataInDB(fir);
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
@@ -389,6 +403,8 @@ public class ReadFIR extends javax.swing.JPanel {
         AddressTextField.setText(String.valueOf(fir.getAddress()));
         SelectAccusedOrVictim.setSelectedItem(String.valueOf(fir.getAccorvic()));
         
+        //disable emaild update
+        EmailIdTextField.setEnabled(false);
         
     }//GEN-LAST:event_viewBtnActionPerformed
 

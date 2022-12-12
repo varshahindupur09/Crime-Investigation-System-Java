@@ -79,7 +79,7 @@ public class DatabaseConnection_FirDetails
             stmt.setString(5, String.valueOf(fir.getFirstname()));
             stmt.setString(6, String.valueOf(fir.getLastname()));
             stmt.setString(7, fir.getEmailId());
-            stmt.setInt(8, fir.getPhoneNum());
+            stmt.setString(8, fir.getPhoneNum());
             stmt.setString(9, fir.getAddress());
             
             stmt.executeUpdate();

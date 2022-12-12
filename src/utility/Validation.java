@@ -107,5 +107,25 @@ public class Validation
 //        {
 //            System.out.println("false");
 //        }
+//        
+//        String textFieldValue1 = "h@gm.com";
+//        if(validation.emailTextFieldValidation(textFieldValue1))
+//        {
+//            System.out.println("true");
+//        }
+//        else
+//        {
+//            System.out.println("false");
+//        }
+//        
+//        String textFieldValue2 = "7984286257";
+//        if(validation.PhoneNumberTextFieldValidationIsNotNull(textFieldValue2))
+//        {
+//            System.out.println("true");
+//        }
+//        else
+//        {
+//            System.out.println("false");
+//        }
 //    }
 }

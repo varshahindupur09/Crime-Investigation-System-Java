@@ -14,24 +14,26 @@ import ui.HomeScreen;
  *
  * @author Sal <your.name at your.org>
  */
-public class ReadOfficer extends javax.swing.JPanel {
+public class ReadOfficerJPanel extends javax.swing.JPanel {
     OfficerDirectory officerDir;
 
     /**
-     * Creates new form ReadOfficer
+     * Creates new form ReadOfficerJPanel
      */
     
     private JPanel readOfficer;
     private Sys sys;
     private HomeScreen homeScreen;
     
-    public ReadOfficer(OfficerDirectory officerDir) {
+    DatabaseConnection_OfficerDetails dbConOfficerDetails;
+    
+    public ReadOfficerJPanel(OfficerDirectory officerDir) {
         initComponents();
         this.officerDir  = officerDir;
         populateTable();
     }
     
-    public ReadOfficer ( JPanel readOfficer, Sys sys, HomeScreen homeScreen) 
+    public ReadOfficerJPanel ( JPanel readOfficer, Sys sys, HomeScreen homeScreen) 
     {    
         initComponents();
         this.readOfficer = readOfficer;
@@ -39,6 +41,8 @@ public class ReadOfficer extends javax.swing.JPanel {
         this.homeScreen = homeScreen;
         
         setSize(1040, 544);
+        
+        dbConOfficerDetails = new DatabaseConnection_OfficerDetails();
         
     }
 
@@ -234,7 +238,7 @@ public class ReadOfficer extends javax.swing.JPanel {
             Officer selectedOff = (Officer) model.getValueAt(selectedRowIndex, 0);
             String offName = NewFNameTxt.getText();
             String offEmail = NewEmailTxt.getText();
-            int offPhone = Integer.parseInt(NewPhoneTxt.getText());
+            String offPhone = NewPhoneTxt.getText();
             String offAddress = NewAddressTxt.getText();
 
             JOptionPane.showMessageDialog(this, "Doctor Information Updated");
@@ -245,6 +249,9 @@ public class ReadOfficer extends javax.swing.JPanel {
             selectedOff.setOfficerAddress(offAddress);
 
             populateTable();
+            
+            //update db
+            dbConOfficerDetails.updateOfficerDataToDB(selectedOff);
 
             NewFNameTxt.setText("");
             NewEmailTxt.setText("");
@@ -267,6 +274,8 @@ public class ReadOfficer extends javax.swing.JPanel {
         
         officerDir.deleteOfficer(off);
 
+        //delete in db
+        dbConOfficerDetails.deleteOfficerDataInDB(off);
 
         JOptionPane.showMessageDialog(this, "Requested Record is Deleted");
         populateTable();
@@ -288,6 +297,9 @@ public class ReadOfficer extends javax.swing.JPanel {
         NewEmailTxt.setText(String.valueOf(off.getOfficerEmail()));
         NewPhoneTxt.setText(String.valueOf(off.getOfficerPhoneNumber()));
         NewAddressTxt.setText(String.valueOf(off.getOfficerAddress()));
+        
+        //set offemail disabled
+        NewEmailTxt.setEnabled(false);
     }//GEN-LAST:event_viewBtnActionPerformed
 
     private void populateTable() {
