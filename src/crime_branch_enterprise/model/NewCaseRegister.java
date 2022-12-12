@@ -18,6 +18,18 @@ public class NewCaseRegister
     /**
      * @return the emailId
      */
+    public NewCaseRegister()
+    {
+        
+    }
+    
+    public NewCaseRegister(String emailId, String phoneNum, java.sql.Date dateOfReport, String officerName)
+    {
+        this.emailId = emailId;
+        this.phoneNum = phoneNum;
+        this.dateOfReport = dateOfReport;
+        this.officerName = officerName;
+    }
     public String getEmailId() {
         return emailId;
     }

@@ -57,19 +57,19 @@ public class DatabaseConnection_OfficerDetails
    }
    
    
-   public void addOfficerDataToDatabase(String officerName, String officerAddress, int officerPhoneNumber, String officerEmail) 
+   public void addOfficerDataToDatabase(String officerName, String officerAddress, String officerEmail, String officerPhoneNumber) 
    {
         //add to database firDetails
         try
         {
             databaseConnection();
-            String insertsql="Insert into officerDetails (officerName, officerAddress, officerPhoneNumber, officerEmail) values(?,?,?,?)";
+            String insertsql="Insert into officerDetails (officerName, officerAddress, officerEmail, officerPhoneNumber) values(?,?,?,?)";
             PreparedStatement stmt=con.prepareStatement(insertsql);
 
             stmt.setString(1, officerName);
             stmt.setString(2, officerAddress);
-            stmt.setInt(3, officerPhoneNumber);
-            stmt.setString(4, officerEmail);
+            stmt.setString(3, officerEmail);
+            stmt.setString(4, officerPhoneNumber);
 
             stmt.executeUpdate();
             stmt.close();

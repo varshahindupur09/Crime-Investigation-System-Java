@@ -21,7 +21,7 @@ public class FIR {
     String firstname;
     String lastname;
     String emailId;
-    int phoneNum;
+    String phoneNum;
     String address;
     
     public FIR()
@@ -30,7 +30,7 @@ public class FIR {
     }
     
     public FIR(Date dateOfOffence, String descr, String policeStationLoc, String accorvic, 
-            String firstname, String lastname, String emailId, int phoneNum, String address)
+            String firstname, String lastname, String emailId, String phoneNum, String address)
     {
         this.dateOfOffence = dateOfOffence;
         this.descr = descr;
@@ -100,11 +100,11 @@ public class FIR {
         this.emailId = emailId;
     }
 
-    public int getPhoneNum() {
+    public String getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(int phoneNum) {
+    public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
 

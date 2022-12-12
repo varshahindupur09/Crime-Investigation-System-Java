@@ -4,7 +4,12 @@
  */
 package crime_branch_enterprise.model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import model.Sys;
 import ui.HomeScreen;
 
@@ -13,21 +18,27 @@ import ui.HomeScreen;
  *
  * @author Sal <your.name at your.org>
  */
-public class ReadCase extends javax.swing.JPanel {
+public class ReadCaseJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ReadCase
+     * Creates new form ReadCaseJPanel
      */
     private JPanel readCase;
     private Sys sys;
     private HomeScreen homeScreen;
     
+    NewCaseRegisterDirectory registerDir;
+    DatabaseConnection_CaseDetails dbConCaseDetails;
+    OfficerDirectory officerDir;
     
-    public ReadCase() {
+    public ReadCaseJPanel(NewCaseRegisterDirectory registerDir, OfficerDirectory officerDir) {
         initComponents();
+        
+        this.registerDir = registerDir;
+        this.officerDir = officerDir;
     }
     
-    public ReadCase ( JPanel readCase, Sys sys, HomeScreen homeScreen) 
+    public ReadCaseJPanel ( JPanel readCase, Sys sys, HomeScreen homeScreen) 
     {    
         initComponents();
         this.readCase = readCase;
@@ -35,6 +46,8 @@ public class ReadCase extends javax.swing.JPanel {
         this.homeScreen = homeScreen;
         
         setSize(1040, 544);
+        
+        dbConCaseDetails = new DatabaseConnection_CaseDetails();
         
     }
 
@@ -49,25 +62,25 @@ public class ReadCase extends javax.swing.JPanel {
 
         HeadingLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        AuthDirectoryTable = new javax.swing.JTable();
+        CaseDirectoryTable = new javax.swing.JTable();
         updateBtn = new javax.swing.JButton();
         deleteBtn = new javax.swing.JButton();
         viewBtn = new javax.swing.JButton();
         DescriptionLabel = new javax.swing.JLabel();
-        DateOfReportDateChooser = new com.toedter.calendar.JDateChooser();
         DateOfReportLabel = new javax.swing.JLabel();
         PhoneNumberTextField = new javax.swing.JTextField();
         SelectFIRNumberLabel = new javax.swing.JLabel();
-        SelectOfficerDropdown = new javax.swing.JComboBox<>();
         EmailIdLabel = new javax.swing.JLabel();
         EmailIdTextField = new javax.swing.JTextField();
+        DateOfReportDateChooser = new com.toedter.calendar.JDateChooser();
+        SelectOfficer = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(0, 51, 51));
 
         HeadingLabel.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
         HeadingLabel.setText("CASE DIRECTORY");
 
-        AuthDirectoryTable.setModel(new javax.swing.table.DefaultTableModel(
+        CaseDirectoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -78,7 +91,7 @@ public class ReadCase extends javax.swing.JPanel {
                 "DATE OF REPORT", "PHONE NUMBER", "EMAIL ID", "SELECTED OFFICER"
             }
         ));
-        jScrollPane1.setViewportView(AuthDirectoryTable);
+        jScrollPane1.setViewportView(CaseDirectoryTable);
 
         updateBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
         updateBtn.setText("UPDATE");
@@ -107,8 +120,6 @@ public class ReadCase extends javax.swing.JPanel {
         DescriptionLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         DescriptionLabel.setForeground(new java.awt.Color(255, 255, 255));
         DescriptionLabel.setText("Phone Number:");
-
-        DateOfReportDateChooser.setDateFormatString("YYYY-MM-dd");
 
         DateOfReportLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         DateOfReportLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -144,6 +155,14 @@ public class ReadCase extends javax.swing.JPanel {
             }
         });
 
+        DateOfReportDateChooser.setDateFormatString("YYYY-MM-dd");
+
+        SelectOfficer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectOfficerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -153,8 +172,8 @@ public class ReadCase extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(SelectFIRNumberLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SelectOfficerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(SelectOfficer, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(EmailIdLabel)
@@ -167,8 +186,8 @@ public class ReadCase extends javax.swing.JPanel {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(PhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(DateOfReportDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(406, Short.MAX_VALUE))
+                                .addComponent(DateOfReportDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(414, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -188,23 +207,23 @@ public class ReadCase extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(358, Short.MAX_VALUE)
+                .addContainerGap(356, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DateOfReportLabel)
-                    .addComponent(DateOfReportDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DateOfReportLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(DateOfReportDateChooser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DescriptionLabel)
-                    .addComponent(PhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmailIdLabel)
                     .addComponent(EmailIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SelectFIRNumberLabel)
-                    .addComponent(SelectOfficerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(148, 148, 148))
+                    .addComponent(SelectOfficer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(145, 145, 145))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -223,79 +242,94 @@ public class ReadCase extends javax.swing.JPanel {
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
 
-        //        boolean isValid = Validation();
-        //        if (isValid) {
-//            int selectedRowIndex = AuthDirectoryTable.getSelectedRow();
-//            if (selectedRowIndex < 0) {
-//                JOptionPane.showMessageDialog(this, "Please select a row to update");
-//                return;
-//            }
+            java.sql.Date sqlDate = null;
+            boolean flag=false;
+            int selectedRowIndex = CaseDirectoryTable.getSelectedRow();
+            if (selectedRowIndex < 0) {
+                JOptionPane.showMessageDialog(this, "Please select a row to update");
+                return;
+            }
+            DefaultTableModel model = (DefaultTableModel) CaseDirectoryTable.getModel();
+            NewCaseRegister newCaseRegister = (NewCaseRegister) model.getValueAt(selectedRowIndex,0);
+            
+            String dateOfReport = DateOfReportDateChooser.getDate().toString();
+            String phoneNum = PhoneNumberTextField.getText();
+            String emailId =EmailIdTextField.getText();
+            String selectedOfficer = SelectOfficer.getSelectedItem().toString();
 
-//            DefaultTableModel model = (DefaultTableModel) AuthDirectoryTable.getModel();
-//            Author selectedAuthor = (Author) model.getValueAt(selectedRowIndex, 0);
-//            String authId = NewAuthIdTxt.getText();
-//            String authName = NewAuthNameTxt.getText();
-//            int authAge = Integer.parseInt(NewAuthAgeTxt.getText());
-//            int authYoe = Integer.parseInt(NewAuthYoeTxt.getText());
-//            String authGender = NewAuthGenderTxt.getText();
-//            String authDoj = NewAuthDojTxt.getText();
-//
-//            JOptionPane.showMessageDialog(this, "Doctor Information Updated");
-//            //history.deleteEmployee(selectedEmployee);
-//            selectedAuthor.setAuthorId(authId);
-//            selectedAuthor.setAuthorName(authName);
-//            selectedAuthor.setAuthorAge(authAge);
-//            selectedAuthor.setAuthorGender(authGender);
-//            selectedAuthor.setAuthorDateOfJoining(authDoj);
-//            selectedAuthor.setAuthorYearsOfExperience(authYoe);
-//
-//            populateTable();
-//
-//            NewAuthIdTxt.setText("");
-//            NewAuthNameTxt.setText("");
-//            NewAuthAgeTxt.setText("");
-//            NewAuthYoeTxt.setText("");
-//            NewAuthGenderTxt.setText("");
-//            NewAuthDojTxt.setText("");
-            //}
+            JOptionPane.showMessageDialog(this, "Case Information Updated");
+            //history.deleteEmployee(selectedEmployee);
+            try
+            {
+                DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                Date utilDate = formatter.parse(dateOfReport);
+                sqlDate = new java.sql.Date(utilDate.getTime());
+                newCaseRegister.setDateOfReport(sqlDate);
+            }
+            catch(Exception e)
+            {
+                JOptionPane.showMessageDialog(this, "PIssue with Date Update");
+            }
+            newCaseRegister.setPhoneNum(phoneNum);
+//            newCaseRegister.setEmailId(emailId);
+            newCaseRegister.setOfficerName(selectedOfficer);
+
+            populateTable();
+            
+            NewCaseRegister newCaseRegister1= new NewCaseRegister(emailId,phoneNum,sqlDate,selectedOfficer);
+            
+            
+            //db update
+            dbConCaseDetails.updateCaseDataToDB(newCaseRegister1);
+            
+//            DateOfReportDateChooser.set
+            PhoneNumberTextField.setText("");
+            EmailIdTextField.setText("");
+//            SelectedOfficer
     }//GEN-LAST:event_updateBtnActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         // TODO add your handling code here:
-//        int selectedRowIndex = AuthDirectoryTable.getSelectedRow();
-//
-//        if(selectedRowIndex <0){
-//            JOptionPane.showMessageDialog(this, "Please enter the row you want to delete");
-//            return;
-//        }
-//
-//        DefaultTableModel model = (DefaultTableModel) AuthDirectoryTable.getModel();
-//        Author author = (Author) model.getValueAt(selectedRowIndex,0);
-//
-//        authHistory.deleteAuthor(author);
-//
-//        JOptionPane.showMessageDialog(this, "Requested Record is Deleted");
-//        populateTable();
+        int selectedRowIndex = CaseDirectoryTable.getSelectedRow();
+
+        if(selectedRowIndex <0){
+            JOptionPane.showMessageDialog(this, "Please enter the row you want to delete");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) CaseDirectoryTable.getModel();
+        NewCaseRegister newCaseRegister = (NewCaseRegister) model.getValueAt(selectedRowIndex,0);
+
+        NewCaseRegisterDirectory.newCaseRegisterList.remove(newCaseRegister);
+        
+        dbConCaseDetails.deleteNewCaseDataInDB(newCaseRegister);
+
+        JOptionPane.showMessageDialog(this, "Requested Record is Deleted");
+        populateTable();
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
         // TODO add your handling code here:
 
-//        int selectedRowIndex = AuthDirectoryTable.getSelectedRow();
-//        if(selectedRowIndex <0){
-//            JOptionPane.showMessageDialog(this, "Please enter the row you want to view");
-//            return;
-//        }
-//
-//        DefaultTableModel model = (DefaultTableModel) AuthDirectoryTable.getModel();
-//        Author author = (Author) model.getValueAt(selectedRowIndex,0);
-//
-//        NewAuthIdTxt.setText(String.valueOf(author.getAuthorId()));
-//        NewAuthNameTxt.setText(String.valueOf(author.getAuthorName()));
-//        NewAuthAgeTxt.setText(String.valueOf(author.getAuthorAge()));
-//        NewAuthYoeTxt.setText(String.valueOf(author.getAuthorYearsOfExperience()));
-//        NewAuthGenderTxt.setText(String.valueOf(author.getAuthorGender()));
-//        NewAuthDojTxt.setText(String.valueOf(author.getAuthorDateOfJoining()));
+        int selectedRowIndex = CaseDirectoryTable.getSelectedRow();
+        if(selectedRowIndex <0){
+            JOptionPane.showMessageDialog(this, "Please enter the row you want to view");
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) CaseDirectoryTable.getModel();
+        NewCaseRegister newCaseRegister = (NewCaseRegister) model.getValueAt(selectedRowIndex,0);
+        
+
+        //add data to NewCaseRegister
+        DateOfReportDateChooser.setDate(newCaseRegister.getDateOfReport());
+        PhoneNumberTextField.setText(String.valueOf(newCaseRegister.getPhoneNum()));
+        EmailIdTextField.setText(String.valueOf(newCaseRegister.getEmailId()));
+        SelectOfficer.setSelectedItem(newCaseRegister.getOfficerName());
+        
+        //disable email id so it cannot be updated
+        EmailIdTextField.setEnabled(false);
+        
     }//GEN-LAST:event_viewBtnActionPerformed
 
     private void PhoneNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneNumberTextFieldActionPerformed
@@ -314,28 +348,32 @@ public class ReadCase extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailIdTextFieldKeyPressed
 
-//    private void populateTable() {
-//
-//        DefaultTableModel model = (DefaultTableModel) OfficerDirectoryTable.getModel();
-//        model.setRowCount(0);
-//
-//        for (OfficerRecord off : officerDir.getOfficerList()) {
-//
-//            Object[] row = new Object[7];
-//            row[0] = off;
-//            row[1] = off.getOfficerName();
-//            row[2] = off.getOfficerEmail();
-//            row[3] = off.getOfficerPhoneNumber();
-//            row[4] = off.getOfficerAddress();
-//
-//            model.addRow(row);
-//
-//        }
-//    }
+    private void SelectOfficerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectOfficerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SelectOfficerActionPerformed
+
+    private void populateTable() {
+
+        DefaultTableModel model = (DefaultTableModel) CaseDirectoryTable.getModel();
+        model.setRowCount(0);
+
+        for (NewCaseRegister newCase : registerDir.getNewCaseRegisterList()) {
+
+            Object[] row = new Object[7];
+            row[0] = newCase;
+            row[1] = newCase.getDateOfReport();
+            row[2] = newCase.getPhoneNum();
+            row[3] = newCase.getEmailId();
+            row[4] = newCase.getOfficerName();
+
+            model.addRow(row);
+
+        }
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable AuthDirectoryTable;
+    private javax.swing.JTable CaseDirectoryTable;
     private com.toedter.calendar.JDateChooser DateOfReportDateChooser;
     private javax.swing.JLabel DateOfReportLabel;
     private javax.swing.JLabel DescriptionLabel;
@@ -344,7 +382,7 @@ public class ReadCase extends javax.swing.JPanel {
     private javax.swing.JLabel HeadingLabel;
     private javax.swing.JTextField PhoneNumberTextField;
     private javax.swing.JLabel SelectFIRNumberLabel;
-    private javax.swing.JComboBox<String> SelectOfficerDropdown;
+    private javax.swing.JComboBox<String> SelectOfficer;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton updateBtn;
