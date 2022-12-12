@@ -16,10 +16,10 @@ import utility.Validation;
  *
  * @author ASUS
  */
-public class NewFIRRegister extends javax.swing.JPanel {
+public class CreateNewFIRRegisterJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form NewFIRRegister
+     * Creates new form CreateNewFIRRegisterJPanel
      */
     
     private JPanel newFIRRegisterPanel;
@@ -30,13 +30,13 @@ public class NewFIRRegister extends javax.swing.JPanel {
     FIRDirectory fIRDirectory;
     Validation validation;
     
-    public NewFIRRegister(FIRDirectory fIRDirectory)
+    public CreateNewFIRRegisterJPanel(FIRDirectory fIRDirectory)
     {
         this.fIRDirectory = fIRDirectory;
     }
    
 
-    public NewFIRRegister(JPanel newFIRRegisterPanel,Sys sys,HomeScreen homeScreen) {
+    public CreateNewFIRRegisterJPanel(JPanel newFIRRegisterPanel,Sys sys,HomeScreen homeScreen) {
         initComponents();
         
         this.newFIRRegisterPanel = newFIRRegisterPanel;
@@ -295,30 +295,6 @@ public class NewFIRRegister extends javax.swing.JPanel {
         java.util.Date utilDate = null;
         String inputDate = "";
         
-        if(!validation.emailTextFieldValidation(emailId))
-        {
-            JOptionPane.showMessageDialog(this, "valid Email Example a@b.com ");
-            flagValidate = false;
-        }
-        
-        int phoneNumber = 0;
-        try{
-            phoneNumber = Integer.parseInt(PhoneNumberTextField.getText());
-            if(!validation.PhoneNumberTextFieldValidationIsNotNull(String.valueOf(phoneNumber)))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid Phone Number");
-                flagValidate = false;
-            }
-        }
-        catch(NumberFormatException ex)
-        {
-            JOptionPane.showMessageDialog(this, "Enter valid Phone Number ");
-            flagValidate = false;
-        }
-        String address = AddressTextField.getText();
-        String valuePoliceStn = SelectPoliceStation.getSelectedItem().toString();
-        String valueAccVic = SelectAccusedOrVictim.getSelectedItem().toString();
-        
         if(validation.StringTextFieldValidationIsNotNull(firstName))
         {
             JOptionPane.showMessageDialog(this, "Enter valid first name");
@@ -330,7 +306,24 @@ public class NewFIRRegister extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Enter valid last name");
             flagValidate = false;
         }
-
+        
+        if(!validation.emailTextFieldValidation(emailId))
+        {
+            JOptionPane.showMessageDialog(this, "valid Email Example a@b.com ");
+            flagValidate = false;
+        }
+        
+        String phoneNumber = PhoneNumberTextField.getText();
+        if(!validation.PhoneNumberTextFieldValidationIsNotNull(phoneNumber))
+        {
+                JOptionPane.showMessageDialog(this, "Enter valid Phone Number");
+                flagValidate = false;
+        }
+        
+        String address = AddressTextField.getText();
+        String valuePoliceStn = SelectPoliceStation.getSelectedItem().toString();
+        String valueAccVic = SelectAccusedOrVictim.getSelectedItem().toString();
+        
         try
             {
                 utilDate = DateOfOffenceDateChooser.getDate();

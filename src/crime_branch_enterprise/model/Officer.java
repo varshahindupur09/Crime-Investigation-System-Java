@@ -14,7 +14,7 @@ public class Officer {
     private String officerName;
 //    private String officerCNIC;
     private String officerAddress;
-    private int officerPhoneNumber;
+    private String officerPhoneNumber;
     private String officerEmail;
 //    private String officerDateOfBirth;
 //    private String officerDateOfJoining;
@@ -29,7 +29,12 @@ public class Officer {
 //        this.officerID = officerID;
 //    }
     
-    public Officer(String officerName, String officerAddress, int officerPhoneNumber, String officerEmail)
+    public Officer()
+    {
+        
+    }
+    
+    public Officer(String officerName, String officerAddress, String officerPhoneNumber, String officerEmail)
     {
         this.officerName = officerName;
         this.officerAddress = officerAddress;
@@ -53,11 +58,11 @@ public class Officer {
         this.officerAddress = officerAddress;
     }
 
-    public int getOfficerPhoneNumber() {
+    public String getOfficerPhoneNumber() {
         return officerPhoneNumber;
     }
 
-    public void setOfficerPhoneNumber(int officerPhoneNumber) {
+    public void setOfficerPhoneNumber(String officerPhoneNumber) {
         this.officerPhoneNumber = officerPhoneNumber;
     }
 

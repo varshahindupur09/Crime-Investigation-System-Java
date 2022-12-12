@@ -15,11 +15,11 @@ public class OfficerDirectory {
     /**
      *
      */
-    static ArrayList<Officer> officerList = new ArrayList<>();
+    ArrayList<Officer> officerList;
     
     public OfficerDirectory()
     {
-        
+        officerList = new ArrayList<>();
     }
     
     public OfficerDirectory(ArrayList<Officer> officerList) {
@@ -37,6 +37,19 @@ public class OfficerDirectory {
     public void deleteOfficer(Officer officerRecord){
         officerList.remove(officerRecord);
     }
+    
+//    public Officer addNewFIR()
+//    {
+//        Officer Officer = new Officer();
+//        officerList.add(Officer);
+//        return firNew;
+//    }
+    
+    public void addNewFIR(Officer officer)
+    {
+        officerList.add(officer);
+    }
+
     
 //    public void addOfficerDataInList(Officer officerRecord)
 //    {

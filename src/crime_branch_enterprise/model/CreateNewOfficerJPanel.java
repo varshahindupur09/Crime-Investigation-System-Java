@@ -16,10 +16,10 @@ import utility.Validation;
  *
  * @author ASUS
  */
-public class NewOfficerRegister extends javax.swing.JPanel {
+public class CreateNewOfficerJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form NewOfficerRegister
+     * Creates new form CreateNewOfficerJPanel
      */
     private JPanel newOfficerRegisterPanel;
     private Sys sys;
@@ -30,20 +30,19 @@ public class NewOfficerRegister extends javax.swing.JPanel {
     OfficerDirectory officerDir;
     Validation validation;
 
-    public NewOfficerRegister(OfficerDirectory officerDir)
+    public CreateNewOfficerJPanel(OfficerDirectory officerDir)
     {
+        initComponents();
         this.officerDir = officerDir;
     }
    
-    public NewOfficerRegister(JPanel newOfficerRegisterPanel, Sys sys, HomeScreen homeScreen) 
+    public CreateNewOfficerJPanel(JPanel newOfficerRegisterPanel, Sys sys, HomeScreen homeScreen) 
     {
         initComponents();
         this.newOfficerRegisterPanel = newOfficerRegisterPanel;
         this.sys = sys;
         this.homeScreen = homeScreen;
         setSize(1040, 544);
-        
-//        officerDirectory = new OfficerDirectory(officerList);
         
         dbConnOfficerDetails = new DatabaseConnection_OfficerDetails();
         FirstNameTextField.setDocument(new JTextFieldLimit(10));
@@ -188,13 +187,13 @@ public class NewOfficerRegister extends javax.swing.JPanel {
         String officerEmail = EmailIdTextField.getText();
         String officerAddress = AddressTextField.getText();
         
-        if(validation.StringTextFieldValidationIsNotNull(firstName))
+        if(!validation.StringTextFieldValidationIsNotNull(firstName))
         {
             JOptionPane.showMessageDialog(this, "Enter valid first name");
             flagValidate = false;
         }
         
-        if(validation.StringTextFieldValidationIsNotNull(lastName))
+        if(!validation.StringTextFieldValidationIsNotNull(lastName))
         {
             JOptionPane.showMessageDialog(this, "Enter valid last name");
             flagValidate = false;
@@ -212,33 +211,23 @@ public class NewOfficerRegister extends javax.swing.JPanel {
             flagValidate = false;
         }
         
-        int officerPhoneNumber = 0;
-        try{
-            officerPhoneNumber = Integer.parseInt(PhoneNumberTextField.getText());
-            if(!validation.PhoneNumberTextFieldValidationIsNotNull(String.valueOf(officerPhoneNumber)))
-            {
-                JOptionPane.showMessageDialog(this, "Enter valid Phone Number");
-                flagValidate = false;
-            }
-        }
-        catch(NumberFormatException ex)
+        String officerPhoneNumber = PhoneNumberTextField.getText();
+        if(!validation.PhoneNumberTextFieldValidationIsNotNull(String.valueOf(officerPhoneNumber)))
         {
-            JOptionPane.showMessageDialog(this, "Enter valid Phone Number");
+            JOptionPane.showMessageDialog(this, "Enter valid Phone Number 1");
             flagValidate = false;
         }
         
         if(flagValidate)
-        {
-            //add data to officerlist
-            OfficerDirectory.officerList.add(new Officer(officerName, officerAddress, officerPhoneNumber, officerEmail));
-
-            // add data from directory to database
-            for (Officer officer : OfficerDirectory.officerList)
             {
-                dbConnOfficerDetails.addOfficerDataToDatabase(officer.getOfficerName(), officer.getOfficerAddress(), officer.getOfficerPhoneNumber(), officer.getOfficerEmail());
+                //add data to officerlist
+                Officer officer = new Officer(officerName, officerAddress, officerEmail, officerPhoneNumber);
+                officerDir.officerList.add(officer);
+
+                // add data from directory to database
+                dbConnOfficerDetails.addOfficerDataToDatabase(officerName, officerAddress, officerEmail, officerPhoneNumber);
             }
-        }
-       
+        
     }//GEN-LAST:event_SubmitDetailsButtonActionPerformed
 
 
