@@ -17,8 +17,8 @@ public class CaseRegViewJPanel extends javax.swing.JPanel {
      */
     public CaseRegViewJPanel(NewCaseRegisterDirectory newCaseRegisterDir, OfficerDirectory officerDir ) {
         initComponents();
-        this.newCaseRegisterDir = newCaseRegisterDir;
-        this.officerDir = officerDir;
+        this.newCaseRegisterDir = new NewCaseRegisterDirectory();
+        this.officerDir = new OfficerDirectory();
     }
 
     /**

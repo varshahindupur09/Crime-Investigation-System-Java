@@ -9,13 +9,7 @@ package ui;
 import ForensicsModel.ForensicMainJPanel;
 import NewsModel.NewsMainJPanel;
 import ResourceModel.ResourceMainJPanel;
-import crime_branch_enterprise.model.CasePortalPanel;
-import crime_branch_enterprise.model.NewCaseRegisterationPanel;
-import crime_branch_enterprise.model.NewFIRRegister;
-import crime_branch_enterprise.model.NewOfficerRegister;
-import crime_branch_enterprise.model.ReadCase;
-import crime_branch_enterprise.model.ReadFIR;
-import crime_branch_enterprise.model.ReadOfficer;
+import crime_branch_enterprise.model.CrimeBranchMainJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Sys;
@@ -180,43 +174,14 @@ public class HomePanel extends javax.swing.JPanel {
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
 
-      
-    
-    public void clickCasePortal(HomeScreen homeScreen, HomePanel homePanel) {
-
-        JPanel selectedPanel = new CasePortalPanel(workArea,sys,homeScreen, homePanel);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
-    public void clickNewCaseRegisterationPortal(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new NewCaseRegisterationPanel(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
-    public void clickNewFIRRegisterationPortal(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new NewFIRRegister(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
-    public void clickNewOfficerRegisterationPortal(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new NewOfficerRegister(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
+   public void clickCrimeBranchPortal(HomeScreen homeScreen)
+   {
+       JPanel selectedPanel = new CrimeBranchMainJPanel(workArea,sys,homeScreen);
+       
+       workArea.add("WorkAreaJPanel",selectedPanel);
+       CardLayout layout = (CardLayout) workArea.getLayout();
+       layout.next(workArea);
+   }
     
     public void clickCreateForensicsPortal(HomeScreen homeScreen) {
 
@@ -254,31 +219,5 @@ public class HomePanel extends javax.swing.JPanel {
         layout.next(workArea);
     }
     
-    public void clickReadOfficerCreatePortal(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new ReadOfficer(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
-    public void clickReadFIRCreatePortal(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new ReadFIR(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
-    
-    public void clickReadCaseCreatePortal(HomeScreen homeScreen) {
-
-        JPanel selectedPanel = new ReadCase(workArea,sys,homeScreen);
-        
-        workArea.add("WorkAreaJPanel",selectedPanel);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
-    }
     
 }
