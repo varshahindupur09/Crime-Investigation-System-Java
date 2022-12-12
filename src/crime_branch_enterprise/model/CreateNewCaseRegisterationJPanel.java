@@ -43,6 +43,7 @@ public class CreateNewCaseRegisterationJPanel extends javax.swing.JPanel {
     
     public CreateNewCaseRegisterationJPanel(NewCaseRegisterDirectory newCaseRegisterDir, OfficerDirectory officerDir)
     {
+        initComponents();
         this.newCaseRegisterDir = newCaseRegisterDir;
         this.officerDir = officerDir;
         

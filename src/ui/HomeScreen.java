@@ -233,7 +233,7 @@ public class HomeScreen extends javax.swing.JPanel {
 
     private void CrimeBranchEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseMousePressed
         // TODO add your handling code here:
-        homePanel.clickCasePortal(this, homePanel);
+        homePanel.clickCrimeBranchPortal(this);
     }//GEN-LAST:event_CrimeBranchEnterpriseMousePressed
 
     private void ResourceMgmtSystemEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResourceMgmtSystemEnterpriseMousePressed

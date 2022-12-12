@@ -16,7 +16,7 @@ public class FIRViewJPanel extends javax.swing.JPanel {
      */
     public FIRViewJPanel(FIRDirectory fIRDir) {
         initComponents();
-        this.fIRDir = fIRDir;
+        this.fIRDir = new FIRDirectory();
     }
 
     /**
@@ -110,6 +110,7 @@ public class FIRViewJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         CreateNewFIRRegisterJPanel createFIR = new CreateNewFIRRegisterJPanel(fIRDir);
         mainJSplitPane.setRightComponent(createFIR);
+        mainJSplitPane.setVisible(true);
     }//GEN-LAST:event_newBtnActionPerformed
 
     private void manageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageBtnActionPerformed

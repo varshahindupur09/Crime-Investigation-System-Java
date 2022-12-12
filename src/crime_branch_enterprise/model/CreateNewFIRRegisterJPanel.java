@@ -33,6 +33,7 @@ public class CreateNewFIRRegisterJPanel extends javax.swing.JPanel {
     public CreateNewFIRRegisterJPanel(FIRDirectory fIRDirectory)
     {
         this.fIRDirectory = fIRDirectory;
+        initComponents();
     }
    
 
