@@ -53,7 +53,7 @@ public class HomePanel extends javax.swing.JPanel {
         splitPane.setDividerSize(2);
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        menuBar.setBackground(new java.awt.Color(0, 102, 153));
+        menuBar.setBackground(new java.awt.Color(153, 0, 0));
         menuBar.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 menuBarAncestorAdded(evt);
@@ -64,6 +64,9 @@ public class HomePanel extends javax.swing.JPanel {
             }
         });
 
+        btnLogOut.setBackground(new java.awt.Color(102, 0, 0));
+        btnLogOut.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnLogOut.setForeground(new java.awt.Color(255, 255, 255));
         btnLogOut.setText("Log Out");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,7 +74,9 @@ public class HomePanel extends javax.swing.JPanel {
             }
         });
 
-        backbuttonlabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/back.png"))); // NOI18N
+        backbuttonlabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        backbuttonlabel.setForeground(new java.awt.Color(255, 255, 255));
+        backbuttonlabel.setText("BACK");
         backbuttonlabel.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 backbuttonlabelAncestorAdded(evt);
@@ -98,9 +103,9 @@ public class HomePanel extends javax.swing.JPanel {
             menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(backbuttonlabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 864, Short.MAX_VALUE)
-                .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(backbuttonlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 830, Short.MAX_VALUE)
+                .addComponent(btnLogOut)
                 .addGap(89, 89, 89))
         );
         menuBarLayout.setVerticalGroup(
