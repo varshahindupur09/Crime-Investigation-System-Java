@@ -21,7 +21,7 @@ public class ReadHospitalJPanel extends javax.swing.JPanel {
     Sys sys;
     HomeScreen homeScreen;
     
-    public ReadHospitalJPanel(hospitalDirectory hospHistory, Hospital hospital) {
+    public ReadHospitalJPanel(hospitalDirectory hospHistory) {
 //        initComponents();
         this.hospHistory = hospHistory;
         populateTable();
@@ -324,11 +324,12 @@ private void populateTable() {
 
             for(Hospital e: hospHistory.getHospitalHistory()){
 
-                Object[] row = new Object[5];
+                Object[] row = new Object[6];
                 row[0] = e;
                 row[1] = e.getHospName();
                 row[2] = e.getCommunity();
                 row[3] = e.getCity();
+                row[4] = e.getDocName();
                 
                 model.addRow(row);
             }

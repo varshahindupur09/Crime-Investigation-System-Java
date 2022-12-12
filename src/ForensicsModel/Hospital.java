@@ -13,15 +13,15 @@ public class Hospital {
   public String city;
   private String docName; 
 
+  @Override
+    public String toString() {
+            return String.valueOf(hospId);
+    }
     public int getHospId() {
         return hospId;
     }
     
-    @Override
-    public String toString() {
-            return String.valueOf(hospId);
-    }
-
+    
     public void setHospId(int hospId) {
         this.hospId = hospId;
     }

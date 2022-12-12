@@ -12,13 +12,13 @@ import javax.swing.table.DefaultTableModel;
 public class ReadDoctorJPanel extends javax.swing.JPanel {
 
     DoctorDirectory docHistory;
-    Doctor doctor;
     DatabaseConnection_doctor dbConDoctorDetails;
     
-    public ReadDoctorJPanel(DoctorDirectory docHistory, Doctor doctor) {
+    
+    public ReadDoctorJPanel(DoctorDirectory docHistory) {
         initComponents();
        this.docHistory = docHistory; 
-       this.doctor = doctor; 
+       
         populateTable();
         
         dbConDoctorDetails = new DatabaseConnection_doctor();

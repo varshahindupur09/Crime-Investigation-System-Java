@@ -11,21 +11,16 @@ import javax.swing.JPanel;
 import model.Sys;
 import ui.HomeScreen;
 
-
-
-public class CreateHospitalJPanel extends javax.swing.JPanel 
-{
+public class CreateHospitalJPanel extends javax.swing.JPanel {
 
     hospitalDirectory hospHistory;
     DatabaseConnection_hospital dbConHospitalDetails;
-    
-    public CreateHospitalJPanel(hospitalDirectory hospHistory)
-    {   initComponents();
+
+    public CreateHospitalJPanel(hospitalDirectory hospHistory) {
+        initComponents();
         this.hospHistory = hospHistory;
         dbConHospitalDetails = new DatabaseConnection_hospital();
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -184,31 +179,30 @@ public class CreateHospitalJPanel extends javax.swing.JPanel
         // TODO add your handling code here:
         boolean isValid = Validation();
         if (isValid) {
-        int hospId = Integer.parseInt(txtHospId.getText());
-        String hospName = txtHospName.getText();
-        String community = txtComm.getText();
-        String city = txtCity.getText();
-        String doc = txtDocName.getText();
-       
+            int hospId = Integer.parseInt(txtHospId.getText());
+            String hospName = txtHospName.getText();
+            String community = txtComm.getText();
+            String city = txtCity.getText();
+            String doc = txtDocName.getText();
 
-        Hospital h = hospHistory.addNewHosp();
+            Hospital h = hospHistory.addNewHosp();
 
-        h.setHospId(hospId);
-        h.setHospName(hospName);
-        h.setCommunity(community);
-        h.setCity(city);
-        h.setDocName(doc);
-        
-        dbConHospitalDetails.addHospitalDataToDB(h);
-        JOptionPane.showMessageDialog(this, "New Hospital is added.");
+            h.setHospId(hospId);
+            h.setHospName(hospName);
+            h.setCommunity(community);
+            h.setCity(city);
+            h.setDocName(doc);
 
-        txtHospId.setText("");
-        txtHospName.setText("");
-        txtComm.setText("");
-        txtCity.setText("");
-        txtDocName.setText("");
-        }  
-        
+            dbConHospitalDetails.addHospitalDataToDB(h);
+            JOptionPane.showMessageDialog(this, "New Hospital is added.");
+
+            txtHospId.setText("");
+            txtHospName.setText("");
+            txtComm.setText("");
+            txtCity.setText("");
+            txtDocName.setText("");
+        }
+
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtHospNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHospNameActionPerformed
@@ -244,7 +238,7 @@ public class CreateHospitalJPanel extends javax.swing.JPanel
     private javax.swing.JTextField txtHospName;
     // End of variables declaration//GEN-END:variables
 private boolean Validation() {
-    if (txtHospId.getText().isEmpty()) {
+        if (txtHospId.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter Hospital ID");
             return false;
         } else {
@@ -253,14 +247,14 @@ private boolean Validation() {
                 return false;
             }
         }
-        
+
         try {
-        Integer.parseInt(txtHospId.getText());
+            Integer.parseInt(txtHospId.getText());
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Enter a numerical value for Hospital Id");
-            
+
         }
-        
+
         if (txtHospName.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter Hospital Name");
             return false;
@@ -270,29 +264,27 @@ private boolean Validation() {
                 return false;
             }
         }
-        
+
         if (txtComm.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter Patient Community");
             return false;
-        }
-            else{
-            if(!(txtComm.getText().matches("[a-zA-Z]*[\\s]{1}[a-zA-Z].*"))){
+        } else {
+            if (!(txtComm.getText().matches("[a-zA-Z]*[\\s]{1}[a-zA-Z].*"))) {
                 JOptionPane.showMessageDialog(this, "Please enter valid Community");
                 return false;
             }
-        } 
-        
+        }
+
         if (txtCity.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter Patient City");
             return false;
-        }
-            else{
-            if(!(txtCity.getText().matches("[a-zA-Z]*"))){
+        } else {
+            if (!(txtCity.getText().matches("[a-zA-Z].*"))) {
                 JOptionPane.showMessageDialog(this, "Please enter valid City");
                 return false;
             }
-        } 
+        }
         return true;
-        
-    }   
+
+    }
 }

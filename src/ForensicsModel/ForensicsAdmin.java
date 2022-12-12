@@ -39,8 +39,7 @@ public class ForensicsAdmin extends javax.swing.JPanel {
         setSize(1040, 544);
     }
         
-    public ForensicsAdmin(Doctor doctor, ForensicLab forLab, hospitalDirectory hospHistory, DoctorDirectory docHistory,
-                            ForensicLabHistory forLabHistory) {
+    public ForensicsAdmin() {
         initComponents();
         this.hospital = new Hospital();
         this.doctor = new Doctor();
@@ -311,7 +310,7 @@ public class ForensicsAdmin extends javax.swing.JPanel {
 
     private void btnManageHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHospitalActionPerformed
         // TODO add your handling code here:
-        ReadHospitalJPanel readHospitalJPanel = new ReadHospitalJPanel(hospHistory, hospital);
+        ReadHospitalJPanel readHospitalJPanel = new ReadHospitalJPanel(hospHistory);
         jSplitPane2.setRightComponent(readHospitalJPanel);
 
     }//GEN-LAST:event_btnManageHospitalActionPerformed
@@ -324,7 +323,7 @@ public class ForensicsAdmin extends javax.swing.JPanel {
 
     private void btnManageDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDoctorActionPerformed
         // TODO add your handling code here:
-        ReadDoctorJPanel readDoctor = new ReadDoctorJPanel(docHistory, doctor);
+        ReadDoctorJPanel readDoctor = new ReadDoctorJPanel(docHistory);
         jSplitPane3.setRightComponent(readDoctor);
     }//GEN-LAST:event_btnManageDoctorActionPerformed
 
