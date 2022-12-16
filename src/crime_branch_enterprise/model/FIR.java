@@ -4,8 +4,6 @@
  */
 package crime_branch_enterprise.model;
 
-import java.sql.Date;
-
 /**
  *
  * @author Sal <your.name at your.org>
@@ -14,7 +12,7 @@ public class FIR {
     // get victimID from Victim.java
     // get crimeID from CrimeRegister.java
     
-    Date dateOfOffence;
+    String dateOfOffence;
     String descr;
     String policeStationLoc;
     String accorvic;
@@ -29,7 +27,7 @@ public class FIR {
         
     }
     
-    public FIR(Date dateOfOffence, String descr, String policeStationLoc, String accorvic, 
+    public FIR(String dateOfOffence, String descr, String policeStationLoc, String accorvic, 
             String firstname, String lastname, String emailId, String phoneNum, String address)
     {
         this.dateOfOffence = dateOfOffence;
@@ -42,13 +40,18 @@ public class FIR {
         this.phoneNum = phoneNum;
         this.address = address;
     }
-
-
-    public Date getDateOfOffence() {
+    
+    @Override
+    public String toString() {
         return dateOfOffence;
     }
 
-    public void setDateOfOffence(Date dateOfOffence) {
+
+    public String getDateOfOffence() {
+        return dateOfOffence;
+    }
+
+    public void setDateOfOffence(String dateOfOffence) {
         this.dateOfOffence = dateOfOffence;
     }
 

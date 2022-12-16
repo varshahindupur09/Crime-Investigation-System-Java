@@ -36,7 +36,7 @@ public class DatabaseConnection_weapon
 
             //step2 create  the connection object  
             con=DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/crime_inv_sys","root","Vrsh@123");  
+            "jdbc:mysql://localhost:3306/crime_inv_sys","root","aastha2996!!");  
 
         }
         catch(Exception e)
@@ -68,12 +68,12 @@ public class DatabaseConnection_weapon
         {
             
             databaseConnection();
-            String insertsql="Insert into weapon (weaponId, wType, count) values(?,?,?)";
+            String insertsql="Insert into weapon (weaponId, wType, wcount) values(?,?,?)";
             PreparedStatement stmt=con.prepareStatement(insertsql);
 
             stmt.setInt(1, weapon.getWeaponId());
             stmt.setString(2, weapon.getwType());
-            stmt.setInt(3, weapon.getCount());
+            stmt.setInt(3, weapon.getWCount());
             
             System.out.println("DB data created in weapon");
 
@@ -98,8 +98,8 @@ public class DatabaseConnection_weapon
             databaseConnection();
             String updateSql = "update "+ "weapon"+" "+"set "
                     + " wType = "+"'"+ weapon.getwType()+"'"+ ","
-                    +" count = "+ weapon.getCount() +","
-                    +"where weaponId = "+ weapon.getWeaponId()+";";
+                    +" wcount = "+ weapon.getWCount() 
+                    +" where weaponId = "+ weapon.getWeaponId()+";";
                     
             System.out.println(updateSql);
             

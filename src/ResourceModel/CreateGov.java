@@ -40,17 +40,20 @@ public class CreateGov extends javax.swing.JPanel {
         txtState = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(153, 0, 0));
+        setForeground(new java.awt.Color(255, 255, 255));
 
         lbTitle.setFont(new java.awt.Font("Century", 1, 24)); // NOI18N
-        lbTitle.setForeground(new java.awt.Color(0, 204, 255));
+        lbTitle.setForeground(new java.awt.Color(255, 255, 255));
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitle.setText("Government Form");
 
+        lbPLId.setBackground(new java.awt.Color(255, 255, 255));
         lbPLId.setForeground(new java.awt.Color(255, 255, 255));
         lbPLId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbPLId.setText("Party Leader Id");
 
+        lbPLName.setBackground(new java.awt.Color(255, 255, 255));
         lbPLName.setForeground(new java.awt.Color(255, 255, 255));
         lbPLName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbPLName.setText("Party Leader Name");
@@ -61,6 +64,7 @@ public class CreateGov extends javax.swing.JPanel {
             }
         });
 
+        lbParty.setBackground(new java.awt.Color(255, 255, 255));
         lbParty.setForeground(new java.awt.Color(255, 255, 255));
         lbParty.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbParty.setText("Party");
@@ -71,6 +75,7 @@ public class CreateGov extends javax.swing.JPanel {
             }
         });
 
+        lbState.setBackground(new java.awt.Color(255, 255, 255));
         lbState.setForeground(new java.awt.Color(255, 255, 255));
         lbState.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbState.setText("State");
@@ -96,9 +101,6 @@ public class CreateGov extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(108, 108, 108)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbPLId, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
@@ -112,9 +114,11 @@ public class CreateGov extends javax.swing.JPanel {
                                 .addComponent(txtPLName)
                                 .addComponent(txtParty)
                                 .addComponent(txtState))
-                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 206, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(516, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,7 +143,7 @@ public class CreateGov extends javax.swing.JPanel {
                     .addComponent(lbState, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnAdd)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

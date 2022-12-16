@@ -8,9 +8,11 @@ import NewsModel.NewspaperHistory;
 import NewsModel.AuthorHistory;
 import NewsModel.PublicationHistory;
 import NewsModel.ReporterHistory;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Sys;
 import ui.HomeScreen;
+import ui.LoginScreen;
 
 /**
  *
@@ -68,11 +70,14 @@ public class NewsMainJPanel extends javax.swing.JPanel {
         publicationBtn = new javax.swing.JButton();
         authorBtn = new javax.swing.JButton();
         reporterBtn = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
 
-        controlPanel.setBackground(new java.awt.Color(137, 152, 159));
+        controlPanel.setBackground(new java.awt.Color(153, 0, 0));
 
+        newsBtn.setBackground(new java.awt.Color(102, 0, 0));
         newsBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        newsBtn.setForeground(new java.awt.Color(255, 255, 255));
         newsBtn.setText("NEWS");
         newsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +85,9 @@ public class NewsMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        newspaperBtn.setBackground(new java.awt.Color(102, 0, 0));
         newspaperBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        newspaperBtn.setForeground(new java.awt.Color(255, 255, 255));
         newspaperBtn.setText("NEWSPAPER");
         newspaperBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +95,9 @@ public class NewsMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        televisionBtn.setBackground(new java.awt.Color(102, 0, 0));
         televisionBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        televisionBtn.setForeground(new java.awt.Color(255, 255, 255));
         televisionBtn.setText("TELEVISION");
         televisionBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +105,9 @@ public class NewsMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        publicationBtn.setBackground(new java.awt.Color(102, 0, 0));
         publicationBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        publicationBtn.setForeground(new java.awt.Color(255, 255, 255));
         publicationBtn.setText("PUBLICATION");
         publicationBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,7 +115,9 @@ public class NewsMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        authorBtn.setBackground(new java.awt.Color(102, 0, 0));
         authorBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        authorBtn.setForeground(new java.awt.Color(255, 255, 255));
         authorBtn.setText("AUTHOR");
         authorBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,11 +125,23 @@ public class NewsMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        reporterBtn.setBackground(new java.awt.Color(102, 0, 0));
         reporterBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        reporterBtn.setForeground(new java.awt.Color(255, 255, 255));
         reporterBtn.setText("REPORTER");
         reporterBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reporterBtnActionPerformed(evt);
+            }
+        });
+
+        btnLogOut.setBackground(new java.awt.Color(102, 0, 0));
+        btnLogOut.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnLogOut.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogOut.setText("LOG OUT");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
             }
         });
 
@@ -127,16 +152,16 @@ public class NewsMainJPanel extends javax.swing.JPanel {
             .addGroup(controlPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(reporterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(authorBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(newspaperBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(newsBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(televisionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(publicationBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(reporterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogOut)
+                    .addComponent(publicationBtn))
                 .addContainerGap())
         );
         controlPanelLayout.setVerticalGroup(
@@ -154,22 +179,24 @@ public class NewsMainJPanel extends javax.swing.JPanel {
                 .addComponent(publicationBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(reporterBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLogOut)
+                .addContainerGap(307, Short.MAX_VALUE))
         );
 
         mainJSplitPane.setLeftComponent(controlPanel);
 
-        workArea.setBackground(new java.awt.Color(137, 152, 159));
+        workArea.setBackground(new java.awt.Color(153, 0, 0));
 
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1100, Short.MAX_VALUE)
+            .addGap(0, 1164, Short.MAX_VALUE)
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 631, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
 
         mainJSplitPane.setRightComponent(workArea);
@@ -222,9 +249,19 @@ public class NewsMainJPanel extends javax.swing.JPanel {
         mainJSplitPane.setRightComponent(reporterPanel);
     }//GEN-LAST:event_reporterBtnActionPerformed
 
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        // TODO add your handling code here:
+        JPanel selectedPanel = new LoginScreen(newsMainJPanel,sys, homeScreen);
+
+        newsMainJPanel.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) newsMainJPanel.getLayout();
+        layout.next(newsMainJPanel);
+    }//GEN-LAST:event_btnLogOutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton authorBtn;
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JPanel controlPanel;
     private javax.swing.JSplitPane mainJSplitPane;
     private javax.swing.JButton newsBtn;

@@ -36,7 +36,7 @@ public class DatabaseConnection_doctor
 
             //step2 create  the connection object  
             con=DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/crime_inv_sys","root","Vrsh@123");  
+            "jdbc:mysql://localhost:3306/crime_inv_sys","root","aastha2996!!");  
 
         }
         catch(Exception e)
@@ -102,8 +102,8 @@ public class DatabaseConnection_doctor
                     + " docName = "+"'"+ doctor.getDocName() +"'"+ ","
                     +" docPhone = "+"'"+ doctor.getDocPhone() +"'"+","
                     +" hospId = "+ doctor.getHospId() +","
-                    +" hospName ="+ "'" + doctor.getHospName()+ "'" +","
-                    +"where docId = "+ doctor.getDocId() +";";
+                    +" hospName ="+ "'" + doctor.getHospName()+ "'"
+                    +" where docId = "+ doctor.getDocId() +";";
                     
             System.out.println(updateSql);
             
@@ -173,13 +173,7 @@ public class DatabaseConnection_doctor
 //       DatabaseConnection_doctor dc = dc = new DatabaseConnection_doctor();
 //       dc.databaseConnection();
 //       
-//       Author author = new Author();
-//       author.setAuthorId("fh1");
-//       author.setAuthorName("fhewh");
-//       author.setAuthorAge(20);
-//       author.setAuthorYearsOfExperience(1);
-//       author.setAuthorGender("F");
-//       author.setAuthorDateOfJoining("545");
+//       dc,
 //            
 //       dc.updateAuthorDataToDB(author);
 //       

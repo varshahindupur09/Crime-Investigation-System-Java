@@ -36,7 +36,7 @@ public class DatabaseConnection_forLab
 
             //step2 create  the connection object  
             con=DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/crime_inv_sys","root","Vrsh@123");  
+            "jdbc:mysql://localhost:3306/crime_inv_sys","root","aastha2996!!");  
 
         }
         catch(Exception e)
@@ -72,8 +72,8 @@ public class DatabaseConnection_forLab
             PreparedStatement stmt=con.prepareStatement(insertsql);
 
             stmt.setInt(1, forLab.getForLabId());
-            stmt.setInt(4, forLab.getHospId());
-            stmt.setString(5, forLab.getHospName());
+            stmt.setInt(2, forLab.getHospId());
+            stmt.setString(3, forLab.getHospName());
             
             System.out.println("DB data created in forLab");
 
@@ -98,8 +98,8 @@ public class DatabaseConnection_forLab
             databaseConnection();
             String updateSql = "update "+ "ForensicLab"+" "+"set "
                     +" hospId = "+ forLab.getHospId() +","
-                    +" hospName ="+ "'" + forLab.getHospName()+ "'" +","
-                    +"where forLabId = "+ forLab.getForLabId()+";";
+                    +" hospName ="+ "'" + forLab.getHospName()+ "'"
+                    +" where forLabId = "+ forLab.getForLabId()+";";
                     
             System.out.println(updateSql);
             

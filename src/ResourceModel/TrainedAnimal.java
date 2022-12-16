@@ -9,11 +9,14 @@ public class TrainedAnimal {
     public int trainerId;
     public String trainerName;
     public int animalId;
-    public String type;
     public String animalName; 
 
     public int getTrainerId() {
         return trainerId;
+    }
+    @Override
+    public String toString() {
+            return String.valueOf(trainerId);
     }
 
     public void setTrainerId(int trainerId) {
@@ -38,14 +41,7 @@ public class TrainedAnimal {
         this.animalId = animalId;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
+    
     public String getAnimalname() {
         return animalName;
     }

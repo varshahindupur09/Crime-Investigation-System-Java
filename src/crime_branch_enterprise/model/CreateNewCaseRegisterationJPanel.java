@@ -5,6 +5,8 @@
 package crime_branch_enterprise.model;
 
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -32,6 +34,7 @@ public class CreateNewCaseRegisterationJPanel extends javax.swing.JPanel {
     
     DatabaseConnection_CaseDetails dbConnCaseDetails;
     DatabaseConnection_adminUser dbConnAdmin;
+    DatabaseConnection_OfficerDetails dbConnOfficerDetails;
     
     NewCaseRegister newCaseRegister;
     OfficerDirectory officerDir;
@@ -41,46 +44,41 @@ public class CreateNewCaseRegisterationJPanel extends javax.swing.JPanel {
     UserDirectory userDir;
     Validation validation;
     
+    String username;
+    String password;
+    
+    ArrayList<String> officerListDB;
+    
+    
     public CreateNewCaseRegisterationJPanel(NewCaseRegisterDirectory newCaseRegisterDir, OfficerDirectory officerDir)
     {
         initComponents();
         this.newCaseRegisterDir = newCaseRegisterDir;
         this.officerDir = officerDir;
         
-        //add officerName
-        for(Officer officerRecord : officerDir.officerList)
-        {
-            SelectOfficerDropdown.addItem(officerRecord.getOfficerName());
-        }
-    }
-    
-    public CreateNewCaseRegisterationJPanel(JPanel newCaseRegisterPanel,Sys sys,HomeScreen homeScreen) {
-        initComponents();
-        
-        this.newCaseRegisterPanel = newCaseRegisterPanel;
-        this.sys = sys;
-        this.homeScreen = homeScreen;
-        setSize(1040, 544);
-        
         //limitations added
         PhoneNumberTextField.setDocument(new JTextFieldLimit(10));
         EmailIdTextField.setDocument(new JTextFieldLimit(50));
         
         dbConnCaseDetails = new DatabaseConnection_CaseDetails();
+        dbConnOfficerDetails = new DatabaseConnection_OfficerDetails();
+        dbConnAdmin = new DatabaseConnection_adminUser();
+        
         fIRDirectory = new FIRDirectory();
         userDir = new UserDirectory();
         validation = new Validation();
         
         newCaseRegister = new NewCaseRegister();
         
-        
+        officerListDB = new ArrayList<>();
+        officerListDB = dbConnOfficerDetails.populateEveryOfficerDataInCaseRegDropdown();
+        for(String officerNameInput : officerListDB)
+        {
+            SelectOfficerDropdown.addItem(officerNameInput);
+            System.out.println("Arraylist data is "+officerNameInput);
+        }
     }
     
-    public void clearFields(){
-        
-        //add fields so they can be cleared
-        
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -104,11 +102,11 @@ public class CreateNewCaseRegisterationJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(0, 102, 153));
+        setBackground(new java.awt.Color(153, 0, 0));
 
-        titleLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(255, 255, 255));
-        titleLabel.setText("Register your case below by adding all the details.........");
+        titleLabel.setText("Register your case below");
 
         DescriptionLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         DescriptionLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,6 +133,15 @@ public class CreateNewCaseRegisterationJPanel extends javax.swing.JPanel {
         SelectFIRNumberLabel.setForeground(new java.awt.Color(255, 255, 255));
         SelectFIRNumberLabel.setText("Select Officer:");
 
+        SelectOfficerDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectOfficerDropdownActionPerformed(evt);
+            }
+        });
+
+        SubmitDetailsButton.setBackground(new java.awt.Color(102, 0, 0));
+        SubmitDetailsButton.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        SubmitDetailsButton.setForeground(new java.awt.Color(255, 255, 255));
         SubmitDetailsButton.setLabel("Submit Details");
         SubmitDetailsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,41 +182,43 @@ public class CreateNewCaseRegisterationJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(85, 85, 85)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(SelectFIRNumberLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SelectOfficerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(EmailIdLabel)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(EmailIdTextField))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(DateOfReportLabel)
-                                        .addComponent(DescriptionLabel))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(PhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(DateOfReportDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(303, 303, 303)
-                                .addComponent(SubmitDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(114, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(SelectFIRNumberLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(SelectOfficerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(EmailIdLabel)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(EmailIdTextField))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(DateOfReportLabel)
+                                                .addComponent(DescriptionLabel))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(PhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(DateOfReportDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(82, 82, 82)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(237, 237, 237)
+                        .addComponent(SubmitDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(615, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(titleLabel)
-                .addGap(18, 18, 18)
+                .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,9 +237,9 @@ public class CreateNewCaseRegisterationJPanel extends javax.swing.JPanel {
                             .addComponent(SelectFIRNumberLabel)
                             .addComponent(SelectOfficerDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addComponent(SubmitDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(SubmitDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(325, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -249,29 +258,18 @@ public class CreateNewCaseRegisterationJPanel extends javax.swing.JPanel {
             boolean flagValidate = true;
             int phoneNum = 0;
             String officerName = "";
-            java.sql.Date sqlDate = null;
-            java.util.Date utilDate = null;
-            String inputDate = "";
             
-            String emailId = EmailIdLabel.getText();
-            if(!validation.emailTextFieldValidation(emailId))
+            String emailId = EmailIdTextField.getText();
+            String phoneNumber = PhoneNumberTextField.getText();
+            
+            if (!validation.emailTextFieldValidation(emailId)) 
             {
                 JOptionPane.showMessageDialog(this, "valid Email Example a@b.com ");
                 flagValidate = false;
             }
-            
-            try
-            {
-                phoneNum = Integer.parseInt(PhoneNumberTextField.getText());
-                if(!validation.PhoneNumberTextFieldValidationIsNotNull(String.valueOf(phoneNum)))
-                {
-                    JOptionPane.showMessageDialog(this, "Enter valid Phone Number");
-                    flagValidate = false;
-                }
-            }
-            catch(NumberFormatException ex)
-            { 
-                JOptionPane.showMessageDialog(this, "Enter valid Phone Number ");
+
+            if (!validation.PhoneNumberTextFieldValidationIsNotNull(phoneNumber)) {
+                JOptionPane.showMessageDialog(this, "Enter valid Phone Number");
                 flagValidate = false;
             }
            
@@ -285,30 +283,18 @@ public class CreateNewCaseRegisterationJPanel extends javax.swing.JPanel {
                 flagValidate = false;
             }
             
-            try
+            if(flagValidate && CreateNewFIRRegisterJPanel.createFir == true)
             {
-                utilDate = DateOfReportDateChooser.getDate();
-                inputDate = DateOfReportDateChooser.getDate().toString();
-                if(validation.futureDateValidation(inputDate) < 0)
-                {
-                    flagValidate = false;
-                }
-                else
-                {
-                    sqlDate =new java.sql.Date(utilDate.getDate());
-                }
-            }
-            catch(NullPointerException e)
-            {
-                JOptionPane.showMessageDialog(this, "Select Date");
-                flagValidate = false;
-            }
+                
+                int year = DateOfReportDateChooser.getCalendar().get(Calendar.YEAR);
+                int month = DateOfReportDateChooser.getCalendar().get(Calendar.MONTH);
+                int date = DateOfReportDateChooser.getCalendar().get(Calendar.DAY_OF_MONTH);
+
+                String resultDate = year+"-"+(month+1)+"-"+date;
             
-            if(flagValidate)
-            {
                 newCaseRegister.setEmailId(emailId);
                 newCaseRegister.setPhoneNum(String.valueOf(phoneNum));
-                newCaseRegister.setDateOfReport(sqlDate);
+                newCaseRegister.setDateOfReport(resultDate);
                 newCaseRegister.setOfficerName(officerName);
 
                 //added to DB
@@ -322,8 +308,8 @@ public class CreateNewCaseRegisterationJPanel extends javax.swing.JPanel {
                 //victim username, password generate
 
                 RandomString randomString = new RandomString();
-                String username = randomString.getAlphaNumericString(5);
-                String password = randomString.getAlphaNumericString(5);
+                username = randomString.getAlphaNumericString(5);
+                password = randomString.getAlphaNumericString(5);
 
                 String jTable1Data[] = {username,password};
                 DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
@@ -331,15 +317,23 @@ public class CreateNewCaseRegisterationJPanel extends javax.swing.JPanel {
 
                 //store this string in db 
                 User user = new User();
-                user.getUsername();
-                user.getPassword();
-                user.getRole();
+                user.setUsername(username);
+                user.setPassword(password);
+                
+                if(!CreateNewFIRRegisterJPanel.valueAccVic.isEmpty())
+                {
+                    user.setRole(CreateNewFIRRegisterJPanel.valueAccVic);
+                }
 
                 //added to arraylist
                 userDir.addUser(user);
 
                 //added to DB
                 dbConnAdmin.addUserDataToDatabase(user);
+            }
+            else if (CreateNewFIRRegisterJPanel.createFir == false)
+            {
+                JOptionPane.showMessageDialog(this, "Create FIR first!");
             }
         }
         catch(Exception e)
@@ -356,6 +350,11 @@ public class CreateNewCaseRegisterationJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailIdTextFieldKeyPressed
 
+    private void SelectOfficerDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectOfficerDropdownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SelectOfficerDropdownActionPerformed
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DateOfReportDateChooser;

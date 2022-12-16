@@ -10,9 +10,11 @@ import NewsModel.NewspaperHistory;
 import NewsModel.AuthorHistory;
 import NewsModel.PublicationHistory;
 import NewsModel.ReporterHistory;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Sys;
 import ui.HomeScreen;
+import ui.LoginScreen;
 
 /**
  *
@@ -39,7 +41,7 @@ public class ResourceMainJPanel extends javax.swing.JPanel {
     Sys sys;
     HomeScreen homeScreen;
     
-    public ResourceMainJPanel(JPanel newsMainJPanel,Sys sys,HomeScreen homeScreen) 
+    public ResourceMainJPanel(JPanel resourceAdminJPanel,Sys sys,HomeScreen homeScreen) 
     {
         initComponents();
         
@@ -82,11 +84,14 @@ public class ResourceMainJPanel extends javax.swing.JPanel {
         prisonBtn = new javax.swing.JButton();
         armyBtn = new javax.swing.JButton();
         jailBtn = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
 
-        controlPanel.setBackground(new java.awt.Color(137, 152, 159));
+        controlPanel.setBackground(new java.awt.Color(102, 0, 0));
 
+        tAnimalBtn.setBackground(new java.awt.Color(102, 0, 0));
         tAnimalBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        tAnimalBtn.setForeground(new java.awt.Color(255, 255, 255));
         tAnimalBtn.setText("TRAINED ANIMAL");
         tAnimalBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +99,9 @@ public class ResourceMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        weaponBtn.setBackground(new java.awt.Color(102, 0, 0));
         weaponBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        weaponBtn.setForeground(new java.awt.Color(255, 255, 255));
         weaponBtn.setText("WEAPON");
         weaponBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +109,9 @@ public class ResourceMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        govBtn.setBackground(new java.awt.Color(102, 0, 0));
         govBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        govBtn.setForeground(new java.awt.Color(255, 255, 255));
         govBtn.setText("GOVERNMENT");
         govBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +119,9 @@ public class ResourceMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        prisonBtn.setBackground(new java.awt.Color(102, 0, 0));
         prisonBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        prisonBtn.setForeground(new java.awt.Color(255, 255, 255));
         prisonBtn.setText("PRISON");
         prisonBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +129,9 @@ public class ResourceMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        armyBtn.setBackground(new java.awt.Color(102, 0, 0));
         armyBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        armyBtn.setForeground(new java.awt.Color(255, 255, 255));
         armyBtn.setText("ARMY");
         armyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,11 +139,23 @@ public class ResourceMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        jailBtn.setBackground(new java.awt.Color(102, 0, 0));
         jailBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jailBtn.setForeground(new java.awt.Color(255, 255, 255));
         jailBtn.setText("JAIL");
         jailBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jailBtnActionPerformed(evt);
+            }
+        });
+
+        btnLogOut.setBackground(new java.awt.Color(102, 0, 0));
+        btnLogOut.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnLogOut.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogOut.setText("LOG OUT");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
             }
         });
 
@@ -140,22 +165,23 @@ public class ResourceMainJPanel extends javax.swing.JPanel {
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(armyBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(weaponBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tAnimalBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(prisonBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(govBtn))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(armyBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(govBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(prisonBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jailBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jailBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(btnLogOut)
+                .addGap(20, 20, 20))
         );
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
-                .addGap(78, 78, 78)
+                .addGap(19, 19, 19)
                 .addComponent(armyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(tAnimalBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,16 +189,18 @@ public class ResourceMainJPanel extends javax.swing.JPanel {
                 .addComponent(weaponBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(govBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(prisonBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jailBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(btnLogOut)
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         mainJSplitPane.setLeftComponent(controlPanel);
 
-        workArea.setBackground(new java.awt.Color(137, 152, 159));
+        workArea.setBackground(new java.awt.Color(102, 0, 0));
 
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);
@@ -235,9 +263,19 @@ public class ResourceMainJPanel extends javax.swing.JPanel {
         mainJSplitPane.setRightComponent(jailPanel);
     }//GEN-LAST:event_jailBtnActionPerformed
 
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        // TODO add your handling code here:
+         JPanel selectedPanel = new LoginScreen(resourceAdminJPanel,sys, homeScreen);
+
+        resourceAdminJPanel.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) resourceAdminJPanel.getLayout();
+        layout.next(resourceAdminJPanel);
+    }//GEN-LAST:event_btnLogOutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton armyBtn;
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JPanel controlPanel;
     private javax.swing.JButton govBtn;
     private javax.swing.JButton jailBtn;

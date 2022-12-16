@@ -36,7 +36,7 @@ public class DatabaseConnection_jail
 
             //step2 create  the connection object  
             con=DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/crime_inv_sys","root","Vrsh@123");  
+            "jdbc:mysql://localhost:3306/crime_inv_sys","root","aastha2996!!");  
 
         }
         catch(Exception e)
@@ -98,10 +98,10 @@ public class DatabaseConnection_jail
             
             databaseConnection();
             String updateSql = "update "+ "jail"+" "+"set "
-                    + " jailerId = "+"'"+ jail.getJailerId()+"'"+ ","
+                    + " jailerId = "+ jail.getJailerId()+ ","
                     +" jailerName = "+"'"+ jail.getJailerName() +"'"+","
-                    +" criminalCount = "+"'"+ jail.getCriminalCount() +"'"+","
-                    +"where jailId = "+ jail.getJailId()+";";
+                    +" criminalCount = "+ jail.getCriminalCount() +"'"
+                    +" where jailId = "+ jail.getJailId()+";";
                     
             System.out.println(updateSql);
             

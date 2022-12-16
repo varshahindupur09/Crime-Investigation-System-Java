@@ -3,7 +3,7 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="0" green="0" red="0" type="rgb"/>
+      <Color blue="0" green="0" red="99" type="rgb"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -22,6 +22,11 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="lbTitle" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="931" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -38,13 +43,15 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lbHospName1" alignment="1" min="-2" pref="102" max="-2" attributes="0"/>
                               <Component id="lbDocPhone1" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
-                              <Component id="lbHospId1" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
+                              <Component id="lbFP" alignment="1" min="-2" pref="102" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtDeathDate" alignment="1" min="-2" pref="156" max="-2" attributes="0"/>
-                              <Component id="txtDeathTime" alignment="1" min="-2" pref="156" max="-2" attributes="0"/>
-                              <Component id="txtCauseofDeath" alignment="1" min="-2" pref="156" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtDeathDate" alignment="1" min="-2" pref="156" max="-2" attributes="0"/>
+                                  <Component id="txtCauseofDeath" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="txtFP" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -71,11 +78,6 @@
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="931" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -124,13 +126,13 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbHospId1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="txtDeathTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbHospName1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="txtCauseofDeath" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbHospName1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="txtCauseofDeath" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbFP" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="txtFP" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="14" max="32767" attributes="0"/>
           </Group>
@@ -144,7 +146,7 @@
           <Font name="Century" size="24" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="cc" red="0" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="View Post Mortem Report"/>
@@ -170,8 +172,8 @@
                 <Column editable="true" title="Case Id" type="java.lang.Object"/>
                 <Column editable="true" title="Body Name" type="java.lang.Object"/>
                 <Column editable="true" title="Death Date" type="java.lang.Object"/>
-                <Column editable="true" title="Death Time" type="java.lang.Object"/>
                 <Column editable="true" title="Cause of Death" type="java.lang.Object"/>
+                <Column editable="true" title="Finger Print" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -343,20 +345,6 @@
         <Property name="text" type="java.lang.String" value="Cause of Death"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbHospId1">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Death Time"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtDeathTime">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDeathTimeActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="txtCauseofDeath">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCauseofDeathActionPerformed"/>
@@ -366,6 +354,17 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDeathDateActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtFP">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbFP">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Finger Print"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

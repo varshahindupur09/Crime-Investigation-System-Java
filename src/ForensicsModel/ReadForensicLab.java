@@ -46,7 +46,7 @@ public class ReadForensicLab extends javax.swing.JPanel {
         lbForLabId = new javax.swing.JLabel();
         txtForLabId = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(153, 0, 0));
         setForeground(new java.awt.Color(0, 204, 255));
 
         HTable.setBackground(java.awt.SystemColor.controlHighlight);
@@ -64,7 +64,7 @@ public class ReadForensicLab extends javax.swing.JPanel {
         jScrollPane1.setViewportView(HTable);
 
         lbTitle.setFont(new java.awt.Font("Century", 1, 24)); // NOI18N
-        lbTitle.setForeground(new java.awt.Color(0, 204, 255));
+        lbTitle.setForeground(new java.awt.Color(255, 255, 255));
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitle.setText("View Forensic Labs");
 

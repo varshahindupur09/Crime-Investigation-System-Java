@@ -36,7 +36,7 @@ public class DatabaseConnection_government
 
             //step2 create  the connection object  
             con=DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/crime_inv_sys","root","Vrsh@123");  
+            "jdbc:mysql://localhost:3306/crime_inv_sys","root","aastha2996!!");  
 
         }
         catch(Exception e)
@@ -100,8 +100,8 @@ public class DatabaseConnection_government
             String updateSql = "update "+ "government"+" "+"set "
                     +" partyLeaderName = "+"'"+ gov.getPartyLeaderName()+"'"+ ","
                     +" party = "+"'"+ gov.getParty() +"'"+","
-                    +" state = "+"'"+ gov.getState() +"'"+","
-                    +"where partyLeaderId = "+ gov.getPartyLeaderId()+";";
+                    +" state = "+"'"+ gov.getState() +"'"
+                    +" where partyLeaderId = "+ gov.getPartyLeaderId()+";";
                     
             System.out.println(updateSql);
             
@@ -109,7 +109,7 @@ public class DatabaseConnection_government
             
 //            update author set  authorName = 'fhewh', authorAge = 20, authorYOE = 1, authorGender ='F',authorDOJ ='545' where authorId = 'fh1';
 
-            System.out.println("DB data updated in where");
+            System.out.println("DB data updated in government");
 
             stmt.executeUpdate();
 

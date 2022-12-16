@@ -5,17 +5,23 @@
  */
 package ui;
 
+import crime_branch_enterprise.model.DatabaseConnection_CaseDetails;
+import crime_branch_enterprise.model.DatabaseConnection_FirDetails;
+import crime_branch_enterprise.model.DatabaseConnection_OfficerDetails;
 import java.awt.CardLayout;
 import model.Sys;
 
 /**
  *
- * @author archil
+ * @author hindupurv
  */
 public class MainJFrame extends javax.swing.JFrame {
 
     Sys sys;
-    
+    HomeScreen homescreen;
+    DatabaseConnection_OfficerDetails dbConnOfficeDetails;
+    DatabaseConnection_FirDetails dbConnFirDetails;
+    DatabaseConnection_CaseDetails dbConnCaseDetails;
     /**
      * Creates new form MainJFrame
      */
@@ -29,6 +35,10 @@ public class MainJFrame extends javax.swing.JFrame {
        
         
         setLoginScreen();
+        
+        setDBConstructors();
+        
+//        closeWindow();
     
     }
 
@@ -100,14 +110,42 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void setDBConstructors()
+    {
+        dbConnOfficeDetails = new DatabaseConnection_OfficerDetails();
+        dbConnFirDetails = new DatabaseConnection_FirDetails();
+        dbConnCaseDetails = new DatabaseConnection_CaseDetails();
+    }
 
     private void setLoginScreen() {
-       LoginScreen ls = new LoginScreen(mainWorkArea,sys);
+       LoginScreen ls = new LoginScreen(mainWorkArea,sys, homescreen);
        mainWorkArea.add("LoginScreen",ls);
        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
        layout.next(mainWorkArea);
     }
 
+    private void closeWindow()
+    {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+//                System.exit(0);
+                System.out.println("closing window");
+                try
+                {
+                    //truncate all db data on closing here
+                    dbConnOfficeDetails.deleteEveryOfficerDataInDB();
+                    dbConnFirDetails.deleteEveryFIRDataInDB();
+                    dbConnCaseDetails.deleteEveryCaseDataInDB();
+                }
+                catch(Exception e1)
+                {
+                   e1.printStackTrace();
+                }
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel mainWorkArea;
     // End of variables declaration//GEN-END:variables

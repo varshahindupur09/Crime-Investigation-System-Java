@@ -46,7 +46,7 @@ public class EnterpriseAdminsCreate extends javax.swing.JPanel {
         this.enterpriseAdminsCreate = enterpriseAdminsCreate;
         this.sys = sys;
         this.homeScreen = homeScreen;
-        setSize(1040, 544);
+//        setSize(1040, 544);
     }
 
     /**

@@ -6,6 +6,7 @@ package crime_branch_enterprise.model;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import model.JTextFieldLimit;
 import model.Sys;
 import ui.HomePanel;
 import ui.HomeScreen;
@@ -29,8 +30,16 @@ public class ReadOfficerJPanel extends javax.swing.JPanel {
     
     public ReadOfficerJPanel(OfficerDirectory officerDir) {
         initComponents();
-        this.officerDir  = officerDir;
+        this.officerDir = officerDir;
         populateTable();
+        
+        dbConOfficerDetails = new DatabaseConnection_OfficerDetails();
+        
+        NewFNameTxt.setDocument(new JTextFieldLimit(50));
+        NewEmailTxt.setDocument(new JTextFieldLimit(50));
+        NewPhoneTxt.setDocument(new JTextFieldLimit(10));
+        NewAddressTxt.setDocument(new JTextFieldLimit(100));
+        
     }
     
     public ReadOfficerJPanel ( JPanel readOfficer, Sys sys, HomeScreen homeScreen) 
@@ -40,9 +49,6 @@ public class ReadOfficerJPanel extends javax.swing.JPanel {
         this.sys = sys;
         this.homeScreen = homeScreen;
         
-        setSize(1040, 544);
-        
-        dbConOfficerDetails = new DatabaseConnection_OfficerDetails();
         
     }
 
@@ -70,13 +76,16 @@ public class ReadOfficerJPanel extends javax.swing.JPanel {
         viewBtn = new javax.swing.JButton();
         NewFNameTxt = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(153, 0, 0));
+
         NewEmailTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NewEmailTxtActionPerformed(evt);
             }
         });
 
-        HeadingLabel.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
+        HeadingLabel.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        HeadingLabel.setForeground(new java.awt.Color(255, 255, 255));
         HeadingLabel.setText("OFFICER DIRECTORY");
 
         NewAddressTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -93,18 +102,28 @@ public class ReadOfficerJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "NAME", "EMAIL", "PHONE NUMBER", "ADDRESS"
+                "NAME", "ADDRESS", "EMAIL", "PHONE NUMBER"
             }
         ));
         jScrollPane1.setViewportView(OfficerDirectoryTable);
 
         NewDocIDLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        NewDocIDLabel.setForeground(new java.awt.Color(255, 255, 255));
         NewDocIDLabel.setText("NAME");
 
+        NewPhoneTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewPhoneTxtActionPerformed(evt);
+            }
+        });
+
         NewDocHospNameLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        NewDocHospNameLabel.setForeground(new java.awt.Color(255, 255, 255));
         NewDocHospNameLabel.setText("PHONE NUMBER");
 
+        updateBtn.setBackground(new java.awt.Color(102, 0, 0));
         updateBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        updateBtn.setForeground(new java.awt.Color(255, 255, 255));
         updateBtn.setText("UPDATE");
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,9 +132,12 @@ public class ReadOfficerJPanel extends javax.swing.JPanel {
         });
 
         NewDocHospIDLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        NewDocHospIDLabel.setForeground(new java.awt.Color(255, 255, 255));
         NewDocHospIDLabel.setText("EMAIL ID");
 
+        deleteBtn.setBackground(new java.awt.Color(102, 0, 0));
         deleteBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        deleteBtn.setForeground(new java.awt.Color(255, 255, 255));
         deleteBtn.setText("DELETE");
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,9 +146,12 @@ public class ReadOfficerJPanel extends javax.swing.JPanel {
         });
 
         NewDocPhnLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        NewDocPhnLabel.setForeground(new java.awt.Color(255, 255, 255));
         NewDocPhnLabel.setText("ADDRESS");
 
+        viewBtn.setBackground(new java.awt.Color(102, 0, 0));
         viewBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        viewBtn.setForeground(new java.awt.Color(255, 255, 255));
         viewBtn.setText("VIEW");
         viewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,80 +164,82 @@ public class ReadOfficerJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(194, 194, 194)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(NewDocPhnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(NewAddressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(198, 198, 198)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(23, 23, 23)
+                                        .addComponent(NewDocHospIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(NewDocHospNameLabel))
+                                .addGap(50, 50, 50)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(NewEmailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(NewPhoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(23, 23, 23)
-                                .addComponent(NewDocHospIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(NewDocHospNameLabel))
-                        .addGap(50, 50, 50)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(NewDocPhnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(50, 50, 50)
+                                        .addComponent(NewAddressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(NewDocIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(50, 50, 50)
+                                        .addComponent(NewFNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(131, 131, 131)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NewEmailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NewPhoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(324, Short.MAX_VALUE))
+                            .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 922, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(554, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(213, 213, 213)
-                            .addComponent(NewDocIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(50, 50, 50)
-                            .addComponent(NewFNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(171, 171, 171)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(287, 287, 287)
-                            .addComponent(HeadingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(293, 293, 293)
+                    .addComponent(HeadingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(402, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NewDocHospIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NewEmailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NewDocHospNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NewPhoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGap(63, 63, 63)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(NewFNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NewDocIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(NewDocHospIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NewEmailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(NewDocHospNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NewPhoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NewDocPhnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NewAddressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(120, 120, 120))
+                .addGap(161, 161, 161))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(HeadingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(40, 40, 40)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(70, 70, 70)
-                            .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(52, 52, 52)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(NewFNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(NewDocIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addContainerGap(163, Short.MAX_VALUE)))
+                    .addContainerGap(651, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -241,8 +268,8 @@ public class ReadOfficerJPanel extends javax.swing.JPanel {
             String offPhone = NewPhoneTxt.getText();
             String offAddress = NewAddressTxt.getText();
 
-            JOptionPane.showMessageDialog(this, "Doctor Information Updated");
-            //history.deleteEmployee(selectedEmployee);
+            JOptionPane.showMessageDialog(this, "Officer Information Updated");
+            
             selectedOff.setOfficerName(offName);
             selectedOff.setOfficerEmail(offEmail);
             selectedOff.setOfficerPhoneNumber(offPhone);
@@ -251,6 +278,7 @@ public class ReadOfficerJPanel extends javax.swing.JPanel {
             populateTable();
             
             //update db
+//            Officer off = new Officer(offName,offAddress,offPhone,offEmail);
             dbConOfficerDetails.updateOfficerDataToDB(selectedOff);
 
             NewFNameTxt.setText("");
@@ -272,10 +300,11 @@ public class ReadOfficerJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) OfficerDirectoryTable.getModel();
         Officer off = (Officer) model.getValueAt(selectedRowIndex,0);
         
-        officerDir.deleteOfficer(off);
-
         //delete in db
         dbConOfficerDetails.deleteOfficerDataInDB(off);
+        
+        //delete in arraylist later
+        officerDir.deleteOfficer(off);
 
         JOptionPane.showMessageDialog(this, "Requested Record is Deleted");
         populateTable();
@@ -302,6 +331,10 @@ public class ReadOfficerJPanel extends javax.swing.JPanel {
         NewEmailTxt.setEnabled(false);
     }//GEN-LAST:event_viewBtnActionPerformed
 
+    private void NewPhoneTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewPhoneTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewPhoneTxtActionPerformed
+
     private void populateTable() {
 
         DefaultTableModel model = (DefaultTableModel) OfficerDirectoryTable.getModel();
@@ -311,10 +344,11 @@ public class ReadOfficerJPanel extends javax.swing.JPanel {
 
             Object[] row = new Object[7];
             row[0] = off;
-            row[1] = off.getOfficerName();
+//            row[1] = off.getOfficerName();
+            row[1] = off.getOfficerAddress();
             row[2] = off.getOfficerEmail();
             row[3] = off.getOfficerPhoneNumber();
-            row[4] = off.getOfficerAddress();
+            
 
             model.addRow(row);
 

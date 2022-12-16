@@ -36,8 +36,6 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         lbAnimalName = new javax.swing.JLabel();
         txtAnimalName = new javax.swing.JTextField();
-        lbType = new javax.swing.JLabel();
-        txtType = new javax.swing.JTextField();
         lbTrainerId = new javax.swing.JLabel();
         txtTrainerId = new javax.swing.JTextField();
         lbTrainerName = new javax.swing.JLabel();
@@ -45,25 +43,25 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
         lbAnimalId = new javax.swing.JLabel();
         txtAnimalId = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(102, 0, 0));
         setForeground(new java.awt.Color(0, 204, 255));
 
         HTable.setBackground(java.awt.SystemColor.controlHighlight);
         HTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Trainer Id", "Trainer Name", "Animal Id", "Animal Name", "Type"
+                "Trainer Id", "Trainer Name", "Animal Id", "Animal Name"
             }
         ));
         jScrollPane1.setViewportView(HTable);
 
         lbTitle.setFont(new java.awt.Font("Century", 1, 24)); // NOI18N
-        lbTitle.setForeground(new java.awt.Color(0, 204, 255));
+        lbTitle.setForeground(new java.awt.Color(255, 255, 255));
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitle.setText("View Animal");
 
@@ -101,16 +99,6 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
             }
         });
 
-        lbType.setForeground(new java.awt.Color(255, 255, 255));
-        lbType.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbType.setText("Type");
-
-        txtType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTypeActionPerformed(evt);
-            }
-        });
-
         lbTrainerId.setForeground(new java.awt.Color(255, 255, 255));
         lbTrainerId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTrainerId.setText("Trainer Id");
@@ -142,50 +130,48 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE))
+                        .addGap(231, 231, 231)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(90, 90, 90)
+                                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnUpdate))
+                                .addComponent(btnView))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lbTrainerId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbTrainerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbAnimalId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbAnimalName, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtTrainerId)
+                                    .addComponent(txtTrainerName)
+                                    .addComponent(txtAnimalId)
+                                    .addComponent(txtAnimalName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(232, 232, 232)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbType, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lbTrainerId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbTrainerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbAnimalId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbAnimalName, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtTrainerId)
-                    .addComponent(txtTrainerName)
-                    .addComponent(txtAnimalId)
-                    .addComponent(txtAnimalName)
-                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(245, 245, 245)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(90, 90, 90)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnUpdate))
-                        .addComponent(btnView))
-                    .addContainerGap(246, Short.MAX_VALUE)))
+                        .addGap(108, 108, 108)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 821, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addComponent(lbTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnDelete)
+                    .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTrainerId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbTrainerId, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -201,19 +187,7 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAnimalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbAnimalName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbType, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(140, 140, 140)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnUpdate)
-                        .addComponent(btnDelete)
-                        .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(241, Short.MAX_VALUE)))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -234,7 +208,6 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
             String trainerName = txtTrainerName.getText();
             int animalId = Integer.parseInt(txtAnimalId.getText());
             String animalName = txtAnimalName.getText();
-            String type = txtType.getText(); 
 
             JOptionPane.showMessageDialog(this, "Trained Animal Information Updated");
             //history.deleteEmployee(selectedEmployee);
@@ -242,7 +215,6 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
             selectedAnimal.setTrainerName(trainerName);
             selectedAnimal.setAnimalId(animalId);
             selectedAnimal.setAnimalName(animalName);
-            selectedAnimal.setType(type);
             
             dbConTAnimalDetails.updateTAnimalDataToDB(selectedAnimal);
              
@@ -250,7 +222,6 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
             txtTrainerName.setText("");
             txtAnimalId.setText("");
             txtAnimalName.setText("");
-            txtType.setText("");
             }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -270,7 +241,6 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
         txtTrainerName.setText(selectedAnimal.getTrainerName());
         txtAnimalName.setText(String.valueOf(selectedAnimal.getAnimalId()));
         txtAnimalId.setText(selectedAnimal.getAnimalname());
-        txtType.setText(selectedAnimal.getType());
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -297,10 +267,6 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAnimalNameActionPerformed
 
-    private void txtTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTypeActionPerformed
-
     private void txtTrainerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTrainerNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTrainerNameActionPerformed
@@ -321,12 +287,10 @@ public class ReadTrainedAnimal extends javax.swing.JPanel {
     private javax.swing.JLabel lbTitle;
     private javax.swing.JLabel lbTrainerId;
     private javax.swing.JLabel lbTrainerName;
-    private javax.swing.JLabel lbType;
     private javax.swing.JTextField txtAnimalId;
     private javax.swing.JTextField txtAnimalName;
     private javax.swing.JTextField txtTrainerId;
     private javax.swing.JTextField txtTrainerName;
-    private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
 
 private void populateTable() {
@@ -335,12 +299,11 @@ private void populateTable() {
 
             for(TrainedAnimal e: animalHistory.getanimalHistory()){
 
-                Object[] row = new Object[6];
+                Object[] row = new Object[5];
                 row[0] = e;
                 row[1] = e.getTrainerName();
                 row[2] = e.getAnimalId();
                 row[3] = e.getAnimalname();
-                row[4] = e.getType();
                 
                 model.addRow(row);
             }
@@ -390,16 +353,7 @@ private void populateTable() {
             }
         }
         
-        if (txtType.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter Animal Type");
-            return false;
-        } else {
-            if (!(txtType.getText().matches("[a-zA-Z]*"))) {
-                JOptionPane.showMessageDialog(this, "Please enter Valid Animal Type");
-                return false;
-            }
-        }
-       
+               
         return true;
         
     }

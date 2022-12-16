@@ -143,26 +143,29 @@
     <Component class="javax.swing.JComboBox" name="SelectRole">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="19">
+          <StringArray count="22">
             <StringItem index="0" value="Off-Admin"/>
-            <StringItem index="1" value="VictimAccused"/>
-            <StringItem index="2" value="Res-Admin"/>
-            <StringItem index="3" value="Res-ArmyAdmin"/>
-            <StringItem index="4" value="Res-GovtAdmin"/>
-            <StringItem index="5" value="Res-TrainedAnimalAdmin"/>
-            <StringItem index="6" value="Res-WeaponAdmin"/>
-            <StringItem index="7" value="Res-PrisonAdmin"/>
-            <StringItem index="8" value="Res-JailAdmin"/>
-            <StringItem index="9" value="For-Admin"/>
-            <StringItem index="10" value="For-HospAdmin"/>
-            <StringItem index="11" value="For-DocAdmin"/>
-            <StringItem index="12" value="For-FLAdmin"/>
-            <StringItem index="13" value="Med-AuthorAdmin"/>
-            <StringItem index="14" value="Med-NewsAdmin"/>
-            <StringItem index="15" value="Med-NewspaperAdmin"/>
-            <StringItem index="16" value="Med-PublicationAdmin"/>
-            <StringItem index="17" value="Med-TelevisionAdmin"/>
-            <StringItem index="18" value="Med-ReporterAdmin"/>
+            <StringItem index="1" value="Crime-Victim"/>
+            <StringItem index="2" value="Crime-Accused"/>
+            <StringItem index="3" value="Crime-Admin"/>
+            <StringItem index="4" value="Med-Admin"/>
+            <StringItem index="5" value="Res-Admin"/>
+            <StringItem index="6" value="Res-ArmyAdmin"/>
+            <StringItem index="7" value="Res-GovtAdmin"/>
+            <StringItem index="8" value="Res-TrainedAnimalAdmin"/>
+            <StringItem index="9" value="Res-WeaponAdmin"/>
+            <StringItem index="10" value="Res-PrisonAdmin"/>
+            <StringItem index="11" value="Res-JailAdmin"/>
+            <StringItem index="12" value="For-Admin"/>
+            <StringItem index="13" value="For-HospAdmin"/>
+            <StringItem index="14" value="For-DocAdmin"/>
+            <StringItem index="15" value="For-FLAdmin"/>
+            <StringItem index="16" value="Med-AuthorAdmin"/>
+            <StringItem index="17" value="Med-NewsAdmin"/>
+            <StringItem index="18" value="Med-NewspaperAdmin"/>
+            <StringItem index="19" value="Med-PublicationAdmin"/>
+            <StringItem index="20" value="Med-TelevisionAdmin"/>
+            <StringItem index="21" value="Med-ReporterAdmin"/>
           </StringArray>
         </Property>
       </Properties>

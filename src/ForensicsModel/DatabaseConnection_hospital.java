@@ -36,7 +36,7 @@ public class DatabaseConnection_hospital
 
             //step2 create  the connection object  
             con=DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/crime_inv_sys","root","Vrsh@123");  
+            "jdbc:mysql://localhost:3306/crime_inv_sys","root","aastha2996!!");  
 
         }
         catch(Exception e)
@@ -101,9 +101,9 @@ public class DatabaseConnection_hospital
             String updateSql = "update "+ "hospital"+" "+"set "
                     + " hospName = "+"'"+ hospital.getHospName() +"'"+ ","
                     +" community = "+"'"+ hospital.getCommunity() +"'"+","
-                    +" city = "+ hospital.getCity() +","
-                    +" docName ="+ "'" + hospital.getDocName()+ "'" +","
-                    +"where hospId = "+ hospital.getHospId() +";";
+                    +" city = "+"'"+ hospital.getCity() +"'"+","
+                    +" docName ="+ "'" + hospital.getDocName()+ "'"
+                    +" where hospId = "+ hospital.getHospId() +";";
                     
             System.out.println(updateSql);
             

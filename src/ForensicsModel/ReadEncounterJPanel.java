@@ -35,10 +35,11 @@ public class ReadEncounterJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         ETable = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(153, 0, 0));
 
+        lbTitle.setBackground(new java.awt.Color(153, 0, 0));
         lbTitle.setFont(new java.awt.Font("Century", 1, 24)); // NOI18N
-        lbTitle.setForeground(new java.awt.Color(0, 204, 255));
+        lbTitle.setForeground(new java.awt.Color(255, 255, 255));
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitle.setText("View Encounter Report");
 

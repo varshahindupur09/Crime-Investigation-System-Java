@@ -6,24 +6,26 @@ package crime_branch_enterprise.model;
 
 /**
  *
- * @author ASUS
+ * @author hindupurv
  */
 public class NewCaseRegister 
 {
     private String emailId;
     private String phoneNum; 
-    private java.sql.Date dateOfReport;
+    private String dateOfReport;
     private String officerName;
 
-    /**
-     * @return the emailId
-     */
     public NewCaseRegister()
     {
         
     }
     
-    public NewCaseRegister(String emailId, String phoneNum, java.sql.Date dateOfReport, String officerName)
+    @Override
+    public String toString() {
+        return emailId;
+    }
+    
+    public NewCaseRegister(String emailId, String phoneNum, String dateOfReport, String officerName)
     {
         this.emailId = emailId;
         this.phoneNum = phoneNum;
@@ -58,14 +60,14 @@ public class NewCaseRegister
     /**
      * @return the dateOfReport
      */
-    public java.sql.Date getDateOfReport() {
+    public String getDateOfReport() {
         return dateOfReport;
     }
 
     /**
      * @param dateOfReport the dateOfReport to set
      */
-    public void setDateOfReport(java.sql.Date dateOfReport) {
+    public void setDateOfReport(String dateOfReport) {
         this.dateOfReport = dateOfReport;
     }
 

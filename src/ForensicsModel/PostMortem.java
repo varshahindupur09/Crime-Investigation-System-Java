@@ -12,8 +12,8 @@ public class PostMortem {
     public String bodyName;
     public int caseId;
     public String deathDate;
-    public String deathTime;
     public String causeOfDeath;
+    public int fingerPrint;
 
     @Override
     public String toString() {
@@ -70,13 +70,7 @@ public class PostMortem {
         this.deathDate = deathDate;
     }
 
-    public String getDeathTime() {
-        return deathTime;
-    }
-
-    public void setDeathTime(String deathTime) {
-        this.deathTime = deathTime;
-    }
+    
 
     public String getCauseOfDeath() {
         return causeOfDeath;
@@ -84,6 +78,14 @@ public class PostMortem {
 
     public void setCauseOfDeath(String causeOfDeath) {
         this.causeOfDeath = causeOfDeath;
+    }
+
+    public int getFingerPrint() {
+        return fingerPrint;
+    }
+
+    public void setFingerPrint(int fingerPrint) {
+        this.fingerPrint = fingerPrint;
     }
     
     

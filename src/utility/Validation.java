@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -71,9 +70,9 @@ public class Validation
         return matcher.matches();
     }
     
-    public int futureDateValidation(String inputDate)
+    public int compareTwoDates(String inputDate)
     {
-        int result = -1; 
+        int result = 2; 
         try
         {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -81,16 +80,17 @@ public class Validation
 
             String currDate = sdf.format(date);
             System.out.println(sdf.format(date)); 
+            
             Date date1 = sdf.parse(inputDate);
             Date date2 = sdf.parse(currDate);
 
             result = date1.compareTo(date2);
-            System.out.println("result: " + result);
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
+        System.out.println("result: " + result);
         return result;
     }
     

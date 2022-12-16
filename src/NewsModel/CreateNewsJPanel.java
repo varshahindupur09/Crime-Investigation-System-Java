@@ -6,19 +6,28 @@ package NewsModel;
 import NewsModel.Author;
 import NewsModel.AuthorHistory;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import model.Sys;
+import ui.HomeScreen;
 /**
  *
  * @author Sal <your.name at your.org>
  */
 public class CreateNewsJPanel extends javax.swing.JPanel {
     NewsHistory newNewsData;
+    DatabaseConnection_news dbConNewsDetails;
 
     /**
      * Creates new form CreateNewsJPanel
      */
+    private JPanel createNewsJPanel;
+    private Sys sys;
+    private HomeScreen homeScreen;
+    
     public CreateNewsJPanel(NewsHistory news) {
         initComponents();
         newNewsData = news;
+        dbConNewsDetails = new DatabaseConnection_news();
     }
 
     /**
@@ -45,7 +54,7 @@ public class CreateNewsJPanel extends javax.swing.JPanel {
         lbHospName1 = new javax.swing.JLabel();
         txtNewsReporter = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(0, 51, 51));
+        setBackground(new java.awt.Color(153, 0, 0));
 
         txtNewsPublication.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,7 +74,7 @@ public class CreateNewsJPanel extends javax.swing.JPanel {
 
         lbTitle.setBackground(new java.awt.Color(0, 204, 255));
         lbTitle.setFont(new java.awt.Font("Century", 1, 24)); // NOI18N
-        lbTitle.setForeground(new java.awt.Color(0, 204, 255));
+        lbTitle.setForeground(new java.awt.Color(255, 255, 255));
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitle.setText("NEWS Form");
 
@@ -120,11 +129,7 @@ public class CreateNewsJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(33, 33, 33))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
+                .addGap(133, 133, 133)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbDocId, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbDocName, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,7 +137,7 @@ public class CreateNewsJPanel extends javax.swing.JPanel {
                     .addComponent(lbHospName, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbHospId, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbHospName1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(184, 184, 184)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,12 +150,16 @@ public class CreateNewsJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(txtNewsPublication, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(271, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(359, 359, 359))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(29, 29, 29)
                 .addComponent(lbTitle)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -178,7 +187,7 @@ public class CreateNewsJPanel extends javax.swing.JPanel {
                     .addComponent(txtNewsPublication, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(66, 66, 66)
                 .addComponent(btnAdd)
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addContainerGap(234, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -196,9 +205,9 @@ public class CreateNewsJPanel extends javax.swing.JPanel {
         //if (isValid) {
             String newsId = txtNewsId.getText();
             String newsCrime = txtNewsCrime.getText();
-            String newsCrimeDate = txtNewsReporter.getText();
-            String newsAuthor = txtNewsPublication.getText();
-            String newsReporter = txtNewsPublication.getText();
+            String newsCrimeDate = txtNewsCrimeDate.getText();
+            String newsAuthor = txtNewsAuthor.getText();
+            String newsReporter = txtNewsReporter.getText();
             String newsPublication = txtNewsPublication.getText();
 
             News ns = newNewsData.addNews();
@@ -210,7 +219,7 @@ public class CreateNewsJPanel extends javax.swing.JPanel {
             ns.setNewsReporter(newsReporter);
             ns.setNewsPublication(newsPublication);
             
-
+            dbConNewsDetails.addNewsDataToDB(ns);
             JOptionPane.showMessageDialog(this, "News Information Saved");
             //}
     }//GEN-LAST:event_btnAddActionPerformed

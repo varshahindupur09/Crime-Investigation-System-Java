@@ -65,7 +65,7 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
         lbHits = new javax.swing.JLabel();
         txtHits = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(153, 0, 0));
 
         lbRepId.setForeground(new java.awt.Color(255, 255, 255));
         lbRepId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -189,7 +189,7 @@ public class CreateEncounterJPanel extends javax.swing.JPanel {
         lbIncisions.setText("Incisions");
 
         lbTitle.setFont(new java.awt.Font("Century", 1, 24)); // NOI18N
-        lbTitle.setForeground(new java.awt.Color(0, 204, 255));
+        lbTitle.setForeground(new java.awt.Color(255, 255, 255));
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitle.setText("Encounter Form");
 

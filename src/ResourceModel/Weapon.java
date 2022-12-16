@@ -9,10 +9,14 @@ public class Weapon {
     
     public int weaponId;
     public String wType;
-    public int count;
+    public int wcount;
 
     public int getWeaponId() {
         return weaponId;
+    }
+     @Override
+    public String toString() {
+            return String.valueOf(weaponId);
     }
 
     public void setWeaponId(int weaponId) {
@@ -27,12 +31,12 @@ public class Weapon {
         this.wType = wType;
     }
 
-    public int getCount() {
-        return count;
+    public int getWCount() {
+        return wcount;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setWCount(int wcount) {
+        this.wcount = wcount;
     }
   
        

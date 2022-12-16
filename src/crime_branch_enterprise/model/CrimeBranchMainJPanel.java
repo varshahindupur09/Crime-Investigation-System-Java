@@ -4,9 +4,11 @@
  */
 package crime_branch_enterprise.model;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Sys;
 import ui.HomeScreen;
+import ui.LoginScreen;
 
 /**
  *
@@ -33,16 +35,13 @@ public class CrimeBranchMainJPanel extends javax.swing.JPanel {
         this.crimeBranchMainJPanel = crimeBranchMainJPanel;
         this.sys = sys;
         this.homeScreen = homeScreen;
-        setSize(1040, 544);
-    }
-    
-    public CrimeBranchMainJPanel() {
-//        initComponents();
-        this.officerDir = new OfficerDirectory();
+//        setSize(1040, 544);
+
+        this.officerDir =  new OfficerDirectory();
         this.firdir = new FIRDirectory();
         this.newCaseRegisterDir = new NewCaseRegisterDirectory();
-        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,11 +57,15 @@ public class CrimeBranchMainJPanel extends javax.swing.JPanel {
         officerBtn = new javax.swing.JButton();
         firBtn = new javax.swing.JButton();
         caseRegBtn = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
-        controlPanel.setBackground(new java.awt.Color(137, 152, 159));
+        controlPanel.setBackground(new java.awt.Color(153, 0, 0));
 
-        officerBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        officerBtn.setBackground(new java.awt.Color(102, 0, 0));
+        officerBtn.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        officerBtn.setForeground(new java.awt.Color(255, 255, 255));
         officerBtn.setText("OFFICER");
         officerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,7 +73,9 @@ public class CrimeBranchMainJPanel extends javax.swing.JPanel {
             }
         });
 
-        firBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        firBtn.setBackground(new java.awt.Color(102, 0, 0));
+        firBtn.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        firBtn.setForeground(new java.awt.Color(255, 255, 255));
         firBtn.setText("FIR");
         firBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,11 +83,23 @@ public class CrimeBranchMainJPanel extends javax.swing.JPanel {
             }
         });
 
-        caseRegBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        caseRegBtn.setBackground(new java.awt.Color(102, 0, 0));
+        caseRegBtn.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        caseRegBtn.setForeground(new java.awt.Color(255, 255, 255));
         caseRegBtn.setText("CASE REG");
         caseRegBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 caseRegBtnActionPerformed(evt);
+            }
+        });
+
+        btnLogOut.setBackground(new java.awt.Color(102, 0, 0));
+        btnLogOut.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnLogOut.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogOut.setText("LOG OUT");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
             }
         });
 
@@ -91,16 +108,17 @@ public class CrimeBranchMainJPanel extends javax.swing.JPanel {
         controlPanelLayout.setHorizontalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(controlPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(caseRegBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(controlPanelLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(officerBtn)
-                            .addComponent(firBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(8, Short.MAX_VALUE))
+                    .addComponent(officerBtn)
+                    .addComponent(firBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(caseRegBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogOut, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,24 +127,32 @@ public class CrimeBranchMainJPanel extends javax.swing.JPanel {
                 .addComponent(officerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(firBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(caseRegBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(299, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addComponent(btnLogOut)
+                .addContainerGap(280, Short.MAX_VALUE))
         );
 
         mainJSplitPane.setLeftComponent(controlPanel);
 
-        workArea.setBackground(new java.awt.Color(137, 152, 159));
+        workArea.setBackground(new java.awt.Color(153, 0, 0));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/crime.png"))); // NOI18N
 
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1100, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 631, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         mainJSplitPane.setRightComponent(workArea);
@@ -161,11 +187,22 @@ public class CrimeBranchMainJPanel extends javax.swing.JPanel {
         mainJSplitPane.setRightComponent(casePanel);
     }//GEN-LAST:event_caseRegBtnActionPerformed
 
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        // TODO add your handling code here:
+        JPanel selectedPanel = new LoginScreen(crimeBranchMainJPanel,sys, homeScreen);
+
+        crimeBranchMainJPanel.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) crimeBranchMainJPanel.getLayout();
+        layout.next(crimeBranchMainJPanel);
+    }//GEN-LAST:event_btnLogOutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JButton caseRegBtn;
     private javax.swing.JPanel controlPanel;
     private javax.swing.JButton firBtn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane mainJSplitPane;
     private javax.swing.JButton officerBtn;
     private javax.swing.JPanel workArea;

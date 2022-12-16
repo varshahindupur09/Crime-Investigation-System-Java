@@ -36,7 +36,7 @@ public class DatabaseConnection_army
 
             //step2 create  the connection object  
             con=DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/crime_inv_sys","root","Vrsh@123");  
+            "jdbc:mysql://localhost:3306/crime_inv_sys","root","aastha2996!!");  
 
         }
         catch(Exception e)
@@ -100,8 +100,8 @@ public class DatabaseConnection_army
             String updateSql = "update "+ "army"+" "+"set "
                     + " generalName = "+"'"+ army.getGeneralName()+"'"+ ","
                     +" department = "+"'"+ army.getDepartment() +"'"+","
-                    +" country = "+"'"+ army.getCountry() +"'"+","
-                    +"where generalId = "+ army.getGeneralId()+";";
+                    +" country = "+"'"+ army.getCountry() +"'"
+                    +" where generalId = "+ army.getGeneralId()+";";
                     
             System.out.println(updateSql);
             

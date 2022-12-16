@@ -36,7 +36,7 @@ public class DatabaseConnection_tAnimal
 
             //step2 create  the connection object  
             con=DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/crime_inv_sys","root","Vrsh@123");  
+            "jdbc:mysql://localhost:3306/crime_inv_sys","root","aastha2996!!");  
 
         }
         catch(Exception e)
@@ -68,16 +68,15 @@ public class DatabaseConnection_tAnimal
         {
             
             databaseConnection();
-            String insertsql="Insert into tAnimal (trainerId, trainerName, animalId, type, animalName) values(?,?,?,?,?)";
+            String insertsql="Insert into trainedAnimal (trainerId, trainerName, animalId, animalName) values(?,?,?,?)";
             PreparedStatement stmt=con.prepareStatement(insertsql);
 
             stmt.setInt(1, tAnimal.getTrainerId());
             stmt.setString(2, tAnimal.getTrainerName());
             stmt.setInt(3, tAnimal.getAnimalId());
-            stmt.setString(4, tAnimal.getType());
-            stmt.setString(5, tAnimal.getAnimalname());
+            stmt.setString(4, tAnimal.getAnimalname());
             
-            System.out.println("DB data created in tAnimal");
+            System.out.println("DB data created in trainedAnimal");
 
             stmt.executeUpdate();
             stmt.close();
@@ -98,12 +97,11 @@ public class DatabaseConnection_tAnimal
         {
             
             databaseConnection();
-            String updateSql = "update "+ "tAnimal"+" "+"set "
+            String updateSql = "update "+ "trainedAnimal"+" "+"set "
                     + " trainerName = "+"'"+ tAnimal.getTrainerName()+"'"+ ","
                     +" animalId = "+ tAnimal.getAnimalId() +","
-                    +" type = "+"'"+ tAnimal.getType() +"'"+","
-                    +" animalName = "+"'"+ tAnimal.getAnimalname() +"'"+","
-                    +"where trainerId = "+ tAnimal.getTrainerId()+";";
+                    +" animalName = "+"'"+ tAnimal.getAnimalname() +"'"
+                    +" where trainerId = "+ tAnimal.getTrainerId()+";";
                     
             System.out.println(updateSql);
             
@@ -111,7 +109,7 @@ public class DatabaseConnection_tAnimal
             
 //            update author set  authorName = 'fhewh', authorAge = 20, authorYOE = 1, authorGender ='F',authorDOJ ='545' where authorId = 'fh1';
 
-            System.out.println("DB data updated in tAnimal");
+            System.out.println("DB data updated in trainedAnimal");
 
             stmt.executeUpdate();
 
@@ -129,13 +127,13 @@ public class DatabaseConnection_tAnimal
         try
         {
             databaseConnection();
-            String deleteSql="delete from "+ "tAnimal" +" where trainerId = "+ "'" + tAnimal.getTrainerId()+ "'";
+            String deleteSql="delete from "+ "trainedAnimal" +" where trainerId = "+ "'" + tAnimal.getTrainerId()+ "'";
             System.out.println(deleteSql);
             PreparedStatement preparedStmt = con.prepareStatement(deleteSql);
             
             preparedStmt.executeUpdate();
 
-            System.out.println("Data deleted from tAnimal: "+tAnimal.getTrainerId());
+            System.out.println("Data deleted from trainedAnimal: "+tAnimal.getTrainerId());
 
             closeConnection();
         }
@@ -151,11 +149,11 @@ public class DatabaseConnection_tAnimal
         try
         {
             databaseConnection();
-            String truncateSql="truncate table "+"tAnimal";
+            String truncateSql="truncate table "+"trainedAnimal";
             Statement stmt=con.createStatement();
             stmt.executeQuery(truncateSql);
 
-            System.out.println("DB data deleted from tAnimal");
+            System.out.println("DB data deleted from trainedAnimal");
             
             stmt.close();
 

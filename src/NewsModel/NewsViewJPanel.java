@@ -35,9 +35,12 @@ public class NewsViewJPanel extends javax.swing.JPanel {
         manageBtn = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
 
-        controlPanel.setBackground(new java.awt.Color(137, 152, 159));
+        controlPanel.setBackground(new java.awt.Color(153, 0, 0));
+        controlPanel.setForeground(new java.awt.Color(255, 255, 255));
 
+        newBtn.setBackground(new java.awt.Color(102, 0, 0));
         newBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        newBtn.setForeground(new java.awt.Color(255, 255, 255));
         newBtn.setText("NEW");
         newBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,7 +48,9 @@ public class NewsViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        manageBtn.setBackground(new java.awt.Color(102, 0, 0));
         manageBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        manageBtn.setForeground(new java.awt.Color(255, 255, 255));
         manageBtn.setText("MANAGE");
         manageBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +81,7 @@ public class NewsViewJPanel extends javax.swing.JPanel {
 
         mainJSplitPane.setLeftComponent(controlPanel);
 
-        workArea.setBackground(new java.awt.Color(137, 152, 159));
+        workArea.setBackground(new java.awt.Color(153, 0, 0));
 
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);

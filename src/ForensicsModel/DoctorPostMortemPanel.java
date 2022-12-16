@@ -27,11 +27,13 @@ public class DoctorPostMortemPanel extends javax.swing.JPanel {
         btnPostMortemHistory = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(153, 0, 0));
 
-        btnCreatePostMortem.setBackground(new java.awt.Color(204, 204, 204));
+        btnCreatePostMortem.setBackground(new java.awt.Color(102, 0, 0));
         btnCreatePostMortem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCreatePostMortem.setForeground(new java.awt.Color(255, 255, 255));
         btnCreatePostMortem.setText("Create Post Mortem");
         btnCreatePostMortem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -39,8 +41,9 @@ public class DoctorPostMortemPanel extends javax.swing.JPanel {
             }
         });
 
-        btnPostMortemHistory.setBackground(new java.awt.Color(204, 204, 204));
+        btnPostMortemHistory.setBackground(new java.awt.Color(102, 0, 0));
         btnPostMortemHistory.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnPostMortemHistory.setForeground(new java.awt.Color(255, 255, 255));
         btnPostMortemHistory.setText("Post Mortem History");
         btnPostMortemHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +69,7 @@ public class DoctorPostMortemPanel extends javax.swing.JPanel {
                 .addComponent(btnCreatePostMortem, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73)
                 .addComponent(btnPostMortemHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap(443, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -78,21 +81,34 @@ public class DoctorPostMortemPanel extends javax.swing.JPanel {
         Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Title.setText("Post Mortem Form");
 
+        jLabel1.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/forensic.jpg"))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Title, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
+                .addComponent(Title, javax.swing.GroupLayout.DEFAULT_SIZE, 1132, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(484, Short.MAX_VALUE))
+                .addContainerGap(703, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -126,6 +142,7 @@ public class DoctorPostMortemPanel extends javax.swing.JPanel {
     private javax.swing.JLabel Title;
     private javax.swing.JButton btnCreatePostMortem;
     private javax.swing.JButton btnPostMortemHistory;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;

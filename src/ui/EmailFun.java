@@ -21,7 +21,7 @@ import javax.mail.internet.MimeMessage;
 
 /**
  *
- * @author vivekhanagoji
+ * @author salonitalwar
  */
 public class EmailFun {
 
@@ -61,7 +61,7 @@ public class EmailFun {
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
             message.setSubject(" Java Swing");
 //           String password 
-            message.setText("Hello User, Welcome to the Health Quest Management Systems. Your Password for Login is "+String.valueOf(pass));
+            message.setText("Hello User, Welcome to the Crime Management System. Your Password for Login is "+String.valueOf(pass));
             return message;
         } catch (Exception ex) {
 //            Logger.getLogger(EmailFun.class.getName()).log(Level.SEVERE, null, ex);

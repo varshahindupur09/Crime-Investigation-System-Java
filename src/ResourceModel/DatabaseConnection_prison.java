@@ -36,7 +36,7 @@ public class DatabaseConnection_prison
 
             //step2 create  the connection object  
             con=DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/crime_inv_sys","root","Vrsh@123");  
+            "jdbc:mysql://localhost:3306/crime_inv_sys","root","aastha2996!!");  
 
         }
         catch(Exception e)
@@ -68,7 +68,7 @@ public class DatabaseConnection_prison
         {
             
             databaseConnection();
-            String insertsql="Insert into prison (prisonId, officerId, officerName, prisonName, city, jailCount) values(?,?,?,?,?,?)";
+            String insertsql="Insert into prison (prisonId, prisonName, officerId, officerName, jailCount, city) values(?,?,?,?,?,?)";
             PreparedStatement stmt=con.prepareStatement(insertsql);
 
             stmt.setInt(1, prison.getPrisonId());
@@ -104,8 +104,8 @@ public class DatabaseConnection_prison
                     + " officerId = "+ prison.getOfficerId()+ ","
                     +" officerName = "+"'"+ prison.getOfficerName() +"'"+","
                     +" jailCount = "+ prison.getJailCount() +","
-                    +" city = "+"'"+ prison.getCity() +"'"+","
-                    +"where prisonId = "+ prison.getPrisonId()+";";
+                    +" city = "+"'"+ prison.getCity() +"'"
+                    +" where prisonId = "+ prison.getPrisonId()+";";
                     
             System.out.println(updateSql);
             
@@ -113,7 +113,7 @@ public class DatabaseConnection_prison
             
 //            update author set  authorName = 'fhewh', authorAge = 20, authorYOE = 1, authorGender ='F',authorDOJ ='545' where authorId = 'fh1';
 
-            System.out.println("DB data updated in where");
+            System.out.println("DB data updated in prison");
 
             stmt.executeUpdate();
 

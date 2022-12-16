@@ -5,8 +5,6 @@
  */
 package app;
 
-import resource_mgmt_enterprise.DatabaseConnection_Employees;
-
 import model.Person;
 import model.PersonDirectory;
 import model.Sys;
@@ -24,9 +22,6 @@ public class MainApplication {
         
         Sys sys = new Sys();
         
-        //EmployeeDirectory
-        DatabaseConnection_Employees empDb = new DatabaseConnection_Employees();
-        empDb.databaseConnectionEmployees();
         
         //PatientDirectory pD = sys.getPatDir();
         //PersonDirectory perD = sys.getPerDir();

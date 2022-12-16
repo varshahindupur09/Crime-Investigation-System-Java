@@ -4,14 +4,11 @@
  */
 package ForensicsModel;
 
-import NewsModel.NewsHistory;
-import NewsModel.NewspaperHistory;
-import NewsModel.AuthorHistory;
-import NewsModel.PublicationHistory;
-import NewsModel.ReporterHistory;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Sys;
 import ui.HomeScreen;
+import ui.LoginScreen;
 
 /**
  *
@@ -39,7 +36,7 @@ public class ForensicMainJPanel extends javax.swing.JPanel {
         this.createForensicAdmin = createForensicAdmin;
         this.sys = sys;
         this.homeScreen = homeScreen;
-        setSize(1040, 544);
+        //setSize(1040, 544);
     }
     
     public ForensicMainJPanel() {
@@ -66,11 +63,15 @@ public class ForensicMainJPanel extends javax.swing.JPanel {
         hospBtn = new javax.swing.JButton();
         docBtn = new javax.swing.JButton();
         forBtn = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
-        controlPanel.setBackground(new java.awt.Color(137, 152, 159));
+        controlPanel.setBackground(new java.awt.Color(153, 0, 0));
 
+        hospBtn.setBackground(new java.awt.Color(102, 0, 0));
         hospBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        hospBtn.setForeground(new java.awt.Color(255, 255, 255));
         hospBtn.setText("HOSPITAL");
         hospBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +79,9 @@ public class ForensicMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        docBtn.setBackground(new java.awt.Color(102, 0, 0));
         docBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        docBtn.setForeground(new java.awt.Color(255, 255, 255));
         docBtn.setText("DOCTOR");
         docBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,11 +89,23 @@ public class ForensicMainJPanel extends javax.swing.JPanel {
             }
         });
 
+        forBtn.setBackground(new java.awt.Color(102, 0, 0));
         forBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        forBtn.setForeground(new java.awt.Color(255, 255, 255));
         forBtn.setText("FORENSIC LAB");
         forBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 forBtnActionPerformed(evt);
+            }
+        });
+
+        btnLogOut.setBackground(new java.awt.Color(102, 0, 0));
+        btnLogOut.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnLogOut.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogOut.setText("LOG OUT");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
             }
         });
 
@@ -100,10 +115,14 @@ public class ForensicMainJPanel extends javax.swing.JPanel {
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(hospBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(forBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(docBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(controlPanelLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(btnLogOut))
+                    .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(hospBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(forBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(docBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         controlPanelLayout.setVerticalGroup(
@@ -115,22 +134,31 @@ public class ForensicMainJPanel extends javax.swing.JPanel {
                 .addComponent(docBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(forBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(367, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLogOut)
+                .addContainerGap(419, Short.MAX_VALUE))
         );
 
         mainJSplitPane.setLeftComponent(controlPanel);
 
-        workArea.setBackground(new java.awt.Color(137, 152, 159));
+        workArea.setBackground(new java.awt.Color(153, 0, 0));
+        workArea.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/forensic.jpg"))); // NOI18N
 
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1100, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 631, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         mainJSplitPane.setRightComponent(workArea);
@@ -165,12 +193,23 @@ public class ForensicMainJPanel extends javax.swing.JPanel {
         mainJSplitPane.setRightComponent(hospitalPanel);
     }//GEN-LAST:event_hospBtnActionPerformed
 
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        // TODO add your handling code here:
+        JPanel selectedPanel = new LoginScreen(createForensicAdmin,sys, homeScreen);
+
+        createForensicAdmin.add("WorkAreaJPanel",selectedPanel);
+        CardLayout layout = (CardLayout) createForensicAdmin.getLayout();
+        layout.next(createForensicAdmin);
+    }//GEN-LAST:event_btnLogOutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JPanel controlPanel;
     private javax.swing.JButton docBtn;
     private javax.swing.JButton forBtn;
     private javax.swing.JButton hospBtn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane mainJSplitPane;
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables

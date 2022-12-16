@@ -10,31 +10,22 @@ package crime_branch_enterprise.model;
  */
 public class Officer {
     
-//    private String officerID;
     private String officerName;
-//    private String officerCNIC;
     private String officerAddress;
-    private String officerPhoneNumber;
     private String officerEmail;
-//    private String officerDateOfBirth;
-//    private String officerDateOfJoining;
-//    private String officerQualification;
-    //Get PoliceStationName from PoliceStation.java
-
-//    public String getOfficerID() {
-//        return officerID;
-//    }
-//
-//    public void setOfficerID(String officerID) {
-//        this.officerID = officerID;
-//    }
+    private String officerPhoneNumber;
     
     public Officer()
     {
         
     }
     
-    public Officer(String officerName, String officerAddress, String officerPhoneNumber, String officerEmail)
+    @Override
+    public String toString() {
+        return officerName;
+    }
+    
+    public Officer(String officerName, String officerAddress, String officerEmail, String officerPhoneNumber)
     {
         this.officerName = officerName;
         this.officerAddress = officerAddress;

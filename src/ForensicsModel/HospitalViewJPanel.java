@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package ForensicsModel;
-import NewsModel.AuthorHistory;
 
 /**
  *
@@ -34,10 +33,13 @@ public class HospitalViewJPanel extends javax.swing.JPanel {
         newBtn = new javax.swing.JButton();
         manageBtn = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
-        controlPanel.setBackground(new java.awt.Color(137, 152, 159));
+        controlPanel.setBackground(new java.awt.Color(153, 0, 0));
 
+        newBtn.setBackground(new java.awt.Color(102, 0, 0));
         newBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        newBtn.setForeground(new java.awt.Color(255, 255, 255));
         newBtn.setText("NEW");
         newBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,7 +47,9 @@ public class HospitalViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        manageBtn.setBackground(new java.awt.Color(102, 0, 0));
         manageBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        manageBtn.setForeground(new java.awt.Color(255, 255, 255));
         manageBtn.setText("MANAGE");
         manageBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,22 +75,29 @@ public class HospitalViewJPanel extends javax.swing.JPanel {
                 .addComponent(newBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(manageBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(462, Short.MAX_VALUE))
         );
 
         mainJSplitPane.setLeftComponent(controlPanel);
 
         workArea.setBackground(new java.awt.Color(137, 152, 159));
 
+        jLabel1.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/forensic.jpg"))); // NOI18N
+
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 804, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 556, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         mainJSplitPane.setRightComponent(workArea);
@@ -95,7 +106,7 @@ public class HospitalViewJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainJSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 939, Short.MAX_VALUE)
+            .addComponent(mainJSplitPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,6 +129,7 @@ public class HospitalViewJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel controlPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane mainJSplitPane;
     private javax.swing.JButton manageBtn;
     private javax.swing.JButton newBtn;

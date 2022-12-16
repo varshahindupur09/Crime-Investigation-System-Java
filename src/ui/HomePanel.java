@@ -10,6 +10,7 @@ import ForensicsModel.ForensicMainJPanel;
 import NewsModel.NewsMainJPanel;
 import ResourceModel.ResourceMainJPanel;
 import crime_branch_enterprise.model.CrimeBranchMainJPanel;
+import crime_branch_enterprise.model.OfficerDirectory;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Sys;
@@ -21,9 +22,12 @@ import model.Sys;
 public class HomePanel extends javax.swing.JPanel {
     JPanel mainWorkArea;
     Sys sys;
+    HomeScreen homescreen;
+    
+    OfficerDirectory officerDir;
     
     /** Creates new form AdminWorkAreaJPanel */
-    public HomePanel(JPanel mainWorkArea, Sys sys) {
+    public HomePanel(JPanel mainWorkArea, Sys sys, HomeScreen homescreen) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.sys = sys;
@@ -67,7 +71,7 @@ public class HomePanel extends javax.swing.JPanel {
         btnLogOut.setBackground(new java.awt.Color(102, 0, 0));
         btnLogOut.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnLogOut.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogOut.setText("Log Out");
+        btnLogOut.setText("LOG OUT");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogOutActionPerformed(evt);
@@ -104,18 +108,18 @@ public class HomePanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(backbuttonlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 830, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLogOut)
-                .addGap(89, 89, 89))
+                .addContainerGap(898, Short.MAX_VALUE))
         );
         menuBarLayout.setVerticalGroup(
             menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(menuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backbuttonlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(23, 23, 23))
+                    .addComponent(btnLogOut))
+                .addGap(22, 22, 22))
         );
 
         splitPane.setTopComponent(menuBar);
@@ -128,7 +132,7 @@ public class HomePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void setHomepage() {
-       HomeScreen hs = new HomeScreen(workArea,sys,this);
+       HomeScreen hs = new HomeScreen(workArea,sys,this);//, officerDir);
        workArea.add("HomeScreen",hs);
        CardLayout layout = (CardLayout) workArea.getLayout();
        layout.next(workArea);
@@ -136,7 +140,7 @@ public class HomePanel extends javax.swing.JPanel {
     
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
-        JPanel selectedPanel = new LoginScreen(mainWorkArea,sys);
+        JPanel selectedPanel = new LoginScreen(mainWorkArea,sys, homescreen);
         
         mainWorkArea.add("WorkAreaJPanel",selectedPanel);
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
@@ -159,7 +163,7 @@ public class HomePanel extends javax.swing.JPanel {
 
     private void backbuttonlabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backbuttonlabelMouseClicked
         // TODO add your handling code here:
-        JPanel selectedPanel = new HomePanel(mainWorkArea,sys);
+        JPanel selectedPanel = new HomePanel(mainWorkArea,sys, homescreen);
         
         mainWorkArea.add("WorkAreaJPanel",selectedPanel);
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
@@ -171,6 +175,11 @@ public class HomePanel extends javax.swing.JPanel {
         return "Administrator";
     }
     
+    public JPanel getWorkArea()
+    {
+        return workArea;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backbuttonlabel;
     private javax.swing.JButton btnLogOut;
@@ -179,13 +188,15 @@ public class HomePanel extends javax.swing.JPanel {
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
 
-   public void clickCrimeBranchPortal(HomeScreen homeScreen)
+   public void clickCrimeBranchPortal(HomeScreen homeScreen)//, OfficerDirectory officerDir)
    {
        JPanel selectedPanel = new CrimeBranchMainJPanel(workArea,sys,homeScreen);
        
        workArea.add("WorkAreaJPanel",selectedPanel);
        CardLayout layout = (CardLayout) workArea.getLayout();
        layout.next(workArea);
+       
+//       this.officerDir = new OfficerDirectory();
    }
     
     public void clickCreateForensicsPortal(HomeScreen homeScreen) {

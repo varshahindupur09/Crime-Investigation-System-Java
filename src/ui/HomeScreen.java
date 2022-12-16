@@ -1,5 +1,6 @@
 package ui;
 
+import crime_branch_enterprise.model.OfficerDirectory;
 import java.awt.Color;
 import javax.swing.JPanel;
 import model.Sys;
@@ -14,12 +15,17 @@ public class HomeScreen extends javax.swing.JPanel {
     private Sys sys;
     HomePanel homePanel;
     
-    public HomeScreen(JPanel userProcessContainer,Sys sys,HomePanel homePanel) {
+//    OfficerDirectory officerDir;
+    
+    public HomeScreen(JPanel userProcessContainer,Sys sys,HomePanel homePanel)
+    {
+        //, OfficerDirectory officerDir) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.sys = sys;
         this.homePanel = homePanel;
-        setSize(1040, 544);
+//        setSize(1040, 544);
+//        this.officerDir = officerDir;
     }
     
     /** This method is called from within the constructor to
@@ -47,9 +53,9 @@ public class HomeScreen extends javax.swing.JPanel {
         SystemPanel.setToolTipText("");
         SystemPanel.setPreferredSize(new java.awt.Dimension(1600, 750));
 
-        CrimeBranchEnterprise.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        CrimeBranchEnterprise.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         CrimeBranchEnterprise.setForeground(new java.awt.Color(255, 255, 255));
-        CrimeBranchEnterprise.setText("CrimeBranchEnterprise");
+        CrimeBranchEnterprise.setText("Crime Branch Enterprise");
         CrimeBranchEnterprise.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 CrimeBranchEnterpriseAncestorAdded(evt);
@@ -76,7 +82,7 @@ public class HomeScreen extends javax.swing.JPanel {
             }
         });
 
-        ForensicsEnterprise.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        ForensicsEnterprise.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         ForensicsEnterprise.setForeground(new java.awt.Color(255, 255, 255));
         ForensicsEnterprise.setText("Forensics Enterprise");
         ForensicsEnterprise.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -93,7 +99,7 @@ public class HomeScreen extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/hacker.png"))); // NOI18N
 
-        SignUpAdmins.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        SignUpAdmins.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         SignUpAdmins.setForeground(new java.awt.Color(255, 255, 255));
         SignUpAdmins.setText("Sign Up Admins");
         SignUpAdmins.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -111,7 +117,7 @@ public class HomeScreen extends javax.swing.JPanel {
             }
         });
 
-        ResourceMgmtSystemEnterprise.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        ResourceMgmtSystemEnterprise.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         ResourceMgmtSystemEnterprise.setForeground(new java.awt.Color(255, 255, 255));
         ResourceMgmtSystemEnterprise.setText("Resource Management Enterprise");
         ResourceMgmtSystemEnterprise.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -129,7 +135,7 @@ public class HomeScreen extends javax.swing.JPanel {
             }
         });
 
-        MediaEnterprise.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        MediaEnterprise.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         MediaEnterprise.setForeground(new java.awt.Color(255, 255, 255));
         MediaEnterprise.setText("Media Enterprise");
         MediaEnterprise.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -154,43 +160,39 @@ public class HomeScreen extends javax.swing.JPanel {
             .addGroup(SystemPanelLayout.createSequentialGroup()
                 .addGroup(SystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SystemPanelLayout.createSequentialGroup()
-                        .addGap(91, 91, 91)
+                        .addGap(85, 85, 85)
                         .addGroup(SystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ForensicsEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CrimeBranchEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(SystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ResourceMgmtSystemEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(SystemPanelLayout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(MediaEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(ForensicsEnterprise)
+                            .addComponent(CrimeBranchEnterprise)))
                     .addGroup(SystemPanelLayout.createSequentialGroup()
-                        .addGap(502, 502, 502)
-                        .addComponent(SignUpAdmins, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(ResourceMgmtSystemEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SystemPanelLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addGroup(SystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(SignUpAdmins, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MediaEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(444, Short.MAX_VALUE))
         );
         SystemPanelLayout.setVerticalGroup(
             SystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SystemPanelLayout.createSequentialGroup()
-                .addGroup(SystemPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SystemPanelLayout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(CrimeBranchEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(126, 126, 126)
-                        .addComponent(ForensicsEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(SystemPanelLayout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(ResourceMgmtSystemEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(97, 97, 97)
-                        .addComponent(MediaEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(SystemPanelLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
+                .addComponent(CrimeBranchEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ForensicsEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ResourceMgmtSystemEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(MediaEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(SignUpAdmins)
-                .addGap(14, 14, 14))
+                .addContainerGap(427, Short.MAX_VALUE))
+            .addGroup(SystemPanelLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -199,8 +201,8 @@ public class HomeScreen extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(SystemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addComponent(SystemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,7 +245,7 @@ public class HomeScreen extends javax.swing.JPanel {
 
     private void CrimeBranchEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrimeBranchEnterpriseMousePressed
         // TODO add your handling code here:
-        homePanel.clickCrimeBranchPortal(this);
+        homePanel.clickCrimeBranchPortal(this);//, officerDir);
     }//GEN-LAST:event_CrimeBranchEnterpriseMousePressed
 
     private void ResourceMgmtSystemEnterpriseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResourceMgmtSystemEnterpriseMousePressed

@@ -76,7 +76,7 @@ public class DatabaseConnection_CaseDetails
             stmt.setString(1, newCaseRegister.getEmailId());
             stmt.setString(2, String.valueOf(newCaseRegister.getPhoneNum()));
 //            stmt.setDate(3, new java.sql.Date(sqlDate.getDate()));
-            stmt.setDate(3, newCaseRegister.getDateOfReport());
+            stmt.setString(3, newCaseRegister.getDateOfReport());
             stmt.setString(4, newCaseRegister.getOfficerName());
             
             stmt.executeUpdate();
@@ -99,8 +99,8 @@ public class DatabaseConnection_CaseDetails
             
             databaseConnection();
             String updateSql = "update "+" "+"caseDetails" +" "+"set "
-                    +" phoneNum = "+ "'"+ newCaseRegister.getPhoneNum() +"'"
-                    +" dateOfReport = " + newCaseRegister.getDateOfReport()
+                    +" phoneNum = "+ "'"+ newCaseRegister.getPhoneNum() +"'"+","
+                    +" dateOfReport = " + newCaseRegister.getDateOfReport()+","
                     +" OfficerName ="+ "'"+ newCaseRegister.getOfficerName() +"'"
                     +" where emailId = "+ "'"+ newCaseRegister.getEmailId() +"'"+";";
             
@@ -128,7 +128,7 @@ public class DatabaseConnection_CaseDetails
         try
         {
             databaseConnection();
-            String deleteSql="delete from "+ "caseDetails" +" where emailId = "+ "'" + newCaseRegister.getEmailId()+ "'";
+            String deleteSql="delete from "+ "caseDetails" +" where emailId = "+ "'" + newCaseRegister.getEmailId()+ "'"+";";
             System.out.println(deleteSql);
             PreparedStatement preparedStmt = con.prepareStatement(deleteSql);
             
@@ -144,15 +144,16 @@ public class DatabaseConnection_CaseDetails
         }
    }
    
-   public void deleteEveryAuthorDataInDB()
+   public void deleteEveryCaseDataInDB()
    {
        //add to database firDetails
         try
         {
             databaseConnection();
-            String truncateSql="truncate table "+"caseDetails";
-            Statement stmt=con.createStatement();
-            stmt.executeQuery(truncateSql);
+            String truncateSql="truncate table "+"caseDetails"+";";
+            System.out.println(truncateSql);
+            PreparedStatement stmt = con.prepareStatement(truncateSql);
+            stmt.executeUpdate(truncateSql);
 
             System.out.println("DB data deleted from caseDetails");
             

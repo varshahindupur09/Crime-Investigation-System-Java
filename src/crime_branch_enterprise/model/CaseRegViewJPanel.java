@@ -11,14 +11,18 @@ package crime_branch_enterprise.model;
 public class CaseRegViewJPanel extends javax.swing.JPanel {
     NewCaseRegisterDirectory newCaseRegisterDir;
     OfficerDirectory officerDir;
-
+    
+    DatabaseConnection_person dbConPersonDetails;
+    
     /**
      * Creates new form NewsViewJPanel
      */
     public CaseRegViewJPanel(NewCaseRegisterDirectory newCaseRegisterDir, OfficerDirectory officerDir ) {
         initComponents();
         this.newCaseRegisterDir = new NewCaseRegisterDirectory();
-        this.officerDir = new OfficerDirectory();
+        this.officerDir = officerDir;
+        
+        dbConPersonDetails = new DatabaseConnection_person();
     }
 
     /**
@@ -34,11 +38,19 @@ public class CaseRegViewJPanel extends javax.swing.JPanel {
         controlPanel = new javax.swing.JPanel();
         newBtn = new javax.swing.JButton();
         manageBtn = new javax.swing.JButton();
+        btnCrime = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
-        controlPanel.setBackground(new java.awt.Color(137, 152, 159));
+        setBackground(new java.awt.Color(153, 0, 0));
 
+        mainJSplitPane.setPreferredSize(new java.awt.Dimension(1500, 750));
+
+        controlPanel.setBackground(new java.awt.Color(153, 0, 0));
+
+        newBtn.setBackground(new java.awt.Color(102, 0, 0));
         newBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        newBtn.setForeground(new java.awt.Color(255, 255, 255));
         newBtn.setText("NEW");
         newBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,11 +58,23 @@ public class CaseRegViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        manageBtn.setBackground(new java.awt.Color(102, 0, 0));
         manageBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        manageBtn.setForeground(new java.awt.Color(255, 255, 255));
         manageBtn.setText("MANAGE");
         manageBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageBtnActionPerformed(evt);
+            }
+        });
+
+        btnCrime.setBackground(new java.awt.Color(102, 0, 0));
+        btnCrime.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        btnCrime.setForeground(new java.awt.Color(255, 255, 255));
+        btnCrime.setText("Find Criminal");
+        btnCrime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrimeActionPerformed(evt);
             }
         });
 
@@ -64,6 +88,10 @@ public class CaseRegViewJPanel extends javax.swing.JPanel {
                     .addComponent(manageBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(newBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCrime)
+                .addContainerGap())
         );
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,22 +100,30 @@ public class CaseRegViewJPanel extends javax.swing.JPanel {
                 .addComponent(newBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(manageBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCrime, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(435, Short.MAX_VALUE))
         );
 
         mainJSplitPane.setLeftComponent(controlPanel);
 
-        workArea.setBackground(new java.awt.Color(137, 152, 159));
+        workArea.setBackground(new java.awt.Color(153, 0, 0));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/crime.png"))); // NOI18N
 
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 634, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 585, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         mainJSplitPane.setRightComponent(workArea);
@@ -97,13 +133,13 @@ public class CaseRegViewJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(mainJSplitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(mainJSplitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 958, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(mainJSplitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mainJSplitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -116,13 +152,22 @@ public class CaseRegViewJPanel extends javax.swing.JPanel {
 
     private void manageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageBtnActionPerformed
         // TODO add your handling code here:
-        ReadCaseJPanel readCaseJPanel = new ReadCaseJPanel(newCaseRegisterDir, officerDir);
+        ReadCaseJPanel readCaseJPanel = new ReadCaseJPanel(newCaseRegisterDir, officerDir, dbConPersonDetails);
         mainJSplitPane.setRightComponent(readCaseJPanel);
     }//GEN-LAST:event_manageBtnActionPerformed
 
+    private void btnCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrimeActionPerformed
+        // TODO add your handling code here:
+
+       FindCriminalJPanel findCriminal = new FindCriminalJPanel(newCaseRegisterDir, officerDir, dbConPersonDetails);
+        mainJSplitPane.setRightComponent(findCriminal);
+    }//GEN-LAST:event_btnCrimeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCrime;
     private javax.swing.JPanel controlPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane mainJSplitPane;
     private javax.swing.JButton manageBtn;
     private javax.swing.JButton newBtn;

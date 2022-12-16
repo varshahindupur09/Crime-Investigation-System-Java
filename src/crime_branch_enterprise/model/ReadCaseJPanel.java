@@ -4,9 +4,6 @@
  */
 package crime_branch_enterprise.model;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -28,14 +25,19 @@ public class ReadCaseJPanel extends javax.swing.JPanel {
     private HomeScreen homeScreen;
     
     NewCaseRegisterDirectory registerDir;
-    DatabaseConnection_CaseDetails dbConCaseDetails;
+    DatabaseConnection_CaseDetails dbConCaseDetails = new DatabaseConnection_CaseDetails();
     OfficerDirectory officerDir;
     
-    public ReadCaseJPanel(NewCaseRegisterDirectory registerDir, OfficerDirectory officerDir) {
+    DatabaseConnection_person dbConPersonDetails;
+    
+    
+    public ReadCaseJPanel(NewCaseRegisterDirectory registerDir, OfficerDirectory officerDir, DatabaseConnection_person dbConPersonDetails) {
         initComponents();
         
         this.registerDir = registerDir;
         this.officerDir = officerDir;
+        
+        this.dbConPersonDetails = dbConPersonDetails;
     }
     
     public ReadCaseJPanel ( JPanel readCase, Sys sys, HomeScreen homeScreen) 
@@ -44,10 +46,7 @@ public class ReadCaseJPanel extends javax.swing.JPanel {
         this.readCase = readCase;
         this.sys = sys;
         this.homeScreen = homeScreen;
-        
-        setSize(1040, 544);
-        
-        dbConCaseDetails = new DatabaseConnection_CaseDetails();
+
         
     }
 
@@ -68,16 +67,22 @@ public class ReadCaseJPanel extends javax.swing.JPanel {
         viewBtn = new javax.swing.JButton();
         DescriptionLabel = new javax.swing.JLabel();
         DateOfReportLabel = new javax.swing.JLabel();
-        PhoneNumberTextField = new javax.swing.JTextField();
+        datefieldRead = new javax.swing.JTextField();
         SelectFIRNumberLabel = new javax.swing.JLabel();
         EmailIdLabel = new javax.swing.JLabel();
         EmailIdTextField = new javax.swing.JTextField();
         DateOfReportDateChooser = new com.toedter.calendar.JDateChooser();
         SelectOfficer = new javax.swing.JComboBox<>();
+        PhoneNumberTextField1 = new javax.swing.JTextField();
+        btnCrime = new javax.swing.JButton();
+        txtgetFP = new javax.swing.JTextField();
+        txtCriminal = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(0, 51, 51));
+        setBackground(new java.awt.Color(153, 0, 0));
 
-        HeadingLabel.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
+        HeadingLabel.setBackground(new java.awt.Color(153, 0, 0));
+        HeadingLabel.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        HeadingLabel.setForeground(new java.awt.Color(255, 255, 255));
         HeadingLabel.setText("CASE DIRECTORY");
 
         CaseDirectoryTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -88,12 +93,14 @@ public class ReadCaseJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "DATE OF REPORT", "PHONE NUMBER", "EMAIL ID", "SELECTED OFFICER"
+                "EMAIL ID", "DATE OF REPORT", "PHONE NUMBER", "SELECTED OFFICER"
             }
         ));
         jScrollPane1.setViewportView(CaseDirectoryTable);
 
-        updateBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        updateBtn.setBackground(new java.awt.Color(102, 0, 0));
+        updateBtn.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        updateBtn.setForeground(new java.awt.Color(255, 255, 255));
         updateBtn.setText("UPDATE");
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +108,9 @@ public class ReadCaseJPanel extends javax.swing.JPanel {
             }
         });
 
-        deleteBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        deleteBtn.setBackground(new java.awt.Color(102, 0, 0));
+        deleteBtn.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        deleteBtn.setForeground(new java.awt.Color(255, 255, 255));
         deleteBtn.setText("DELETE");
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +118,9 @@ public class ReadCaseJPanel extends javax.swing.JPanel {
             }
         });
 
-        viewBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        viewBtn.setBackground(new java.awt.Color(102, 0, 0));
+        viewBtn.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        viewBtn.setForeground(new java.awt.Color(255, 255, 255));
         viewBtn.setText("VIEW");
         viewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,14 +136,14 @@ public class ReadCaseJPanel extends javax.swing.JPanel {
         DateOfReportLabel.setForeground(new java.awt.Color(255, 255, 255));
         DateOfReportLabel.setText("Date Of Report:");
 
-        PhoneNumberTextField.addActionListener(new java.awt.event.ActionListener() {
+        datefieldRead.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PhoneNumberTextFieldActionPerformed(evt);
+                datefieldReadActionPerformed(evt);
             }
         });
-        PhoneNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+        datefieldRead.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                PhoneNumberTextFieldKeyPressed(evt);
+                datefieldReadKeyPressed(evt);
             }
         });
 
@@ -163,86 +174,149 @@ public class ReadCaseJPanel extends javax.swing.JPanel {
             }
         });
 
+        PhoneNumberTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PhoneNumberTextField1ActionPerformed(evt);
+            }
+        });
+        PhoneNumberTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PhoneNumberTextField1KeyPressed(evt);
+            }
+        });
+
+        btnCrime.setBackground(new java.awt.Color(102, 0, 0));
+        btnCrime.setFont(new java.awt.Font("Arial Black", 1, 15)); // NOI18N
+        btnCrime.setForeground(new java.awt.Color(255, 255, 255));
+        btnCrime.setText("Find Criminal");
+        btnCrime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrimeActionPerformed(evt);
+            }
+        });
+
+        txtgetFP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtgetFPActionPerformed(evt);
+            }
+        });
+
+        txtCriminal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCriminalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(140, 140, 140)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(SelectFIRNumberLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(SelectOfficer, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(EmailIdLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(EmailIdTextField))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(DateOfReportLabel)
-                                .addComponent(DescriptionLabel))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(PhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(DateOfReportDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(414, Short.MAX_VALUE))
+                        .addComponent(txtCriminal, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(SelectFIRNumberLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SelectOfficer, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(DateOfReportLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(DateOfReportDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(datefieldRead, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(DescriptionLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnCrime, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtgetFP))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(EmailIdLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(EmailIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(194, Short.MAX_VALUE))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(716, 716, 716)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(287, 287, 287)
-                            .addComponent(HeadingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGap(293, 293, 293)
+                    .addComponent(HeadingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(336, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(289, 289, 289)
+                    .addComponent(PhoneNumberTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(479, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(356, Short.MAX_VALUE)
+                .addGap(62, 62, 62)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DateOfReportLabel)
+                            .addComponent(DateOfReportDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(datefieldRead, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(DescriptionLabel))
+                    .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DateOfReportLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(DateOfReportDateChooser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(EmailIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(1, 1, 1))
+                        .addComponent(EmailIdLabel))
+                    .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(SelectFIRNumberLabel)
+                        .addComponent(SelectOfficer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DescriptionLabel)
-                    .addComponent(PhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EmailIdLabel)
-                    .addComponent(EmailIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SelectFIRNumberLabel)
-                    .addComponent(SelectOfficer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(145, 145, 145))
+                    .addComponent(btnCrime, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtgetFP, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(txtCriminal, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(197, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(HeadingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(40, 40, 40)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(70, 70, 70)
-                    .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(163, Short.MAX_VALUE)))
+                    .addContainerGap(732, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(336, 336, 336)
+                    .addComponent(PhoneNumberTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(426, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
 
             java.sql.Date sqlDate = null;
+            String  DateOfOffence ="";
             boolean flag=false;
             int selectedRowIndex = CaseDirectoryTable.getSelectedRow();
             if (selectedRowIndex < 0) {
@@ -253,37 +327,26 @@ public class ReadCaseJPanel extends javax.swing.JPanel {
             NewCaseRegister newCaseRegister = (NewCaseRegister) model.getValueAt(selectedRowIndex,0);
             
             String dateOfReport = DateOfReportDateChooser.getDate().toString();
-            String phoneNum = PhoneNumberTextField.getText();
+            String phoneNum = datefieldRead.getText();
             String emailId =EmailIdTextField.getText();
             String selectedOfficer = SelectOfficer.getSelectedItem().toString();
 
             JOptionPane.showMessageDialog(this, "Case Information Updated");
-            //history.deleteEmployee(selectedEmployee);
-            try
-            {
-                DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-                Date utilDate = formatter.parse(dateOfReport);
-                sqlDate = new java.sql.Date(utilDate.getTime());
-                newCaseRegister.setDateOfReport(sqlDate);
-            }
-            catch(Exception e)
-            {
-                JOptionPane.showMessageDialog(this, "PIssue with Date Update");
-            }
+            
             newCaseRegister.setPhoneNum(phoneNum);
 //            newCaseRegister.setEmailId(emailId);
             newCaseRegister.setOfficerName(selectedOfficer);
 
             populateTable();
             
-            NewCaseRegister newCaseRegister1= new NewCaseRegister(emailId,phoneNum,sqlDate,selectedOfficer);
+            NewCaseRegister newCaseRegister1= new NewCaseRegister(emailId,phoneNum,dateOfReport,selectedOfficer);
             
             
             //db update
             dbConCaseDetails.updateCaseDataToDB(newCaseRegister1);
             
 //            DateOfReportDateChooser.set
-            PhoneNumberTextField.setText("");
+            datefieldRead.setText("");
             EmailIdTextField.setText("");
 //            SelectedOfficer
     }//GEN-LAST:event_updateBtnActionPerformed
@@ -322,8 +385,8 @@ public class ReadCaseJPanel extends javax.swing.JPanel {
         
 
         //add data to NewCaseRegister
-        DateOfReportDateChooser.setDate(newCaseRegister.getDateOfReport());
-        PhoneNumberTextField.setText(String.valueOf(newCaseRegister.getPhoneNum()));
+//        DateOfReportDateChooser.setDate(newCaseRegister.getDateOfReport());
+        datefieldRead.setText(String.valueOf(newCaseRegister.getPhoneNum()));
         EmailIdTextField.setText(String.valueOf(newCaseRegister.getEmailId()));
         SelectOfficer.setSelectedItem(newCaseRegister.getOfficerName());
         
@@ -332,13 +395,13 @@ public class ReadCaseJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_viewBtnActionPerformed
 
-    private void PhoneNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneNumberTextFieldActionPerformed
+    private void datefieldReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datefieldReadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PhoneNumberTextFieldActionPerformed
+    }//GEN-LAST:event_datefieldReadActionPerformed
 
-    private void PhoneNumberTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PhoneNumberTextFieldKeyPressed
+    private void datefieldReadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_datefieldReadKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PhoneNumberTextFieldKeyPressed
+    }//GEN-LAST:event_datefieldReadKeyPressed
 
     private void EmailIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailIdTextFieldActionPerformed
         // TODO add your handling code here:
@@ -352,6 +415,32 @@ public class ReadCaseJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_SelectOfficerActionPerformed
 
+    private void PhoneNumberTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneNumberTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PhoneNumberTextField1ActionPerformed
+
+    private void PhoneNumberTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PhoneNumberTextField1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PhoneNumberTextField1KeyPressed
+
+    private void btnCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrimeActionPerformed
+        // TODO add your handling code here:
+
+         int fp = Integer.parseInt(txtgetFP.getText());
+       //dbConPersonDetails = new DatabaseConnection_person();
+       String getCriminalName = dbConPersonDetails.matchFingerPrintDataToDB(fp);
+        txtCriminal.setText(getCriminalName);
+    }//GEN-LAST:event_btnCrimeActionPerformed
+
+    private void txtgetFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtgetFPActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txtgetFPActionPerformed
+
+    private void txtCriminalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCriminalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCriminalActionPerformed
+
     private void populateTable() {
 
         DefaultTableModel model = (DefaultTableModel) CaseDirectoryTable.getModel();
@@ -363,8 +452,8 @@ public class ReadCaseJPanel extends javax.swing.JPanel {
             row[0] = newCase;
             row[1] = newCase.getDateOfReport();
             row[2] = newCase.getPhoneNum();
-            row[3] = newCase.getEmailId();
-            row[4] = newCase.getOfficerName();
+            //row[3] = newCase.getEmailId();
+            row[3] = newCase.getOfficerName();
 
             model.addRow(row);
 
@@ -380,11 +469,15 @@ public class ReadCaseJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel EmailIdLabel;
     private javax.swing.JTextField EmailIdTextField;
     private javax.swing.JLabel HeadingLabel;
-    private javax.swing.JTextField PhoneNumberTextField;
+    private javax.swing.JTextField PhoneNumberTextField1;
     private javax.swing.JLabel SelectFIRNumberLabel;
     private javax.swing.JComboBox<String> SelectOfficer;
+    private javax.swing.JButton btnCrime;
+    private javax.swing.JTextField datefieldRead;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtCriminal;
+    private javax.swing.JTextField txtgetFP;
     private javax.swing.JButton updateBtn;
     private javax.swing.JButton viewBtn;
     // End of variables declaration//GEN-END:variables

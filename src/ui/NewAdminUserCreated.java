@@ -49,7 +49,7 @@ public class NewAdminUserCreated extends javax.swing.JPanel {
         this.newAdminUserCreated = newAdminUserCreated;
         this.sys = sys;
         this.homeScreen = homeScreen;
-        setSize(1040, 544);
+//        setSize(1040, 544);
 
         dbConUserDetails = new DatabaseConnection_adminUser();
     }
@@ -107,7 +107,7 @@ public class NewAdminUserCreated extends javax.swing.JPanel {
             }
         });
 
-        SelectRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Off-Admin", "VictimAccused", "Res-Admin", "Res-ArmyAdmin", "Res-GovtAdmin", "Res-TrainedAnimalAdmin", "Res-WeaponAdmin", "Res-PrisonAdmin", "Res-JailAdmin", "For-Admin", "For-HospAdmin", "For-DocAdmin", "For-FLAdmin", "Med-AuthorAdmin", "Med-NewsAdmin", "Med-NewspaperAdmin", "Med-PublicationAdmin", "Med-TelevisionAdmin", "Med-ReporterAdmin" }));
+        SelectRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Off-Admin", "Crime-Victim", "Crime-Accused", "Crime-Admin", "Med-Admin", "Res-Admin", "Res-ArmyAdmin", "Res-GovtAdmin", "Res-TrainedAnimalAdmin", "Res-WeaponAdmin", "Res-PrisonAdmin", "Res-JailAdmin", "For-Admin", "For-HospAdmin", "For-DocAdmin", "For-FLAdmin", "Med-AuthorAdmin", "Med-NewsAdmin", "Med-NewspaperAdmin", "Med-PublicationAdmin", "Med-TelevisionAdmin", "Med-ReporterAdmin" }));
 
         btnLogin.setBackground(new java.awt.Color(102, 0, 0));
         btnLogin.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N

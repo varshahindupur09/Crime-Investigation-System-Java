@@ -36,15 +36,13 @@ public class CreateTrainedAnimal extends javax.swing.JPanel {
         lbAnimalId = new javax.swing.JLabel();
         txtAnimalId = new javax.swing.JTextField();
         lbAnimalName = new javax.swing.JLabel();
-        txtAnimalName = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
-        lbType = new javax.swing.JLabel();
-        txtType = new javax.swing.JTextField();
+        txtAnimalName = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(153, 0, 0));
 
         lbTitle.setFont(new java.awt.Font("Century", 1, 24)); // NOI18N
-        lbTitle.setForeground(new java.awt.Color(0, 204, 255));
+        lbTitle.setForeground(new java.awt.Color(255, 255, 255));
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitle.setText("Trained Animal Form");
 
@@ -76,12 +74,6 @@ public class CreateTrainedAnimal extends javax.swing.JPanel {
         lbAnimalName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbAnimalName.setText("Animal Name");
 
-        txtAnimalName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAnimalNameActionPerformed(evt);
-            }
-        });
-
         btnAdd.setBackground(new java.awt.Color(204, 204, 204));
         btnAdd.setText("Add Trained Animal");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -90,13 +82,9 @@ public class CreateTrainedAnimal extends javax.swing.JPanel {
             }
         });
 
-        lbType.setForeground(new java.awt.Color(255, 255, 255));
-        lbType.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbType.setText("Type");
-
-        txtType.addActionListener(new java.awt.event.ActionListener() {
+        txtAnimalName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTypeActionPerformed(evt);
+                txtAnimalNameActionPerformed(evt);
             }
         });
 
@@ -107,30 +95,23 @@ public class CreateTrainedAnimal extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(98, 98, 98)
-                                .addComponent(lbType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(108, 108, 108)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lbTrainerId, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                                    .addComponent(lbTrainerName, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                                    .addComponent(lbAnimalId, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                                    .addComponent(lbAnimalName, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))))
+                        .addGap(108, 108, 108)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbTrainerId, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(lbTrainerName, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(lbAnimalId, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(lbAnimalName, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtTrainerId, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
                             .addComponent(txtTrainerName)
                             .addComponent(txtAnimalId)
                             .addComponent(txtAnimalName)
-                            .addComponent(txtType)
-                            .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 206, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(478, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,13 +134,9 @@ public class CreateTrainedAnimal extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAnimalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbAnimalName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbType, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnAdd)
-                .addGap(23, 23, 23))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -171,7 +148,6 @@ public class CreateTrainedAnimal extends javax.swing.JPanel {
         String trainerName = txtTrainerName.getText();
         int animalId = Integer.parseInt(txtAnimalId.getText());
         String animalName = txtAnimalName.getText();
-        String type = txtType.getText();       
 
         TrainedAnimal a = animalHistory.addNewAnimal();
 
@@ -179,7 +155,6 @@ public class CreateTrainedAnimal extends javax.swing.JPanel {
         a.setTrainerName(trainerName);
         a.setAnimalId(animalId);
         a.setAnimalName(animalName);
-        a.setType(type);
         
         dbConTAnimalDetails.addTAnimalDataToDB(a);
         JOptionPane.showMessageDialog(this, "New Trained Animal is added.");
@@ -188,7 +163,6 @@ public class CreateTrainedAnimal extends javax.swing.JPanel {
         txtTrainerName.setText("");
         txtAnimalId.setText("");
         txtAnimalName.setText("");
-        txtType.setText("");
           
             } 
     }//GEN-LAST:event_btnAddActionPerformed
@@ -205,10 +179,6 @@ public class CreateTrainedAnimal extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAnimalNameActionPerformed
 
-    private void txtTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTypeActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
@@ -217,12 +187,10 @@ public class CreateTrainedAnimal extends javax.swing.JPanel {
     private javax.swing.JLabel lbTitle;
     private javax.swing.JLabel lbTrainerId;
     private javax.swing.JLabel lbTrainerName;
-    private javax.swing.JLabel lbType;
     private javax.swing.JTextField txtAnimalId;
     private javax.swing.JTextField txtAnimalName;
     private javax.swing.JTextField txtTrainerId;
     private javax.swing.JTextField txtTrainerName;
-    private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
  
     private boolean Validation() {
@@ -270,15 +238,7 @@ public class CreateTrainedAnimal extends javax.swing.JPanel {
             }
         }
         
-        if (txtType.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter Animal Type");
-            return false;
-        } else {
-            if (!(txtType.getText().matches("[a-zA-Z]*"))) {
-                JOptionPane.showMessageDialog(this, "Please enter Valid Animal Type");
-                return false;
-            }
-        }
+        
        
         return true;
         

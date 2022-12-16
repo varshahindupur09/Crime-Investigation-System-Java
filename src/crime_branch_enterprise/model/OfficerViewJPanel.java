@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package crime_branch_enterprise.model;
-import NewsModel.*;
-import NewsModel.NewsHistory;
 
 /**
  *
@@ -15,10 +13,11 @@ public class OfficerViewJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form NewsViewJPanel
+     * @param officerDir
      */
     public OfficerViewJPanel(OfficerDirectory officerDir) {
         initComponents();
-        this.officerDir = new OfficerDirectory();
+        this.officerDir = officerDir;
     }
 
     /**
@@ -35,10 +34,15 @@ public class OfficerViewJPanel extends javax.swing.JPanel {
         newBtn = new javax.swing.JButton();
         manageBtn = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
-        controlPanel.setBackground(new java.awt.Color(137, 152, 159));
+        setBackground(new java.awt.Color(153, 0, 0));
 
-        newBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        controlPanel.setBackground(new java.awt.Color(153, 0, 0));
+
+        newBtn.setBackground(new java.awt.Color(102, 0, 0));
+        newBtn.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        newBtn.setForeground(new java.awt.Color(255, 255, 255));
         newBtn.setText("NEW");
         newBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,7 +50,9 @@ public class OfficerViewJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        manageBtn.setBackground(new java.awt.Color(102, 0, 0));
+        manageBtn.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        manageBtn.setForeground(new java.awt.Color(255, 255, 255));
         manageBtn.setText("MANAGE");
         manageBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,22 +78,28 @@ public class OfficerViewJPanel extends javax.swing.JPanel {
                 .addComponent(newBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(manageBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addContainerGap(516, Short.MAX_VALUE))
         );
 
         mainJSplitPane.setLeftComponent(controlPanel);
 
-        workArea.setBackground(new java.awt.Color(137, 152, 159));
+        workArea.setBackground(new java.awt.Color(153, 0, 0));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/crime.png"))); // NOI18N
 
         javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 634, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 585, Short.MAX_VALUE)
+            .addGroup(workAreaLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         mainJSplitPane.setRightComponent(workArea);
@@ -97,14 +109,14 @@ public class OfficerViewJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(mainJSplitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(mainJSplitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 409, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(mainJSplitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(mainJSplitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 47, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -123,6 +135,7 @@ public class OfficerViewJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel controlPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane mainJSplitPane;
     private javax.swing.JButton manageBtn;
     private javax.swing.JButton newBtn;

@@ -4,6 +4,7 @@
  */
 package crime_branch_enterprise.model;
 import java.sql.*;
+import java.util.ArrayList;
 import model.User;
 
 /**
@@ -159,7 +160,42 @@ public class DatabaseConnection_adminUser
             e.printStackTrace();
         }
    }
+   
+   
+   public String populateEveryAdminDataInLoginScreen(String username, String password) {
+        //add to database firDetails
+        String roleAdmin = "";
+        
+        try {
+            databaseConnection();
 
+            String truncateSql = "select roleCategory from " + "adminUser"+
+                    " where username = '"+username+ "'"+";";
+            
+            System.out.println(truncateSql);
+            
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(truncateSql);
+            
+            while(rs.next())
+            {
+                roleAdmin = rs.getString("roleCategory");
+            }
+            
+            System.out.println("populate admin user "+ roleAdmin);
+
+            closeConnection();
+        }
+        catch(NullPointerException e1)
+        {
+            System.out.println("populate Every Role Category");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return roleAdmin;
+    }
    
 //   public static void main(String main[])
 //   {

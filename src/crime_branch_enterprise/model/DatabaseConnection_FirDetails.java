@@ -72,12 +72,12 @@ public class DatabaseConnection_FirDetails
                     + "values(?,?,?,?,?,?,?,?,?)";
             PreparedStatement stmt=con.prepareStatement(sqlQueryStoreData);
             
-            stmt.setDate(1, fir.getDateOfOffence());
-            stmt.setString(2, String.valueOf(fir.getDescr()));
-            stmt.setString(3, String.valueOf(fir.getPoliceStationLoc()));
-            stmt.setString(4, String.valueOf(fir.getAccorvic()));
-            stmt.setString(5, String.valueOf(fir.getFirstname()));
-            stmt.setString(6, String.valueOf(fir.getLastname()));
+            stmt.setString(1, fir.getDateOfOffence());
+            stmt.setString(2, fir.getDescr());
+            stmt.setString(3,fir.getPoliceStationLoc());
+            stmt.setString(4,fir.getAccorvic());
+            stmt.setString(5, fir.getFirstname());
+            stmt.setString(6, fir.getLastname());
             stmt.setString(7, fir.getEmailId());
             stmt.setString(8, fir.getPhoneNum());
             stmt.setString(9, fir.getAddress());
@@ -94,7 +94,7 @@ public class DatabaseConnection_FirDetails
    }
    
    //emailId is unique
-   public void updateCaseDataToDB(FIR fir)
+   public void updateFIRDataToDB(FIR fir)
    {
        //add to database firDetails
         try
@@ -102,13 +102,13 @@ public class DatabaseConnection_FirDetails
             
             databaseConnection();
             String updateSql = "update "+" "+"firDetails" +" "+"set "
-                    +" dateOfOffence = " + fir.getDateOfOffence()
-                    +" descr ="+ "'"+ fir.getDescr()+"'"
-                    +" policeStationLoc ="+ "'"+ fir.getPoliceStationLoc()+"'"
-                    +" accorvic ="+ "'"+ fir.getAccorvic()+"'"
-                    +" firstname ="+ "'"+ fir.getLastname()+"'"
-                    +" lastname ="+ "'"+ fir.getLastname()+"'"
-                    +" phoneNum = "+ "'"+ fir.getPhoneNum() +"'"
+                    +" dateOfOffence = '" + fir.getDateOfOffence()+"',"
+                    +" descr ="+ "'"+ fir.getDescr()+"'"+","
+                    +" policeStationLoc ="+ "'"+ fir.getPoliceStationLoc()+"'"+","
+                    +" accorvic ="+ "'"+ fir.getAccorvic()+"'"+","
+                    +" firstname ="+ "'"+ fir.getLastname()+"'"+","
+                    +" lastname ="+ "'"+ fir.getLastname()+"'"+","
+                    +" phoneNum = "+ "'"+ fir.getPhoneNum() +"'"+","
                     +" address = "+ "'"+ fir.getAddress()+"'"
                     +" where emailId = "+ "'"+ fir.getEmailId() +"'"+";";
             
@@ -136,7 +136,7 @@ public class DatabaseConnection_FirDetails
         try
         {
             databaseConnection();
-            String deleteSql="delete from "+ "firDetails" +" where emailId = "+ "'" + fir.getEmailId()+ "'";
+            String deleteSql="delete from "+ "firDetails" +" where emailId = "+ "'" + fir.getEmailId()+ "'"+";";
             System.out.println(deleteSql);
             PreparedStatement preparedStmt = con.prepareStatement(deleteSql);
             
@@ -158,10 +158,11 @@ public class DatabaseConnection_FirDetails
         try
         {
             databaseConnection();
-            String truncateSql="truncate table "+"firDetails";
-            Statement stmt=con.createStatement();
-            stmt.executeQuery(truncateSql);
-
+            String truncateSql="truncate table "+"firDetails"+";";
+            System.out.println(truncateSql);
+            PreparedStatement stmt = con.prepareStatement(truncateSql);
+            stmt.executeUpdate(truncateSql);
+            
             System.out.println("DB data deleted from firDetails");
             
             stmt.close();
